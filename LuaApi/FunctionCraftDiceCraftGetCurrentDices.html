@@ -1,0 +1,97 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionCraftDiceCraftGetCurrentDices</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>craft.DiceCraftGetCurrentDices()</h2>
+<p></p>
+<p>Значения костей на данный момент.</p>
+<p></p>
+<pre>
+-- библиотека
+craft
+
+-- объявление:
+function DiceCraftGetCurrentDices()
+
+-- параметры
+нет
+
+-- возвращаемые значения
+table или nil - nil, если режим крафтинга не включён или мини-игра не начата, или список значений костей пуст; иначе таблица (начинается от 0) текущих значений костей
+  ключ: number (int) - номер слота кости
+  значения: number (int) - текущее значение, выпавшее для кости в этом слоте
+
+-- пример использования
+local dices = craft.DiceCraftGetCurrentDices()
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryCraft"</h4>
+<p></p>
+<a href="CategoryCraft.html">CategoryCraft</a>
+<br><a href="EnumDiceCraftCmdType.html">EnumDiceCraftCmdType</a>
+<br><a href="EventDiceCraftCanceled.html">EventDiceCraftCanceled</a>
+<br><a href="EventDiceCraftCmdFailed.html">EventDiceCraftCmdFailed</a>
+<br><a href="EventDiceCraftFinished.html">EventDiceCraftFinished</a>
+<br><a href="EventDiceCraftNotEnoughComponents.html">EventDiceCraftNotEnoughComponents</a>
+<br><a href="EventDiceCraftPrepared.html">EventDiceCraftPrepared</a>
+<br><a href="EventDiceCraftRecipesChanged.html">EventDiceCraftRecipesChanged</a>
+<br><a href="EventDiceCraftScoreChanged.html">EventDiceCraftScoreChanged</a>
+<br><a href="EventDiceCraftSlotChanged.html">EventDiceCraftSlotChanged</a>
+<br><a href="EventDiceCraftStatusChanged.html">EventDiceCraftStatusChanged</a>
+<br><a href="EventReforgeResult.html">EventReforgeResult</a>
+<br><a href="EventReforgeResultFail.html">EventReforgeResultFail</a>
+<br><a href="EventReforgeResultReady.html">EventReforgeResultReady</a>
+<br><a href="FunctionAvatarGetRecipeAfflatusItem.html">FunctionAvatarGetRecipeAfflatusItem</a>
+<br><a href="FunctionAvatarGetRecipeInfo.html">FunctionAvatarGetRecipeInfo</a>
+<br><a href="FunctionCraftDiceCraftEmptySlot.html">FunctionCraftDiceCraftEmptySlot</a>
+<br><a href="FunctionCraftDiceCraftGetCurrentDices.html">FunctionCraftDiceCraftGetCurrentDices</a>
+<br><a href="FunctionCraftDiceCraftGetCurrentRecipe.html">FunctionCraftDiceCraftGetCurrentRecipe</a>
+<br><a href="FunctionCraftDiceCraftGetDiceValues.html">FunctionCraftDiceCraftGetDiceValues</a>
+<br><a href="FunctionCraftDiceCraftGetInspirationLevels.html">FunctionCraftDiceCraftGetInspirationLevels</a>
+<br><a href="FunctionCraftDiceCraftGetInspiredRecipes.html">FunctionCraftDiceCraftGetInspiredRecipes</a>
+<br><a href="FunctionCraftDiceCraftGetLockedSlots.html">FunctionCraftDiceCraftGetLockedSlots</a>
+<br><a href="FunctionCraftDiceCraftGetPlacedItems.html">FunctionCraftDiceCraftGetPlacedItems</a>
+<br><a href="FunctionCraftDiceCraftGetRecipeInspiration.html">FunctionCraftDiceCraftGetRecipeInspiration</a>
+<br><a href="FunctionCraftDiceCraftGetRecipes.html">FunctionCraftDiceCraftGetRecipes</a>
+<br><a href="FunctionCraftDiceCraftIsJoker.html">FunctionCraftDiceCraftIsJoker</a>
+<br><a href="FunctionCraftDiceCraftPutItem.html">FunctionCraftDiceCraftPutItem</a>
+<br><a href="FunctionCraftDiceCraftRecipeIsSameItem.html">FunctionCraftDiceCraftRecipeIsSameItem</a>
+<br><a href="FunctionCraftDiceCraftState.html">FunctionCraftDiceCraftState</a>
+<br><a href="FunctionCraftDiceCraftUseInspiration.html">FunctionCraftDiceCraftUseInspiration</a>
+<br><a href="FunctionCraftFinishReforge.html">FunctionCraftFinishReforge</a>
+<br><a href="FunctionCraftGetDiceCraftRecipeResults.html">FunctionCraftGetDiceCraftRecipeResults</a>
+<br><a href="FunctionCraftGetForgeRecipeInfo.html">FunctionCraftGetForgeRecipeInfo</a>
+<br><a href="FunctionCraftGetForgeRecipes.html">FunctionCraftGetForgeRecipes</a>
+<br><a href="FunctionCraftGetGoldenSlotsForgeRecipes.html">FunctionCraftGetGoldenSlotsForgeRecipes</a>
+<br><a href="FunctionCraftGetGoldenSlotsForgeTiersOrder.html">FunctionCraftGetGoldenSlotsForgeTiersOrder</a>
+<br><a href="FunctionCraftGetItemSlotsCount.html">FunctionCraftGetItemSlotsCount</a>
+<br><a href="FunctionCraftGetReforgeComponent.html">FunctionCraftGetReforgeComponent</a>
+<br><a href="FunctionCraftGetReforgeInfo.html">FunctionCraftGetReforgeInfo</a>
+<br><a href="FunctionCraftGetReforgeRecipe.html">FunctionCraftGetReforgeRecipe</a>
+<br><a href="FunctionCraftGetReforgeVariants.html">FunctionCraftGetReforgeVariants</a>
+<br><a href="FunctionCraftIncreaseQualification.html">FunctionCraftIncreaseQualification</a>
+<br><a href="FunctionCraftMakeForge.html">FunctionCraftMakeForge</a>
+<br><a href="FunctionCraftMakeReforge.html">FunctionCraftMakeReforge</a>
+<br><a href="FunctionCraftPutReforgeComponent.html">FunctionCraftPutReforgeComponent</a>
+<br><a href="FunctionCraftSetReforgeRecipe.html">FunctionCraftSetReforgeRecipe</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryCraft.html">CategoryCraft</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

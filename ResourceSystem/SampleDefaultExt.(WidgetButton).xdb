@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetButton>
+	<Name />
+	<Priority>0</Priority>
+	<Children />
+	<BackLayer href="" />
+	<FrontLayer href="" />
+	<textureMask href="" />
+	<pickMask href="" />
+	<Placement>
+		<QuantumScale>false</QuantumScale>
+		<sizingWidget href="" />
+		<sizingWidgets />
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Sizing>WIDGET_SIZING_DEFAULT</Sizing>
+			<Pos>0</Pos>
+			<HighPos>0</HighPos>
+			<Size>0</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Sizing>WIDGET_SIZING_DEFAULT</Sizing>
+			<Pos>0</Pos>
+			<HighPos>0</HighPos>
+			<Size>0</Size>
+		</Y>
+	</Placement>
+	<Visible>true</Visible>
+	<Enabled>true</Enabled>
+	<TabOrder>0</TabOrder>
+	<bindSections />
+	<TransparentInput>false</TransparentInput>
+	<PickChildrenOnly>false</PickChildrenOnly>
+	<IgnoreDblClick>false</IgnoreDblClick>
+	<fade>1</fade>
+	<TextTag />
+	<pushingBindSections />
+	<Variants>
+		<Item>
+			<TextFileRef href="" />
+			<LayerHighlight href="" />
+			<PushedOffset x="0" y="0" />
+			<StateNormal>
+				<LayerMain href="" />
+				<FormatFileRef href="" />
+			</StateNormal>
+			<StatePushed>
+				<LayerMain href="" />
+				<FormatFileRef href="" />
+			</StatePushed>
+			<StateHighlighted>
+				<LayerMain href="" />
+				<FormatFileRef href="" />
+			</StateHighlighted>
+			<StatePushedHighlighted>
+				<LayerMain href="" />
+				<FormatFileRef href="" />
+			</StatePushedHighlighted>
+			<StateDisabled>
+				<LayerMain href="" />
+				<FormatFileRef href="" />
+			</StateDisabled>
+			<Reaction />
+			<ReactionRightClick />
+			<reactionDblClick />
+			<ReactionOnUp>false</ReactionOnUp>
+			<soundOver href="" />
+			<soundPress href="" />
+		</Item>
+	</Variants>
+	<TextStyle>
+		<multiline>false</multiline>
+		<wrapText>true</wrapText>
+		<showClippedSymbol>false</showClippedSymbol>
+		<showClippedLine>true</showClippedLine>
+		<lineSpacing>0</lineSpacing>
+		<ellipsis>true</ellipsis>
+		<Align>ALIGNY_DEFAULT</Align>
+	</TextStyle>
+	<useDefaultSounds>true</useDefaultSounds>
+</WidgetButton>

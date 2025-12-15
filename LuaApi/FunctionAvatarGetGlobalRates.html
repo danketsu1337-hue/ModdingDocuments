@@ -1,0 +1,81 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAvatarGetGlobalRates</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> avatar.GetGlobalRates()</h2>
+<p></p>
+<p>Возвращает список глобальных рейтов развития главного игрока.</p>
+<p></p>
+<p>Значение рейта по умолчанию = 1. Это значит, что пользователь получает обычное количество единиц развития. Значение value больше единицы говорит о том, что игрок получает единиц развития в value раз больше.</p>
+<p>Метод всегда возвращает значения для всех типов единиц развития. То есть, в обычных условиях будет возвращен массив из всех типом со значением value=1.</p>
+<p></p>
+<p>Типы единиц развития см в <a href="EnumGlobalScalerType.html"> enum ENUM_GlobalScalerType_...</a>.</p>
+<p></p>
+<pre>
+-- библиотека:
+avatar
+
+-- объявление:
+function GetGlobalRates()
+
+-- параметры:
+нет
+
+-- возвращаемые значения
+table of tables - индексированный с 0 список таблиц, описывающих определённый рейт. Каждая такая таблица имеет поля:
+  isCustom: boolean - определяет имеется ли у рейта кастомное описание
+  type: number (enum ENUM_GlobalScalerType_...) or nil - тип рейта; nil если isCustom == true
+  sysType: string (enum ENUM_GlobalScalerType_...) or nil - строковое представление типа рейта; nil если isCustom == true
+  title: string or nil - заголовок рейта; nil если isCustom == false
+  description: string or nil - описание рейта; nil если isCustom == false
+  value: number - значение рейта
+  remainingMs: number (integer) или nil - количество времени (в миллисекундах), оставшееся до окончания действия рейта; nil если время окончания неизвестно
+
+-- пример
+local globalRates = avatar.GetGlobalRates()
+for i = 0, GetTableSize( globalRates ) - 1 do
+  local globalRate = globalRates[ i ]
+  local value = globalRate.value
+end
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryAvatarProgress"</h4>
+<p></p>
+<a href="CategoryAvatarProgress.html">CategoryAvatarProgress</a>
+<br><a href="EnumDevelopmentSource.html">EnumDevelopmentSource</a>
+<br><a href="EnumDevelopmentTrack.html">EnumDevelopmentTrack</a>
+<br><a href="EnumGlobalScalerType.html">EnumGlobalScalerType</a>
+<br><a href="EventAvatarProgressGained.html">EventAvatarProgressGained</a>
+<br><a href="EventAvatarStatsCanImproveChanged.html">EventAvatarStatsCanImproveChanged</a>
+<br><a href="EventBonusPoolChanged.html">EventBonusPoolChanged</a>
+<br><a href="EventBonusPoolsChanged.html">EventBonusPoolsChanged</a>
+<br><a href="EventGlobalRatesChanged.html">EventGlobalRatesChanged</a>
+<br><a href="FunctionAvatarCanImproveInnateStats.html">FunctionAvatarCanImproveInnateStats</a>
+<br><a href="FunctionAvatarDistributeStatPoints.html">FunctionAvatarDistributeStatPoints</a>
+<br><a href="FunctionAvatarGetBonusPools.html">FunctionAvatarGetBonusPools</a>
+<br><a href="FunctionAvatarGetFreeStatPointsToDistribute.html">FunctionAvatarGetFreeStatPointsToDistribute</a>
+<br><a href="FunctionAvatarGetGlobalRates.html">FunctionAvatarGetGlobalRates</a>
+<br><a href="FunctionAvatarGetImprovedInnateStats.html">FunctionAvatarGetImprovedInnateStats</a>
+<br><a href="FunctionAvatarGetStatPointsToDistribute.html">FunctionAvatarGetStatPointsToDistribute</a>
+<br><a href="FunctionAvatarImproveInnateStat.html">FunctionAvatarImproveInnateStat</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryAvatarProgress.html">CategoryAvatarProgress</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

@@ -1,0 +1,67 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAvatarGetMoveToPointState</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> avatar.GetMoveToPointState()</h2>
+<p></p>
+<p>Возвращает информацию о режиме движения в точку для аватара игрока.</p>
+<p></p>
+<pre>
+-- библиотека:
+avatar
+
+-- объявление:
+function GetMoveToPointState()
+
+-- параметры:
+нет
+
+-- возвращаемые значения:
+таблица с полями:
+ isMoving: boolean - находится ли персонаж в режиме движения в точку, для режима движения в точку доступны дополнительные поля:
+  position: таблица с координатами целевой точки, поля:
+   posX: number (double)
+   posY: number (double)
+   posZ: number (double)
+</pre>
+<p></p>
+<p>Пример:</p>
+<pre>
+local moveToPoint = avatar.GetMoveToPointState()
+if moveToPoint.isMoving then
+ local position = moveToPoint.position
+ LogInfo( "target pos: ", position.posX, "/", position.posY, "/", position.posZ )
+end
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryAvatarControl" </h4>
+<p></p>
+<a href="CategoryAvatarControl.html">CategoryAvatarControl</a>
+<br><a href="EventFollowModeChanged.html">EventFollowModeChanged</a>
+<br><a href="EventMoveByClickChanged.html">EventMoveByClickChanged</a>
+<br><a href="EventPassangerStateChanged.html">EventPassangerStateChanged</a>
+<br><a href="FunctionAvatarGetMoveToPointState.html">FunctionAvatarGetMoveToPointState</a>
+<br><a href="FunctionAvatarSetFollowTarget.html">FunctionAvatarSetFollowTarget</a>
+<br><a href="FunctionAvatarStopMoveToPoint.html">FunctionAvatarStopMoveToPoint</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<a href="CategoryAvatarControl.html">CategoryAvatarControl</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

@@ -1,0 +1,67 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionWidgetDNDCancelDrag</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>DNDCancelDrag()</h2>
+<p></p>
+<p>Функция должна вызываться скриптом для безусловного прекращения drag&drop по каким-либо внешним причинам (например, при переходе в другой режим интерфейса). В момент отмены drag&drop в системе скрипт должен также позаботиться об отмене его логики и визуализации (убрать курсор, подсветку с окон и т.п.).</p>
+<p></p>
+<p>Замечание: Настоятельно рекомендуется вызывать данную функцию именно в том виджете, DnD которого активно в данный момент. В текущей реализации функция может быть вызвана из любого виджета с одинаковым эффектом, однако такое поведение не гарантируется в будущем.</p>
+<p></p>
+<pre>
+-- класс
+метод доступен для всех типов виджетов
+
+-- семантика
+function DNDCancelDrag( self )
+
+-- параметры:
+нет
+
+-- возвращаемые значения:
+нет
+
+-- примеры:
+wtPanel:DNDCancelDrag()
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryDragAndDrop" </h4>
+<p></p>
+<a href="CategoryDragAndDrop.html">CategoryDragAndDrop</a>
+<br><a href="EnumWidgetDNDState.html">EnumWidgetDNDState</a>
+<br><a href="EventWidgetDNDDragCancelled.html">EventWidgetDNDDragCancelled</a>
+<br><a href="EventWidgetDNDDragOver.html">EventWidgetDNDDragOver</a>
+<br><a href="EventWidgetDNDDragTo.html">EventWidgetDNDDragTo</a>
+<br><a href="EventWidgetDNDDropAttempt.html">EventWidgetDNDDropAttempt</a>
+<br><a href="EventWidgetDNDPickAttempt.html">EventWidgetDNDPickAttempt</a>
+<br><a href="FunctionWidgetDNDCancelDrag.html">FunctionWidgetDNDCancelDrag</a>
+<br><a href="FunctionWidgetDNDConfirmDropAttempt.html">FunctionWidgetDNDConfirmDropAttempt</a>
+<br><a href="FunctionWidgetDNDConfirmPickAttempt.html">FunctionWidgetDNDConfirmPickAttempt</a>
+<br><a href="FunctionWidgetDNDEnable.html">FunctionWidgetDNDEnable</a>
+<br><a href="FunctionWidgetDNDGetState.html">FunctionWidgetDNDGetState</a>
+<br><a href="FunctionWidgetDNDRegister.html">FunctionWidgetDNDRegister</a>
+<br><a href="FunctionWidgetDNDRegisterGeneric.html">FunctionWidgetDNDRegisterGeneric</a>
+<br><a href="FunctionWidgetDNDUnregister.html">FunctionWidgetDNDUnregister</a>
+<p></p>
+<hr>
+<p></p>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryWidget.html">CategoryWidget</a>
+<a href="CategoryDragAndDrop.html">CategoryDragAndDrop</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

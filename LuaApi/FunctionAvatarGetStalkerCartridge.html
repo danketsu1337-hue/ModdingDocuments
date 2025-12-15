@@ -1,0 +1,83 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAvatarGetStalkerCartridge</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> avatar.GetStalkerCartridge()</h2>
+<p></p>
+<p>Метод возвращает список стрел в колчане сталкера.</p>
+<p></p>
+<pre>
+-- библиотека:
+avatar
+
+-- объявление:
+function GetStalkerCartridge()
+
+-- параметры:
+нет
+
+-- возвращаемые значения -
+Table of Arrows (индексируется с 0): список имеющихся в патронташе типов стрел. Каждый тип стрел описан полями:
+  enchantSpellId: SpellId - идентификатор ресурса спелла, заряжающего стрелу такого типа
+  shotSpellId: SpellId - идентификатор ресурса спелла, выстреливающего стрелу такого типа
+  arrowCount: number( integer ) - количество уже заряженных стрел такого типа
+  maxArrowCount: number( integer ) - максимальное количество заряженных стрел такого типа
+
+-- пример:
+local arrows = avatar.GetStalkerCartridge()
+for i = 0, GetTableSize( arrows ) - 1 do
+  local arrow = arrows[ i ]
+  local spellInfo = avatar.GetSpellInfo( arrow.enchantSpellId )
+  if spellInfo then
+    LogInfo( debugCommon.FromWString( spellInfo.name ), ": ", arrow.arrowCount )
+  end
+end
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryClassSpecific"</h4>
+<p></p>
+<a href="EventAvatarBarriersChanged.html">EventAvatarBarriersChanged</a>
+<br><a href="EventAvatarPsionicChannelChanged.html">EventAvatarPsionicChannelChanged</a>
+<br><a href="EventAvatarPsionicContactAdded.html">EventAvatarPsionicContactAdded</a>
+<br><a href="EventAvatarPsionicContactChanged.html">EventAvatarPsionicContactChanged</a>
+<br><a href="EventAvatarPsionicContactRemoved.html">EventAvatarPsionicContactRemoved</a>
+<br><a href="EventAvatarPsionicDangerSenseLocated.html">EventAvatarPsionicDangerSenseLocated</a>
+<br><a href="EventAvatarPsionicDangerSenseTarget.html">EventAvatarPsionicDangerSenseTarget</a>
+<br><a href="EventAvatarPsionicReadThought.html">EventAvatarPsionicReadThought</a>
+<br><a href="EventAvatarPsionicUnreadableThought.html">EventAvatarPsionicUnreadableThought</a>
+<br><a href="EventAvatarStalkerCartridgeBeltChanged.html">EventAvatarStalkerCartridgeBeltChanged</a>
+<br><a href="EventAvatarWarriorCombatAdvantageChanged.html">EventAvatarWarriorCombatAdvantageChanged</a>
+<br><a href="EventResurrectRejected.html">EventResurrectRejected</a>
+<br><a href="EventResurrectRequested.html">EventResurrectRequested</a>
+<br><a href="EventVariableValueChanged.html">EventVariableValueChanged</a>
+<br><a href="FunctionAvatarGetBarriersDelay.html">FunctionAvatarGetBarriersDelay</a>
+<br><a href="FunctionAvatarGetBarriersInfo.html">FunctionAvatarGetBarriersInfo</a>
+<br><a href="FunctionAvatarGetPsionicContacts.html">FunctionAvatarGetPsionicContacts</a>
+<br><a href="FunctionAvatarGetStalkerCartridge.html">FunctionAvatarGetStalkerCartridge</a>
+<br><a href="FunctionAvatarGetVariableInfo.html">FunctionAvatarGetVariableInfo</a>
+<br><a href="FunctionAvatarGetVariables.html">FunctionAvatarGetVariables</a>
+<br><a href="FunctionAvatarGetWarriorCombatAdvantage.html">FunctionAvatarGetWarriorCombatAdvantage</a>
+<br><a href="FunctionAvatarHasPsionicChannel.html">FunctionAvatarHasPsionicChannel</a>
+<br><a href="FunctionAvatarResurrectReply.html">FunctionAvatarResurrectReply</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<a href="CategoryClassSpecific.html">CategoryClassSpecific</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

@@ -1,0 +1,130 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionSocialGetFriendInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<h2> social.GetFriendInfo( friendId )</h2>
+<p></p>
+<p>Возвращает информацию о друге из списка друзей главного игрока.</p>
+<p></p>
+<p>Некоторые поля могут заполниться не сразу, а с некоторой задержкой: raceClass, sex, mapId, moodEmote.</p>
+<p></p>
+<pre>
+-- библиотека:
+social
+
+-- объявление:
+function GetFriendInfo( friendId )
+
+-- параметры:
+friendId: ObjectId - идентификатор друга игрока из списка друзей (это не обычный идентификатор игрока)
+
+-- возвращаемые значения:
+table or nil - возвращает nil, если друг из списка список друзей не найден, иначе таблица с полями:
+  id: ObjectId - идентификатор друга игрока из списка друзей
+  isBestFriend: boolean - это также лучший друг, если true
+  isSimpleFriend: boolean - это также обычный друг, если true
+  name: WString - имя персонажа
+  altName: WString - имя перерождения персонажа
+  description: WString - комментарий самого главного игрока (по данному персонажу)
+  sysOnlineStatus: string (enum ENUM_AvatarOnlineStatus_...) - состояние друга (онлайн/альт/с мобильника)
+  isLogged: boolean - находится ли в игре
+  isAlt: boolean - находится ли в игре, как альтернативный персонаж
+  altName: WString - имя реморта персонажа
+  level: number (int) - уровень персонажа
+  lastOnlineTimeMs: number (int64) - время в миллисекундах с последнего захода персонажа в игру, если сейчас в игре, то 0
+  raceClass: table LuaRaceClassInfoPart or nil - раса-класс персонажа
+  sex: table LuaSexInfoPart or nil - описание пола персонажа
+  mapId: ObjectId or nil - идентификатор карты, на которой находится персонаж, если известна
+  zoneName: WString - локализованное название зоны, на которой находится персонаж, аналогично отображению в гильдии
+  moodEmote: ObjectId or nil - идентификатор эмоции настроения, если настроение выставлено у друга
+  isSpouse: boolean - true если это также супруг
+
+-- пример:
+local friends = social.GetFriendList()
+for i = 0, GetTableSize( friends ) - 1 do
+    local friendInfo = social.GetFriendInfo( friends[i] )
+    if friendInfo then
+        local friendName = friendInfo.name
+    end
+</pre>
+<p>См. также <a href="FunctionCartographerGetZonesMapInfo.html"> сartographer.GetZonesMapInfo</a></p>
+<p></p>
+<p>См. <a href="LuaRaceClassInfoPart.html"> LuaRaceClassInfoPart</a>, <a href="LuaSexInfoPart.html"> LuaSexInfoPart</a>, <a href="FunctionUnitGetSex.html"> unit.GetSex(id)</a>, <a href="EnumAvatarOnlineStatus.html"> ENUM_AvatarOnlineStatus_...</a>.</p>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategorySocial"</h4>
+<a href="EnumAvatarFriendIgnoreListsError.html">EnumAvatarFriendIgnoreListsError</a>
+<br><a href="EnumCreateRevivalRollResultStatus.html">EnumCreateRevivalRollResultStatus</a>
+<br><a href="EventAvatarAddedToFriendList.html">EventAvatarAddedToFriendList</a>
+<br><a href="EventAvatarFriendAdded.html">EventAvatarFriendAdded</a>
+<br><a href="EventAvatarFriendAltNameChanged.html">EventAvatarFriendAltNameChanged</a>
+<br><a href="EventAvatarFriendDescriptionChanged.html">EventAvatarFriendDescriptionChanged</a>
+<br><a href="EventAvatarFriendIgnoreListsError.html">EventAvatarFriendIgnoreListsError</a>
+<br><a href="EventAvatarFriendInfoChanged.html">EventAvatarFriendInfoChanged</a>
+<br><a href="EventAvatarFriendLevelChanged.html">EventAvatarFriendLevelChanged</a>
+<br><a href="EventAvatarFriendListChanged.html">EventAvatarFriendListChanged</a>
+<br><a href="EventAvatarFriendListLoaded.html">EventAvatarFriendListLoaded</a>
+<br><a href="EventAvatarFriendMoodChanged.html">EventAvatarFriendMoodChanged</a>
+<br><a href="EventAvatarFriendMutualChanged.html">EventAvatarFriendMutualChanged</a>
+<br><a href="EventAvatarFriendOnlineChanged.html">EventAvatarFriendOnlineChanged</a>
+<br><a href="EventAvatarFriendRemoved.html">EventAvatarFriendRemoved</a>
+<br><a href="EventAvatarFriendSexChanged.html">EventAvatarFriendSexChanged</a>
+<br><a href="EventAvatarFriendZoneChanged.html">EventAvatarFriendZoneChanged</a>
+<br><a href="EventAvatarIgnoreAdded.html">EventAvatarIgnoreAdded</a>
+<br><a href="EventAvatarIgnoreDescriptionChanged.html">EventAvatarIgnoreDescriptionChanged</a>
+<br><a href="EventAvatarIgnoreListChanged.html">EventAvatarIgnoreListChanged</a>
+<br><a href="EventAvatarIgnoreListLoaded.html">EventAvatarIgnoreListLoaded</a>
+<br><a href="EventAvatarIgnoreRemoved.html">EventAvatarIgnoreRemoved</a>
+<br><a href="EventBestFriendReturnStateChanged.html">EventBestFriendReturnStateChanged</a>
+<br><a href="EventBestFriendTeleportSpellChanged.html">EventBestFriendTeleportSpellChanged</a>
+<br><a href="EventBestFriendTeleportSpellEffect.html">EventBestFriendTeleportSpellEffect</a>
+<br><a href="EventBestFriendTeleportStateChanged.html">EventBestFriendTeleportStateChanged</a>
+<br><a href="EventRevivalRollResult.html">EventRevivalRollResult</a>
+<br><a href="EventRevivalsChanged.html">EventRevivalsChanged</a>
+<br><a href="FunctionHangarCanLendShip.html">FunctionHangarCanLendShip</a>
+<br><a href="FunctionHangarGetTakeAwaySpellId.html">FunctionHangarGetTakeAwaySpellId</a>
+<br><a href="FunctionHangarLendShip.html">FunctionHangarLendShip</a>
+<br><a href="FunctionHangarTakeAwayShip.html">FunctionHangarTakeAwayShip</a>
+<br><a href="FunctionSocialAddFriend.html">FunctionSocialAddFriend</a>
+<br><a href="FunctionSocialAddIgnore.html">FunctionSocialAddIgnore</a>
+<br><a href="FunctionSocialCanReturn.html">FunctionSocialCanReturn</a>
+<br><a href="FunctionSocialCanSocialize.html">FunctionSocialCanSocialize</a>
+<br><a href="FunctionSocialCanTeleport.html">FunctionSocialCanTeleport</a>
+<br><a href="FunctionSocialEndFriendship.html">FunctionSocialEndFriendship</a>
+<br><a href="FunctionSocialGetBackMount.html">FunctionSocialGetBackMount</a>
+<br><a href="FunctionSocialGetFriend.html">FunctionSocialGetFriend</a>
+<br><a href="FunctionSocialGetFriendInfo.html">FunctionSocialGetFriendInfo</a>
+<br><a href="FunctionSocialGetFriendList.html">FunctionSocialGetFriendList</a>
+<br><a href="FunctionSocialGetFriendshipInfo.html">FunctionSocialGetFriendshipInfo</a>
+<br><a href="FunctionSocialGetIgnoreInfo.html">FunctionSocialGetIgnoreInfo</a>
+<br><a href="FunctionSocialGetIgnoreList.html">FunctionSocialGetIgnoreList</a>
+<br><a href="FunctionSocialGetRevivalRollInfo.html">FunctionSocialGetRevivalRollInfo</a>
+<br><a href="FunctionSocialGetTeleportSpell.html">FunctionSocialGetTeleportSpell</a>
+<br><a href="FunctionSocialGiveBackMount.html">FunctionSocialGiveBackMount</a>
+<br><a href="FunctionSocialIsFriendListLoaded.html">FunctionSocialIsFriendListLoaded</a>
+<br><a href="FunctionSocialIsIgnored.html">FunctionSocialIsIgnored</a>
+<br><a href="FunctionSocialIsIgnoreListLoaded.html">FunctionSocialIsIgnoreListLoaded</a>
+<br><a href="FunctionSocialLendMount.html">FunctionSocialLendMount</a>
+<br><a href="FunctionSocialRemoveFriend.html">FunctionSocialRemoveFriend</a>
+<br><a href="FunctionSocialRemoveIgnore.html">FunctionSocialRemoveIgnore</a>
+<br><a href="FunctionSocialReturnFromBestFriend.html">FunctionSocialReturnFromBestFriend</a>
+<br><a href="FunctionSocialTeleportToBestFriend.html">FunctionSocialTeleportToBestFriend</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategorySocial.html">CategorySocial</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

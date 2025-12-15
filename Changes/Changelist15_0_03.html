@@ -1,0 +1,126 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - Changelist15_0_02_x64rc1</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<br>
+<h2>Список изменений</h2>
+<br>
+<br>
+<h3>Удалены документы</h3>
+astral.GetAllSectorsObsolete()<br>
+astral.GetAllTLsObsolete()<br>
+avatar.ExtractRune( sourceId, instrumentId )<br>
+avatar.GetAttackResult( code )<br>
+avatar.GetEquipResult( code )<br>
+avatar.GetRuneSlotMakerInfo( itemId )<br>
+avatar.InsertRune( runeId, itemId )<br>
+avatar.MakeRuneSlot( itemId, instrumentId )<br>
+ButtonSafe:SetTextColor( self, tagName, color, &lt;colorType&gt; )<br>
+CategoryWidgetsSystem<br>
+checkroomLib.IsCheckRoomItem( itemId )<br>
+common.GetInstanceIdByInteger( integerId )<br>
+common.RequestIntegerByInstanceId( instanceId )<br>
+EditLineSafe:SetTextColor( self, tagName, color, &lt;colorType&gt; )<br>
+EVENT_DND_DRAG_CANCELLED<br>
+EVENT_DND_DRAG_OVER<br>
+EVENT_DND_DRAG_TO<br>
+EVENT_DND_DROP_ATTEMPT<br>
+EVENT_DND_PICK_ATTEMPT<br>
+EVENT_TAKE_ON_HANDS_REQUEST<br>
+family.TakeOnHandsResponse( takeOnHands )<br>
+GetPosConverterParams( self )<br>
+GetStyle( self, styleName )<br>
+GetTextureSize( self, texture )<br>
+group.GetLeaderUniqueId()<br>
+group.GetMemberIndexByName( name )<br>
+group.GetMemberInfoById( memberId )<br>
+group.GetMemberNameByIndex( index )<br>
+mission.DNDCancelDrag()<br>
+mission.DNDConfirmDropAttempt()<br>
+mission.DNDConfirmPickAttempt()<br>
+mission.DNDRegister( wtSrc, id, isDragOnly )<br>
+mission.DNDUnregister( wtSrc )<br>
+SetShrinkRatio( shrinkRatio )<br>
+TextViewSafe:SetTextColor( self, tagName, color, &lt;colorType&gt; )<br>
+unit.GetLastPetType( unitId )<br>
+widgetsSystem:GetImeSelectorInfo( self )<br>
+widgetsSystem:SelectImeText( self, index )<br>
+<br>
+<h3>Добавлены документы</h3>
+<a href="../LuaApi/FunctionCheckroomLibIsCheckroomItem.html">checkroomLib.IsCheckroomItem( itemId )</a><br>
+<a href="../LuaApi/EnumWidgetDNDState.html">DND_STATE_...</a><br>
+<a href="../LuaApi/FunctionWidgetDNDCancelDrag.html">DNDCancelDrag()</a><br>
+<a href="../LuaApi/FunctionWidgetDNDConfirmDropAttempt.html">DNDConfirmDropAttempt()</a><br>
+<a href="../LuaApi/FunctionWidgetDNDConfirmPickAttempt.html">DNDConfirmPickAttempt()</a><br>
+<a href="../LuaApi/FunctionWidgetDNDEnable.html">DNDEnable( isActive )</a><br>
+<a href="../LuaApi/FunctionWidgetDNDGetState.html">DNDGetState()</a><br>
+<a href="../LuaApi/FunctionWidgetDNDRegister.html">DNDRegister( id, isDragOnly )</a><br>
+<a href="../LuaApi/FunctionWidgetDNDRegisterGeneric.html">DNDRegisterGeneric( isDragOnly )</a><br>
+<a href="../LuaApi/FunctionWidgetDNDUnregister.html">DNDUnregister()</a><br>
+<a href="../LuaApi/FunctionEditLineSetTextAttributes.html">EditLineSafe:SetTextAttributes( self, isRTag, tagName, tagAttributes )</a><br>
+<a href="../LuaApi/EventActivePetExistChanged.html">EVENT_ACTIVE_PET_EXIST_CHANGED</a><br>
+<a href="../LuaApi/EventBeamCannonShotStarted.html">EVENT_BEAM_CANNON_SHOT_STARTED</a><br>
+<a href="../LuaApi/EventWidgetDNDDragCancelled.html">EVENT_DND_DRAG_CANCELLED</a><br>
+<a href="../LuaApi/EventWidgetDNDDragOver.html">EVENT_DND_DRAG_OVER</a><br>
+<a href="../LuaApi/EventWidgetDNDDragTo.html">EVENT_DND_DRAG_TO</a><br>
+<a href="../LuaApi/EventWidgetDNDDropAttempt.html">EVENT_DND_DROP_ATTEMPT</a><br>
+<a href="../LuaApi/EventWidgetDNDPickAttempt.html">EVENT_DND_PICK_ATTEMPT</a><br>
+<a href="../LuaApi/EventGroupInviteEnd.html">EVENT_GROUP_INVITE_END</a><br>
+<a href="../LuaApi/FunctionWidgetGetId.html">GetId()</a><br>
+<a href="../LuaApi/FunctionEditLineGetInitialSelectionClass.html">GetInitialSelectionClass( self )</a><br>
+<a href="../LuaApi/FunctionGroupGetInviteInfo.html">group.GetInviteInfo()</a><br>
+<a href="../LuaApi/FunctionGroupGetLeader.html">group.GetLeader()</a><br>
+<a href="../LuaApi/FunctionGroupGetMemberInfo.html">group.GetMemberInfo( id )</a><br>
+<a href="../LuaApi/FunctionGroupGetMemberInfoByIndex.html">group.GetMemberInfoByIndex( index )</a><br>
+<a href="../LuaApi/FunctionItemLibGetLevel.html">itemLib.GetLevel( itemId )</a><br>
+<a href="../LuaApi/MountTalentGroupId.html">MountTalentId</a><br>
+<a href="../LuaApi/FunctionEditLineSetSelectionClass.html">SetSelectionClass( self, className )</a><br>
+<a href="../LuaApi/FunctionSocialIsIgnored.html">social.IsIgnored( player )</a><br>
+<br>
+<h3>Изменены документы</h3>
+<a href="../LuaApi/FunctionAvatarGetChannelsInfo.html">avatar.GetChannelsInfo()</a><br>
+<a href="../LuaApi/CategoryDragAndDrop.html">CategoryDragAndDrop</a><br>
+<a href="../LuaApi/CategoryLuaApi.html">CategoryLuaApi</a><br>
+<a href="../LuaApi/CategoryWidget.html">CategoryWidget</a><br>
+<a href="../LuaApi/CategoryWidgetEffects.html">CategoryWidgetEffects</a><br>
+<a href="../LuaApi/FunctionDeviceGetNavigatorTargetChests.html">device.GetNavigatorTargetChests()</a><br>
+<a href="../LuaApi/EventAttackResult.html">EVENT_ATTACK_RESULT</a><br>
+<a href="../LuaApi/EventCannonShotStarted.html">EVENT_CANNON_SHOT_STARTED</a><br>
+<a href="../LuaApi/EventGroupMemberChanged.html">EVENT_GROUP_MEMBER_CHANGED</a><br>
+<a href="../LuaApi/EventLootToDistribute.html">EVENT_LOOT_TO_DISTRIBUTE</a><br>
+<a href="../LuaApi/EventUpdateShrinkRatio.html">EVENT_UPDATE_SHRINK_RATIO</a><br>
+<a href="../LuaApi/FunctionGroupAccept.html">group.Accept()</a><br>
+<a href="../LuaApi/FunctionGroupDecline.html">group.Decline()</a><br>
+<a href="../LuaApi/FunctionGroupGetMembers.html">group.GetMembers()</a><br>
+<a href="../LuaApi/FunctionGroupIsCreatureInGroup.html">group.IsCreatureInGroup( id )</a><br>
+<a href="../LuaApi/FunctionGroupIsLeader.html">group.IsLeader( id )</a><br>
+<a href="../LuaApi/FunctionItemLibGetItemInfo.html">itemLib.GetItemInfo( itemId )</a><br>
+<a href="../LuaApi/FunctionMissionSetChatInputHistoryMaxSize.html">mission.SetChatInputHistoryMaxSize( limit )</a><br>
+<a href="../LuaApi/FunctionMountGetMountSkins.html">mount.GetMountSkins( mountId )</a><br>
+<a href="../LuaApi/FunctionMountGetTalentInfo.html">mount.GetTalentInfo( mountTalentId )</a><br>
+<a href="../LuaApi/FunctionOptionsGetCollectionInfo.html">options.GetCollectionInfo( collectionId )</a><br>
+<a href="../LuaApi/FunctionRaidAccept.html">raid.Accept()</a><br>
+<a href="../LuaApi/FunctionRaidDecline.html">raid.Decline()</a><br>
+<a href="../LuaApi/FunctionRaidGetMemberInfo.html">raid.GetMemberInfo( memberId )</a><br>
+<a href="../LuaApi/FunctionRaidIsLeader.html">raid.IsLeader( id )</a><br>
+<a href="../LuaApi/FunctionRaidIsPlayerInAvatarsRaid.html">raid.IsPlayerInAvatarsRaid( player )</a><br>
+<a href="../LuaApi/FunctionEditLineSetGlobalClasses.html">SetGlobalClasses( self, classNames )</a><br>
+<a href="../LuaApi/FunctionUnitCanSelectTarget.html">unit.CanSelectTarget( unitId )</a><br>
+<a href="../LuaApi/FunctionUnitGetOvertipTexture.html">unit.GetOvertipTexture(id)</a><br>
+<a href="../LuaApi/FunctionUnitGetZonePvPType.html">unit.GetZonePvPType( id )</a><br>
+<br>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

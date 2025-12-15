@@ -1,0 +1,66 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionWheelOfLootGetInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>wheelOfLoot.GetInfo( id )</h2>
+<p></p>
+<p>Возвращает данные запрашиваемого колеса лута</p>
+<p></p>
+<pre>
+-- библиотека
+wheelOfLoot
+
+-- объявление:
+function GetInfo( id )
+
+-- параметры
+id: number (int64) - идентификатор колеса лута
+
+-- возвращаемые значения
+table of - данные колёса лута
+  sysName: string - служебное название
+  lifeTime: number - локальное время в ms, когда колесо автоматически разролится
+  price: number (integer) - текущая цена разрола
+  rollsCount: number (integer) - текущее количество разролов
+  maxRollsCount: number (integer) - максимальное количество разролов
+  itemPriceId: ObjectId - id предмет, который тратится на разрол
+  wheelId: number (int64) - идентификатор колеса лута
+  isLoginEvent: boolean - true если это колеса лута логин-ивента
+  isManual: boolean - true если награду можно выбирать
+
+-- пример использования
+local wheelIds = wheelOfLoot.GetList()
+local wheelInfo = wheelOfLoot.GetInfo( wheelIds[0] )
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryWheelOfLoot"</h4>
+<p></p>
+<a href="CategoryWheelOfLoot.html">CategoryWheelOfLoot</a>
+<br><a href="EventWheelOfLootAdded.html">EventWheelOfLootAdded</a>
+<br><a href="EventWheelOfLootChanged.html">EventWheelOfLootChanged</a>
+<br><a href="EventWheelOfLootItems.html">EventWheelOfLootItems</a>
+<br><a href="EventWheelOfLootRemoved.html">EventWheelOfLootRemoved</a>
+<br><a href="FunctionWheelOfLootGetInfo.html">FunctionWheelOfLootGetInfo</a>
+<br><a href="FunctionWheelOfLootGetList.html">FunctionWheelOfLootGetList</a>
+<br><a href="FunctionWheelOfLootRequestItems.html">FunctionWheelOfLootRequestItems</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryWheelOfLoot.html">CategoryWheelOfLoot</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

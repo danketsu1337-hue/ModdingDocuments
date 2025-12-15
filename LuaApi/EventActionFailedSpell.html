@@ -1,0 +1,164 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - EventActionFailedSpell</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> EVENT_ACTION_FAILED_SPELL</h2>
+<p></p>
+<p>Уведомление о неудачном исполнении заклинания.</p>
+<p></p>
+<pre>
+-- поля:
+ sysId: string (enum) - строковый код ошибки вида "ENUM_ActionFailCause_..."
+ unitId: ObjectId - идентификатор юнитам, вызвавшего ошибку
+ spellId: SpellId - идентификатор исполняемого заклинания
+ isInNotPredicate: boolean - true, если причина ошибки на самом деле противоположна полученному коду ошибки sysId
+
+-- Некоторые дополнительные параметры могут быть переданы в следующих случаях:
+
+ "ENUM_ActionFailCause_NoItem",
+ "ENUM_ActionFailCause_CannotTakeItem":
+   name: WString or nil - имя предмета, необходимого для каста
+   number: number (int) or nil - необходимое количество предметов
+
+ "ENUM_ActionFailCause_NotEquipped",
+ "ENUM_ActionFailCause_DressedItemCannotBeUpgraded":
+   dress: number (enum DRESS_SLOT_XXX) or nil - тип одежды/оружия, необходимый для каста
+   itemClass: WString or nil - имя класса предмета, необходимого для каста
+
+ "ENUM_ActionFailCause_WrongCreatureRace":
+   race: number ( enum ENUM_CreatureRace_... ) or nil - раса, необходимая для каста, поле устарело (OBSOLETE)
+   sysRace: string (enum "ENUM_CreatureRace_...") or nil - где значения перечисления:
+
+ "ENUM_ActionFailCause_NoPsionicContact":
+   psionicContactType: number (enum PSIONIC_CONTACT_...) or nil - тип контакта (PSIONIC_CONTACT_NORMAL, PSIONIC_CONTACT_CRUDE)
+   sysPsionicContactType: string (enum "ENUM_...") or nil - строковое значение типа ("ENUM_Normal", "ENUM_Crude")
+
+ "ENUM_ActionFailCause_NotEnoughMana",
+ "ENUM_ActionFailCause_NotEnoughEnergy",
+ "ENUM_ActionFailCause_NotEnoughHonor",
+ "ENUM_ActionFailCause_HealthNotHigher",
+ "ENUM_ActionFailCause_HealthNotLower",
+ "ENUM_ActionFailCause_PetHealthNotHigher":
+   number: number (int) or nil - необходимое количество
+
+ "ENUM_ActionFailCause_NoBuff",
+ "ENUM_ActionFailCause_WrongCharacterClass",
+ "ENUM_ActionFailCause_CannotLearnSkill",
+ "ENUM_ActionFailCause_HasSkill",
+ "ENUM_ActionFailCause_NoAbility",
+ "ENUM_ActionFailCause_NoSpell",
+ "ENUM_ActionFailCause_WrongAvatarRace",
+ "ENUM_ActionFailCause_WrongAvatarSex",
+ "ENUM_ActionFailCause_WrongMobWorld":
+   name: WString or nil - имя
+
+ "ENUM_ActionFailCause_ReputationLevelNotLess",
+ "ENUM_ActionFailCause_ReputationNotLess",
+ "ENUM_ActionFailCause_WrongFaction":
+   name: WString or nil - имя фракции
+   reputationLevel: number (enum REPUTATION_LEVEL_...) or nil - уровень репутации, если требуется
+
+ "ENUM_ActionFailCause_WrongMobWorld":
+   mobs: table of WString - таблица имён подходящих мобов
+</pre>
+<p></p>
+<p>См. также описание <a href="EnumActionFailCause.html"> "ENUM_ActionFailCause_..."</a>, <a href="EnumCreatureRace.html"> ENUM_CreatureRace_...</a></p>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryActionResult"</h4>
+<p></p>
+<a href="EnumActionFailCause.html">EnumActionFailCause</a>
+<br><a href="EnumActionResultSpecial.html">EnumActionResultSpecial</a>
+<br><a href="EventActionFailedExploit.html">EventActionFailedExploit</a>
+<br><a href="EventActionFailedOther.html">EventActionFailedOther</a>
+<br><a href="EventActionFailedSpell.html">EventActionFailedSpell</a>
+<br><a href="EventActionProcessTerminated.html">EventActionProcessTerminated</a>
+<br><a href="EventActionResultSpecialSpell.html">EventActionResultSpecialSpell</a>
+<br><a href="EventClientImageHideAll.html">EventClientImageHideAll</a>
+<br><a href="EventClientImageShow.html">EventClientImageShow</a>
+<br><a href="EventClientMessage.html">EventClientMessage</a>
+<br><a href="EventDoWarp.html">EventDoWarp</a>
+<br><a href="EventForagingFailed.html">EventForagingFailed</a>
+<br><a href="EventInterfaceToggle.html">EventInterfaceToggle</a>
+<br><a href="EventLobbyClientMessage.html">EventLobbyClientMessage</a>
+<br><a href="EventShowSubtitles.html">EventShowSubtitles</a>
+<br><a href="EventTakeItemsFailed.html">EventTakeItemsFailed</a>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryAction"</h4>
+<p></p>
+<a href="EnumActionFailCause.html">EnumActionFailCause</a>
+<br><a href="EnumActionResultSpecial.html">EnumActionResultSpecial</a>
+<br><a href="EnumSaleTag.html">EnumSaleTag</a>
+<br><a href="EventActionFailedExploit.html">EventActionFailedExploit</a>
+<br><a href="EventActionFailedOther.html">EventActionFailedOther</a>
+<br><a href="EventActionFailedSpell.html">EventActionFailedSpell</a>
+<br><a href="EventActionPanelChanged.html">EventActionPanelChanged</a>
+<br><a href="EventActionPanelElementChanged.html">EventActionPanelElementChanged</a>
+<br><a href="EventActionPanelElementEffect.html">EventActionPanelElementEffect</a>
+<br><a href="EventActionProcessTerminated.html">EventActionProcessTerminated</a>
+<br><a href="EventActionProgressFinish.html">EventActionProgressFinish</a>
+<br><a href="EventActionProgressFreeze.html">EventActionProgressFreeze</a>
+<br><a href="EventActionProgressStart.html">EventActionProgressStart</a>
+<br><a href="EventActionProgressUpdate.html">EventActionProgressUpdate</a>
+<br><a href="EventActionResultSpecialSpell.html">EventActionResultSpecialSpell</a>
+<br><a href="EventAEMarkPointClicked.html">EventAEMarkPointClicked</a>
+<br><a href="EventAttackResult.html">EventAttackResult</a>
+<br><a href="EventAvatarDestinyPointsChanged.html">EventAvatarDestinyPointsChanged</a>
+<br><a href="EventAvatarExperienceChanged.html">EventAvatarExperienceChanged</a>
+<br><a href="EventClientImageHideAll.html">EventClientImageHideAll</a>
+<br><a href="EventClientImageShow.html">EventClientImageShow</a>
+<br><a href="EventClientMessage.html">EventClientMessage</a>
+<br><a href="EventContextActionPointStarted.html">EventContextActionPointStarted</a>
+<br><a href="EventContextActionsChanged.html">EventContextActionsChanged</a>
+<br><a href="EventDoWarp.html">EventDoWarp</a>
+<br><a href="EventHealingReceived.html">EventHealingReceived</a>
+<br><a href="EventInterfaceToggle.html">EventInterfaceToggle</a>
+<br><a href="EventLobbyClientMessage.html">EventLobbyClientMessage</a>
+<br><a href="EventLootMark.html">EventLootMark</a>
+<br><a href="EventMobActionProgressFinish.html">EventMobActionProgressFinish</a>
+<br><a href="EventMobActionProgressFreeze.html">EventMobActionProgressFreeze</a>
+<br><a href="EventMobActionProgressStart.html">EventMobActionProgressStart</a>
+<br><a href="EventMobEvaded.html">EventMobEvaded</a>
+<br><a href="EventShowSubtitles.html">EventShowSubtitles</a>
+<br><a href="EventTakeItemsFailed.html">EventTakeItemsFailed</a>
+<br><a href="FunctionAvatarBindItemToActionPanel.html">FunctionAvatarBindItemToActionPanel</a>
+<br><a href="FunctionAvatarBindMountMetamorphToActionPanel.html">FunctionAvatarBindMountMetamorphToActionPanel</a>
+<br><a href="FunctionAvatarBindMountSkinToActionPanel.html">FunctionAvatarBindMountSkinToActionPanel</a>
+<br><a href="FunctionAvatarBindMountToActionPanel.html">FunctionAvatarBindMountToActionPanel</a>
+<br><a href="FunctionAvatarBindSpellToActionPanel.html">FunctionAvatarBindSpellToActionPanel</a>
+<br><a href="FunctionAvatarGetActionInfo.html">FunctionAvatarGetActionInfo</a>
+<br><a href="FunctionAvatarGetContextActions.html">FunctionAvatarGetContextActions</a>
+<br><a href="FunctionAvatarGetMaxActionCount.html">FunctionAvatarGetMaxActionCount</a>
+<br><a href="FunctionAvatarGetPetAggroMode.html">FunctionAvatarGetPetAggroMode</a>
+<br><a href="FunctionAvatarGetPetMoveMode.html">FunctionAvatarGetPetMoveMode</a>
+<br><a href="FunctionAvatarIsPetInCombat.html">FunctionAvatarIsPetInCombat</a>
+<br><a href="FunctionAvatarLoadActionPanel.html">FunctionAvatarLoadActionPanel</a>
+<br><a href="FunctionAvatarPetAttack.html">FunctionAvatarPetAttack</a>
+<br><a href="FunctionAvatarSaveActionPanel.html">FunctionAvatarSaveActionPanel</a>
+<br><a href="FunctionAvatarSetPetAggroMode.html">FunctionAvatarSetPetAggroMode</a>
+<br><a href="FunctionAvatarSetPetMoveMode.html">FunctionAvatarSetPetMoveMode</a>
+<br><a href="FunctionAvatarStopCasting.html">FunctionAvatarStopCasting</a>
+<br><a href="FunctionAvatarSwapActionsInActionPanel.html">FunctionAvatarSwapActionsInActionPanel</a>
+<br><a href="FunctionAvatarUnBindFromActionPanel.html">FunctionAvatarUnBindFromActionPanel</a>
+<br><a href="FunctionUnitGetMobActionProgress.html">FunctionUnitGetMobActionProgress</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryEvent.html">CategoryEvent</a>
+<a href="CategoryAction.html">CategoryAction</a>
+<a href="CategoryActionResult.html">CategoryActionResult</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

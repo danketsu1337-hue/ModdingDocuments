@@ -1,0 +1,79 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionMWarGetQueueInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> mwar.GetQueueInfo()</h2>
+<p></p>
+<p>Информация о сражении Доминиона, в очереди на которое стоит аватар. При изменении этой информации приходит событие <a href="EventMWarQueueChanched.html"> EVENT_MWAR_QUEUE_CHANGED</a>.</p>
+<p></p>
+<pre>
+-- библиотека
+mwar
+
+-- объявление:
+function GetQueueInfo()
+
+-- параметры
+нет
+
+-- возвращаемые значения
+table или nil - nil если аватар не стоит в очереди на сражение Доминиона, иначе таблица с полями:
+  event: InstancedEventResourceId - идентификатор инстанс-ивента
+  isRaid: boolean - true, если сражение рейдовое; иначе false
+  targetGuildId: ObjectId или nil - если сражение групповое, то nil, если рейдовое, то идентификатор гильдии, на которую будет нападение
+  targetGuildName: WString или nil- если сражение групповое, то nil, если рейдовое, то имя гильдии, на которую будет нападение
+
+-- пример использования
+local mwarQueueInfo = mwar.GetQueueInfo()
+</pre>
+<p></p>
+<p>См. также:</p>
+<p></p>
+<ul><li><p> <a href="EventMWarQueueChanched.html"> EVENT_MWAR_QUEUE_CHANGED</a></p></li></ul>
+<ul><li><p> <a href="InstancedEventResourceId.html"> InstancedEventResourceId</a></p></li></ul>
+<ul><li><p> <a href="FunctionMWarGetGuildInfo.html"> mwar.GetGuildInfo( guildId )</a></p></li></ul>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryMWar"</h4>
+<p></p>
+<a href="AstralSectorId.html">AstralSectorId</a>
+<br><a href="CategoryMWar.html">CategoryMWar</a>
+<br><a href="EventMWarFlagCostsChanged.html">EventMWarFlagCostsChanged</a>
+<br><a href="EventMWarLadderChanged.html">EventMWarLadderChanged</a>
+<br><a href="EventMWarQueueChanched.html">EventMWarQueueChanched</a>
+<br><a href="EventMWarRatingProgressChanged.html">EventMWarRatingProgressChanged</a>
+<br><a href="FunctionAstralGetSectorInfoById.html">FunctionAstralGetSectorInfoById</a>
+<br><a href="FunctionMWarGetCommonInfo.html">FunctionMWarGetCommonInfo</a>
+<br><a href="FunctionMWarGetCommonMatchMakingInfo.html">FunctionMWarGetCommonMatchMakingInfo</a>
+<br><a href="FunctionMWarGetEventStartTimeEntries.html">FunctionMWarGetEventStartTimeEntries</a>
+<br><a href="FunctionMWarGetGuildHistory.html">FunctionMWarGetGuildHistory</a>
+<br><a href="FunctionMWarGetGuildInfo.html">FunctionMWarGetGuildInfo</a>
+<br><a href="FunctionMWarGetLadderInfo.html">FunctionMWarGetLadderInfo</a>
+<br><a href="FunctionMWarGetQueueInfo.html">FunctionMWarGetQueueInfo</a>
+<br><a href="FunctionMWarGetRatingProgressInfo.html">FunctionMWarGetRatingProgressInfo</a>
+<br><a href="FunctionMWarJoinRequestRaid.html">FunctionMWarJoinRequestRaid</a>
+<br><a href="FunctionMWarReplicateLadder.html">FunctionMWarReplicateLadder</a>
+<br><a href="FunctionMWarStake.html">FunctionMWarStake</a>
+<br><a href="InstancedEventResourceId.html">InstancedEventResourceId</a>
+<br><a href="LootGroupId.html">LootGroupId</a>
+<br><a href="TimeTableId.html">TimeTableId</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryMWar.html">CategoryMWar</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

@@ -1,0 +1,69 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionSound2DLuaGetVolume</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<h2> GetVolume( self )</h2>
+<p></p>
+<p>Возвращает текущую громкость звука, диапазон 0.0f (нет звука) - 1.0f (максимальная громкость)</p>
+<p></p>
+<p>Внимание! Корректность данных гарантируется только для тех звуков для которых был вызван <a href="FunctionSound2DLuaPlay.html"> Play</a></p>
+<p></p>
+<p>Внимание! Возвращается состояние данного конкретного звука. Итоговое состояние может отличаться в зависимости от настройки вышележащих групп звуков.</p>
+<p></p>
+<p>Примечание - для пользовательских дополнений все звуки относятся к группе Интерфейс, опция interfaceVolume / audio_option_interface_volume</p>
+<p></p>
+<pre>
+-- класс
+Sound2DLua
+
+-- семантика
+function GetVolume( self )
+
+-- входные параметры
+self - Sound2DLua - экземпляр Sound2DLua
+
+-- возвращаемое значение
+number (float) - текущая громкость звука, в диапазоне 0.0f - 1.0f
+
+-- пример
+LogInfo( "Current sound volume is", sound:GetVolume() )
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryLuaSound"</h4>
+<p></p>
+<a href="CategoryLuaSound.html">CategoryLuaSound</a>
+<br><a href="FunctionCommonCreateProlongedStateSound.html">FunctionCommonCreateProlongedStateSound</a>
+<br><a href="FunctionCommonCreateSound.html">FunctionCommonCreateSound</a>
+<br><a href="FunctionCommonGetAddonRelatedSoundGroup.html">FunctionCommonGetAddonRelatedSoundGroup</a>
+<br><a href="FunctionCommonGetStateRelatedSoundGroup.html">FunctionCommonGetStateRelatedSoundGroup</a>
+<br><a href="FunctionCommonIsSoundEnabled.html">FunctionCommonIsSoundEnabled</a>
+<br><a href="FunctionCommonPlayMusic.html">FunctionCommonPlayMusic</a>
+<br><a href="FunctionSound2DLuaGetVolume.html">FunctionSound2DLuaGetVolume</a>
+<br><a href="FunctionSound2DLuaIsMuted.html">FunctionSound2DLuaIsMuted</a>
+<br><a href="FunctionSound2DLuaIsPaused.html">FunctionSound2DLuaIsPaused</a>
+<br><a href="FunctionSound2DLuaIsPlaying.html">FunctionSound2DLuaIsPlaying</a>
+<br><a href="FunctionSound2DLuaPlay.html">FunctionSound2DLuaPlay</a>
+<br><a href="FunctionSound2DLuaSetMuted.html">FunctionSound2DLuaSetMuted</a>
+<br><a href="FunctionSound2DLuaSetPaused.html">FunctionSound2DLuaSetPaused</a>
+<br><a href="FunctionSound2DLuaSetVolume.html">FunctionSound2DLuaSetVolume</a>
+<br><a href="FunctionSound2DLuaStop.html">FunctionSound2DLuaStop</a>
+<br><a href="Sound2DId.html">Sound2DId</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryLuaSound.html">CategoryLuaSound</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

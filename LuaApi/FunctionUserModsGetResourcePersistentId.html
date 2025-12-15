@@ -1,0 +1,77 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionUserModsGetResourcePersistentId</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> userMods.GetResourcePersistentId ( resourceId )</h2>
+<p></p>
+<p>Возвращает постоянный уникальный строковый идентификатор произвольного ресурса. Представляет собой строку длинной 32 символа, состоящую из символов шестнадцатеричной системы исчисления, записанных в верхнем регистре.</p>
+<p>Пример: 5C976713F32D4D60B51F5281E35CBA6B</p>
+<p></p>
+<p>'''Внимание! Данная функция работает медленно и не предназначена для частого использования'''</p>
+<p></p>
+<p>'''Внимание! Поддерживаются не все типы ресурсов, для неподдерживаемых функция вернет nil'''</p>
+<p></p>
+<pre>
+-- библиотека:
+userMods
+
+-- объявление:
+function GetResourcePersistentId( resourceId )
+
+-- параметры:
+resourceId - userdata( resourceId ) - произвольный ресурс
+
+-- возвращаемые значения:
+String - уникальный постоянный строковый идентификатор ресурса
+
+-- примеры:
+local unlockInfo = avatar.GetUnlockInfo( id )
+local unlockIconInfo = unlockInfo.image and common.GetTextureInfo( unlockInfo.image ) or NO_TEXTURE_INFO
+LogInfo( string.format( "UnlockId %s, name: %s, desc: %s, texture [%dx%d] %s",
+  userMods.GetResourcePersistentId( unlockInfo.unlockId ),
+  FromWs( unlockInfo.name ),
+  FromWs( unlockInfo.description ),
+  unlockIconInfo.realWidth,
+  unlockIconInfo.realHeight,
+  unlockIconInfo.binaryFile ) )
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryUserMods"</h4>
+<p></p>
+<a href="CategoryUserMods.html">CategoryUserMods</a>
+<br><a href="EnumAddonHealthStatus.html">EnumAddonHealthStatus</a>
+<br><a href="EventAddonHealthChanged.html">EventAddonHealthChanged</a>
+<br><a href="EventAddonReducePerfomance.html">EventAddonReducePerfomance</a>
+<br><a href="FunctionUserModsFromValuedText.html">FunctionUserModsFromValuedText</a>
+<br><a href="FunctionUserModsFromWString.html">FunctionUserModsFromWString</a>
+<br><a href="FunctionUserModsGetAccountUniqueId.html">FunctionUserModsGetAccountUniqueId</a>
+<br><a href="FunctionUserModsGetAvatarConfigSection.html">FunctionUserModsGetAvatarConfigSection</a>
+<br><a href="FunctionUserModsGetCallStack.html">FunctionUserModsGetCallStack</a>
+<br><a href="FunctionUserModsGetGlobalConfigSection.html">FunctionUserModsGetGlobalConfigSection</a>
+<br><a href="FunctionUserModsGetResourcePersistentId.html">FunctionUserModsGetResourcePersistentId</a>
+<br><a href="FunctionUserModsSendEvent.html">FunctionUserModsSendEvent</a>
+<br><a href="FunctionUserModsSendSelfChatMessage.html">FunctionUserModsSendSelfChatMessage</a>
+<br><a href="FunctionUserModsSetAvatarConfigSection.html">FunctionUserModsSetAvatarConfigSection</a>
+<br><a href="FunctionUserModsSetGlobalConfigSection.html">FunctionUserModsSetGlobalConfigSection</a>
+<br><a href="FunctionUserModsToWString.html">FunctionUserModsToWString</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryUserMods.html">CategoryUserMods</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

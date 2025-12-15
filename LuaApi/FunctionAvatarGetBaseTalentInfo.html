@@ -1,0 +1,112 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAvatarGetBaseTalentInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> avatar.GetBaseTalentInfo( layer, line )</h2>
+<p></p>
+<p>Получить информацию о таланте из базовой таблицы талантов.</p>
+<p></p>
+<pre>
+-- система:
+UIState/GameState
+
+-- библиотека:
+avatar
+
+-- объявление:
+function GetBaseTalentInfo( layer, line )
+
+-- параметры:
+layer: number (int) - номер строки
+line: number (int) - номер столбца
+
+-- возвращаемые значения
+table / nil - таблица с информацией (nil в случае, если таланта в данной ячейке не существует)
+  canUpdate: boolean - возможно ли изучить/проапдейтить данный талант
+  isEmpty: boolean - является ли клетка пустой
+  isLearned: boolean - выучена ли клетка таланта
+  priorityType: ENUM_PriorityType_* - приоритет таланта
+  requiredSpentTP: number (int) - необходиимое количество вложенных очков талантов для изучения данного таланта
+  currentRank: number (integer) or nil - текущий, выученный ранг таланта (индекс в списке ranks, начиная от 0), если ранг изучен
+  nextRank: number (integer) or nil - следующий для изучения ранг таланта (индекс в списке ranks, начиная от 0), если следующий ранг можно изучить
+  replacement: table or nil - подменяющие талант данные
+    text: WString - подменяющие описание
+    image: TextureId - идентификатор текстуры для иконки (это поле доступно только для UI)
+  ranks: table - индексированная с 1 таблица с информацией о рангах таланта. Каждый ранг описывается таблицей:
+    rank: number (int) - ранг (начиная с 1)
+    name: WString - имя
+    desc: WString - описание
+    spellId: SpellId / nil - Id ресурса спелла (если есть, иначе nil)
+    abilityId: AbilityId / nil - Id ресурса абилки (если есть, иначе nil)
+    image: TextureId - идентификатор текстуры для иконки (это поле доступно только для UI)
+  unlockInfo: table - информация о закрытости таланта для изучения игроком
+    isLocked: boolean - true, если данный талант пока что закрыт для изучения
+    isLockable: boolean - true, если данный талант может быть закрыт для изучения
+    unlockName: WString or nil - название возможности, необходимой для открытия таланта
+    unlockDescription: WString or nil - описание действия, необходимого для открытия таланта
+  parentTalentInfo: table or nil - если у таланта есть родительский талант, то информация о нём в виде таблицы с полями:
+    spellId: SpellId or nil - идентификатор ресурса заклинания, требуемого для изучения этого таланта
+    abilityId: AbilityId or nil - идентификатор ресурса умения, требуемого для изучения этого таланта
+    layer: number (int) - номер строки
+    line: number (int) - номер столбца
+Дополнительные данные в режиме «Край мира»:
+  relatedSpells: table of SpellId or nil - список активных способностей на которые влияет данный талант, индексация с 1
+</pre>
+<p>Пример:</p>
+<pre>
+LogInfo( avatar.GetBaseTalentInfo( layer, line ) )
+</pre>
+<p>Значения ENUM_PriorityType_*</p>
+<pre>
+ENUM_PriorityType_Default - обычный талант
+ENUM_PriorityType_Recommended - рекомендуемый талант, серебряная звездочка, не изучается автоматически при использовании ковчега
+ENUM_PriorityType_Suggested - рекомендуемый талант, золотая звездочка, изучается автоматически при использовании ковчега
+</pre>
+<h4>Search: "CategoryLuaApi" "CategoryTalents"</h4>
+<p></p>
+<a href="EventAvatarClassFormChanged.html">EventAvatarClassFormChanged</a>
+<br><a href="EventTalentsChanged.html">EventTalentsChanged</a>
+<br><a href="FunctionAvatarApplyStoredTalents.html">FunctionAvatarApplyStoredTalents</a>
+<br><a href="FunctionAvatarCanUpdateBaseTalent.html">FunctionAvatarCanUpdateBaseTalent</a>
+<br><a href="FunctionAvatarCanUpdateFieldTalent.html">FunctionAvatarCanUpdateFieldTalent</a>
+<br><a href="FunctionAvatarClearStoredTalents.html">FunctionAvatarClearStoredTalents</a>
+<br><a href="FunctionAvatarEnableFreeKeys.html">FunctionAvatarEnableFreeKeys</a>
+<br><a href="FunctionAvatarGetActiveBuild.html">FunctionAvatarGetActiveBuild</a>
+<br><a href="FunctionAvatarGetBaseTalentInfo.html">FunctionAvatarGetBaseTalentInfo</a>
+<br><a href="FunctionAvatarGetBaseTalentTableSize.html">FunctionAvatarGetBaseTalentTableSize</a>
+<br><a href="FunctionAvatarGetBuildsCount.html">FunctionAvatarGetBuildsCount</a>
+<br><a href="FunctionAvatarGetBuildsUnlockedCount.html">FunctionAvatarGetBuildsUnlockedCount</a>
+<br><a href="FunctionAvatarGetBuildSwitchSpell.html">FunctionAvatarGetBuildSwitchSpell</a>
+<br><a href="FunctionAvatarGetCommonFieldTalentInfo.html">FunctionAvatarGetCommonFieldTalentInfo</a>
+<br><a href="FunctionAvatarGetFieldTalentInfo.html">FunctionAvatarGetFieldTalentInfo</a>
+<br><a href="FunctionAvatarGetFieldTalentTableSize.html">FunctionAvatarGetFieldTalentTableSize</a>
+<br><a href="FunctionAvatarGetRubyStartLevel.html">FunctionAvatarGetRubyStartLevel</a>
+<br><a href="FunctionAvatarGetSpentTalentPoints.html">FunctionAvatarGetSpentTalentPoints</a>
+<br><a href="FunctionAvatarGetViewedBuild.html">FunctionAvatarGetViewedBuild</a>
+<br><a href="FunctionAvatarSetActiveBuild.html">FunctionAvatarSetActiveBuild</a>
+<br><a href="FunctionAvatarSetViewedBuild.html">FunctionAvatarSetViewedBuild</a>
+<br><a href="FunctionAvatarStoreBaseTalent.html">FunctionAvatarStoreBaseTalent</a>
+<br><a href="FunctionAvatarStoreFieldTalent.html">FunctionAvatarStoreFieldTalent</a>
+<br><a href="TalentCurrency.html">TalentCurrency</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<a href="CategoryTalents.html">CategoryTalents</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

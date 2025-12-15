@@ -1,0 +1,76 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAvatarGetCurrencyValue</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>avatar.GetCurrencyValue(currencyId)</h2>
+<p></p>
+<p>В игре встречаются альтернативные валюты. Этот метод возвращает её количество у игрока.</p>
+<p></p>
+<pre>
+-- система:
+GameState
+
+-- библиотека:
+avatar
+
+-- объявление:
+function GetCurrencyValue( currencyId )
+
+-- параметры:
+currencyId: CurrencyId or nil - идентификатор ресурса альтернативной валюты.
+
+-- возвращаемые значения:
+table or nil - если нет ошибки, то таблица с полями:
+  value: number( integer ) - количество такой валюты у игрока
+  maxValue: number( integer ) or nil - максимально возможное количество такой валюты у игрока, если такая величина задана
+
+-- пример:
+local myrrhId = avatar.GetCurrencyId( "myrrh" )
+if myrrhId then
+  local info = myrrhId:GetInfo()
+  if info then
+    local currentValue = info.value
+  end
+end
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryCurrency" </h4>
+<p></p>
+<a href="CategoryCurrency.html">CategoryCurrency</a>
+<br><a href="CurrencyCategoryId.html">CurrencyCategoryId</a>
+<br><a href="CurrencyId.html">CurrencyId</a>
+<br><a href="EnumCurrencyStorage.html">EnumCurrencyStorage</a>
+<br><a href="EnumVisualizeMode.html">EnumVisualizeMode</a>
+<br><a href="EventCurrenciesChanged.html">EventCurrenciesChanged</a>
+<br><a href="EventCurrencyNotEnough.html">EventCurrencyNotEnough</a>
+<br><a href="EventCurrencyValueChanged.html">EventCurrencyValueChanged</a>
+<br><a href="EventHiddenCurrencyValueChanged.html">EventHiddenCurrencyValueChanged</a>
+<br><a href="FunctionAvatarGetCategoryCurrencies.html">FunctionAvatarGetCategoryCurrencies</a>
+<br><a href="FunctionAvatarGetCurrencies.html">FunctionAvatarGetCurrencies</a>
+<br><a href="FunctionAvatarGetCurrencyCategories.html">FunctionAvatarGetCurrencyCategories</a>
+<br><a href="FunctionAvatarGetCurrencyDescription.html">FunctionAvatarGetCurrencyDescription</a>
+<br><a href="FunctionAvatarGetCurrencyId.html">FunctionAvatarGetCurrencyId</a>
+<br><a href="FunctionAvatarGetCurrencyValue.html">FunctionAvatarGetCurrencyValue</a>
+<br><a href="FunctionMountGetTalentCurrency.html">FunctionMountGetTalentCurrency</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<a href="CategoryCurrency.html">CategoryCurrency</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

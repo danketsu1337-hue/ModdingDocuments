@@ -1,0 +1,228 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionMatchMakingGetEventInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> matchMaking.GetEventInfo( eventId )</h2>
+<p></p>
+<p>Получить информацию об инстанс-ивенте с заданным id.</p>
+<p></p>
+<pre>
+-- библиотека:
+matchMaking
+
+-- объявление:
+function GetEventInfo( eventId )
+
+-- параметры:
+eventId: ObjectId - id инстанс-ивента, о котором запрашивается информация
+
+-- возвращаемое значение:
+table or nil - таблица с описанием, если информация получена:
+  id: ObjectId - id инстанс-ивента
+  name: ValuedText or WString - преобразованное имя инстанс-ивента
+  rawName: WString or nil - необработанное название инстанс-ивента взятое из ресурса; nil если совпадает с name
+  description: ValuedText or WString - описание с подставленными текущими значениями параметров
+  resourceId: ResourceId (InstancedEventResourceId) - идентификатор ресурса инстанс-ивента
+  category: ResourceId (InstancedEventCategoryId) - идентификатор ресурса категории инстанс-ивента
+  isAvailable: boolean - доступен ли инстанс-ивент аватару
+  allowQuickExit: boolean - позволять быстро покидать активность(кнопка в углу экрана)
+  sysCause: string (enum "ENUM_ActionFailCause_...") - строковый код ошибки.
+  hasDoubleBonus: boolean - наличие бонуса за прохождение
+  ignoreFactions: boolean - ивент со смешанными фракциями(при формировании группы принадлежность к фракции игнорируется)
+  leaderDepartOnly: boolean - если true, то инициировать отправку в активность может только лидер группы
+  soloMode: boolean - если true, ивент доступен только для одного игрока
+  requiredItem: ItemId or nil - ресурс необходимый для отправки
+  requiredCurrency: CurrencyId or nil - альтвалюта необходимая для отправки
+  isHighPriority: boolean - если true, то это приоритетный эвент. Он должен быть выше остальных в списке.
+  mechanicsType: number (enum ENUM_MatchMakingMechanicsType...) - тип игровой механики
+  maxVisitsPerDay: number (integer) - максимальное кол-во посещений ивента в день; 0 - без ограничений
+  maxVisitsPerWeek: number (integer) - максимальное кол-во посещений ивента в неделю; 0 - без ограничений
+  exclusive: boolean - если true, то запрещено становиться одновременно в очередь к этому и любому другому эвенту
+  leaderOnly: boolean - если true, то за выход\постановку в очередь отвечает только лидер группы (соло аватар считается сам себе лидером)
+  ticket: ItemId или nil - nil если нет информации, иначе ResourceId предмета, являющегося билетом на эвент; при постановке в очередь проверяется наличие такого предмета у игрока, предмет забирается перед телепортацией на эвент
+  activeEventJoinPeriod: number (integer) - возможность присоединения к арене новых игроков в течении определённого периода времени после старта ивента. Если значение меньше 0 - можно присоединяться всегда, равно 0 - присоединяться нельзя вообще, иначе - период в течение которого возможно присоединение
+  todayVisits: number (integer) or nil - если есть, то сколько посещений совершил главный игрок сегодня; если нет, то информация отсутствует
+  weeklyVisits: number (integer) or nil - если есть, то сколько посещений совершил главный игрок за текущую неделю; если нет, то информация отсутствует
+  duration: number (integer) - длительность ивента в миллисекундах
+  minAvatarLevel: number (integer) - минимальный уровень, необходимый для участия в ивенте
+  canJoinActiveEvent: boolean - можно ли присоединяться к ивенту после его начала
+  isAvatarJoined: boolean - стоит ли аватар в очереди на этот инстанс-ивент
+  eventType: table of tables - таблица с описанием типа инстанс-ивента.
+  startTime: table of tables - таблица с описанием типа и времени старта
+  startTimes: table или nil - если ошибка, то nil; иначе список (индексируется от 0) таблиц с описанием типа и времени старта (описание полей см. ниже)
+  inviteTimeout: number (integer) - задержка при телепорте на арену (мс)
+  difficulty: wstring or nil - сложность эвента текстом
+  difficultyMode: Number(ENUM_LFGEventDifficulty) - сложность эвента индексом
+  sysDifficultyMode: String(ENUM_LFGEventDifficulty) - сложность эвента строкой
+</pre>
+<p></p>
+<p>Таблица eventType представляет собой описание типа инстанс-ивента. Так как тип может быть только один (либо solo, либо group, но не оба сразу), то в таблице eventType заполнено только одно поле из представленых ниже. В заполненом поле содержится таблица с описанием данных для этого типа инстанс-ивента.</p>
+<p></p>
+<p>Формат таблицы eventType:</p>
+<pre>
+-- Поля (заполнено только одно в зависимости от типа интервала):
+solo: table or nil - если тип "одиночный" (каждый сам за себя), то таблица с полями:
+  minAvatarsCount: number (integer) - минимум игроков, после которого запускается таймер самоуничтожения острова
+  capacity: number (integer) - максимальное кол-во игроков
+  minAvatarLevel: number (integer) - минимальный уровень, необходимый для участия в ивенте
+group: table or nil - тип "групповой" (фракция на фракцию), таблица с теми же полями, что и у solo
+premade: table or nil - таблица с теми же полями, что и у solo
+mwar: table or nil - тип "глобальная война за территорию", таблица с теми же полями, что и у solo
+pillage: table or nil - тип "грабительский налет", таблица с теми же полями, что и у solo
+lastStand: table or nil - тип "lastStand", таблица с теми же полями, что и у solo
+mwarRaid: table or nil - рейдовое сражение Доминиона, таблица с теми же полями, что и у solo
+mwarLadder: table or nil - групповое сражение Доминиона, таблица с теми же полями, что и у solo
+ratingPvP: table or nil - рейтинговая арена
+randomBG: table or nil - случайное бг(хутор/яр)
+lfgRaid: table or nil - рейдовый PvE эвент
+lfg: table or nil - PvE эвент
+</pre>
+<p></p>
+<p>Таблица startTime представляет собой описание времени старта инстанс-ивента. Так как время старта может быть только разного типа (почасовое, ежедневное, еженедельное и т.п.), то в этой таблице заполнено только одно поле из представленых ниже. В заполненом поле содержится таблица с описанием данных для этого типа времени старта.</p>
+<p></p>
+<p>Формат таблицы startTime или элемента списка startTimes:</p>
+<pre>
+-- Поля (заполнено только одно в зависимости от типа интервала):
+hourly: table or nil - ежечасно, таблица с полями:
+  minute: number (integer) - минута начала события, начиная с 0
+
+daily: table or nil - ежедневно, таблица с полями:
+  hour: number (integer) - час начала события, начиная с 0
+  minute: number (integer) - минута начала события, начиная с 0
+
+weekly: table or nil - еженедельно, таблица с полями:
+  day: number (integer) - день недели начала события, начиная с 0
+  hour: number (integer) - час начала события, начиная с 0
+  minute: number (integer) - минута начала события, начиная с 0
+
+monthly: table or nil - ежемесячный, таблица с полями:
+  day: number (integer) - день месяца начала события, начиная с 1
+  hour: number (integer) - час начала события, начиная с 0
+  minute: number (integer) - минута начала события, начиная с 0
+
+yearly: table or nil - ежегодный, таблица с полями:
+  sysMonth: string (enum "ENUM_Month...") - месяц начала события
+  month: number (enum ENUM_Month...) - месяц начала события
+  day: number (integer) - день месяца начала события, начиная с 1
+  hour: number (integer) - час начала события, начиная с 0
+  minute: number (integer) - минута начала события, начиная с 0
+
+now: table or nil - "сейчас", пустая таблица
+
+never: table or nil - "никогда", пустая таблица
+
+once: table or nil - однократный, таблица с полями:
+  year: number (integer) - год начала события
+  sysMonth: string (enum "ENUM_Month...") - месяц начала события
+  month: number (enum ENUM_Month...) - месяц начала события
+  day: number (integer) - день месяца начала события, начиная с 1
+  hour: number (integer) - час начала события, начиная с 0
+  minute: number (integer) - минута начала события, начиная с 0
+</pre>
+<p></p>
+<p>Пример:</p>
+<p></p>
+<pre>
+local info = matchMaking.GetEventInfo( eventId )
+if info then
+  if info.group then
+    LogInfo( "Group instanced event, capacity: ", info.group.capacity )
+  end
+end
+</pre>
+<p></p>
+<p>См. также:</p>
+<p></p>
+<ul><li><p> <a href="InstancedEventResourceId.html"> InstancedEventResourceId</a></p></li></ul>
+<ul><li><p> <a href="InstancedEventCategoryId.html">InstancedEventCategoryId</a></p></li></ul>
+<ul><li><p> <a href="EnumLFGEventDifficulty.html">ENUM_LFGEventDifficulty</a></p></li></ul>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryMatchMaking"</h4>
+<p></p>
+<a href="CategoryMatchMaking.html">CategoryMatchMaking</a>
+<br><a href="EnumMatchMakingMechanicsType.html">EnumMatchMakingMechanicsType</a>
+<br><a href="EnumRatingArenaType.html">EnumRatingArenaType</a>
+<br><a href="EventLfgDestinationVisitsChanged.html">EventLfgDestinationVisitsChanged</a>
+<br><a href="EventMatchMakingAutoDepartTimeChanged.html">EventMatchMakingAutoDepartTimeChanged</a>
+<br><a href="EventMatchMakingCurrentBattleChanged.html">EventMatchMakingCurrentBattleChanged</a>
+<br><a href="EventMatchMakingEventAdded.html">EventMatchMakingEventAdded</a>
+<br><a href="EventMatchMakingEventAvailabilityChanged.html">EventMatchMakingEventAvailabilityChanged</a>
+<br><a href="EventMatchMakingEventDoubleBonusChanged.html">EventMatchMakingEventDoubleBonusChanged</a>
+<br><a href="EventMatchMakingEventProgressAdded.html">EventMatchMakingEventProgressAdded</a>
+<br><a href="EventMatchMakingEventProgressCompletedChanged.html">EventMatchMakingEventProgressCompletedChanged</a>
+<br><a href="EventMatchMakingEventProgressDurationChanged.html">EventMatchMakingEventProgressDurationChanged</a>
+<br><a href="EventMatchMakingEventProgressMemberChanged.html">EventMatchMakingEventProgressMemberChanged</a>
+<br><a href="EventMatchMakingEventProgressMembersChanged.html">EventMatchMakingEventProgressMembersChanged</a>
+<br><a href="EventMatchMakingEventProgressRemoved.html">EventMatchMakingEventProgressRemoved</a>
+<br><a href="EventMatchMakingEventProgressRoundsChanged.html">EventMatchMakingEventProgressRoundsChanged</a>
+<br><a href="EventMatchMakingEventQueueAdded.html">EventMatchMakingEventQueueAdded</a>
+<br><a href="EventMatchMakingEventQueueRemoved.html">EventMatchMakingEventQueueRemoved</a>
+<br><a href="EventMatchMakingEventQueuesRemoved.html">EventMatchMakingEventQueuesRemoved</a>
+<br><a href="EventMatchMakingEventRemoved.html">EventMatchMakingEventRemoved</a>
+<br><a href="EventMatchMakingEventsAvailabilityChanged.html">EventMatchMakingEventsAvailabilityChanged</a>
+<br><a href="EventMatchMakingEventsChanged.html">EventMatchMakingEventsChanged</a>
+<br><a href="EventMatchMakingEventTeleportReject.html">EventMatchMakingEventTeleportReject</a>
+<br><a href="EventMatchMakingEventTeleportRequest.html">EventMatchMakingEventTeleportRequest</a>
+<br><a href="EventMatchMakingEventVisitsChanged.html">EventMatchMakingEventVisitsChanged</a>
+<br><a href="EventMatchMakingJoinTimeChanged.html">EventMatchMakingJoinTimeChanged</a>
+<br><a href="EventMatchMakingMembersRolesChanged.html">EventMatchMakingMembersRolesChanged</a>
+<br><a href="EventMatchMakingProgressAchievementsChanged.html">EventMatchMakingProgressAchievementsChanged</a>
+<br><a href="EventMatchMakingProgressMembersAchievementsChanged.html">EventMatchMakingProgressMembersAchievementsChanged</a>
+<br><a href="FunctionMatchMakingAwayBattleEvent.html">FunctionMatchMakingAwayBattleEvent</a>
+<br><a href="FunctionMatchMakingCanAwayBattleEvent.html">FunctionMatchMakingCanAwayBattleEvent</a>
+<br><a href="FunctionMatchMakingCanJoinInstancedEventById.html">FunctionMatchMakingCanJoinInstancedEventById</a>
+<br><a href="FunctionMatchMakingCanJoinInstancedEvents.html">FunctionMatchMakingCanJoinInstancedEvents</a>
+<br><a href="FunctionMatchMakingCanReturnToBattle.html">FunctionMatchMakingCanReturnToBattle</a>
+<br><a href="FunctionMatchMakingCanUseMatchMaking.html">FunctionMatchMakingCanUseMatchMaking</a>
+<br><a href="FunctionMatchMakingGetAutoDepartTime.html">FunctionMatchMakingGetAutoDepartTime</a>
+<br><a href="FunctionMatchMakingGetCurrentBattleInfo.html">FunctionMatchMakingGetCurrentBattleInfo</a>
+<br><a href="FunctionMatchMakingGetEventCategories.html">FunctionMatchMakingGetEventCategories</a>
+<br><a href="FunctionMatchMakingGetEventInfo.html">FunctionMatchMakingGetEventInfo</a>
+<br><a href="FunctionMatchMakingGetEventJoinTimeEstimate.html">FunctionMatchMakingGetEventJoinTimeEstimate</a>
+<br><a href="FunctionMatchMakingGetEventProgressInfo.html">FunctionMatchMakingGetEventProgressInfo</a>
+<br><a href="FunctionMatchMakingGetEventReward.html">FunctionMatchMakingGetEventReward</a>
+<br><a href="FunctionMatchMakingGetEvents.html">FunctionMatchMakingGetEvents</a>
+<br><a href="FunctionMatchMakingGetEventsByCategory.html">FunctionMatchMakingGetEventsByCategory</a>
+<br><a href="FunctionMatchMakingGetEventScore.html">FunctionMatchMakingGetEventScore</a>
+<br><a href="FunctionMatchMakingGetJoinRequirements.html">FunctionMatchMakingGetJoinRequirements</a>
+<br><a href="FunctionMatchMakingGetMembersRoles.html">FunctionMatchMakingGetMembersRoles</a>
+<br><a href="FunctionMatchMakingGetRatingPvPScoreByUnitId.html">FunctionMatchMakingGetRatingPvPScoreByUnitId</a>
+<br><a href="FunctionMatchMakingGetRatingURL.html">FunctionMatchMakingGetRatingURL</a>
+<br><a href="FunctionMatchMakingIsAvatarInMatchMakingEvent.html">FunctionMatchMakingIsAvatarInMatchMakingEvent</a>
+<br><a href="FunctionMatchMakingIsAvatarJoinedAnyEvent.html">FunctionMatchMakingIsAvatarJoinedAnyEvent</a>
+<br><a href="FunctionMatchMakingIsAvatarJoinedAnySpecificEvent.html">FunctionMatchMakingIsAvatarJoinedAnySpecificEvent</a>
+<br><a href="FunctionMatchMakingIsEventIdExist.html">FunctionMatchMakingIsEventIdExist</a>
+<br><a href="FunctionMatchMakingIsEventListValid.html">FunctionMatchMakingIsEventListValid</a>
+<br><a href="FunctionMatchMakingIsEventProgressExist.html">FunctionMatchMakingIsEventProgressExist</a>
+<br><a href="FunctionMatchMakingIsFreePass.html">FunctionMatchMakingIsFreePass</a>
+<br><a href="FunctionMatchMakingIsPvE.html">FunctionMatchMakingIsPvE</a>
+<br><a href="FunctionMatchMakingIsRaid.html">FunctionMatchMakingIsRaid</a>
+<br><a href="FunctionMatchMakingIsRatingPvPScoreAvailable.html">FunctionMatchMakingIsRatingPvPScoreAvailable</a>
+<br><a href="FunctionMatchMakingLeaveInstancedEventQueue.html">FunctionMatchMakingLeaveInstancedEventQueue</a>
+<br><a href="FunctionMatchMakingLeaveInstancedEventQueueById.html">FunctionMatchMakingLeaveInstancedEventQueueById</a>
+<br><a href="FunctionMatchMakingListenEvents.html">FunctionMatchMakingListenEvents</a>
+<br><a href="FunctionMatchMakingReturnToBattle.html">FunctionMatchMakingReturnToBattle</a>
+<br><a href="InstancedEventCategoryId.html">InstancedEventCategoryId</a>
+<br><a href="InstancedEventResourceId.html">InstancedEventResourceId</a>
+<br><a href="LootGroupId.html">LootGroupId</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryMatchMaking.html">CategoryMatchMaking</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

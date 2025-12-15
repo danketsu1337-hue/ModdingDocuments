@@ -1,0 +1,54 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - EventManaReceived</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>EVENT_MANA_RECEIVED</h2>
+<p></p>
+<p>Событие присылается при измениние маны юнита другим юнитом.</p>
+<p></p>
+<pre>
+-- поля:
+unitId: ObjectId (not nil) - юнит, у которого изменилась мана
+casterId: ObjectId (or nil) - юнит, который изменил ману, если информация о нём ещё доступна
+addedMana: number( int ) - величина изменения маны (отрицательная - выжгли, положительная - добавили)
+
+В зависимости от того чем была изменена мана (одно из трех):
+  spellId: SpellId / nil - Id ресурса заклинания, которым изменили ману.
+  abilityId: AbilityId / nil - Id абилки, если изменили абилкой.
+  buffId: BuffId / nil - Id буффа, если изменили буффом.
+  isFall: boolean - true, если мана изменена из-за падения
+  isExploit: boolean - true, если мана изменена из-за эксплойта
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryMana"</h4>
+<p></p>
+<a href="CategoryMana.html">CategoryMana</a>
+<br><a href="EventHealAbsorbPoolDisappeared.html">EventHealAbsorbPoolDisappeared</a>
+<br><a href="EventManaReceived.html">EventManaReceived</a>
+<br><a href="EventUnitManaChanged.html">EventUnitManaChanged</a>
+<br><a href="EventUnitManaPercentageChanged.html">EventUnitManaPercentageChanged</a>
+<br><a href="FunctionUnitGetMana.html">FunctionUnitGetMana</a>
+<br><a href="FunctionUnitGetManaPercentage.html">FunctionUnitGetManaPercentage</a>
+<p></p>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryEvent.html">CategoryEvent</a>
+<a href="CategoryUnit.html">CategoryUnit</a>
+<a href="CategoryMana.html">CategoryMana</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+	<Name />
+	<Priority>0</Priority>
+	<Children>
+		<Item href="" />
+	</Children>
+	<BackLayer href="" />
+	<FrontLayer href="" />
+	<textureMask href="" />
+	<pickMask href="" />
+	<Placement>
+		<QuantumScale>false</QuantumScale>
+		<sizingWidget href="" />
+		<sizingWidgets>
+			<Item href="" />
+		</sizingWidgets>
+		<X>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Sizing>WIDGET_SIZING_DEFAULT</Sizing>
+			<Pos>0</Pos>
+			<HighPos>0</HighPos>
+			<Size>0</Size>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Sizing>WIDGET_SIZING_DEFAULT</Sizing>
+			<Pos>0</Pos>
+			<HighPos>0</HighPos>
+			<Size>0</Size>
+		</Y>
+	</Placement>
+	<Visible>true</Visible>
+	<Enabled>true</Enabled>
+	<TabOrder>0</TabOrder>
+	<bindSections>
+		<Item>
+			<bindSection />
+			<bindedReactions>
+				<Item />
+			</bindedReactions>
+		</Item>
+	</bindSections>
+	<TransparentInput>false</TransparentInput>
+	<PickChildrenOnly>false</PickChildrenOnly>
+	<IgnoreDblClick>false</IgnoreDblClick>
+	<fade>1</fade>
+	<clipContent>true</clipContent>
+	<reactionOnPointing />
+</WidgetPanel>

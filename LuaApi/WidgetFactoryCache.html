@@ -1,0 +1,78 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - WidgetFactoryCache</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> FactoryCache. Описание специального кэширующего виджета.</h2>
+<p></p>
+<h2>Кэширующий виджет</h2>
+<p></p>
+<p>Специальный тип виджета. Не имеет соответствующего ресурса и не может быть создан в ресурсной системе, существует только в рантайме. Является максимально облегченной и упрощенной  реализацией Widget. Единственное назначение - хранение временно неиспользуемых динамических виджетов.</p>
+<p></p>
+<p>Особенности:</p>
+<ul><li><p> Может существовать один экземпляр данного виджета на аддон. Получается / создается с помощью <a href="FunctionFormGetFactoryCache.html"> mainForm:GetFactoryCache()</a></p></li></ul>
+<ul><li><p> Невидим, не имеет имени, недоступен для реакций, не участвует в обходе дерева виджетов и тп.</p></li></ul>
+<ul><li><p> Не является виджетом с точки зрения <a href="FunctionCommonIsWidget.html"> common.IsWidget()</a> (имя метатаблицы FactoryCacheSafe)</p></li></ul>
+<ul><li><p> Поддерживает очень ограниченный набор API (смотри ниже)</p></li></ul>
+<p></p>
+<p>Список методов Widget реализованных в FactoryCache:</p>
+<ul><li><p> <a href="FunctionWidgetIsValid.html"> FactoryCache:IsValid()</a></p></li></ul>
+<ul><li><p> <a href="FunctionResourceIdIsEqual.html"> FactoryCache:IsEqual( other )</a> - всегда возвращает false (метаметод eq реализован, имеет идентичную логику)</p></li></ul>
+<ul><li><p> <a href="FunctionWidgetGetId.html"> FactoryCache:GetId()</a></p></li></ul>
+<ul><li><p> <a href="FunctionResourceIdGetInstanceId.html"> FactoryCache:GetInstanceId()</a></p></li></ul>
+<ul><li><p> <a href="FunctionWidgetGetName.html"> FactoryCache:GetName()</a> - всегда возвращает "__WidgetCache"</p></li></ul>
+<ul><li><p> <a href="FunctionWidgetGetParent.html"> FactoryCache:GetParent()</a> - всегда возвращает nil</p></li></ul>
+<ul><li><p> <a href="FunctionWidgetGetDebugInfo.html"> FactoryCache:GetDebugInfo()</a></p></li></ul>
+<ul><li><p> <a href="FunctionWidgetAddChild.html"> FactoryCache:AddChild( other )</a> - имеет упрощенную и оптимизированную реализацию</p></li></ul>
+<ul><li><p> <a href="FunctionWidgetCreateChildByDesc.html"> FactoryCache:CreateChildByDesc( widgetDesc )</a> - имеет упрощенную и оптимизированную реализацию</p></li></ul>
+<p></p>
+<p>Собственных специфических методов не имеет.</p>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryWidgetMembers"</h4>
+<p></p>
+<a href="CategoryWidgetMembers.html">CategoryWidgetMembers</a>
+<br><a href="TextFileRef.html">TextFileRef</a>
+<br><a href="Widget.html">Widget</a>
+<br><a href="WidgetButton.html">WidgetButton</a>
+<br><a href="WidgetButtonState.html">WidgetButtonState</a>
+<br><a href="WidgetButtonVariant.html">WidgetButtonVariant</a>
+<br><a href="WidgetContainer.html">WidgetContainer</a>
+<br><a href="WidgetDiscreteScrollBar.html">WidgetDiscreteScrollBar</a>
+<br><a href="WidgetDiscreteSlider.html">WidgetDiscreteSlider</a>
+<br><a href="WidgetEditBase.html">WidgetEditBase</a>
+<br><a href="WidgetEditBox.html">WidgetEditBox</a>
+<br><a href="WidgetEditLine.html">WidgetEditLine</a>
+<br><a href="WidgetFactoryCache.html">WidgetFactoryCache</a>
+<br><a href="WidgetForm.html">WidgetForm</a>
+<br><a href="WidgetGlideScrollBar.html">WidgetGlideScrollBar</a>
+<br><a href="WidgetGlideSlider.html">WidgetGlideSlider</a>
+<br><a href="WidgetLayer.html">WidgetLayer</a>
+<br><a href="WidgetPanel.html">WidgetPanel</a>
+<br><a href="WidgetPlacementLua.html">WidgetPlacementLua</a>
+<br><a href="WidgetPlacementXY.html">WidgetPlacementXY</a>
+<br><a href="WidgetsArrangement.html">WidgetsArrangement</a>
+<br><a href="WidgetScrollableContainer.html">WidgetScrollableContainer</a>
+<br><a href="WidgetScrollBar.html">WidgetScrollBar</a>
+<br><a href="WidgetSlider.html">WidgetSlider</a>
+<br><a href="WidgetTextContainer.html">WidgetTextContainer</a>
+<br><a href="WidgetTextStyle.html">WidgetTextStyle</a>
+<br><a href="WidgetTextView.html">WidgetTextView</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryWidgetMembers.html">CategoryWidgetMembers</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

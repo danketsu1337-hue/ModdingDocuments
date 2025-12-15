@@ -1,0 +1,89 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - WidgetButton</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> Button. Описание виджета кнопки.</h2>
+<p></p>
+<h2>Кнопка</h2>
+<p></p>
+<p>Кнопка - это виджет типа WidgetButton, наследованный от базового типа <a href="Widget.html"> Widget</a>. Предназначен для создания специальных виджетов, способных взаимодействовать с мышью. Их можно нажимать/отжимать/наводиться на них и в зависимости от этого состояния кнопка будет отображаться по разному. Также кнопка может иметь несколько вариантов, каждый из которых может находится в разных состояниях.</p>
+<p></p>
+<p>Например. у нас есть чекбокс. Он может быть пустым и может быть с установленной галкой. Это два разных варианта отображения кнопки. Но и в том и в другом варианте чекбокс должен по разному отображаться в обычном состоянии, при наведении мыши, при нажатии и удержании мыши. Это состояния. Соответственно, художник может нарисовать текстуры для всех комбинаций вариантов и состояний кнопки. Если кнопка обычная, то она может иметь один вариант.</p>
+<p></p>
+<p>Вариант кнопки - основной элемент. В нём описаны текстурные слои и реакции.</p>
+<p></p>
+<h4>Дополнительные поля кнопки:</h4>
+<p></p>
+<ul><li><p> TextTag: string - название текстового тэга в строке форматирования текущего варианта, в который будет подставляться текст из выбранного варианта при вызове <a href="FunctionButtonSetVariant.html"> ButtonSafe:SetVariant( self, variant )</a></p></li></ul>
+<ul><li><p> Variants: table of <a href="WidgetButtonVariant.html"> WidgetButtonVariant</a> - список вариантов кнопки, между которыми она может переключаться</p></li></ul>
+<ul><li><p> TextStyle : <a href="WidgetTextStyle.html"> WidgetTextStyle</a> - текстовый стиль кнопки</p></li></ul>
+<ul><li><p> useDefaultSounds: boolean - использовать звук клика по умолчанию. По умолчанию true</p></li></ul>
+<p></p>
+<h4>Существующие реакции:</h4>
+<p></p>
+<ul><li><p> pushingBindSections: table of BindSection - реакции, которые кнопка будет переводить в нажатия для текущего варианта (независимо от bindedReactions). См. <a href="Widget.html"> Widget</a></p></li></ul>
+<p></p>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryWidgetMembers"</h4>
+<p></p>
+<a href="CategoryWidgetMembers.html">CategoryWidgetMembers</a>
+<br><a href="TextFileRef.html">TextFileRef</a>
+<br><a href="Widget.html">Widget</a>
+<br><a href="WidgetButton.html">WidgetButton</a>
+<br><a href="WidgetButtonState.html">WidgetButtonState</a>
+<br><a href="WidgetButtonVariant.html">WidgetButtonVariant</a>
+<br><a href="WidgetContainer.html">WidgetContainer</a>
+<br><a href="WidgetDiscreteScrollBar.html">WidgetDiscreteScrollBar</a>
+<br><a href="WidgetDiscreteSlider.html">WidgetDiscreteSlider</a>
+<br><a href="WidgetEditBase.html">WidgetEditBase</a>
+<br><a href="WidgetEditBox.html">WidgetEditBox</a>
+<br><a href="WidgetEditLine.html">WidgetEditLine</a>
+<br><a href="WidgetFactoryCache.html">WidgetFactoryCache</a>
+<br><a href="WidgetForm.html">WidgetForm</a>
+<br><a href="WidgetGlideScrollBar.html">WidgetGlideScrollBar</a>
+<br><a href="WidgetGlideSlider.html">WidgetGlideSlider</a>
+<br><a href="WidgetLayer.html">WidgetLayer</a>
+<br><a href="WidgetPanel.html">WidgetPanel</a>
+<br><a href="WidgetPlacementLua.html">WidgetPlacementLua</a>
+<br><a href="WidgetPlacementXY.html">WidgetPlacementXY</a>
+<br><a href="WidgetsArrangement.html">WidgetsArrangement</a>
+<br><a href="WidgetScrollableContainer.html">WidgetScrollableContainer</a>
+<br><a href="WidgetScrollBar.html">WidgetScrollBar</a>
+<br><a href="WidgetSlider.html">WidgetSlider</a>
+<br><a href="WidgetTextContainer.html">WidgetTextContainer</a>
+<br><a href="WidgetTextStyle.html">WidgetTextStyle</a>
+<br><a href="WidgetTextView.html">WidgetTextView</a>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryButton"</h4>
+<p></p>
+<a href="CategoryButton.html">CategoryButton</a>
+<br><a href="FunctionButtonClearValues.html">FunctionButtonClearValues</a>
+<br><a href="FunctionButtonGetVariant.html">FunctionButtonGetVariant</a>
+<br><a href="FunctionButtonGetVariantCount.html">FunctionButtonGetVariantCount</a>
+<br><a href="FunctionButtonSetClassVal.html">FunctionButtonSetClassVal</a>
+<br><a href="FunctionButtonSetTextAttributes.html">FunctionButtonSetTextAttributes</a>
+<br><a href="FunctionButtonSetTextValues.html">FunctionButtonSetTextValues</a>
+<br><a href="FunctionButtonSetVal.html">FunctionButtonSetVal</a>
+<br><a href="FunctionButtonSetVariant.html">FunctionButtonSetVariant</a>
+<br><a href="WidgetButton.html">WidgetButton</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryButton.html">CategoryButton</a>
+<a href="CategoryWidgetMembers.html">CategoryWidgetMembers</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

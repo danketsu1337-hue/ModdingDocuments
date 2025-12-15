@@ -1,0 +1,67 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAvatarGetTeleportLocationInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>avatar.GetTeleportLocationInfo( locationId )</h2>
+<p></p>
+<p>Возвращает информацию о точке телепортации. Информацию можно получить для имеющихся точек телепортации главного игрока, а также точек телепортации мастера телепорта, с которым разговаривает главный игрок, включая точку, в которой стоит мастер.</p>
+<p></p>
+<pre>
+-- библиотека
+avatar
+
+-- объявление
+function GetTeleportLocationInfo( locationId )
+
+-- параметры
+locationId: ObjectId or TeleportMasterId or table - идентификатор точки телепорта
+
+-- возвращаемые значения
+table or nil - если такая точка найдена, то таблица с полями:
+  id: ObjectId - идентификатор точки
+  name: WString - название точки
+  isHighPriority: boolean - эта точка должна показываться перед остальными точками телепортации
+  minLevel: int - минимальный комфортный уровень игры (0, если карта не прописана)
+  maxLevel: int - максимальный комфортный уровень игры (0, если карта не прописана)
+
+-- пример
+local info = avatar.GetTeleportLocationInfo( locationId )
+if info then
+  local name = info.name
+end
+</pre>
+<p></p>
+<h4>Ссылки</h4>
+<p><a href="TeleportMasterId.html">TeleportMasterId</a> - идентификатор мастера телепорта</p>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryTeleportMaster"</h4>
+<p></p>
+<a href="FunctionAvatarGetInteractorCurrentLocations.html">FunctionAvatarGetInteractorCurrentLocations</a>
+<br><a href="FunctionAvatarGetInteractorTeleportLocations.html">FunctionAvatarGetInteractorTeleportLocations</a>
+<br><a href="FunctionAvatarGetTeleportLocationInfo.html">FunctionAvatarGetTeleportLocationInfo</a>
+<br><a href="FunctionAvatarGetTeleportLocations.html">FunctionAvatarGetTeleportLocations</a>
+<br><a href="FunctionAvatarIsTeleportLocationValid.html">FunctionAvatarIsTeleportLocationValid</a>
+<br><a href="FunctionAvatarTeleportToLocation.html">FunctionAvatarTeleportToLocation</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryInteraction.html">CategoryInteraction</a>
+<a href="CategoryTeleportMaster.html">CategoryTeleportMaster</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

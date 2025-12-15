@@ -1,0 +1,70 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - TypeQuestionLibQuizQuestion</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>QuizQuestion</h2>
+<p></p>
+<p>Формат поля questionData у <a href="FunctionQuestionLibGetInfo.html">questionLib.GetInfo( questionId )</a> при значении поля type равном "!QuizQuestion":</p>
+<p></p>
+<pre>
+table - таблица с полями:
+  text: WString - локализованная строка, текст вопроса на который предполагается ответ игрока "да/нет"
+  image: TextureId или nil - идентификатор текстуры для иконки, может отсутствовать
+  type: String(ENUM_QuizQuestionType) - тип вопроса
+</pre>
+<p></p>
+<p>Формат параметра result у <a href="FunctionQuestionLibSendData.html">questionLib.SendData( questionId, result )</a>:</p>
+<pre>
+table - таблица с полями:
+  choice: number (integer) - 1 если игрок ответил "да", 0 если игрок ответил "нет"
+</pre>
+<p></p>
+<p>Доп. ссылки:</p>
+<ul><li><p> <a href="EnumQuizQuestionType.html">ENUM_QuizQuestionType</a></p></li></ul>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryQuestionType"</h4>
+<p></p>
+<a href="CategoryQuestionType.html">CategoryQuestionType</a>
+<br><a href="EnumQuestionShowResultType.html">EnumQuestionShowResultType</a>
+<br><a href="EnumQuizQuestionType.html">EnumQuizQuestionType</a>
+<br><a href="FunctionQuestionLibGetInfo.html">FunctionQuestionLibGetInfo</a>
+<br><a href="TypeQuestionLibClassSelectQuestion.html">TypeQuestionLibClassSelectQuestion</a>
+<br><a href="TypeQuestionLibQuizQuestion.html">TypeQuestionLibQuizQuestion</a>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryQuestionLib"</h4>
+<p></p>
+<a href="CategoryQuestionLib.html">CategoryQuestionLib</a>
+<br><a href="CategoryQuestionType.html">CategoryQuestionType</a>
+<br><a href="EnumQuestionShowResultType.html">EnumQuestionShowResultType</a>
+<br><a href="EnumQuizQuestionType.html">EnumQuizQuestionType</a>
+<br><a href="EventQuestionAdded.html">EventQuestionAdded</a>
+<br><a href="EventQuestionRemoved.html">EventQuestionRemoved</a>
+<br><a href="EventQuestionResultsChanged.html">EventQuestionResultsChanged</a>
+<br><a href="FunctionQuestionLibCancel.html">FunctionQuestionLibCancel</a>
+<br><a href="FunctionQuestionLibGetInfo.html">FunctionQuestionLibGetInfo</a>
+<br><a href="FunctionQuestionLibGetQuestions.html">FunctionQuestionLibGetQuestions</a>
+<br><a href="FunctionQuestionLibSendData.html">FunctionQuestionLibSendData</a>
+<br><a href="TypeQuestionLibClassSelectQuestion.html">TypeQuestionLibClassSelectQuestion</a>
+<br><a href="TypeQuestionLibQuizQuestion.html">TypeQuestionLibQuizQuestion</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryQuestionLib.html">CategoryQuestionLib</a>
+<a href="CategoryQuestionType.html">CategoryQuestionType</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

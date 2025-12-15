@@ -1,0 +1,61 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionUnitGetMoodEmoteId</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> unit.GetMoodEmoteId( unitId )</h2>
+<p></p>
+<p>Если у указанного игрока выставлено какое-либо настроение, то метод возвращает идентификатор эмоции, с помощью которой выставлено это настроение.</p>
+<p></p>
+<pre>
+-- библиотека
+unit
+
+-- объявление:
+function GetMoodEmoteId( unitId )
+
+-- параметры
+unitId: ObjectId - идентификатор игрока, для которого надо получить эмоцию настроения
+
+-- возвращаемые значения
+ObjectId or nil - идентификатор эмоции, если есть какое-либо настроение у игрока
+
+-- пример использования
+local emoteId = unit.GetMoodEmoteId( unitId )
+local emoteInfo = avatar.GetEmoteInfo( emoteId )
+if emoteInfo then
+  common.LogInfo( "Emote system name: " .. emoteInfo.sysName )
+end
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryEmotes"</h4>
+<p></p>
+<a href="CategoryEmotes.html">CategoryEmotes</a>
+<br><a href="EventEmotesChanged.html">EventEmotesChanged</a>
+<br><a href="EventUnitMoodChanged.html">EventUnitMoodChanged</a>
+<br><a href="FunctionAvatarBindEmoteToActionPanel.html">FunctionAvatarBindEmoteToActionPanel</a>
+<br><a href="FunctionAvatarClearMood.html">FunctionAvatarClearMood</a>
+<br><a href="FunctionAvatarGetEmoteInfo.html">FunctionAvatarGetEmoteInfo</a>
+<br><a href="FunctionAvatarGetEmotes.html">FunctionAvatarGetEmotes</a>
+<br><a href="FunctionUnitGetMoodEmoteId.html">FunctionUnitGetMoodEmoteId</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryUnit.html">CategoryUnit</a>
+<a href="CategoryEmotes.html">CategoryEmotes</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

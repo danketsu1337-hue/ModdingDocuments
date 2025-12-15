@@ -1,0 +1,105 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionCartographerGetZonesMapQuests</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> cartographer.GetZonesMapQuests( zonesMapId )</h2>
+<p></p>
+<p>Возвращает информацию о заданиях, относящихся к интерфейсной карте.</p>
+<p></p>
+<p>Также см. <a href="FunctionCartographerIsFinalQuestCompleted.html"> cartographer.IsFinalQuestCompleted( zonesMapId )</a> - финализирующее задание.</p>
+<p></p>
+<p>См. <a href="FunctionCartographerGetZonesMapInfo.html">cartographer.GetZonesMapInfo( zonesMapId ).isShowQuestProgress</a></p>
+<p></p>
+<pre>
+-- библиотека:
+cartographer
+
+-- объявление:
+function GetZonesMapQuests( zonesMapId )
+
+-- параметры:
+zonesMapId: ObjectId - идентификатор интерфейсной карты
+
+-- возвращаемые значения
+table or nil - если такая карта есть, то таблица с полями:
+  totalCount: number (integer) - общее количество заданий, относящихся к локации
+  currentCount: number (integer) - количество заданий активных в данный момент
+  completedCount: number (integer) -  количество завершённых заданий
+  currentQuests: table of QuestId - список идентификаторов ресурсов активных заданий, относящихся к карте
+  completedQuests: table of QuestId - список идентификаторов ресурсов завершённых заданий, относящихся к карте
+</pre>
+<p></p>
+<p>Пример:</p>
+<pre>
+local zoneQuests = cartographer.GetZonesMapQuests( zonesMapId )
+if zoneQuests then
+  local firstCurrentQuest = zoneQuests.currentQuests[ 0 ]
+  if firstCurrentQuest then
+    local questInfo = avatar.GetQuestInfo( firstCurrentQuest )
+  end
+end
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryCartographer" </h4>
+<p></p>
+<a href="CategoryCartographer.html">CategoryCartographer</a>
+<br><a href="EventAvatarClientZoneChanged.html">EventAvatarClientZoneChanged</a>
+<br><a href="EventAvatarMapModifiersChanged.html">EventAvatarMapModifiersChanged</a>
+<br><a href="EventAvatarZoneChanged.html">EventAvatarZoneChanged</a>
+<br><a href="EventNavigateEnabledChanged.html">EventNavigateEnabledChanged</a>
+<br><a href="EventSosFinished.html">EventSosFinished</a>
+<br><a href="EventSosStarted.html">EventSosStarted</a>
+<br><a href="FunctionCartographerCanNavigateToPoint.html">FunctionCartographerCanNavigateToPoint</a>
+<br><a href="FunctionCartographerGetCurrentMapInfo.html">FunctionCartographerGetCurrentMapInfo</a>
+<br><a href="FunctionCartographerGetCurrentMapModifiers.html">FunctionCartographerGetCurrentMapModifiers</a>
+<br><a href="FunctionCartographerGetCurrentZoneAttributes.html">FunctionCartographerGetCurrentZoneAttributes</a>
+<br><a href="FunctionCartographerGetCurrentZoneInfo.html">FunctionCartographerGetCurrentZoneInfo</a>
+<br><a href="FunctionCartographerGetMapBlockInfo.html">FunctionCartographerGetMapBlockInfo</a>
+<br><a href="FunctionCartographerGetMapBlocks.html">FunctionCartographerGetMapBlocks</a>
+<br><a href="FunctionCartographerGetMapGeodata.html">FunctionCartographerGetMapGeodata</a>
+<br><a href="FunctionCartographerGetMapMarkerObjects.html">FunctionCartographerGetMapMarkerObjects</a>
+<br><a href="FunctionCartographerGetMapMarkers.html">FunctionCartographerGetMapMarkers</a>
+<br><a href="FunctionCartographerGetMapModifierInfo.html">FunctionCartographerGetMapModifierInfo</a>
+<br><a href="FunctionCartographerGetMapModifierValuedObject.html">FunctionCartographerGetMapModifierValuedObject</a>
+<br><a href="FunctionCartographerGetMarkerInfo.html">FunctionCartographerGetMarkerInfo</a>
+<br><a href="FunctionCartographerGetObjectGeodata.html">FunctionCartographerGetObjectGeodata</a>
+<br><a href="FunctionCartographerGetQuestGeodata.html">FunctionCartographerGetQuestGeodata</a>
+<br><a href="FunctionCartographerGetQuestObjectiveGeodata.html">FunctionCartographerGetQuestObjectiveGeodata</a>
+<br><a href="FunctionCartographerGetSosInfo.html">FunctionCartographerGetSosInfo</a>
+<br><a href="FunctionCartographerGetSosObjects.html">FunctionCartographerGetSosObjects</a>
+<br><a href="FunctionCartographerGetZonesMapId.html">FunctionCartographerGetZonesMapId</a>
+<br><a href="FunctionCartographerGetZonesMapInfo.html">FunctionCartographerGetZonesMapInfo</a>
+<br><a href="FunctionCartographerGetZonesMapLowQuests.html">FunctionCartographerGetZonesMapLowQuests</a>
+<br><a href="FunctionCartographerGetZonesMapQuests.html">FunctionCartographerGetZonesMapQuests</a>
+<br><a href="FunctionCartographerIsCurrentZoneAnonymizedMap.html">FunctionCartographerIsCurrentZoneAnonymizedMap</a>
+<br><a href="FunctionCartographerIsCurrentZoneRiftMap.html">FunctionCartographerIsCurrentZoneRiftMap</a>
+<br><a href="FunctionCartographerIsFinalQuestCompleted.html">FunctionCartographerIsFinalQuestCompleted</a>
+<br><a href="FunctionCartographerIsOnCommon.html">FunctionCartographerIsOnCommon</a>
+<br><a href="FunctionRulesGetZonesMaps.html">FunctionRulesGetZonesMaps</a>
+<br><a href="FunctionUnitGetZonesMapId.html">FunctionUnitGetZonesMapId</a>
+<br><a href="Geodata.html">Geodata</a>
+<br><a href="MapModifierId.html">MapModifierId</a>
+<p></p>
+<hr>
+<p></p>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryPosition.html">CategoryPosition</a>
+<a href="CategoryCartographer.html">CategoryCartographer</a>
+<a href="CategoryQuest.html">CategoryQuest</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

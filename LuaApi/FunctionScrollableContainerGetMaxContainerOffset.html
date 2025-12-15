@@ -1,0 +1,74 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionScrollableContainerGetMaxContainerOffset</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> GetMaxContainerOffset( self )</h2>
+<p></p>
+<p>Возвращает максимальное значение на которое может быть прокручен контейнер</p>
+<p></p>
+<pre>
+-- класс
+ScrollableContainerSafe
+
+-- семантика
+function GetMaxContainerOffset( self )
+
+-- входные параметры:
+нет
+
+-- возвращаемое значение:
+number (float) - максимальное значение прокрутки
+
+-- пример:
+
+-- store max offset
+local maxOffset = wtScrollableContainer:GetMaxContainerOffset()
+-- прокрутка контейнера до середины
+wtScrollableContainer:SetContainerOffset( maxOffset / 2 )
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryScrollableContainer"</h4>
+<p></p>
+<a href="CategoryScrollableContainer.html">CategoryScrollableContainer</a>
+<br><a href="FunctionScrollableContainerAt.html">FunctionScrollableContainerAt</a>
+<br><a href="FunctionScrollableContainerEnsureVisible.html">FunctionScrollableContainerEnsureVisible</a>
+<br><a href="FunctionScrollableContainerForceReposition.html">FunctionScrollableContainerForceReposition</a>
+<br><a href="FunctionScrollableContainerGetContainerOffset.html">FunctionScrollableContainerGetContainerOffset</a>
+<br><a href="FunctionScrollableContainerGetElementCount.html">FunctionScrollableContainerGetElementCount</a>
+<br><a href="FunctionScrollableContainerGetElementLimit.html">FunctionScrollableContainerGetElementLimit</a>
+<br><a href="FunctionScrollableContainerGetMaxContainerOffset.html">FunctionScrollableContainerGetMaxContainerOffset</a>
+<br><a href="FunctionScrollableContainerInsert.html">FunctionScrollableContainerInsert</a>
+<br><a href="FunctionScrollableContainerIsContain.html">FunctionScrollableContainerIsContain</a>
+<br><a href="FunctionScrollableContainerIsSliderMax.html">FunctionScrollableContainerIsSliderMax</a>
+<br><a href="FunctionScrollableContainerIsSliderMin.html">FunctionScrollableContainerIsSliderMin</a>
+<br><a href="FunctionScrollableContainerPopBack.html">FunctionScrollableContainerPopBack</a>
+<br><a href="FunctionScrollableContainerPopFront.html">FunctionScrollableContainerPopFront</a>
+<br><a href="FunctionScrollableContainerPushBack.html">FunctionScrollableContainerPushBack</a>
+<br><a href="FunctionScrollableContainerPushFront.html">FunctionScrollableContainerPushFront</a>
+<br><a href="FunctionScrollableContainerRemove.html">FunctionScrollableContainerRemove</a>
+<br><a href="FunctionScrollableContainerRemoveAt.html">FunctionScrollableContainerRemoveAt</a>
+<br><a href="FunctionScrollableContainerRemoveItems.html">FunctionScrollableContainerRemoveItems</a>
+<br><a href="FunctionScrollableContainerSetContainerOffset.html">FunctionScrollableContainerSetContainerOffset</a>
+<br><a href="WidgetContainer.html">WidgetContainer</a>
+<br><a href="WidgetScrollableContainer.html">WidgetScrollableContainer</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryScrollableContainer.html">CategoryScrollableContainer</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

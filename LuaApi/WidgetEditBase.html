@@ -1,0 +1,92 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - WidgetEditBase</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<h2>EditBase. Описание базового виджета ввода текста.</h2>
+<p></p>
+<h2>Базовый виджет для ввода текста</h2>
+<p></p>
+<p>Это базовый астрактный элемент интерфейса предназначенный для ввода текстовой информации, унаследован от <a href="Widget.html"> Widget</a>. Предназначен исключительно для наследования, не имеет реализации.</p>
+<p></p>
+<p>Виджеты унаследованые от WidgetEditBase:</p>
+<ul><li><p> WidgetEditLine - виджет для ввода однострочного текста с поддержкой линка объектов и сокрытия ввода(для паролей)</p></li></ul>
+<ul><li><p> WidgetEditBox - виджет для ввода многострочного текста с поддержкой форматирования</p></li></ul>
+<p></p>
+<h4>Дополнительные поля контейнера:</h4>
+<p></p>
+<ul><li><p> Cursor1Layer: WidgetLayer - текстурный слой для показа курсора в состоянии 1</p></li></ul>
+<ul><li><p> Cursor2Layer: WidgetLayer - текстурный слой для показа курсора в состоянии 2</p></li></ul>
+<ul><li><p> CursorWidth: number (integer) - ширина курсора. По умолчанию 2</p></li></ul>
+<ul><li><p> CursorChangeTimeMs: number (integer) - время переключения состояний курсора в миллисекундах. По умолчанию 500</p></li></ul>
+<p></p>
+<ul><li><p> maxSymbolsCount: number (integer) - максимальное количество символов в строке. по умолчанию -1 - количество не ограниченно</p></li></ul>
+<ul><li><p> canPaste: boolean - если false, то в строку ввода невозможно вставить текст из буфера обмена. По умолчанию true</p></li></ul>
+<ul><li><p> TextStyle: WidgetTextStyle - формат вывода текста на экран (разрывы строк, многострочность и т.п.)</p></li></ul>
+<ul><li><p> globalClassName: string - стиль оформления основного текста</p></li></ul>
+<ul><li><p> selectionClassName: string - стиль оформления текста выделения</p></li></ul>
+<ul><li><p> selectionLayer: WidgetLayer - текстурный слой для отрисовки подложки выделения</p></li></ul>
+<ul><li><p> filterAlias: string - название фильтра, разрешающего только буквы, перечисленные в нём. Значения: "RUSSIAN", "NUMBERS", "INTEGER". См. <a href="EditBaseTextFilter.html"> EditBaseTextFilter</a></p></li></ul>
+<p></p>
+<h4>Существующие реакции:</h4>
+<p></p>
+<ul><li><p> ReactionEsc: string - нажатие Esc</p></li></ul>
+<ul><li><p> ReactionChanged: string - в поле ввода изменилось значение</p></li></ul>
+<ul><li><p> reactionFocusChanged: string - изменился фокус (поле реакции active = true - появился, false - исчез)</p></li></ul>
+<ul><li><p> reactionPaste: string - был вставлен текст, в случае canPaste == false можно оповестить о невозможности вставки текста</p></li></ul>
+<ul><li><p> reactionCapsLock: string - реакция на смену состояния клавиши Caps Lock (поле реакции active состояние CapsLock (true - включен, false - выключен) )</p></li></ul>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryWidgetMembers"</h4>
+<p></p>
+<a href="CategoryWidgetMembers.html">CategoryWidgetMembers</a>
+<br><a href="TextFileRef.html">TextFileRef</a>
+<br><a href="Widget.html">Widget</a>
+<br><a href="WidgetButton.html">WidgetButton</a>
+<br><a href="WidgetButtonState.html">WidgetButtonState</a>
+<br><a href="WidgetButtonVariant.html">WidgetButtonVariant</a>
+<br><a href="WidgetContainer.html">WidgetContainer</a>
+<br><a href="WidgetDiscreteScrollBar.html">WidgetDiscreteScrollBar</a>
+<br><a href="WidgetDiscreteSlider.html">WidgetDiscreteSlider</a>
+<br><a href="WidgetEditBase.html">WidgetEditBase</a>
+<br><a href="WidgetEditBox.html">WidgetEditBox</a>
+<br><a href="WidgetEditLine.html">WidgetEditLine</a>
+<br><a href="WidgetFactoryCache.html">WidgetFactoryCache</a>
+<br><a href="WidgetForm.html">WidgetForm</a>
+<br><a href="WidgetGlideScrollBar.html">WidgetGlideScrollBar</a>
+<br><a href="WidgetGlideSlider.html">WidgetGlideSlider</a>
+<br><a href="WidgetLayer.html">WidgetLayer</a>
+<br><a href="WidgetPanel.html">WidgetPanel</a>
+<br><a href="WidgetPlacementLua.html">WidgetPlacementLua</a>
+<br><a href="WidgetPlacementXY.html">WidgetPlacementXY</a>
+<br><a href="WidgetsArrangement.html">WidgetsArrangement</a>
+<br><a href="WidgetScrollableContainer.html">WidgetScrollableContainer</a>
+<br><a href="WidgetScrollBar.html">WidgetScrollBar</a>
+<br><a href="WidgetSlider.html">WidgetSlider</a>
+<br><a href="WidgetTextContainer.html">WidgetTextContainer</a>
+<br><a href="WidgetTextStyle.html">WidgetTextStyle</a>
+<br><a href="WidgetTextView.html">WidgetTextView</a>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryEditBase"</h4>
+<p></p>
+<a href="CategoryEditBase.html">CategoryEditBase</a>
+<br><a href="EditBaseTextFilter.html">EditBaseTextFilter</a>
+<br><a href="WidgetEditBase.html">WidgetEditBase</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryEditBase.html">CategoryEditBase</a>
+<a href="CategoryWidgetMembers.html">CategoryWidgetMembers</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

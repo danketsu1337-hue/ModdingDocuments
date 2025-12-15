@@ -1,0 +1,131 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionCommonGetAddonRelatedWidgetGroup</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> common.GetAddonRelatedWidgetGroup( sysGroup, optional )</h2>
+<p></p>
+<p>Возвращает группу связанных с аддоном шаблонов виджетов. Группа представляет собой userdata (RelatedWidgetsLua).</p>
+<p></p>
+<pre>
+-- библиотека:
+common
+
+-- объявление:
+function GetAddonRelatedWidgetGroup( sysGroup, optional )
+
+-- параметры:
+sysGroup: string - идентификатор группы
+optional: boolean or nil - если true, то отсутствие искомой группы не считается ошибкой (по умолчанию false)
+
+-- возвращаемые значения:
+RelatedWidgetsLua or nil - группа шаблонов виджетов или nil в случае если группа не найдена
+
+-- пример:
+--------------------------------------------------------------------------------
+local GetWidgetDesc
+--------------------------------------------------------------------------------
+do
+	local stateGroups = {}
+	local addonGroups = {}
+	--------------------------------------------------------------------------------
+	function GetWidgetDesc( name, templateData )
+		---BEGIN_DEBUG---
+		assert( type( name ) == "string", "advWidgetFactory::GetWidgetDesc: Wrong template name: string expected, got %s", type( name ) )
+		assert( widgetPools[ name ] == nil, 'advWidgetFactory::GetWidgetDesc: Wrong template name: Name [%s] not unique', name )
+		assert( templateData == nil or type( templateData ) == "table", "advWidgetFactory::GetWidgetDesc: Wrong template: table or nil expected, got %s", type( templateData ) )
+		---END_DEBUG---
+
+		if templateData then
+			templateData.type = templateData.type or WIDGET_TEMPLATE_TYPE_ADDON
+
+			---BEGIN_DEBUG---
+			assert( templateData.type == WIDGET_TEMPLATE_TYPE_ADDON or templateData.type == WIDGET_TEMPLATE_TYPE_STATE,
+				"advWidgetFactory::GetWidgetDesc: Wrong template group type" )
+			assert( type( templateData.group ) == "string",
+				"advWidgetFactory::GetWidgetDesc: Wrong template group name: string expected, got %s", type( templateData.group ) )
+			assert( type( templateData.name ) == "string",
+				"advWidgetFactory::GetWidgetDesc: Wrong template group member name: string expected, got %s", type( templateData.name ) )
+			---END_DEBUG---
+
+			local group
+			if templateData.type == WIDGET_TEMPLATE_TYPE_ADDON then
+				group = addonGroups[ templateData.group ] or common.GetAddonRelatedWidgetGroup( templateData.group, true )
+				addonGroups[ templateData.group ] = group
+			elseif templateData.type == WIDGET_TEMPLATE_TYPE_STATE then
+				group = stateGroups[ templateData.group ] or common.GetStateRelatedWidgetGroup( templateData.group, true )
+				stateGroups[ templateData.group ] = group
+			end
+
+			---BEGIN_DEBUG---
+			assert( group ~= nil, "advWidgetFactory::GetWidgetDesc: Can't find group [%s]", templateData.group )
+			assert( group:HasWidget( templateData.name ),
+				"advWidgetFactory::GetWidgetDesc: Can't find widget [%s] in group [%s]", templateData.name, templateData.group )
+			---END_DEBUG---
+
+			return group:GetWidget( templateData.name )
+		else
+			---BEGIN_DEBUG---
+			assert( mainForm:GetChildUnchecked( name ) ~= nil, "advWidgetFactory::GetWidgetDesc: Can't find widget [%s] in mainForm", name )
+			---END_DEBUG---
+			local widget = mainForm:GetChildChecked( name )
+			local desc = widget:GetWidgetDesc()
+			widget:DestroyWidget()
+			return desc
+		end
+	end
+	--------------------------------------------------------------------------------
+end
+--------------------------------------------------------------------------------
+</pre>
+<p></p>
+<p>См. описание группы текстурных ресурсов: <a href="RelatedTexturesLua.html"> RelatedTexturesLua</a></p>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryRelatedResources"</h4>
+<p></p>
+<a href="CategoryRelatedResources.html">CategoryRelatedResources</a>
+<br><a href="FunctionCommonGetAddonRelatedSoundGroup.html">FunctionCommonGetAddonRelatedSoundGroup</a>
+<br><a href="FunctionCommonGetAddonRelatedTextGroup.html">FunctionCommonGetAddonRelatedTextGroup</a>
+<br><a href="FunctionCommonGetAddonRelatedTextureGroup.html">FunctionCommonGetAddonRelatedTextureGroup</a>
+<br><a href="FunctionCommonGetAddonRelatedWidgetGroup.html">FunctionCommonGetAddonRelatedWidgetGroup</a>
+<br><a href="FunctionCommonGetStateRelatedSoundGroup.html">FunctionCommonGetStateRelatedSoundGroup</a>
+<br><a href="FunctionCommonGetStateRelatedTextGroup.html">FunctionCommonGetStateRelatedTextGroup</a>
+<br><a href="FunctionCommonGetStateRelatedTextureGroup.html">FunctionCommonGetStateRelatedTextureGroup</a>
+<br><a href="FunctionCommonGetStateRelatedWidgetGroup.html">FunctionCommonGetStateRelatedWidgetGroup</a>
+<br><a href="FunctionRelatedSoundsLuaGetList.html">FunctionRelatedSoundsLuaGetList</a>
+<br><a href="FunctionRelatedSoundsLuaGetSound.html">FunctionRelatedSoundsLuaGetSound</a>
+<br><a href="FunctionRelatedSoundsLuaHasSound.html">FunctionRelatedSoundsLuaHasSound</a>
+<br><a href="FunctionRelatedTextsLuaGetList.html">FunctionRelatedTextsLuaGetList</a>
+<br><a href="FunctionRelatedTextsLuaGetText.html">FunctionRelatedTextsLuaGetText</a>
+<br><a href="FunctionRelatedTextsLuaHasText.html">FunctionRelatedTextsLuaHasText</a>
+<br><a href="FunctionRelatedTexturesLuaGetList.html">FunctionRelatedTexturesLuaGetList</a>
+<br><a href="FunctionRelatedTexturesLuaGetTexture.html">FunctionRelatedTexturesLuaGetTexture</a>
+<br><a href="FunctionRelatedTexturesLuaHasTexture.html">FunctionRelatedTexturesLuaHasTexture</a>
+<br><a href="FunctionRelatedWidgetsLuaGetList.html">FunctionRelatedWidgetsLuaGetList</a>
+<br><a href="FunctionRelatedWidgetsLuaGetWidget.html">FunctionRelatedWidgetsLuaGetWidget</a>
+<br><a href="FunctionRelatedWidgetsLuaHasWidget.html">FunctionRelatedWidgetsLuaHasWidget</a>
+<br><a href="RelatedResources.html">RelatedResources</a>
+<br><a href="RelatedSoundsLua.html">RelatedSoundsLua</a>
+<br><a href="RelatedTextsLua.html">RelatedTextsLua</a>
+<br><a href="RelatedTexturesLua.html">RelatedTexturesLua</a>
+<br><a href="RelatedWidgetsLua.html">RelatedWidgetsLua</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryRelatedResources.html">CategoryRelatedResources</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

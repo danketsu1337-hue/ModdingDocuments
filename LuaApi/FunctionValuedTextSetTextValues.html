@@ -1,0 +1,124 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionValuedTextSetTextValues</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> ValuedText:SetTextValues( self, textValues )</h2>
+<p></p>
+<p>Заполняет ValuedText переданными в textValues значениями.</p>
+<p></p>
+<p>В первую очередь в textValues ищется поле format:</p>
+<ul><li><p> Если format это ValuedText, то будет скопирована его структура (но не значения!)</p></li></ul>
+<ul><li><p> Если format это string/WString содержащий валидный XHTML-текст, то он будет распарсен в ValuedText</p></li></ul>
+<ul><li><p> Если format это string/WString НЕ содержащий валидный XHTML-текст, то он будет установлен как PlainText</p></li></ul>
+<ul><li><p> Во всех остальных случаях формат текста не изменится</p></li></ul>
+<p></p>
+<p>Далее выполняется обход всех string-ключей в таблице textValues (кроме format)</p>
+<ul><li><p> Если значение имеет тип string - неявно выполняется SetClassVal( key, value )</p></li></ul>
+<ul><li><p> Если значение имеет тип int - неявно выполняется SetVal( key, IntWs( value ) )</p></li></ul>
+<ul><li><p> Если значение имеет тип float - неявно выполняется SetVal( key, FloatWs( value ) )</p></li></ul>
+<ul><li><p> Если значение имеет тип WString/ValuedText/ValuedObject - неявно выполняется SetVal( key, value )</p></li></ul>
+<ul><li><p> Если значение имеет тип table - неявно выполняется SetVal( key, CreateVt( value ) )</p></li></ul>
+<ul><li><p> Во всех остальных случаях значение игнорируется</p></li></ul>
+<p></p>
+<p>В случае если какое либо значение не удалось подставить (например из-за отсутствия соответствующего ключа в ValuedText), то оно будет проигнорировано.</p>
+<p></p>
+<p>'''Во всех случаях когда одновременно подставляется 3 и более значений настоятельно рекомендуется использовать данную API и выполнять подстановку за один вызов.'''</p>
+<p></p>
+<p>'''Изменение формата в существующем непустом ValuedText или виджете содержащем ValuedText не рекомендуется'''</p>
+<p></p>
+<pre>
+-- класс
+ValuedText
+
+-- семантика
+function SetTextValues( self, textValues )
+
+-- параметры
+textValues: table - таблица подставляемых значений
+
+-- возвращаемые значения:
+нет
+
+-- примеры:
+local tab1 = {
+	format = debugCommon.ToWString( [[&lt;html&gt;aa1 &lt;r name="obj11"/&gt; bb1 &lt;/html&gt;]] ),
+	obj11 = debugCommon.ToWString( [[&lt;html&gt;cc1 &lt;r name="obj12"/&gt; dd1 &lt;/html&gt;]] ),
+	obj12 = debugCommon.ToWString( [[&lt;html&gt;ee1 &lt;r name="obj13"/&gt; ff1 &lt;/html&gt;]] ),
+	obj13 = debugCommon.ToWString( [[gg1]] )
+}
+local tab2 = {
+	format = debugCommon.ToWString( [[&lt;html&gt;aa2 &lt;r name="obj21"/&gt; bb2 &lt;/html&gt;]] ),
+	obj21 = debugCommon.ToWString( [[&lt;html&gt;cc2 &lt;r name="obj22"/&gt; dd2 &lt;/html&gt;]] ),
+	obj22 = debugCommon.ToWString( [[&lt;html&gt;ee2 &lt;r name="obj23"/&gt; ff2 &lt;/html&gt;]] ),
+	obj23 = tab1
+}
+
+VT:SetTextValues( tab2 )
+-- LogInfo( VT )
+--     ValuedText: [[&lt;html&gt;aa2 &lt;r name="obj21"&gt;&lt;html&gt;cc2 &lt;r name="obj22"&gt;&lt;html&gt;ee2 &lt;r name="obj23"&gt;&lt;/r&gt; ff2 &lt;/html&gt;&lt;/r&gt; dd2 &lt;/html&gt;&lt;/r&gt; bb2 &lt;/html&gt;]]
+-- LogInfo( VT:ToWString() )
+--     WString: [[aa2 cc2 ee2  ff2  dd2  bb2 ]]
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryValuedText"</h4>
+<p></p>
+<a href="CategoryValuedText.html">CategoryValuedText</a>
+<br><a href="EventValuedObjectClicked.html">EventValuedObjectClicked</a>
+<br><a href="EventValuedObjectDoubleClicked.html">EventValuedObjectDoubleClicked</a>
+<br><a href="EventValuedObjectMouseOver.html">EventValuedObjectMouseOver</a>
+<br><a href="FunctionAvatarGetAbilityValuedObject.html">FunctionAvatarGetAbilityValuedObject</a>
+<br><a href="FunctionAvatarGetBuffValuedObject.html">FunctionAvatarGetBuffValuedObject</a>
+<br><a href="FunctionAvatarGetGlossaryDescription.html">FunctionAvatarGetGlossaryDescription</a>
+<br><a href="FunctionCommonCreateValuedObject.html">FunctionCommonCreateValuedObject</a>
+<br><a href="FunctionCommonCreateValuedText.html">FunctionCommonCreateValuedText</a>
+<br><a href="FunctionCommonFormatFloat.html">FunctionCommonFormatFloat</a>
+<br><a href="FunctionCommonFormatInt.html">FunctionCommonFormatInt</a>
+<br><a href="FunctionCommonFormatNumber.html">FunctionCommonFormatNumber</a>
+<br><a href="FunctionCommonIsEmptyValuedText.html">FunctionCommonIsEmptyValuedText</a>
+<br><a href="FunctionCommonIsValuedObject.html">FunctionCommonIsValuedObject</a>
+<br><a href="FunctionCommonIsValuedText.html">FunctionCommonIsValuedText</a>
+<br><a href="FunctionItemLibGetValuedObject.html">FunctionItemLibGetValuedObject</a>
+<br><a href="FunctionMountGetValuedObject.html">FunctionMountGetValuedObject</a>
+<br><a href="FunctionSpellLibGetValuedObject.html">FunctionSpellLibGetValuedObject</a>
+<br><a href="FunctionTextViewSetValuedText.html">FunctionTextViewSetValuedText</a>
+<br><a href="FunctionUnitGetPlayerValuedObject.html">FunctionUnitGetPlayerValuedObject</a>
+<br><a href="FunctionUnitGetUnitValuedObject.html">FunctionUnitGetUnitValuedObject</a>
+<br><a href="FunctionValuedObjectGetId.html">FunctionValuedObjectGetId</a>
+<br><a href="FunctionValuedObjectGetImage.html">FunctionValuedObjectGetImage</a>
+<br><a href="FunctionValuedObjectGetShardName.html">FunctionValuedObjectGetShardName</a>
+<br><a href="FunctionValuedObjectGetText.html">FunctionValuedObjectGetText</a>
+<br><a href="FunctionValuedObjectGetType.html">FunctionValuedObjectGetType</a>
+<br><a href="FunctionValuedTextClearValues.html">FunctionValuedTextClearValues</a>
+<br><a href="FunctionValuedTextCreateCopy.html">FunctionValuedTextCreateCopy</a>
+<br><a href="FunctionValuedTextHasObjects.html">FunctionValuedTextHasObjects</a>
+<br><a href="FunctionValuedTextIsEmpty.html">FunctionValuedTextIsEmpty</a>
+<br><a href="FunctionValuedTextSetClassVal.html">FunctionValuedTextSetClassVal</a>
+<br><a href="FunctionValuedTextSetFormat.html">FunctionValuedTextSetFormat</a>
+<br><a href="FunctionValuedTextSetPlainText.html">FunctionValuedTextSetPlainText</a>
+<br><a href="FunctionValuedTextSetTagAttributes.html">FunctionValuedTextSetTagAttributes</a>
+<br><a href="FunctionValuedTextSetTextValues.html">FunctionValuedTextSetTextValues</a>
+<br><a href="FunctionValuedTextSetVal.html">FunctionValuedTextSetVal</a>
+<br><a href="FunctionValuedTextToWString.html">FunctionValuedTextToWString</a>
+<br><a href="TypeValuedObject.html">TypeValuedObject</a>
+<br><a href="TypeValuedText.html">TypeValuedText</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryValuedText.html">CategoryValuedText</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

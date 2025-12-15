@@ -1,0 +1,100 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - WidgetTextContainer</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> TextContainer. Описание скроллируемого контейнера текстовых элементов.</h2>
+<p></p>
+<h2>Скроллируемый контейнер текстовых элементов</h2>
+<p></p>
+<p>WidgetTextContainer унаследован от базового класса WidgetContainer. Предназначен для создания визуального списка (произвольного размера) текстов с возможностью прокрутки содержащихся элементов в фиксированной видимой области. Оптимизирован под работу с текстами.</p>
+<p></p>
+<p>Каждый элемент представляется собой <a href="WidgetTextView.html"> WidgetTextView</a>. Алгоритм добавления новых элементов:</p>
+<ul><li><p> Если элемент ValuedText - он подставляется в TextView через SetValuedText</p></li></ul>
+<ul><li><p> Если элемент WString - создается ValuedText по формату formatFileRef, в тег defaultTag подставляется WString, ValuedText подставляется в TextView через SetValuedText</p></li></ul>
+<p></p>
+<h4>Дополнительные поля контейнера:</h4>
+<p></p>
+<ul><li><p> formatFileRef: TextFileRef - Ссылка на файл, содержащий формат добавляемых WString. Опционально, если не задана, то нельзя добавлять WString</p></li></ul>
+<ul><li><p> defaultTag: string - Название тега в форматной строке formatFileRef для добавляемого WString. Опционально, если не задано, то нельзя добавлять WString</p></li></ul>
+<ul><li><p> pickObjectsOnly: boolean - В тексте кликабельны только объекты ValuedObject, сам текст прозрачен для ввода. Опционально, по умолчанию false.</p></li></ul>
+<ul><li><p> rotateOnLimit: boolean - При добавлении текста сверх лимита (смотри <a href="WidgetContainer.html"> WidgetContainer-&gt;elementsLimit</a>) автоматически удалять текст с противоположной стороны контейнера. Опционально, по умолчанию false. Если true, то нельзя добавлять текст в середину контейнера (метод <a href="FunctionTextContainerInsertText.html"> InsertText</a>)</p></li></ul>
+<p></p>
+<h4>Существующие реакции:</h4>
+<p></p>
+<p>Контейнер не имеет никаких дополнительных реакций.</p>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryWidgetMembers"</h4>
+<p></p>
+<a href="CategoryWidgetMembers.html">CategoryWidgetMembers</a>
+<br><a href="TextFileRef.html">TextFileRef</a>
+<br><a href="Widget.html">Widget</a>
+<br><a href="WidgetButton.html">WidgetButton</a>
+<br><a href="WidgetButtonState.html">WidgetButtonState</a>
+<br><a href="WidgetButtonVariant.html">WidgetButtonVariant</a>
+<br><a href="WidgetContainer.html">WidgetContainer</a>
+<br><a href="WidgetDiscreteScrollBar.html">WidgetDiscreteScrollBar</a>
+<br><a href="WidgetDiscreteSlider.html">WidgetDiscreteSlider</a>
+<br><a href="WidgetEditBase.html">WidgetEditBase</a>
+<br><a href="WidgetEditBox.html">WidgetEditBox</a>
+<br><a href="WidgetEditLine.html">WidgetEditLine</a>
+<br><a href="WidgetFactoryCache.html">WidgetFactoryCache</a>
+<br><a href="WidgetForm.html">WidgetForm</a>
+<br><a href="WidgetGlideScrollBar.html">WidgetGlideScrollBar</a>
+<br><a href="WidgetGlideSlider.html">WidgetGlideSlider</a>
+<br><a href="WidgetLayer.html">WidgetLayer</a>
+<br><a href="WidgetPanel.html">WidgetPanel</a>
+<br><a href="WidgetPlacementLua.html">WidgetPlacementLua</a>
+<br><a href="WidgetPlacementXY.html">WidgetPlacementXY</a>
+<br><a href="WidgetsArrangement.html">WidgetsArrangement</a>
+<br><a href="WidgetScrollableContainer.html">WidgetScrollableContainer</a>
+<br><a href="WidgetScrollBar.html">WidgetScrollBar</a>
+<br><a href="WidgetSlider.html">WidgetSlider</a>
+<br><a href="WidgetTextContainer.html">WidgetTextContainer</a>
+<br><a href="WidgetTextStyle.html">WidgetTextStyle</a>
+<br><a href="WidgetTextView.html">WidgetTextView</a>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryTextContainer"</h4>
+<p></p>
+<a href="CategoryTextContainer.html">CategoryTextContainer</a>
+<br><a href="FunctionTextContainerForceReposition.html">FunctionTextContainerForceReposition</a>
+<br><a href="FunctionTextContainerGetContainerOffset.html">FunctionTextContainerGetContainerOffset</a>
+<br><a href="FunctionTextContainerGetElementCount.html">FunctionTextContainerGetElementCount</a>
+<br><a href="FunctionTextContainerGetElementLimit.html">FunctionTextContainerGetElementLimit</a>
+<br><a href="FunctionTextContainerGetMaxContainerOffset.html">FunctionTextContainerGetMaxContainerOffset</a>
+<br><a href="FunctionTextContainerInsertText.html">FunctionTextContainerInsertText</a>
+<br><a href="FunctionTextContainerIsSliderMax.html">FunctionTextContainerIsSliderMax</a>
+<br><a href="FunctionTextContainerIsSliderMin.html">FunctionTextContainerIsSliderMin</a>
+<br><a href="FunctionTextContainerPopBack.html">FunctionTextContainerPopBack</a>
+<br><a href="FunctionTextContainerPopFront.html">FunctionTextContainerPopFront</a>
+<br><a href="FunctionTextContainerPushBackRawText.html">FunctionTextContainerPushBackRawText</a>
+<br><a href="FunctionTextContainerPushBackText.html">FunctionTextContainerPushBackText</a>
+<br><a href="FunctionTextContainerPushBackValuedText.html">FunctionTextContainerPushBackValuedText</a>
+<br><a href="FunctionTextContainerPushFrontRawText.html">FunctionTextContainerPushFrontRawText</a>
+<br><a href="FunctionTextContainerPushFrontText.html">FunctionTextContainerPushFrontText</a>
+<br><a href="FunctionTextContainerPushFrontValuedText.html">FunctionTextContainerPushFrontValuedText</a>
+<br><a href="FunctionTextContainerRemoveAt.html">FunctionTextContainerRemoveAt</a>
+<br><a href="FunctionTextContainerRemoveItems.html">FunctionTextContainerRemoveItems</a>
+<br><a href="FunctionTextContainerSetContainerOffset.html">FunctionTextContainerSetContainerOffset</a>
+<br><a href="WidgetContainer.html">WidgetContainer</a>
+<br><a href="WidgetTextContainer.html">WidgetTextContainer</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryWidgetMembers.html">CategoryWidgetMembers</a>
+<a href="CategoryTextContainer.html">CategoryTextContainer</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

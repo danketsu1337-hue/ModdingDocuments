@@ -1,0 +1,120 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionHangarGetCustomizationCurrency</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> hangar.GetCustomizationCurrency()</h2>
+<p></p>
+<p>Возвращает информацию о валюте для замены устройств. Возможно получить только после начала процесса кастомизации.</p>
+<p></p>
+<pre>
+-- библиотека:
+hangar
+
+-- объявление:
+function GetCustomizationCurrency()
+
+-- параметры:
+нет
+
+-- возвращаемые значения
+CurrencyId - идентификатор альтернаивной валюты
+
+-- пример:
+local currencyId = hangar.GetCustomizationCurrency()
+if currencyId then
+  local currencyInfo = avatar.GetCurrencyInfo( currencyId )
+end
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryHangar"</h4>
+<p></p>
+<a href="EnumCannonVisualType.html">EnumCannonVisualType</a>
+<br><a href="EnumShipInfoMarker.html">EnumShipInfoMarker</a>
+<br><a href="EventHangarActiveHullChanged.html">EventHangarActiveHullChanged</a>
+<br><a href="EventHangarActiveShipChanged.html">EventHangarActiveShipChanged</a>
+<br><a href="EventHangarActiveShipHullsChanged.html">EventHangarActiveShipHullsChanged</a>
+<br><a href="EventHangarActiveShipSkinsChanged.html">EventHangarActiveShipSkinsChanged</a>
+<br><a href="EventHangarActiveSkinChanged.html">EventHangarActiveSkinChanged</a>
+<br><a href="EventHangarDevicesReceived.html">EventHangarDevicesReceived</a>
+<br><a href="EventHangarRepairQuestion.html">EventHangarRepairQuestion</a>
+<br><a href="EventHangarShipsChanged.html">EventHangarShipsChanged</a>
+<br><a href="EventHangarSlotDevicesReceived.html">EventHangarSlotDevicesReceived</a>
+<br><a href="EventHangarSpellChanged.html">EventHangarSpellChanged</a>
+<br><a href="EventHangarSpellEffect.html">EventHangarSpellEffect</a>
+<br><a href="EventShipCustomizationChanged.html">EventShipCustomizationChanged</a>
+<br><a href="EventShipCustomizationFinished.html">EventShipCustomizationFinished</a>
+<br><a href="EventShipCustomizationStarted.html">EventShipCustomizationStarted</a>
+<br><a href="EventTransportRenameReply.html">EventTransportRenameReply</a>
+<br><a href="EventTransportRenameReplyResult.html">EventTransportRenameReplyResult</a>
+<br><a href="FunctionHangarApplyCustomization.html">FunctionHangarApplyCustomization</a>
+<br><a href="FunctionHangarCanCustomize.html">FunctionHangarCanCustomize</a>
+<br><a href="FunctionHangarCanLendShip.html">FunctionHangarCanLendShip</a>
+<br><a href="FunctionHangarCanRemoveDevice.html">FunctionHangarCanRemoveDevice</a>
+<br><a href="FunctionHangarChangeSlotCustomization.html">FunctionHangarChangeSlotCustomization</a>
+<br><a href="FunctionHangarGetActiveShip.html">FunctionHangarGetActiveShip</a>
+<br><a href="FunctionHangarGetActiveShipHull.html">FunctionHangarGetActiveShipHull</a>
+<br><a href="FunctionHangarGetActiveShipSkin.html">FunctionHangarGetActiveShipSkin</a>
+<br><a href="FunctionHangarGetAllowedDeviceTypes.html">FunctionHangarGetAllowedDeviceTypes</a>
+<br><a href="FunctionHangarGetAvailableHulls.html">FunctionHangarGetAvailableHulls</a>
+<br><a href="FunctionHangarGetAvailableSkins.html">FunctionHangarGetAvailableSkins</a>
+<br><a href="FunctionHangarGetBuildProgress.html">FunctionHangarGetBuildProgress</a>
+<br><a href="FunctionHangarGetCustomizationCost.html">FunctionHangarGetCustomizationCost</a>
+<br><a href="FunctionHangarGetCustomizationCurrency.html">FunctionHangarGetCustomizationCurrency</a>
+<br><a href="FunctionHangarGetCustomizationSlotDevices.html">FunctionHangarGetCustomizationSlotDevices</a>
+<br><a href="FunctionHangarGetCustomizationSlotInfo.html">FunctionHangarGetCustomizationSlotInfo</a>
+<br><a href="FunctionHangarGetCustomizationSlots.html">FunctionHangarGetCustomizationSlots</a>
+<br><a href="FunctionHangarGetDeviceInfo.html">FunctionHangarGetDeviceInfo</a>
+<br><a href="FunctionHangarGetDevices.html">FunctionHangarGetDevices</a>
+<br><a href="FunctionHangarGetHullInfo.html">FunctionHangarGetHullInfo</a>
+<br><a href="FunctionHangarGetLendShipSpellId.html">FunctionHangarGetLendShipSpellId</a>
+<br><a href="FunctionHangarGetRandomName.html">FunctionHangarGetRandomName</a>
+<br><a href="FunctionHangarGetRepairProgress.html">FunctionHangarGetRepairProgress</a>
+<br><a href="FunctionHangarGetReturnLendedShipSpellId.html">FunctionHangarGetReturnLendedShipSpellId</a>
+<br><a href="FunctionHangarGetShipInfo.html">FunctionHangarGetShipInfo</a>
+<br><a href="FunctionHangarGetShips.html">FunctionHangarGetShips</a>
+<br><a href="FunctionHangarGetSkinInfo.html">FunctionHangarGetSkinInfo</a>
+<br><a href="FunctionHangarGetSlotDevices.html">FunctionHangarGetSlotDevices</a>
+<br><a href="FunctionHangarGetSummonShipSpellId.html">FunctionHangarGetSummonShipSpellId</a>
+<br><a href="FunctionHangarGetSwitchShipMasterHullSpellId.html">FunctionHangarGetSwitchShipMasterHullSpellId</a>
+<br><a href="FunctionHangarGetSwitchShipSkinSpellId.html">FunctionHangarGetSwitchShipSkinSpellId</a>
+<br><a href="FunctionHangarGetTakeAwaySpellId.html">FunctionHangarGetTakeAwaySpellId</a>
+<br><a href="FunctionHangarGetUnsummonShipSpellId.html">FunctionHangarGetUnsummonShipSpellId</a>
+<br><a href="FunctionHangarLendShip.html">FunctionHangarLendShip</a>
+<br><a href="FunctionHangarPreviewPurchasedDevice.html">FunctionHangarPreviewPurchasedDevice</a>
+<br><a href="FunctionHangarPurchaseDevice.html">FunctionHangarPurchaseDevice</a>
+<br><a href="FunctionHangarRemoveDevice.html">FunctionHangarRemoveDevice</a>
+<br><a href="FunctionHangarRemoveDeviceFromHangar.html">FunctionHangarRemoveDeviceFromHangar</a>
+<br><a href="FunctionHangarRename.html">FunctionHangarRename</a>
+<br><a href="FunctionHangarRepairReply.html">FunctionHangarRepairReply</a>
+<br><a href="FunctionHangarReplaceDevice.html">FunctionHangarReplaceDevice</a>
+<br><a href="FunctionHangarResetDevicePreview.html">FunctionHangarResetDevicePreview</a>
+<br><a href="FunctionHangarRevertCustomization.html">FunctionHangarRevertCustomization</a>
+<br><a href="FunctionHangarSummonShip.html">FunctionHangarSummonShip</a>
+<br><a href="FunctionHangarSwitchShipMasterHull.html">FunctionHangarSwitchShipMasterHull</a>
+<br><a href="FunctionHangarSwitchShipSkin.html">FunctionHangarSwitchShipSkin</a>
+<br><a href="FunctionHangarTakeAwayShip.html">FunctionHangarTakeAwayShip</a>
+<br><a href="FunctionHangarUnsummonShip.html">FunctionHangarUnsummonShip</a>
+<br><a href="ShipSkinId.html">ShipSkinId</a>
+<br><a href="VisualShipId.html">VisualShipId</a>
+<p></p>
+<hr>
+<p></p>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryHangar.html">CategoryHangar</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

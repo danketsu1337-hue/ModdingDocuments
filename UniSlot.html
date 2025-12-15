@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="content-type"><title>Пользовательские дополнения - использование</title></head>
+<body>
+<h1 style="text-align: left;">UniSlot - универсальный слот<br></h1><p><a href="Index.html">На главную</a> </p><hr><h2>Общее описание</h2>
+
+<p>Для создания пользовательских дополнений, в которых отображаются иконки заклинаний и предметов, лучше всего использовать универсальный виджет - <span style="font-weight: bold;">UniSlot</span>.<br/>
+<span style="font-weight: bold;">UniSlot</span> - это упрощенный вариант универсального слота, который разработчики используют в интерфейсе игры и его внешний вид максимально приближен (за некоторыми исключениями, вызванными техническими ограничениями пользовательских дополнений) к слоту, используемому разработчиками игры.</p>
+<p>Ресурсы слота находятся в папке <span style="font-weight: bold; font-family: monospace;">ResourceSystem</span> в архиве <span style="font-weight: bold; font-family: monospace;">UniSlot.zip</span></p>
+<h2>SlotFrame</h2>
+
+<p>
+Имеет три дочерних виджета:
+</p>
+
+<ul>
+<li style="font-weight: bold;"><pre>SlotCount</pre></li>
+<li style="font-weight: bold;"><pre>SlotLocked</pre></li>
+<li style="font-weight: bold;"><pre>SlotIcon</pre></li>
+</ul>
+
+<h3>SlotIcon</h3>
+
+<p>Содержит иконку предмета или заклинания</p>
+
+<pre>
+function SetIcon( texture )
+    wtIcon:SetBackgroundTexture( texture )
+end
+</pre>
+
+<h3>SlotLocked</h3>
+
+<p>При включении иконка становится красной, сигнализирует о недоступности для использования.<br/>
+Его нужно либо показывать, либо скрывать при необходимости.</p>
+
+<h3>SlotCount</h3>
+
+<p>Подключите к пользовательскому дополнению следующую текстовую группу <span style="font-weight: bold; font-family: monospace;">../UniSlot/SlotTextLabel/SlotCountFormat.(UIRelatedTexts).xdb</span><br/>Отображает количество штук в стаке и/или количество зарядов в предмете.</p>
+
+<pre>
+function Set( stack, charges )
+	local countFormat = stack and charges and "SlotCountFormatExtended" or "SlotCountFormatNormal"
+	local countStack = stack and common.FormatInt( stack, "%dK5" ) or common.GetEmptyWString()
+	local countCharges = charges and common.FormatInt( charges, "%dK5" ) or common.GetEmptyWString()
+	
+        local textValues = {
+		format = common.GetAddonRelatedGroupText( "UniSlotCountFormat", countFormat ),
+		countStack = countStack,
+		countCharges = countCharges
+	}
+	common.SetTextValues( wtCount, textValues )
+	
+	wtCount:Show( stack ~= nil or charges ~= nil )
+end
+</pre>
+
+
+<h2>SlotQuality</h2>
+
+<p>Слой представляет из себя рамку, но при этом рамка "распилена" по диагонали для отображения проклятых предметов.</p>
+
+<pre>
+do
+	local sysItemQualityClass = {
+		[ ITEM_QUALITY_JUNK ] = "Junk",
+		[ ITEM_QUALITY_GOODS ] = "Goods",
+		[ ITEM_QUALITY_COMMON ] = "Common",
+		[ ITEM_QUALITY_UNCOMMON ] = "Uncommon",
+		[ ITEM_QUALITY_RARE ] = "Rare",
+		[ ITEM_QUALITY_EPIC ] = "Epic",
+		[ ITEM_QUALITY_LEGENDARY ] = "Legendary",
+		[ ITEM_QUALITY_RELIC ] = "Relic"
+	}
+	local CSSClassColor = {
+		[ "Junk" ] = { a = 1, r = 0.6, g = 0.6, b = 0.6 },
+		[ "Goods" ] = { a = 1, r = 0.863, g = 0.863, b = 0.863 },
+		[ "Common" ] = { a = 1, r = 0, g = 0.898, b = 0.149 },
+		[ "Uncommon" ] = { a = 1, r = 0.125, g = 0.502, b = 1 },
+		[ "Rare" ] = { a = 1, r = 0.753, g = 0.251, b = 1 },
+		[ "Epic" ] = { a = 1, r = 1, g = 0.502, b = 0 },
+		[ "Legendary" ] = { a = 1, r = 0, g = 1, b = 0.588 },
+		[ "Relic" ] = { a = 1, r = 0.878, g = 1, b = 0.251 },
+	}
+	CSSClassColor[ "JunkCursed" ] = CSSClassColor[ "Junk" ]
+	CSSClassColor[ "GoodsCursed" ] = CSSClassColor[ "Goods" ]
+	CSSClassColor[ "CommonCursed" ] = CSSClassColor[ "Common" ]
+	CSSClassColor[ "UncommonCursed" ] = CSSClassColor[ "Uncommon" ]
+	CSSClassColor[ "RareCursed" ] = CSSClassColor[ "Rare" ]
+	CSSClassColor[ "EpicCursed" ] = CSSClassColor[ "Epic" ]
+	CSSClassColor[ "LegendaryCursed" ] = CSSClassColor[ "Legendary" ]
+	CSSClassColor[ "RelicCursed" ] = CSSClassColor[ "Relic" ]
+	------------------------------------------------------------------------------
+	function GetItemQualityCSSClass( itemId )
+		local quality, isCursed
+		
+		if type( itemId ) == "number" then
+			local itemQuality = itemLib.GetQuality( itemId )
+			quality = itemQuality and itemQuality.quality
+			isCursed = itemLib.IsCursed( itemId )
+		end
+		
+		local class = quality and sysItemQualityClass[ quality ]
+		
+		if class and isCursed then
+			class = string.format( "%sCursed", class )
+		end
+		return class
+	end
+	------------------------------------------------------------------------------
+	function GetItemQualityCSSColor( itemId )
+		local class = GetItemQualityCSSClass( itemId )
+		return class and CSSClassColor[ class ]
+	end
+	------------------------------------------------------------------------------
+	function GetColorByQuality( quality )
+		return CSSClassColor[ sysItemQualityClass[ quality ] ]
+	end
+end
+
+local TRANSPARENT_BLACK = { a = 0, r = 0, g = 0, b = 0 }
+local CURSED = { a = 1, r = 150/255, g = 0, b = 0 }
+
+function Set( quality, isCursed )
+	local color = quality and GetItemQualityCSSColor{ quality = quality, isCursed = isCursed } or TRANSPARENT_BLACK
+	color.a = color.a * 0.5
+	
+	wtQuality:SetForegroundColor( color )
+	wtQuality:SetBackgroundColor( isCursed and CURSED or color )
+end
+</pre>
+
+<h2>SlotButton</h2>
+
+<p>Это кнопка.</p>
+
+<ul>
+<li style="font-weight: bold;"><pre>slot_over - наведение</pre></li>
+<li style="font-weight: bold;"><pre>slot_pressed - клик левой</pre></li>
+<li style="font-weight: bold;"><pre>slot_pressed_rmb - клик правой / двойной</pre></li>
+</ul>
+
+<h2>SlotBlink</h2>
+
+<p>Слой служит единому делу - привлечение внимания к слоту</p>
+
+<pre>
+function Toggle( state )
+	wtBlink:Show( state )
+end
+</pre>
+
+<h2>SlotAutocast</h2>
+
+<p>Слот который может служить разным целям, например включенная аура.</p>
+
+<pre>
+function Init()
+	wtAutocast:SetBackgroundColor( { a = 1, r = 1, g = 0.8, b = 0 } )
+	wtAutocast:Show( false )
+end
+
+function Toggle( state )
+	wtAutocast:Show( state )
+end
+</pre>
+<span style="font-family: mon;"></span><span style="font-family: monospace;"><span style="font-weight: bold;"></span></span> <hr><a href="Index.html">На главную</a><p><a href="Index.html"></a></p></body></html>

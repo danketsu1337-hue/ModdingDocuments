@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="content-type"><title>Пользовательские дополнения - создание</title></head>
+<body><h1 style="text-align: left;">Пользовательские дополнения<br></h1><p><a href="Index.html">На главную</a> </p><hr><h2>Оригинальные интерфейсы и пользовательские дополнения</h2><p>Пользовательские
+дополнения совершенно независимы от оригинальных. Они не могут
+пользоваться никакими ресурсами оригинальной игры (кроме специально
+оговоренных) и должны содержать полностью все данные и
+функциональность. Все пользовательские дополнения должны быть созданы
+либо "с нуля", либо на основе других пользовательских дополнений и/или
+отдельных элементов (данных и скриптов). Изменять функциональность и
+внешний вид оригинальных интерфейсов из пользовательских
+дополнений нельзя.</p><p>Для предотвращения конфликтов между оригинальными интерфейсами и пользовательскими
+дополнениями&nbsp;предоставляется возможность выборочного
+включения/выключения как тех, так и других из&nbsp;пользовательских дополнений (скриптов).</p><h2>Структура пользовательских данных</h2><p>Все пользовательские дополнения и отдельные элементы, распознаваемые игрой, должны устанавливаться в папку&nbsp;<span style="font-weight: bold; font-family: monospace;">data\Mods</span>.</p><p>Собственно дополнения должны находиться в папке <span style="font-weight: bold; font-family: monospace;">data\Mods\Addons</span>. Каждое дополнение - в отдельной папке. Например:</p><ul><li style="font-weight: bold;"><pre>data\Mods\Addons\Addon01</pre></li><li style="font-weight: bold;"><pre>data\Mods\Addons\Addon02</pre></li><li style="font-weight: bold;"><pre>data\Mods\Addons\AddonManager</pre></li></ul><p>Папка
+<span style="font-weight: bold; font-family: monospace;">data\Mods</span>, помимо собственно дополнений, может также содержать общие
+элементы, не входящие непосредственно ни в какое дополнение. Например,
+можно выделить отдельные папки для общеупотребительных скриптов и
+элементы для конструирования диалогов:</p><ul style="font-weight: bold;"><li><pre>data\Mods\CommonScriptParts</pre></li><li><pre>data\Mods\DialogParts</pre></li></ul><h3>Структура пользовательского дополнения</h3><p>Каждое пользовательское дополнение, чтобы распознаваться игрой, должно в обязательном порядке содержать файл-описатель&nbsp;<span style="font-weight: bold; font-family: monospace;">AddonDesc.(UIAddon).xdb</span>.</p><p>Например: </p><ul style="font-weight: bold;"><li><pre>data\Mods\Addons\Addon01\AddonDesc.(UIAddon).xdb</pre></li><li><pre>data\Mods\Addons\Addon02\AddonDesc.(UIAddon).xdb</pre></li><li><pre>data\Mods\Addons\AddonManager\AddonDesc.(UIAddon).xdb</pre></li></ul><p>Файл-описатель должен содержать следующие ключевые поля: </p><p>Автоматический запуск дополнения после старта игры:</p><pre style="font-weight: bold;">&lt;AutoStart&gt;true&lt;/AutoStart&gt;</pre><p><span style="font-weight: normal;">Список исполняемых Lua-скриптов:</span></p><pre style="font-weight: bold;">&lt;ScriptFileRefs&gt;</pre><pre style="font-weight: bold;">	&lt;Item href="ScriptAddonTest1.lua" /&gt;</pre><pre style="font-weight: bold;">&lt;/ScriptFileRefs&gt;</pre><p>Форма:</p><pre style="font-weight: bold;">&lt;Form href="MainForm.(WidgetForm).xdb" /&gt;</pre><h3>Типы файлов</h3><p>Основные ресурсы игры: </p><ul><li>*.xdb - описатели данных, XML-файлы в кодировке UTF-8</li><li>*.lua - Lua-скрипты</li><li>*.luac - скомпилированные в байткод Lua-скрипты</li><li>*.txt - локализуемые тексты в кодировке UTF-16LE </li><li>*.bin - ресурсы игры во внутреннем формате (получаются после экспорта)</li></ul>Исходные данные: <ul><li>*.tga - исходные файлы для экспорта рисунков</li></ul><h3>Отладка</h3><p>Для вывода отладочной информации используется файл <span style="font-weight: bold; font-family: monospace;">Personal\Logs\mods.txt</span>.</p>
+<h3>Lua-скрипты</h3>
+<p>Игра использует модифицированный LuaJIT версии 2.1-rolling </p><p>Подключены стандартные библиотеки: <span style="font-weight: bold; font-family: monospace;">base, table, string, math, bit, coroutine</span>.</p>
+<p>Некоторые стандартные функции недоступны: <span style="font-weight: bold; font-family: monospace;">module, require, getfenv, setfenv, load, loadfile, dofile, newproxy</span>.</p>
+<p>Запрещено неявное объявление глобальных переменных, необходимо использовать функцию <span style="font-weight: bold; font-family: monospace;">Global( name, value )</span>.</p>
+<p>Каждое игровое дополнение использует собственный экземпляр Lua-машины. Взамодействие между скриптами разных дополнений возможно только через специальные события.</p>
+<p>Взаимодействие скрипта с клиентом игры происходит через механизм обработки событий. Первый раз скрипт получает управление при старте дополнения. Все скрипты, используемые дополнением, описаны в файле <span style="font-weight: bold; font-family: monospace;">AddonDesc.(UIAddon).xdb</span>. Скрипты&nbsp;инициализируются в том порядке, в котором они перечислены в списке (поле <span style="font-weight: bold; font-family: monospace;">ScriptFileRefs</span>).</p>
+<p>Инициализация скриптов производится при каждом включении дополнений. Включение дополнения может производиться автоматически при заходе в игру (для дополнений с установленным полем<span style="font-family: monospace;"><span style="font-weight: bold;"> </span></span><span style="font-weight: bold; font-family: monospace;">AutoStart</span><span style="font-weight: bold;"></span>), либо из другого скрипта.</p>
+<p><span style="font-style: italic;">Пример инициализации показан в дополнении</span> <span style="font-weight: bold; font-family: monospace;">SampleInit</span>.</p>
+<p>В дальнейшем управление передается скрипту только на время обработки событий, инициируемых движком игры. Скрипт обязан провести необходимую обработку и вернуть управление игре. Есть два основных класса событий: игровые события и реакции системы <span style="font-weight: bold; font-family: monospace;">Widgets</span> - нажатие кнопок, ввод с клавиатуры и т.д. Скрипт сам определяет (регистрирует) те события и реакции, которые он хочет обрабатывать.</p>
+<p>События игры и реакции содержат один параметр - таблицу. Содержимое таблицы зависит от конкретного события или реакции. Регистрация событий производится функцией <span style="font-weight: bold; font-family: monospace;">common.RegisterEventHandler</span>. Регистрация реакций - функцией <span style="font-weight: bold; font-family: monospace;">common.RegisterReactionHandler</span>. Первый параметр - функция-обработчик, второй - название события или реакции. Функции-обработчики должны иметь один параметр - это таблица, содержащая информацию о событии или реакции. Аддон может регистрировать только одну функцию-обработчик для события или реакции.</p>
+<p><span style="font-style: italic;">Пример регистрации скрипта на обработку событий показан в дополнении</span> <span style="font-weight: bold; font-family: monospace;">SampleEventRegistration</span>.</p>
+<p><span style="font-style: italic;">Пример регистрации обработчика реакций показан в дополнении</span> <span style="font-weight: bold; font-family: monospace;">SampleReactionHandler</span>.</p>
+<p>Загрузкой/выгрузкой дополнений (включая оригинальные) также можно управлять из пользовательских скриптов.</p><p><span style="font-style: italic;">Пример отключения оригинального интерфейса игры показан в дополнении</span> <span style="font-weight: bold; font-family: monospace;">SampleZoneAnnounce</span>.</p>
+<h3>Компиляция Lua-скриптов в байткод</h3>
+<p>Для создания байткода из исходного Lua-скрипта нужно использовать исполняемый(exe) фаил, собранный из исходных кодов библиотеки LuaJIT.<br/>
+<span style="font-style: italic;">Байткод сгенерированный компилятором библиотеки Lua <span style="font-weight: bold;">не совместим</span> с LuaJIT!</span></p>
+<p>Собранный исполняемый файл библиотеки LuaJIT 2.1-rolling приложен к данной документации в папке LuaCompiler.<br/>
+<span style="font-style: italic;">Для самостоятельной сборки исполняемого файла LuaJIT нужно скачать исходный код библиотеки на официальном сайте проекта LuaJIT и следовать инструкциям по сборке.</span></p>
+<p>Генерация байткода запускается вызывом из консоли исполняемого файла LuaJIT с параметром -b и указанием исходного и целевого файла(со скриптом).<br/>
+<span style="font-weight: bold; font-family: monospace;">&gt;luajit.exe -b source.lua destination.luac</span>
+</p>
+<p>Скомпилированный байткод версий х64 и х86 <span style="font-weight: bold;">не совместим</span>. Для корректной работы скомпилированного байткода на обеих версиях необходимо</p>
+<ul><li>В AddonDesc.(UIAddon).xdb испоьзовать имена скриптов вида ScriptName1.lua</li>
+<li>Скомпилированный под х86 скрипт должет иметь имя вида ScriptName1.luac.x86</li>
+<li>Скомпилированный под х64 скрипт должет иметь имя вида ScriptName1.luac.x64</li></ul>
+<p></p>
+<h3>Экспорт текстур</h3>
+<p>Исходные текстуры для интерфейсов должны быть в формате *.tga. Чтобы использовать текстуры в дополнениях их необходимо предварительно перевести во внутренний формат игры. Экспорт осуществляется утилитой <span style="font-weight: bold; font-family: monospace;">Mods\UITextureConvertEditor.exe</span> (рабочим каталогом при запуске должна быть папка <span style="font-weight: bold; font-family: monospace;">Mods</span>). Окно экспортера имеет следующий вид:&nbsp;</p><img style="width: 600px; height: 231px;" alt="UITextureConvertEditor" title="UITextureConvertEditor" src="UITextureConvertEditor01.PNG"><br><br><p>Для экспорта необходимо выбрать из выпадающего списка желаемый тип текстуры, а также задать сами текстуры. Текстуры можно добавлять как
+через диалог (кнопка "Добавить..."), так и перетаскивая мышью файлы с исходными текстурами на окно экспортера. Результаты (в случае успешного экспорта) будут находиться в той же папке, что и исходная текстура.</p>
+<p>ВНИМАНИЕ! Исходные текстуры обязательно должны находиться внутри папки <span style="font-weight: bold; font-family: monospace; color:red;">data\Mods\Addons</span>.</p>
+<p>Типы текстур:</p>
+<ul><li>WidgetLayerSimpleTexture
+- основной тип экспорта. Используется для большинства текстур, из
+которых составляются интерфейсы. Текстура экспортируется как тип
+UITextureElement. Помимо этого создается слой, необходимый для
+использования текстуры в&nbsp;элементах UI.</li><li>WidgetLayerTiledTexture
+- используется для экспорта текстур, предназначенных для использования
+в элементах UI по "черепичному" принципу.&nbsp;Текстура экспортируется
+как тип UISingleTexture. Помимо этого создается слой, необходимый для
+использования этой текстуры в элементах UI.</li><li>UISingleTexture
+- основной тип экспорта для работы с "индивидуальными" текстурами. Чаще
+всего это иконки и текстуры, предназначенные для использования в
+качестве "черепицы". Рекомендуется использовать текстуры с размерами,
+кратными степени 2.</li><li>UITextureElement
+- экспорт текстуры, предназначенной для использования в качестве одной
+из составляющих того или иного интерфейса.</li></ul>Дополнительные настройки:<br><ul><li>"Использовать формат DXT3 вместо DXT5" - использовать другой формат сжатия для текстур с несколькими градациями прозрачности:</li><ul><li>DXT3 - более четкие контуры, но меньше градаций самой прозрачности</li><li>DXT5 - лучше передает плавные переходы уровня прозрачности за счет менее четких контуров последней</li></ul><li>"Принудительный
+экспорт" - заново экспортировать текстуру независимо от того, менялась
+она со времени последнего конвертирования или нет.</li></ul>Конвертирование:<br><ul><li>Кнопка
+"Сконвертировать"&nbsp;запускает экспорт всех вновь добавленных файлов
+(со статусом "added") с текущими настройками, процесс может занять
+некоторое время. После окончания экспорта для каждого файла будет
+показан результат конвертирования: "converted" - успех
+или&nbsp;"failed" - провал.
+Повторный экспорт текстуры (например, с другими настройками) невозможен
+(независимо от успеха или неуспеха). Для повтора (например, для
+экспорта текстур с другими настройками) необходимо закрыть утилиту и
+выполнить процедуру заново.</li></ul><h3>Упакованные пользовательские дополнения</h3><p>Более
+удобным способом распространения пользовательских дополнений являются
+архивы. Архив представляет собой zip-архив и должен иметь расширение <span style="font-weight: bold; font-family: monospace;">*.pak</span>, zip-архив должен иметь стандартное (нормальное) сжатие. Его нужно помещать в
+ту же папку, что и "развернутые" дополнения - <span style="font-family: monospace; font-weight: bold;">data\Mods\Addons</span><span style="font-family: monospace;">. Например:</span></p><span style="font-family: monospace; font-weight: bold;">data\Mods\Addons\UserAddon01.pak</span><br style="font-family: monospace; font-weight: bold;"><span style="font-family: monospace; font-weight: bold;">data\Mods\Addons\UserAddon02.pak<br></span><p>Путь
+до файлов внутри архива должен совпадать с&nbsp;путем до
+оригинальных файлов.&nbsp;Например, для дополнения <span style="font-weight: bold; font-family: monospace;">UserAddon01</span>,&nbsp;лежащего в каталоге <span style="font-weight: bold; font-family: monospace;">Mods\Addons</span> и содержащего файлы:</p><span style="font-family: monospace; font-weight: bold;">AddonDesc.(UIAddon).xdb</span><br style="font-family: monospace; font-weight: bold;"><span style="font-family: monospace; font-weight: bold;">MainForm.(WidgetForm).xdb</span><br style="font-family: monospace; font-weight: bold;"><span style="font-family: monospace; font-weight: bold;">ScriptUserAddon01.lua</span><br style="font-weight: bold;"><span style="font-family: monospace; font-weight: bold;"></span><p>версия в виде архива <span style="font-weight: bold; font-family: monospace;">UserAddon01.pak</span> должна содержать следующие файлы:</p><span style="font-family: monospace; font-weight: bold;">Mods\Addons\UserAddon01\</span><span style="font-family: monospace; font-weight: bold;">AddonDesc.(UIAddon).xdb</span><br style="font-family: monospace; font-weight: bold;"><span style="font-family: monospace; font-weight: bold;">Mods\Addons\UserAddon01\</span><span style="font-family: monospace; font-weight: bold;"></span><span style="font-family: monospace; font-weight: bold;">MainForm.(WidgetForm).xdb</span><br style="font-family: monospace; font-weight: bold;"><span style="font-family: monospace; font-weight: bold;">Mods\Addons\UserAddon01\</span><span style="font-family: monospace; font-weight: bold;">ScriptUserAddon01.lua</span><h3>Локализация</h3><p>Для
+локализации пользовательских дополнений на другие языки можно
+использовать механизм языковых архивов. Языковой архив представляет
+собой zip-архив (со стандартным, нормальным сжатием), содержащий текстовые файлы с локализацией на тот или
+иной язык.&nbsp;Архивы с локализацией  нужно помещать в
+ту же папку, что и "развернутые" дополнения - <span style="font-family: monospace; font-weight: bold;">data\Mods\Addons</span><span style="font-family: monospace;">.</span><span style="font-family: monospace; font-weight: bold;"></span> Например:</p><span style="font-family: monospace; font-weight: bold;">data\Packs\</span><span style="font-family: monospace; font-weight: bold;">UserAddon01.eng</span><br><span style="font-family: monospace; font-weight: bold;"></span><span style="font-family: monospace; font-weight: bold;">data\Packs\</span><span style="font-family: monospace; font-weight: bold;">UserAddon02.eng</span><p>Расширение языкового пакета должно соответствовать языку локализации. Например:</p><span style="font-family: monospace; font-weight: bold;">UserAddon01.rus</span><br style="font-family: monospace;"><span style="font-family: monospace; font-weight: bold;">UserAddon01.eng</span><br style="font-family: monospace;"><span style="font-family: monospace; font-weight: bold;">UserAddon01.fra</span><br style="font-family: monospace;"><span style="font-family: monospace; font-weight: bold;">UserAddon01.ger</span><br style="font-family: monospace;"><span style="font-family: monospace; font-weight: bold;">UserAddon01.spa</span><br style="font-family: monospace;"><span style="font-family: monospace;"></span><p>Путь
+до файла с локализацией внутри архива должен совпадать с&nbsp;путем до
+оригинального текстового файла.&nbsp;Например, для дополнения <span style="font-weight: bold; font-family: monospace;">UserAddon01</span>,&nbsp;лежащего в каталоге <span style="font-weight: bold; font-family: monospace;">Mods\Addons</span> и содержащего текстовые файлы:</p><span style="font-family: monospace; font-weight: bold;">Header.txt</span><br style="font-family: monospace; font-weight: bold;"><span style="font-family: monospace; font-weight: bold;">LocalizedTexts\Text01.txt</span><br style="font-family: monospace; font-weight: bold;"><span style="font-family: monospace; font-weight: bold;">LocalizedTexts\Text02.txt</span><br style="font-weight: bold;"><span style="font-family: monospace; font-weight: bold;">NotLocalizedTexts\Text01.txt<br>NotLocalizedTexts\Text02.txt</span><p>архив с локализацией на английский язык&nbsp;<span style="font-weight: bold; font-family: monospace;">UserAddon01.eng</span> может содержать следующие файлы:</p><span style="font-family: monospace; font-weight: bold;">Mods\Addons\UserAddon01\Header.txt</span><br style="font-family: monospace; font-weight: bold;"><span style="font-family: monospace; font-weight: bold;">Mods\Addons\UserAddon01\Texts\Text01.txt</span><br style="font-family: monospace; font-weight: bold;"><span style="font-family: monospace; font-weight: bold;">Mods\Addons\UserAddon01\Texts\Text02.txt</span><p>В этом случае при запуске клиента с выбранным английским языком оригинальные тексты<span style="font-family: monospace;"><span style="font-weight: bold;"> </span></span><span style="font-weight: bold; font-family: monospace;">Header.txt</span><span style="font-family: monospace;">, </span><span style="font-weight: bold; font-family: monospace;">LocalizedTexts\Text01.txt</span><span style="font-family: monospace;">, </span><span style="font-weight: bold; font-family: monospace;">LocalizedTexts\Text02.txt</span> будут заменены на тексты из архива. А тексты из каталога&nbsp;<span style="font-weight: bold; font-family: monospace;">NotLocalizedTexts\</span> останутся не переведенными.</p><h3>Примеры дополнений</h3><p>Для использования дополнений их необходимо перенести или скопировать в папку <span style="font-weight: bold; font-family: monospace;">data\Mods\Addons</span>.</p><h4>SampleInit</h4><p>Дополнение <span style="font-weight: bold; font-family: monospace;">data\Mods\SampleAddons\SampleInit</span>. Пример инициализации скрипта. </p>Дополнение
+регистрирует два скрипта. Первый,&nbsp;<span style="font-weight: bold; font-family: monospace;">Mods\</span><span style="font-family: monospace; font-weight: bold;">SampleCommon\SampleAddonBase.lua</span><span style="font-weight: bold;"></span>, -
+общий для нескольких аддонов, содержит вспомогательные функции. Из него используется <span style="font-weight: bold; font-family: monospace;">LogInfo</span> - скриптовая обертка для функции клиента,
+выводящей отладочную информацию (в файл <span style="font-weight: bold; font-family: monospace;">Personal\Logs\mods.txt</span>).
+Второй, <span style="font-weight: bold; font-family: monospace;">ScriptSampleInit.lua</span><span style="font-weight: bold;"></span>, - собственный скрипт аддона, выводящий во
+время инициализации скрипта отладочное текстовое сообщение. <h4>SampleEventRegistration</h4><p>Дополнение <span style="font-weight: bold; font-family: monospace;">data\Mods\SampleAddons\SampleEventRegistration</span>. Пример регистрации скрипта на обработку событий.<br><br>Скрипт
+регистрирует глобальную переменную - счетчик времени и ловит событие,
+приходящее раз в секунду. На каждый приход события выводится отладочное
+текстовое сообщение. </p><h4>SampleReactionHandler</h4><p>Дополнение <span style="font-weight: bold; font-family: monospace;">data\Mods\SampleAddons\SampleReactionHandler</span>. Пример регистрации обработчика реакций. </p><p>Скрипт ловит реакцию от кнопки и перемещает диалоговое окно по экрану.</p><h4>SampleZoneAnnounce</h4><p>Дополнение <span style="font-weight: bold; font-family: monospace;">data\Mods\SampleAddons\SampleZoneAnnounce</span>.
+Пример, выводящий уведомление о переходе игрока в другую зону.
+Показывает возможность&nbsp;отключения оригинального интерфейса игры с
+аналогичной функциональностью. </p><h4>SampleLocalization</h4><p>Дополнение <span style="font-weight: bold; font-family: monospace;">data\Mods\SampleAddons\SampleLocalization</span>.
+Пример локализации на несколько языков. </p><h3>Client-Lua API</h3><p>Интерфейс, предоставляемый Lua-скриптам клиентом игры.</p><p>Полный список: <a href="LuaApi/CategoryLuaApi.html">функции и события Lua API</a>.</p><p>Замечание:
+дополнительные описания (в частности, возможностей, использование
+которых по каким-либо причинам для создания пользовательских дополнений
+недоступно) не предоставляются. Ссылки на дополнительные описания
+неактивны и помечены как "закрытая ссылка".</p><p>Можно выделить следующие основные подсистемы клиента:</p><ul><li>GameState - логика игры без визуальной части.</li><li>UIState (система UI в целом) - вся визуальная составляющая.</li><ul><li>Система Widgets - часть UIState, реализующая&nbsp;элементы
+пользовательского интерфейса: панели, кнопки, текстовые элементы,
+контейнеры и др.</li></ul></ul><p>В
+основном, все функции сгруппированы по библиотекам. Каждая библиотека
+содержит набор функций, реализующих&nbsp; определенную категорию
+функциональности. Также используется объектно-ориентированный подход,
+когда методы "привязаны" к определенному экземпляру объекта (таблице).
+В основном такой подход используется в системе Widgets.</p><p>Отдельно можно выделить:&nbsp;глобальные целочисленные константы (определенные в клиенте игры).&nbsp;</p><p>Помимо
+целочисленных констант широко используются "строковые". Главным образом
+- для вывода локализуемых сообщений и т.п. Для "текстовых" констант
+принята запись "ENUM_...", для целочисленных констант префикс "ENUM_"
+не используется.</p><h3>Ресурсы игры</h3><p>Основной
+формат ресурсов игры - *.xdb-файлы. Это xml-файлы в кодировке UTF-8,
+которые непосредственно описывают ресурсы игры, а также содержат ссылки
+на другие ресурсы. Ими могут быть как другие описатели, так и файлы
+прочих типов (локализуемые тексты, скрипты, бинарные данные). Создавать
+и редактировать *.xdb-описатели можно как в стандартном "Блокноте", так
+и в других редакторах. (Описатели для текстур создаются во время их
+конвертации утилитой экспорта).</p><p>Основные типы ресурсов,
+используемые при создании пользовательских интерфейсов, включают в себя
+элементы системы Widgets и наиболее важные элементы системы UI в целом.
+Значения полей по умолчанию для них можно найти в папке <span style="font-weight: bold; font-family: monospace;">ResourceSystem</span>.&nbsp;Файлы вида <span style="font-weight: bold; font-family: monospace;">SampleDefault.(имя_типа).xdb</span><span style="font-weight: bold;"></span> содержат значения полей по умолчанию.&nbsp;Файлы вида <span style="font-weight: bold; font-family: monospace;">SampleDefaultExt.(имя_типа).xdb</span><span style="font-weight: bold;"></span> дополнительно содержат значения полей по умолчанию для элементов списков (массивов).&nbsp;</p>
+<p>Описание полей ресурсов виджетов: <a href="LuaApi/Widget.html">Widget</a>.</p>
+<p>Пример универсального слота для отображения предметов или заклинаний: <a href="UniSlot.html">UniSlot</a>.</p>
+<hr>
+<p><a href="Index.html">На главную</a></p></body></html>

@@ -1,0 +1,80 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionUserModsSetAvatarConfigSection</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> SetAvatarConfigSection( sysName, section )</h2>
+<p></p>
+<p>Сохраняет/удаляет таблицу с секцией для текущего персонажа игрока в локальном пользовательском конфиге. Секции предназначены исключительно для сохранения настроек пользовательских дополнений. Они независимы с секциями для оригинальных интерфейсов игры.</p>
+<p></p>
+<pre>
+-- библиотека:
+userMods
+
+-- объявление:
+function SetAvatarConfigSection( sysName, section )
+
+-- параметры:
+sysName: string - название секции
+section: table or nil - таблица с данными секции, nil - для удаления секции
+
+-- возвращаемые значения:
+нет
+
+-- примеры:
+section = {}
+section["show"] = showTutorial
+section["value01"] = showTutorial01
+section["value02"] = showTutorial02
+
+userMods.SetAvatarConfigSection( "tutorial", section )
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryConfig"</h4>
+<p></p>
+<a href="CategoryConfig.html">CategoryConfig</a>
+<br><a href="FunctionCommonGetScriptCfgVar.html">FunctionCommonGetScriptCfgVar</a>
+<br><a href="FunctionUserModsGetAvatarConfigSection.html">FunctionUserModsGetAvatarConfigSection</a>
+<br><a href="FunctionUserModsGetGlobalConfigSection.html">FunctionUserModsGetGlobalConfigSection</a>
+<br><a href="FunctionUserModsSetAvatarConfigSection.html">FunctionUserModsSetAvatarConfigSection</a>
+<br><a href="FunctionUserModsSetGlobalConfigSection.html">FunctionUserModsSetGlobalConfigSection</a>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryUserMods"</h4>
+<p></p>
+<a href="CategoryUserMods.html">CategoryUserMods</a>
+<br><a href="EnumAddonHealthStatus.html">EnumAddonHealthStatus</a>
+<br><a href="EventAddonHealthChanged.html">EventAddonHealthChanged</a>
+<br><a href="EventAddonReducePerfomance.html">EventAddonReducePerfomance</a>
+<br><a href="FunctionUserModsFromValuedText.html">FunctionUserModsFromValuedText</a>
+<br><a href="FunctionUserModsFromWString.html">FunctionUserModsFromWString</a>
+<br><a href="FunctionUserModsGetAccountUniqueId.html">FunctionUserModsGetAccountUniqueId</a>
+<br><a href="FunctionUserModsGetAvatarConfigSection.html">FunctionUserModsGetAvatarConfigSection</a>
+<br><a href="FunctionUserModsGetCallStack.html">FunctionUserModsGetCallStack</a>
+<br><a href="FunctionUserModsGetGlobalConfigSection.html">FunctionUserModsGetGlobalConfigSection</a>
+<br><a href="FunctionUserModsGetResourcePersistentId.html">FunctionUserModsGetResourcePersistentId</a>
+<br><a href="FunctionUserModsSendEvent.html">FunctionUserModsSendEvent</a>
+<br><a href="FunctionUserModsSendSelfChatMessage.html">FunctionUserModsSendSelfChatMessage</a>
+<br><a href="FunctionUserModsSetAvatarConfigSection.html">FunctionUserModsSetAvatarConfigSection</a>
+<br><a href="FunctionUserModsSetGlobalConfigSection.html">FunctionUserModsSetGlobalConfigSection</a>
+<br><a href="FunctionUserModsToWString.html">FunctionUserModsToWString</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryConfig.html">CategoryConfig</a>
+<a href="CategoryUserMods.html">CategoryUserMods</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

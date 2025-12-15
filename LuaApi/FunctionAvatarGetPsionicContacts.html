@@ -1,0 +1,107 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAvatarGetPsionicContacts</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> avatar.GetPsionicContacts()</h2>
+<p></p>
+<p>Главный герой псионик может установить псионический контакт с несколькими целями. Каждый псионический контакт определенного типа может быть установлен с одной целью.</p>
+<p></p>
+<p>Метод возвращает индексированную по типу контакта таблицу контактов. В ней по индексу типа контакта лежит или информация о контакте или nil, если нет контакта такого типа. Если главный герой не псионик, то таблица будет всегда пустой.</p>
+<p></p>
+<p>У контакта может быть определена длительность. Тогда в поле durationMs будет длительность этого контакта в миллисекундах. Если для такого типа контакта длительность не определена (длится сколь угодно долго), то durationMs = 0.</p>
+<p></p>
+<pre>
+-- библиотека:
+avatar
+
+-- объявление:
+function GetPsionicContacts()
+
+-- параметры:
+нет
+
+-- возвращаемые значения -
+Table of pairs (ключ/значение):
+  ключ - number (enum PSIONIC_CONTACT_XXX) - тип контакта
+  значение - table - таблица с информацией о контакте. Содержит поля:
+    unitId: ObjectId - идентификатор контактного юнита
+    durationMs: number (int) - длительность контакта в миллисекундах
+    remainingMs: number (int) - осталось миллисекунд до окончания контакта
+
+-- пример:
+  local contacts = avatar.GetPsionicContacts()
+
+  local contact = contacts[ PSIONIC_CONTACT_NORMAL ]
+  if contact then
+    local normalContacterId = contact.unitId
+    if normalContacterId then
+      local name = unit.GetName( normalContacterId )
+    end
+  end
+
+  contact = contacts[ PSIONIC_CONTACT_CRUDE ]
+  if contact then
+    local normalContacterId = contact.unitId
+    if normalContacterId then
+      local name = unit.GetName( normalContacterId )
+      if contact.durationMs &gt; 0 then
+        local remaining = contact.remainingMs / contact.durationMs
+      end
+    end
+  end
+</pre>
+<p></p>
+<p>Типы контактов:</p>
+<pre>
+PSIONIC_CONTACT_NORMAL
+PSIONIC_CONTACT_CRUDE
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryClassSpecific"</h4>
+<p></p>
+<a href="EventAvatarBarriersChanged.html">EventAvatarBarriersChanged</a>
+<br><a href="EventAvatarPsionicChannelChanged.html">EventAvatarPsionicChannelChanged</a>
+<br><a href="EventAvatarPsionicContactAdded.html">EventAvatarPsionicContactAdded</a>
+<br><a href="EventAvatarPsionicContactChanged.html">EventAvatarPsionicContactChanged</a>
+<br><a href="EventAvatarPsionicContactRemoved.html">EventAvatarPsionicContactRemoved</a>
+<br><a href="EventAvatarPsionicDangerSenseLocated.html">EventAvatarPsionicDangerSenseLocated</a>
+<br><a href="EventAvatarPsionicDangerSenseTarget.html">EventAvatarPsionicDangerSenseTarget</a>
+<br><a href="EventAvatarPsionicReadThought.html">EventAvatarPsionicReadThought</a>
+<br><a href="EventAvatarPsionicUnreadableThought.html">EventAvatarPsionicUnreadableThought</a>
+<br><a href="EventAvatarStalkerCartridgeBeltChanged.html">EventAvatarStalkerCartridgeBeltChanged</a>
+<br><a href="EventAvatarWarriorCombatAdvantageChanged.html">EventAvatarWarriorCombatAdvantageChanged</a>
+<br><a href="EventResurrectRejected.html">EventResurrectRejected</a>
+<br><a href="EventResurrectRequested.html">EventResurrectRequested</a>
+<br><a href="EventVariableValueChanged.html">EventVariableValueChanged</a>
+<br><a href="FunctionAvatarGetBarriersDelay.html">FunctionAvatarGetBarriersDelay</a>
+<br><a href="FunctionAvatarGetBarriersInfo.html">FunctionAvatarGetBarriersInfo</a>
+<br><a href="FunctionAvatarGetPsionicContacts.html">FunctionAvatarGetPsionicContacts</a>
+<br><a href="FunctionAvatarGetStalkerCartridge.html">FunctionAvatarGetStalkerCartridge</a>
+<br><a href="FunctionAvatarGetVariableInfo.html">FunctionAvatarGetVariableInfo</a>
+<br><a href="FunctionAvatarGetVariables.html">FunctionAvatarGetVariables</a>
+<br><a href="FunctionAvatarGetWarriorCombatAdvantage.html">FunctionAvatarGetWarriorCombatAdvantage</a>
+<br><a href="FunctionAvatarHasPsionicChannel.html">FunctionAvatarHasPsionicChannel</a>
+<br><a href="FunctionAvatarResurrectReply.html">FunctionAvatarResurrectReply</a>
+<p></p>
+<hr>
+<p></p>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<a href="CategoryClassSpecific.html">CategoryClassSpecific</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

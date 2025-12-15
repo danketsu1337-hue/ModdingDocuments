@@ -1,0 +1,105 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionGroupSetLeader</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>group.SetLeader( uniqueId )</h2>
+<p></p>
+<p>Попытка будучи лидером группы назначить на эту роль другого персонажа из группы.</p>
+<p></p>
+<pre>
+-- библиотека:
+group
+
+-- объявление:
+function SetLeader( uniqueId )
+
+-- параметры:
+uniqueId: UniqueId - уникальный межсерверный идентификатор игрока из группы
+
+-- возвращаемое значение
+нет
+
+-- пример:
+group.SetLeader( memberId )
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryGroup" </h4>
+<p></p>
+<a href="CategoryGroup.html">CategoryGroup</a>
+<br><a href="EnumGroupInviteFailed.html">EnumGroupInviteFailed</a>
+<br><a href="EnumGroupKickFailed.html">EnumGroupKickFailed</a>
+<br><a href="EnumGroupMemberState.html">EnumGroupMemberState</a>
+<br><a href="EnumReadyCheckReadyState.html">EnumReadyCheckReadyState</a>
+<br><a href="EventAvatarItemTakenByGroupmate.html">EventAvatarItemTakenByGroupmate</a>
+<br><a href="EventAvatarMoneyTakenByGroupmate.html">EventAvatarMoneyTakenByGroupmate</a>
+<br><a href="EventGroupAcceptError.html">EventGroupAcceptError</a>
+<br><a href="EventGroupAppeared.html">EventGroupAppeared</a>
+<br><a href="EventGroupChanged.html">EventGroupChanged</a>
+<br><a href="EventGroupConverted.html">EventGroupConverted</a>
+<br><a href="EventGroupDecline.html">EventGroupDecline</a>
+<br><a href="EventGroupDeclineBusy.html">EventGroupDeclineBusy</a>
+<br><a href="EventGroupDeclineIgnored.html">EventGroupDeclineIgnored</a>
+<br><a href="EventGroupDisappeared.html">EventGroupDisappeared</a>
+<br><a href="EventGroupInvite.html">EventGroupInvite</a>
+<br><a href="EventGroupInviteEnd.html">EventGroupInviteEnd</a>
+<br><a href="EventGroupInviteFailed.html">EventGroupInviteFailed</a>
+<br><a href="EventGroupItemQualityChanged.html">EventGroupItemQualityChanged</a>
+<br><a href="EventGroupKickFailed.html">EventGroupKickFailed</a>
+<br><a href="EventGroupLeaderChanged.html">EventGroupLeaderChanged</a>
+<br><a href="EventGroupLootSchemeChanged.html">EventGroupLootSchemeChanged</a>
+<br><a href="EventGroupMemberAdded.html">EventGroupMemberAdded</a>
+<br><a href="EventGroupMemberChanged.html">EventGroupMemberChanged</a>
+<br><a href="EventGroupMemberRemoved.html">EventGroupMemberRemoved</a>
+<br><a href="EventPartyMemberPositionUpdated.html">EventPartyMemberPositionUpdated</a>
+<br><a href="EventReadyCheckEnded.html">EventReadyCheckEnded</a>
+<br><a href="EventReadyCheckInfoChanged.html">EventReadyCheckInfoChanged</a>
+<br><a href="EventReadyCheckStarted.html">EventReadyCheckStarted</a>
+<br><a href="EventTeleportOfferRequest.html">EventTeleportOfferRequest</a>
+<br><a href="FunctionAvatarGetChannelsInfo.html">FunctionAvatarGetChannelsInfo</a>
+<br><a href="FunctionAvatarSwitchToChannel.html">FunctionAvatarSwitchToChannel</a>
+<br><a href="FunctionAvatarTeleportOfferReply.html">FunctionAvatarTeleportOfferReply</a>
+<br><a href="FunctionGroupAccept.html">FunctionGroupAccept</a>
+<br><a href="FunctionGroupCanInvite.html">FunctionGroupCanInvite</a>
+<br><a href="FunctionGroupCanKick.html">FunctionGroupCanKick</a>
+<br><a href="FunctionGroupCanKickMember.html">FunctionGroupCanKickMember</a>
+<br><a href="FunctionGroupCanLeave.html">FunctionGroupCanLeave</a>
+<br><a href="FunctionGroupDecline.html">FunctionGroupDecline</a>
+<br><a href="FunctionGroupGetInviteInfo.html">FunctionGroupGetInviteInfo</a>
+<br><a href="FunctionGroupGetLeader.html">FunctionGroupGetLeader</a>
+<br><a href="FunctionGroupGetMemberInfo.html">FunctionGroupGetMemberInfo</a>
+<br><a href="FunctionGroupGetMemberInfoByIndex.html">FunctionGroupGetMemberInfoByIndex</a>
+<br><a href="FunctionGroupGetMembers.html">FunctionGroupGetMembers</a>
+<br><a href="FunctionGroupGetReadyCheckInfo.html">FunctionGroupGetReadyCheckInfo</a>
+<br><a href="FunctionGroupInvite.html">FunctionGroupInvite</a>
+<br><a href="FunctionGroupInviteByName.html">FunctionGroupInviteByName</a>
+<br><a href="FunctionGroupIsAutomatic.html">FunctionGroupIsAutomatic</a>
+<br><a href="FunctionGroupIsCreatureInGroup.html">FunctionGroupIsCreatureInGroup</a>
+<br><a href="FunctionGroupIsExist.html">FunctionGroupIsExist</a>
+<br><a href="FunctionGroupIsLeader.html">FunctionGroupIsLeader</a>
+<br><a href="FunctionGroupKickMember.html">FunctionGroupKickMember</a>
+<br><a href="FunctionGroupKickMerc.html">FunctionGroupKickMerc</a>
+<br><a href="FunctionGroupLeave.html">FunctionGroupLeave</a>
+<br><a href="FunctionGroupReportReadyCheck.html">FunctionGroupReportReadyCheck</a>
+<br><a href="FunctionGroupSetLeader.html">FunctionGroupSetLeader</a>
+<br><a href="FunctionGroupStartReadyCheck.html">FunctionGroupStartReadyCheck</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryGroup.html">CategoryGroup</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

@@ -1,0 +1,94 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - EventChatMessageWithObjects</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> EVENT_CHAT_MESSAGE_WITH_OBJECTS</h2>
+<p></p>
+<p>Событие посылается для каждого нового сообщения, пришедшего в чат. Если сообщение является эхом (включено в настройках по умолчанию), то это то сообщение, которое мы изначально попытались отправить.</p>
+<p></p>
+<p>Событие приходит вместе с <a href="EventChatMessage.html"> EVENT_CHAT_MESSAGE</a> и содержит более полную информацию - текст и предметы.</p>
+<p></p>
+<p>'''Внимание!''' В пользовательских аддонах есть ограничение: событие может не приходить на турнирах.</p>
+<p></p>
+<pre>
+-- поля
+sender: WString - имя отправителя (игрока или моба)
+shard: WString - название сервера отправителя
+senderUniqueId: UniqueId or nil - уникальный идентификатор персонажа-отправителя
+senderId: ObjectId or nil - идентификатор персонажа-отправителя или nil, если данная информация недоступна (например, если игрок не отреплицирован)
+recipientUniqueId: UniqueId or nil - уникальный идентификатор персонажа-получателя или nil, если данная информация недоступна
+recipientId: ObjectId or nil - идентификатор персонажа-получателя или nil, если данная информация недоступна
+chatType: number (enum CHAT_TYPE_...) - тип сообщения
+isEcho: boolean - является ли сообщение эхом
+time: table - таблица с информацией о времени отправки сообщения (локальное время сервера). Поля:
+  h: number (int) - час
+  m: number (int) - минута
+  s: number (int) - секунда
+
+Для CHAT_TYPE_WHISPER (только для эха):
+recipient:  WString - имя получателя
+
+isAlive: boolean - жив игрок (может действовать) или нет (мертв или в числилище)
+
+messages: таблица, индексированная [0..], содержащая таблицы с информацией о фрагментах сообщения:
+ text: WString or nil - если не nil, то текстовый фрагмент
+ spamWeight: number (integer) or nil - спам-вес для текстового фрагмента сообщения, если меньше 100, то не спам, иначе - спам
+ item: ValuedObject or nil - если не nil, то подстановочный объект, содержащий информацию о предмете
+ medal: ValuedObject or nil - если не nil, то подстановочный объект, содержащий информацию о достижении
+</pre>
+<p></p>
+<p>См. также: <a href="TypeValuedObject.html"> TypeValuedObject</a> и  CHAT_TYPE_... (закрытая ссылка)</p>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryChat"</h4>
+<p></p>
+<a href="EnumAccessionResult.html">EnumAccessionResult</a>
+<br><a href="EnumChatFailedType.html">EnumChatFailedType</a>
+<br><a href="EventCantSendChatByDelay.html">EventCantSendChatByDelay</a>
+<br><a href="EventChatAvatarMuted.html">EventChatAvatarMuted</a>
+<br><a href="EventChatMessage.html">EventChatMessage</a>
+<br><a href="EventChatMessageIsFlood.html">EventChatMessageIsFlood</a>
+<br><a href="EventChatMessageRejected.html">EventChatMessageRejected</a>
+<br><a href="EventChatMessageWithObjects.html">EventChatMessageWithObjects</a>
+<br><a href="EventChatNamedError.html">EventChatNamedError</a>
+<br><a href="EventChatSentToAlt.html">EventChatSentToAlt</a>
+<br><a href="EventCustomEmote.html">EventCustomEmote</a>
+<br><a href="EventGlobalNotice.html">EventGlobalNotice</a>
+<br><a href="EventPlayedCommandResponse.html">EventPlayedCommandResponse</a>
+<br><a href="EventSlashCommandFailed.html">EventSlashCommandFailed</a>
+<br><a href="EventSlashCommandPrefixChanged.html">EventSlashCommandPrefixChanged</a>
+<br><a href="EventUnknownSlashCommand.html">EventUnknownSlashCommand</a>
+<br><a href="EventVeteranranksCommandResponse.html">EventVeteranranksCommandResponse</a>
+<br><a href="EventWhisperFailed.html">EventWhisperFailed</a>
+<br><a href="FunctionMissionClearChatInput.html">FunctionMissionClearChatInput</a>
+<br><a href="FunctionMissionGetChatInput.html">FunctionMissionGetChatInput</a>
+<br><a href="FunctionMissionGetChatInputSimilarCommands.html">FunctionMissionGetChatInputSimilarCommands</a>
+<br><a href="FunctionMissionSetChatInputArg.html">FunctionMissionSetChatInputArg</a>
+<br><a href="FunctionMissionSetChatInputData.html">FunctionMissionSetChatInputData</a>
+<br><a href="FunctionMissionSetChatInputHistoryMaxSize.html">FunctionMissionSetChatInputHistoryMaxSize</a>
+<br><a href="FunctionMissionSetChatInputNextData.html">FunctionMissionSetChatInputNextData</a>
+<br><a href="FunctionMissionSetChatInputPrevData.html">FunctionMissionSetChatInputPrevData</a>
+<br><a href="FunctionMissionSetChatInputTarget.html">FunctionMissionSetChatInputTarget</a>
+<br><a href="FunctionMissionSetChatInputText.html">FunctionMissionSetChatInputText</a>
+<br><a href="FunctionMissionSetChatInputType.html">FunctionMissionSetChatInputType</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryEvent.html">CategoryEvent</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<a href="CategoryChat.html">CategoryChat</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

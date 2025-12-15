@@ -1,0 +1,167 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - Changelist7_0_01</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<br>
+<h2>Список изменений</h2>
+<br>
+<br>
+<h3>Удалены документы</h3>
+"ENUM_CategoryType_..."<br>
+"ENUM_ItemMallBuyCrystalsResultStatus_..."<br>
+"ENUM_ItemMallBuyResultMsgStatus_..."<br>
+"ENUM_ItemMallCheckItemsResultMsgStatus_..."<br>
+"ENUM_ItemMallConvertResultMsgStatus_..."<br>
+"ENUM_ItemMallCurrency_..."<br>
+"ENUM_ItemMallGetAccountResultMsgStatus_..."<br>
+"ENUM_ItemMallGetBannersResultMsgStatus_..."<br>
+"ENUM_ItemMallGetCategoriesResultMsgStatus_..."<br>
+"ENUM_ItemMallGetItemPriceResultMsgStatus_..."<br>
+"ENUM_ItemMallGetItemsByCategoryResultMsgStatus_..."<br>
+"ENUM_ItemMallGetItemsByItemIdResultMsgStatus_..."<br>
+"ENUM_ItemMallGetItemsByResResultMsgStatus_..."<br>
+"ENUM_ItemMallGetItemsByStatusResultMsgStatus_..."<br>
+"ENUM_ItemMallGetItemsResultMsgStatus_..."<br>
+"ENUM_ItemMallSellResultMsgStatus_..."<br>
+"ENUM_ItemMallSpendAltAccountResultMsgStatus_..."<br>
+astral.GetGroupUnlockLevel( )<br>
+avatar.GetItemMallMetaUpgradeEnhancer( itemId )<br>
+avatar.OpenLockedBoxForItem( boxId, keyId )<br>
+avatar.OpenUnlockedBoxForItem( boxId )<br>
+CategoryItemMall<br>
+CHAT_TYPE_...<br>
+common.GetMks()<br>
+EVENT_ITEM_MALL_ACCOUNT_UPDATE_RESULT<br>
+EVENT_ITEM_MALL_ASSORTMENT_CHANGED<br>
+EVENT_ITEM_MALL_BANNER_UPDATE_RESULT<br>
+EVENT_ITEM_MALL_BANNERS_UPDATE_RESULT<br>
+EVENT_ITEM_MALL_CURRENCY_CONVERT_RESULT<br>
+EVENT_ITEM_MALL_CURRENCY_SPEND_RESULT<br>
+EVENT_ITEM_MALL_FAVORITES_UPDATE_RESULT<br>
+EVENT_ITEM_MALL_INGAME_DONATE_URL_RESULT<br>
+EVENT_ITEM_MALL_ITEM_SUBCATEGORY_REQUEST<br>
+EVENT_ITEM_MALL_NOT_AVAILABLE<br>
+EVENT_ITEM_MALL_REFERRALS_RECEIVED<br>
+EVENT_ITEM_MALL_SEARCH_RESULTS<br>
+EVENT_ITEM_MALL_STATUS_CATEGORY_UPDATE_RESULT<br>
+EVENT_ITEMMALL_CONTEXT_BUY_ALIAS_INFO_LOADED<br>
+EVENT_ITEMMALL_CONTEXT_BUY_ITEMS_PRICE_UPDATED<br>
+EVENT_ITEMMALL_CONTEXT_BUY_PRICE_UPDATED<br>
+EVENT_ITEMMALL_ITEMS_CONTEXTED<br>
+itemLib.GetResourceInfo( itemResourceId )<br>
+itemLib.IsBoxKey( itemId )<br>
+itemMall.AddToFavorites( itemId )<br>
+itemMall.CurrencyExchangeMainToHappy( value )<br>
+itemMall.GetAccountInfo( currency )<br>
+itemMall.GetAccountMoney()<br>
+itemMall.GetAccountStatus()<br>
+itemMall.GetBannerInfo( id )<br>
+itemMall.GetBanners()<br>
+itemMall.GetCategories()<br>
+itemMall.GetCategoryInfo( id )<br>
+itemMall.GetCurrencyList()<br>
+itemMall.GetHistory()<br>
+itemMall.GetIngameDonateURL()<br>
+itemMall.GetItemInfo(itemId)<br>
+itemMall.GetItemInfoContexted( itemId )<br>
+itemMall.GetItems(subCategoryId)<br>
+itemMall.GetItemType( itemId )<br>
+itemMall.GetLoan()<br>
+itemMall.GetLoanInfo()<br>
+itemMall.GetObjectIdByAlias( alias )<br>
+itemMall.GetObjectIdByItemId( itemId )<br>
+itemMall.GetOperatorMoney()<br>
+itemMall.GetRefferalCurrency()<br>
+itemMall.GetSubCategories(categoryId)<br>
+itemMall.GetSubCategoryInfo( id )<br>
+itemMall.HasCouponForItem( itemId )<br>
+itemMall.IsAccountUpdateInProcess()<br>
+itemMall.IsCurrencyExchangeInProgress()<br>
+itemMall.IsItemsContexted( itemIds )<br>
+itemMall.IsItemSellable( itemId )<br>
+itemMall.IsReferralSystemActive()<br>
+itemMall.RemoveFromFavorites( itemId )<br>
+itemMall.RepayLoan()<br>
+itemMall.RequestBanner( id )<br>
+itemMall.RequestItemPriceContexted( itemId )<br>
+itemMall.RequestItemsPriceContexted( itemIds )<br>
+itemMall.RequestItemSubcategory( id )<br>
+itemMall.RequestReferrals()<br>
+itemMall.SearchItems( name, limit )<br>
+itemMall.SpendRefferalCurrency( value )<br>
+itemMall.UpdateAccountMoney()<br>
+<br>
+<h3>Добавлены документы</h3>
+<a href="../LuaApi/FunctionAvatarCalcCurrentGearScore.html">avatar.CalcCurrentGearScore()</a><br>
+<a href="../LuaApi/FunctionAvatarOpenBox.html">avatar.OpenBox( boxId, quantity )</a><br>
+<a href="../LuaApi/CombatTagId.html">CombatTagId</a><br>
+<a href="../LuaApi/FunctionCommonSetIconFlash.html">common.SetIconFlash( flashCount )</a><br>
+<a href="../LuaApi/EventReforgeResultFail.html">EVENT_REFORGE_RESULT_FAIL</a><br>
+<a href="../LuaApi/EventReforgeResultReady.html">EVENT_REFORGE_RESULT_READY</a><br>
+<a href="../LuaApi/FunctionGroupCanKick.html">group.CanKick()</a><br>
+<a href="../LuaApi/FunctionGroupCanLeave.html">group.CanLeave()</a><br>
+<a href="../LuaApi/FunctionGuildGetRewardFactor.html">guild.GetRewardFactor()</a><br>
+<a href="../LuaApi/FunctionItemLibGetDropInfo.html">itemLib.GetDropInfo( itemId )</a><br>
+<a href="../LuaApi/FunctionItemLibGetGearScore.html">itemLib.GetGearScore( itemId )</a><br>
+<a href="../LuaApi/FunctionMatchMakingAwayBattleEvent.html">matchMaking.AwayBattleEvent()</a><br>
+<a href="../LuaApi/FunctionMatchMakingCanAwayBattleEvent.html">matchMaking.CanAwayBattleEvent()</a><br>
+<a href="../LuaApi/FunctionMatchMakingCanReturnToBattle.html">matchMaking.CanReturnToBattle()</a><br>
+<a href="../LuaApi/FunctionMatchMakingIsAvatarJoinedAnySpecificEvent.html">matchMaking.IsAvatarJoinedAnySpecificEvent( checkPVE )</a><br>
+<a href="../LuaApi/FunctionMatchMakingReturnToBattle.html">matchMaking.ReturnToBattle()</a><br>
+<a href="../LuaApi/FunctionObjectGetInstantProjectedInfo.html">object.GetInstantProjectedInfo( objectId, heightOffset )</a><br>
+<a href="../LuaApi/FunctionObjectHasMobVisual.html">object.HasMobVisual( id )</a><br>
+<a href="../LuaApi/FunctionRaidCanKick.html">raid.CanKick()</a><br>
+<a href="../LuaApi/FunctionRaidCanLeave.html">raid.CanLeave()</a><br>
+<a href="../LuaApi/FunctionUnitGetEquipmentSlotBonus.html">unit.GetEquipmentSlotBonus( unitId, slot, slotType )</a><br>
+<a href="../LuaApi/FunctionUnitGetPlayerTitles.html">unit.GetPlayerTitles( unitId )</a><br>
+<a href="../LuaApi/FunctionUnitSetPlayerTitle.html">unit.SetPlayerTitle( unitId, sysName )</a><br>
+<br>
+<h3>Изменены документы</h3>
+<a href="../LuaApi/EnumAuctionBidResultMsgResult.html">"ENUM_AuctionBidResultMsgResult_..."</a><br>
+<a href="../LuaApi/EnumBoxOperationResult.html">"ENUM_BoxOperationResult_..."</a><br>
+<a href="../LuaApi/FunctionAstralGetSectorAstrolabeInfo.html">astral.GetSectorAstrolabeInfo( sectorId )</a><br>
+<a href="../LuaApi/FunctionAvatarGetGearScoreInfo.html">avatar.GetGearScoreInfo()</a><br>
+<a href="../LuaApi/FunctionAvatarUseItemOnItemAndTakeActions.html">avatar.UseItemOnItemAndTakeActions( waitingItemId, itemId, count, useAction )</a><br>
+<a href="../LuaApi/FunctionCartographerGetZonesMapInfo.html">cartographer.GetZonesMapInfo( zonesMapId )</a><br>
+<a href="../LuaApi/CategoryLuaApi.html">CategoryLuaApi</a><br>
+<a href="../LuaApi/CategoryWidget.html">CategoryWidget</a><br>
+<a href="../LuaApi/CategoryWidgetEffects.html">CategoryWidgetEffects</a><br>
+<a href="../LuaApi/FunctionCommonFormatFloat.html">common.FormatFloat( value, format, separator )</a><br>
+<a href="../LuaApi/EnumEventGoalType.html">enum "ENUM_EventGoalType"</a><br>
+<a href="../LuaApi/EventAvatarWarriorDamagePoolChanged.html">EVENT_AVATAR_WARRIOR_DAMAGE_POOL_CHANGED</a><br>
+<a href="../LuaApi/EventChatMessageWithObjects.html">EVENT_CHAT_MESSAGE_WITH_OBJECTS</a><br>
+<a href="../LuaApi/EventChatMessage.html">EVENT_CHAT_MESSAGE</a><br>
+<a href="../LuaApi/EventClientMessage.html">EVENT_CLIENT_MESSAGE</a><br>
+<a href="../LuaApi/EventObjectBuffAdded.html">EVENT_OBJECT_BUFF_ADDED</a><br>
+<a href="../LuaApi/EventObjectBuffRemoved.html">EVENT_OBJECT_BUFF_REMOVED</a><br>
+<a href="../LuaApi/EventUnitDamageReceived.html">EVENT_UNIT_DAMAGE_RECEIVED</a><br>
+<a href="../LuaApi/GoalId.html">GoalId</a><br>
+<a href="../LuaApi/FunctionGroupIsAutomatic.html">group.IsAutomatic()</a><br>
+<a href="../LuaApi/FunctionItemLibGetActivators.html">itemLib.GetActivators( itemId )</a><br>
+<a href="../LuaApi/FunctionItemLibGetBoxInfo.html">itemLib.GetBoxInfo( itemId )</a><br>
+<a href="../LuaApi/FunctionItemLibGetCouponInfo.html">itemLib.GetCouponInfo( itemResourceId )</a><br>
+<a href="../LuaApi/FunctionItemLibGetResourceId.html">itemLib.GetResourceId( itemId )</a><br>
+<a href="../LuaApi/FunctionMatchMakingGetCurrentBattleInfo.html">matchMaking.GetCurrentBattleInfo()</a><br>
+<a href="../LuaApi/FunctionMatchMakingGetEventInfo.html">matchMaking.GetEventInfo( eventId )</a><br>
+<a href="../LuaApi/FunctionMatchMakingGetMembersRoles.html">matchMaking.GetMembersRoles( eventId )</a><br>
+<a href="../LuaApi/FunctionObjectDetachWidget2D.html">object.DetachWidget2D( objectId, widget )</a><br>
+<a href="../LuaApi/FunctionProceduralDungeonLibGetGoalInfo.html">proceduralDungeonLib.GetGoalInfo( goalId )</a><br>
+<a href="../LuaApi/FunctionRaidIsAutomatic.html">raid.IsAutomatic()</a><br>
+<a href="../LuaApi/FunctionRulesBillingInfoGetBonusInfo.html">rules.BillingInfoGetBonusInfo()</a><br>
+<br>
+<br>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

@@ -1,0 +1,81 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - EventLfgVote</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> EVENT_LFG_VOTE</h2>
+<p></p>
+<p>Событие посылается при начале голосования.</p>
+<p></p>
+<pre>
+-- поля:
+initiator: WString - имя игрока, активировавшего опрос
+type: Number(ENUM_LFGVoteType) - предмет опроса
+destination: LfgDestinationId or nil - пункт назначения
+endTimeMs: Number(int64) - время окончания опроса
+roles: table of Number(ENUM_LFGRole) - список вакантных ролей в группе
+</pre>
+<p></p>
+<p>Связанные ссылки:</p>
+<ul><li><p> <a href="EnumLfgRole.html">ENUM_LFGRole</a></p></li></ul>
+<ul><li><p> <a href="EnumLfgVoteType.html">ENUM_LFGVoteType</a></p></li></ul>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryLfgLib"</h4>
+<p></p>
+<a href="EnumLfgActionFail.html">EnumLfgActionFail</a>
+<br><a href="EnumLFGEventDifficulty.html">EnumLFGEventDifficulty</a>
+<br><a href="EnumLfgRole.html">EnumLfgRole</a>
+<br><a href="EnumLfgVoteType.html">EnumLfgVoteType</a>
+<br><a href="EventLfgActionFail.html">EventLfgActionFail</a>
+<br><a href="EventLfgDepartAvailableChanged.html">EventLfgDepartAvailableChanged</a>
+<br><a href="EventLfgDestinationAvailableChanged.html">EventLfgDestinationAvailableChanged</a>
+<br><a href="EventLfgDestinationChanged.html">EventLfgDestinationChanged</a>
+<br><a href="EventLfgDestinationsListChanged.html">EventLfgDestinationsListChanged</a>
+<br><a href="EventLfgDestinationVisitsChanged.html">EventLfgDestinationVisitsChanged</a>
+<br><a href="EventLfgJoin.html">EventLfgJoin</a>
+<br><a href="EventLfgLeave.html">EventLfgLeave</a>
+<br><a href="EventLfgVote.html">EventLfgVote</a>
+<br><a href="EventLfgVoteTerminate.html">EventLfgVoteTerminate</a>
+<br><a href="FunctionLfgLibDepart.html">FunctionLfgLibDepart</a>
+<br><a href="FunctionLfgLibEnableReplicateDestinations.html">FunctionLfgLibEnableReplicateDestinations</a>
+<br><a href="FunctionLfgLibGetCurrentDestination.html">FunctionLfgLibGetCurrentDestination</a>
+<br><a href="FunctionLfgLibGetDepartRequirements.html">FunctionLfgLibGetDepartRequirements</a>
+<br><a href="FunctionLfgLibGetDestinationCategories.html">FunctionLfgLibGetDestinationCategories</a>
+<br><a href="FunctionLfgLibGetDestinationRequirements.html">FunctionLfgLibGetDestinationRequirements</a>
+<br><a href="FunctionLfgLibGetDestinationReward.html">FunctionLfgLibGetDestinationReward</a>
+<br><a href="FunctionLfgLibGetDestinations.html">FunctionLfgLibGetDestinations</a>
+<br><a href="FunctionLfgLibGetDestinationsInCategory.html">FunctionLfgLibGetDestinationsInCategory</a>
+<br><a href="FunctionLfgLibGetDestinationTimers.html">FunctionLfgLibGetDestinationTimers</a>
+<br><a href="FunctionLfgLibGetDestinationVisits.html">FunctionLfgLibGetDestinationVisits</a>
+<br><a href="FunctionLfgLibGetRoles.html">FunctionLfgLibGetRoles</a>
+<br><a href="FunctionLfgLibIsAvailable.html">FunctionLfgLibIsAvailable</a>
+<br><a href="FunctionLfgLibIsDepartAvailable.html">FunctionLfgLibIsDepartAvailable</a>
+<br><a href="FunctionLfgLibIsDestinationAvailable.html">FunctionLfgLibIsDestinationAvailable</a>
+<br><a href="FunctionLfgLibIsFreePass.html">FunctionLfgLibIsFreePass</a>
+<br><a href="FunctionLfgLibIsRoleAvailable.html">FunctionLfgLibIsRoleAvailable</a>
+<br><a href="FunctionLfgLibJoin.html">FunctionLfgLibJoin</a>
+<br><a href="FunctionLfgLibLeave.html">FunctionLfgLibLeave</a>
+<br><a href="FunctionLfgLibVoteNo.html">FunctionLfgLibVoteNo</a>
+<br><a href="FunctionLfgLibVoteYes.html">FunctionLfgLibVoteYes</a>
+<br><a href="LfgDestinationCategoryId.html">LfgDestinationCategoryId</a>
+<br><a href="LfgDestinationId.html">LfgDestinationId</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryEvent.html">CategoryEvent</a>
+<a href="CategoryLfgLib.html">CategoryLfgLib</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

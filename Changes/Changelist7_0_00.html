@@ -1,0 +1,148 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - Changelist7_0_00</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<br>
+<h2>Список изменений</h2>
+<br>
+<br>
+<h3>Удалены документы</h3>
+"ENUM_MsgRenameAvatarResultResult_..."<br>
+avatar.GetBuffLinkedSpell( buffId )<br>
+CHAT_TYPE_...<br>
+itemMall.GetItemIdByAlias( alias )<br>
+remort.ChooseSharedAbility( abilityId )<br>
+remort.GetClassSpellsForSharing( classId )<br>
+remort.GetSpellsForSharing()<br>
+<br>
+<h3>Добавлены документы</h3>
+<a href="../LuaApi/EnumMsgRenameResultResult.html">"ENUM_MsgRenameResultResult_..."</a><br>
+<a href="../LuaApi/FunctionAvatarGetEngineerPetCommands.html">avatar.GetEngineerPetCommands()</a><br>
+<a href="../LuaApi/FunctionAvatarGetGearScoreInfo.html">avatar.GetGearScoreInfo()</a><br>
+<a href="../LuaApi/FunctionAvatarGetInfiniteUnlocks.html">avatar.GetInfiniteUnlocks()</a><br>
+<a href="../LuaApi/FunctionAvatarGetPsionicOrders.html">avatar.GetPsionicOrders()</a><br>
+<a href="../LuaApi/FunctionAvatarGetStalkerDamagePoolInfo.html">avatar.GetStalkerDamagePoolInfo()</a><br>
+<a href="../LuaApi/FunctionAvatarGetStalkerDamagePoolSize.html">avatar.GetStalkerDamagePoolSize()</a><br>
+<a href="../LuaApi/FunctionaAvatarGetTargetSales.html">avatar.GetTargetSales()</a><br>
+<a href="../LuaApi/FunctionAvatarGetTemporaryUnlocks.html">avatar.GetTemporaryUnlocks()</a><br>
+<a href="../LuaApi/FunctionAvatarGetWarriorDamagePoolInfo.html">avatar.GetWarriorDamagePoolInfo()</a><br>
+<a href="../LuaApi/FunctionaAvatarRejectTargetSale.html">avatar.RejectTargetSale( saleId )</a><br>
+<a href="../LuaApi/FunctionCartographerIsCurrentZoneRiftMap.html">cartographer.IsCurrentZoneRiftMap()</a><br>
+<a href="../LuaApi/FunctionCommonIsEqualStats.html">common.IsEqualStats( firstStatId, secondStatId )</a><br>
+<a href="../LuaApi/FunctionCraftFinishReforge.html">craft.FinishReforge( choice )</a><br>
+<a href="../LuaApi/FunctionCraftGetForgeComponent.html">craft.GetForgeComponent( slot )</a><br>
+<a href="../LuaApi/FunctionCraftGetForgeRecipe.html">craft.GetForgeRecipe()</a><br>
+<a href="../LuaApi/FunctionCraftGetForgeRecipeInfo.html">craft.GetForgeRecipeInfo( recipeId )</a><br>
+<a href="../LuaApi/FunctionCraftGetForgeRecipes.html">craft.GetForgeRecipes()</a><br>
+<a href="../LuaApi/FunctionCraftGetReforgeComponent.html">craft.GetReforgeComponent( slot )</a><br>
+<a href="../LuaApi/FunctionCraftGetReforgeInfo.html">craft.GetReforgeInfo( itemId, offenceMode )</a><br>
+<a href="../LuaApi/FunctionCraftGetReforgeRecipe.html">craft.GetReforgeRecipe()</a><br>
+<a href="../LuaApi/FunctionCraftGetReforgeVariants.html">craft.GetReforgeVariants()</a><br>
+<a href="../LuaApi/FunctionCraftPutForgeComponent.html">craft.PutForgeComponent( slot, itemId )</a><br>
+<a href="../LuaApi/FunctionCraftPutReforgeComponent.html">craft.PutReforgeComponent( slot, itemId )</a><br>
+<a href="../LuaApi/FunctionCraftSetForgeRecipe.html">craft.SetForgeRecipe( recipeId )</a><br>
+<a href="../LuaApi/FunctionCraftSetReforgeRecipe.html">craft.SetReforgeRecipe( resorceId, itemId )</a><br>
+<a href="../LuaApi/EnumAffectGroup.html">ENUM_AffectGroup</a><br>
+<a href="../LuaApi/EnumFloatingBudgetType.html">ENUM_FloatingBudgetType</a><br>
+<a href="../LuaApi/EnumSaleTag.html">ENUM_SaleTag</a><br>
+<a href="../LuaApi/EventAvatarFriendListLoaded.html">EVENT_AVATAR_FRIEND_LIST_LOADED</a><br>
+<a href="../LuaApi/EventAvatarIgnoreListLoaded.html">EVENT_AVATAR_IGNORE_LIST_LOADED</a><br>
+<a href="../LuaApi/EventAvatarStalkerDamagePoolAdded.html">EVENT_AVATAR_STALKER_DAMAGE_POOL_ADDED</a><br>
+<a href="../LuaApi/EventAvatarStalkerDamagePoolChanged.html">EVENT_AVATAR_STALKER_DAMAGE_POOL_CHANGED</a><br>
+<a href="../LuaApi/EventAvatarStalkerDamagePoolRemoved.html">EVENT_AVATAR_STALKER_DAMAGE_POOL_REMOVED</a><br>
+<a href="../LuaApi/EventAvatarUnlockChanged.html">EVENT_AVATAR_UNLOCK_CHANGED</a><br>
+<a href="../LuaApi/EventAvatarWarriorDamagePoolAdded.html">EVENT_AVATAR_WARRIOR_DAMAGE_POOL_ADDED</a><br>
+<a href="../LuaApi/EventAvatarWarriorDamagePoolChanged.html">EVENT_AVATAR_WARRIOR_DAMAGE_POOL_CHANGED</a><br>
+<a href="../LuaApi/EventAvatarWarriorDamagePoolRemoved.html">EVENT_AVATAR_WARRIOR_DAMAGE_POOL_REMOVED</a><br>
+<a href="../LuaApi/EventForgeCraftDialog.html">EVENT_FORGE_CRAFT_DIALOG</a><br>
+<a href="../LuaApi/EventHealAbsorbPoolAppeared.html">EVENT_HEAL_ABSORB_POOL_APPEARED</a><br>
+<a href="../LuaApi/EventHealAbsorbPoolChanged.html">EVENT_HEAL_ABSORB_POOL_CHANGED</a><br>
+<a href="../LuaApi/EventHealAbsorbPoolDisappeared.html">EVENT_HEAL_ABSORB_POOL_DISAPPEARED</a><br>
+<a href="../LuaApi/EventInterfaceInvokeTargetSale.html">EVENT_INTERFACE_INVOKE_TARGET_SALE</a><br>
+<a href="../LuaApi/EventItemMallAssortmentChanged.html">EVENT_ITEM_MALL_ASSORTMENT_CHANGED</a><br>
+<a href="../LuaApi/EventItemMallFavoritesLimitReached.html">EVENT_ITEM_MALL_FAVORITES_LIMIT_REACHED</a><br>
+<a href="../LuaApi/EventObjectBuffRemoved.html">EVENT_OBJECT_BUFF_REMOVED</a><br>
+<a href="../LuaApi/EventReforgeResult.html">EVENT_REFORGE_RESULT</a><br>
+<a href="../LuaApi/EventTargetSalesAdded.html">EVENT_TARGET_SALES_ADDED</a><br>
+<a href="../LuaApi/EventTargetSalesChanged.html">EVENT_TARGET_SALES_CHANGED</a><br>
+<a href="../LuaApi/FunctionGroupGetLeaderUniqueId.html">group.GetLeaderUniqueId()</a><br>
+<a href="../LuaApi/InstancedEventCategoryId.html">InstancedEventCategoryId</a><br>
+<a href="../LuaApi/FunctionItemLibGetBudgets.html">itemLib.GetBudgets( itemId )</a><br>
+<a href="../LuaApi/FunctionItemLibIsUnpackOnPickup.html">itemLib.IsUnpackOnPickup( itemId )</a><br>
+<a href="../LuaApi/FunctionItemMallGetObjectIdByAlias.html">itemMall.GetObjectIdByAlias( alias )</a><br>
+<a href="../LuaApi/FunctionItemMallGetObjectIdByItemId.html">itemMall.GetObjectIdByItemId( itemId )</a><br>
+<a href="../LuaApi/FunctionMatchMakingIsAvatarJoinedAnySpecificEvent.html">matchMaking.IsAvatarJoinedAnySpecificEvent( checkPVE )</a><br>
+<a href="../LuaApi/FunctionMissionSetAESectorProps.html">mission.SetAESectorProps( range, angle )</a><br>
+<a href="../LuaApi/FunctionMissionSetAESectorVisObj.html">mission.SetAESectorVisObj( fillerObjId, leftObjId, rightObjId, centerObjId )</a><br>
+<a href="../LuaApi/FunctionMissionShowAESector.html">mission.ShowAESector( show )</a><br>
+<a href="../LuaApi/FunctionObjectGetInstantProjectedInfo.html">object.GetInstantProjectedInfo( objectId, heightOffset )</a><br>
+<a href="../LuaApi/FunctionRemortChooseSharedAbilities.html">remort.ChooseSharedAbilities( abilities )</a><br>
+<a href="../LuaApi/FunctionRemortGetSharedAbilitiesCount.html">remort.GetSharedAbilitiesCount()</a><br>
+<a href="../LuaApi/FunctionCraftMakeForge.html">Search: "CategoryLuaApi" "CategoryCraft"</a><br>
+<a href="../LuaApi/FunctionCraftMakeReforge.html">Search: "CategoryLuaApi" "CategoryCraft"</a><br>
+<a href="../LuaApi/FunctionSocialIsFriendListLoaded.html">social.IsFriendListLoaded()</a><br>
+<a href="../LuaApi/FunctionSocialIsIgnoreListLoaded.html">social.IsIgnoreListLoaded()</a><br>
+<a href="../LuaApi/SpecialStatId.html">SpecialStatId</a><br>
+<a href="../LuaApi/FunctionSpellLibGetAESectorProps.html">spellLib.GetAESectorProps( SpellId )</a><br>
+<a href="../LuaApi/FunctionSpellLibGetDurationBuff.html">spellLib.GetDurationBuff( spellId )</a><br>
+<a href="../LuaApi/FunctionUnitGetHealAbsorbPoolInfo.html">unit.GetHealAbsorbPoolInfo( unitId )</a><br>
+<br>
+<h3>Изменены документы</h3>
+<a href="../LuaApi/EnumMatchMakingMechanicsType.html">"ENUM_MatchMakingMechanicsType..."</a><br>
+<a href="../LuaApi/FunctionAvatarChangeFairyBonus.html">avatar.ChangeFairyBonus( statIndex )</a><br>
+<a href="../LuaApi/FunctionAvatarGetQuestInfo.html">avatar.GetQuestInfo( questId )</a><br>
+<a href="../LuaApi/FunctionAvatarGetSpecialStats.html">avatar.GetSpecialStats()</a><br>
+<a href="../LuaApi/FunctionAvatarGetStatsBonusesPart.html">avatar.GetStatsBonusesPart()</a><br>
+<a href="../LuaApi/FunctionAvatarGetUnlockInfo.html">avatar.GetUnlockInfo( unlockId )</a><br>
+<a href="../LuaApi/FunctionAvatarGetUnlocks.html">avatar.GetUnlocks()</a><br>
+<a href="../LuaApi/FunctionAvatarGetVariableInfo.html">avatar.GetVariableInfo( variableId )</a><br>
+<a href="../LuaApi/FunctionAvatarPutAlchemyItemToSlot.html">avatar.PutAlchemyItemToSlot( itemId, slot )</a><br>
+<a href="../LuaApi/FunctionCartographerGetObjectGeodata.html">cartographer.GetObjectGeodata( objectId, zonesMapId )</a><br>
+<a href="../LuaApi/FunctionCartographerGetZonesMapInfo.html">cartographer.GetZonesMapInfo( zonesMapId )</a><br>
+<a href="../LuaApi/CategoryLuaApi.html">CategoryLuaApi</a><br>
+<a href="../LuaApi/CategoryWidget.html">CategoryWidget</a><br>
+<a href="../LuaApi/CategoryWidgetEffects.html">CategoryWidgetEffects</a><br>
+<a href="../LuaApi/EnumDressSlot.html">DRESS_SLOT_...</a><br>
+<a href="../LuaApi/EventActionProgressStart.html">EVENT_ACTION_PROGRESS_START</a><br>
+<a href="../LuaApi/EventAlchemyItemPlaced.html">EVENT_ALCHEMY_ITEM_PLACED</a><br>
+<a href="../LuaApi/EventAvatarUnlockAdded.html">EVENT_AVATAR_UNLOCK_ADDED</a><br>
+<a href="../LuaApi/EventChatMessageWithObjects.html">EVENT_CHAT_MESSAGE_WITH_OBJECTS</a><br>
+<a href="../LuaApi/EventChatMessage.html">EVENT_CHAT_MESSAGE</a><br>
+<a href="../LuaApi/EventMatchMakingMembersRolesChanged.html">EVENT_MATCH_MAKING_MEMBERS_ROLES_CHANGED</a><br>
+<a href="../LuaApi/EventObjectBuffAdded.html">EVENT_OBJECT_BUFF_ADDED</a><br>
+<a href="../LuaApi/EventUnitDamageReceived.html">EVENT_UNIT_DAMAGE_RECEIVED</a><br>
+<a href="../LuaApi/EventVariableAdded.html">EVENT_VARIABLE_ADDED</a><br>
+<a href="../LuaApi/GoalId.html">GoalId</a><br>
+<a href="../LuaApi/FunctionGroupIsAutomatic.html">group.IsAutomatic()</a><br>
+<a href="../LuaApi/FunctionGroupSetLeader.html">group.SetLeader( uniqueId )</a><br>
+<a href="../LuaApi/FunctionItemLibGetBonus.html">itemLib.GetBonus( itemId )</a><br>
+<a href="../LuaApi/FunctionItemLibGetItemInfo.html">itemLib.GetItemInfo( itemId )</a><br>
+<a href="../LuaApi/FunctionMatchMakingGetCurrentBattleInfo.html">matchMaking.GetCurrentBattleInfo()</a><br>
+<a href="../LuaApi/FunctionMatchMakingGetEventInfo.html">matchMaking.GetEventInfo( eventId )</a><br>
+<a href="../LuaApi/FunctionMatchMakingGetEventsByCategory.html">matchMaking.GetEventsByCategory( categoryId, type )</a><br>
+<a href="../LuaApi/FunctionMatchMakingGetMembersRoles.html">matchMaking.GetMembersRoles( eventId )</a><br>
+<a href="../LuaApi/FunctionMissionShowAEMark.html">mission.ShowAEMark( show )</a><br>
+<a href="../LuaApi/FunctionMWarGetGuildHistory.html">mwar.GetGuildHistory()</a><br>
+<a href="../LuaApi/FunctionRaidIsAutomatic.html">raid.IsAutomatic()</a><br>
+<a href="../LuaApi/FunctionRemortGetAbilitiesForSharing.html">remort.GetAbilitiesForSharing()</a><br>
+<a href="../LuaApi/FunctionRemortGetClassAbilitiesForSharing.html">remort.GetClassAbilitiesForSharing( classId )</a><br>
+<a href="../LuaApi/RequirementsTable.html">RequirementsTable</a><br>
+<a href="../LuaApi/FunctionSpellLibGetProperties.html">spellLib.GetProperties( SpellId )</a><br>
+<a href="../LuaApi/FunctionUnitGetClass.html">unit.GetClass(id)</a><br>
+<br>
+<br>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

@@ -1,0 +1,70 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - EventGuildAvatarHistory</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> EVENT_GUILD_AVATAR_HISTORY</h2>
+<p></p>
+<p>Серверное событие с гильдейской банковской историей аватара. Приходит после вызова функции <a href="FunctionGuildGetAvatarHistory.html"> guild.GetAvatarHistory()</a>.</p>
+<p></p>
+<pre>
+-- Параметры:
+table of table - индексированная с нуля таблица с описаниями конкретных операций, каждая из которых представлена таблицей с полями:
+  moneyChange: number (integer) - величина транзакции в меди
+  comment: WString - комментарий при проведении операции
+  time: LuaFullDateTime - время транзакции
+  changeReason: number (enum ENUM_MoneyChangeReason_...) - причина транзакции
+  sysChangeReason: string (enum "ENUM_MoneyChangeReason_...") - причина транзакции
+</pre>
+<p></p>
+<p>См. LuaFullDateTime, EnumMoneyChangeReason, EnumTabardType</p>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryGuildBank" </h4>
+<p></p>
+<a href="EnumGuildBankOperation.html">EnumGuildBankOperation</a>
+<br><a href="EnumGuildHistoryOrder.html">EnumGuildHistoryOrder</a>
+<br><a href="EnumGuildItemsHistoryOrder.html">EnumGuildItemsHistoryOrder</a>
+<br><a href="EnumMoneyChangeReason.html">EnumMoneyChangeReason</a>
+<br><a href="EnumTransferMoneyOperationDirection.html">EnumTransferMoneyOperationDirection</a>
+<br><a href="EventGuildAvatarHistory.html">EventGuildAvatarHistory</a>
+<br><a href="EventGuildBankHistoryChanged.html">EventGuildBankHistoryChanged</a>
+<br><a href="EventGuildBankMinimumTransactionChanged.html">EventGuildBankMinimumTransactionChanged</a>
+<br><a href="EventGuildBankMoneyChanged.html">EventGuildBankMoneyChanged</a>
+<br><a href="EventGuildBankOperationResult.html">EventGuildBankOperationResult</a>
+<br><a href="EventGuildItemsHistoryChanged.html">EventGuildItemsHistoryChanged</a>
+<br><a href="EventGuildItemsOperationResult.html">EventGuildItemsOperationResult</a>
+<br><a href="EventGuildMemberBalanceChanged.html">EventGuildMemberBalanceChanged</a>
+<br><a href="FunctionGuildCorrectMemberBalance.html">FunctionGuildCorrectMemberBalance</a>
+<br><a href="FunctionGuildGetAvatarHistory.html">FunctionGuildGetAvatarHistory</a>
+<br><a href="FunctionGuildGetBankInfo.html">FunctionGuildGetBankInfo</a>
+<br><a href="FunctionGuildGetHistory.html">FunctionGuildGetHistory</a>
+<br><a href="FunctionGuildGetItemsHistory.html">FunctionGuildGetItemsHistory</a>
+<br><a href="FunctionGuildGetItemsInfo.html">FunctionGuildGetItemsInfo</a>
+<br><a href="FunctionGuildGetItemsOperationHistory.html">FunctionGuildGetItemsOperationHistory</a>
+<br><a href="FunctionGuildGetMemberBalance.html">FunctionGuildGetMemberBalance</a>
+<br><a href="FunctionGuildGetMoney.html">FunctionGuildGetMoney</a>
+<br><a href="FunctionGuildGetOperationHistory.html">FunctionGuildGetOperationHistory</a>
+<br><a href="FunctionGuildRaiseFunds.html">FunctionGuildRaiseFunds</a>
+<br><a href="FunctionGuildSetMinimumTransaction.html">FunctionGuildSetMinimumTransaction</a>
+<br><a href="FunctionGuildTransferMoney.html">FunctionGuildTransferMoney</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryEvent.html">CategoryEvent</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<a href="CategoryGuildBank.html">CategoryGuildBank</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

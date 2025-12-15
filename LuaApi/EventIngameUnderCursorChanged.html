@@ -1,0 +1,65 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - EventIngameUnderCursorChanged</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> EVENT_INGAME_UNDER_CURSOR_CHANGED</h2>
+<p></p>
+<p>Событие присылается при изменении объекта под курсором.</p>
+<p></p>
+<pre>
+поля:
+
+state: string - может принимать следующие значения:
+
+- "interface" - курсор находится над элементом интерфейса, кроме основного 3d-view
+
+- "main_view_3d_none" - курсор находится на основном 3d-view, под ним нет юнитов
+
+- "main_view_3d_unit" - курсор находится на основном 3d-view, под ним находится юнит
+  Для этого случая присылается дополнительное поле:
+  unitId: ObjectId (not nil) - идентификатор юнита под курсором
+
+- "main_view_3d_device" - курсор находится на основном 3d-view, под ним находится устройство (не юниты, сундуки и пр.)
+  Для этого случая присылаются дополнительные поля:
+  deviceId: ObjectId (not nil) - идентификатор устройства под курсором
+  canUse: boolean - можно ли использовать устройство в текущий момент (в частности, учитывается расстояние до него)
+
+- "main_view_3d_astral_unit" - курсор находится на основном 3d-view, под ним находится астральный юнит
+  Для этого случая присылается дополнительное поле:
+  unitId: ObjectId (not nil) - идентификатор астрального юнита под курсором
+
+- "main_view_3d_interactive_device_element" - курсор находится на интерактивном элементе какого-либо устройства, при работе с этим устройством.
+  Для этого случая присылается дополнительные поля:
+  deviceType: number (enum USDEV_...) - тип корабельного устройства
+  Если это USDEV_SCANER, то дополнительные поля:
+  type: number (enum HT_...) - тип хаба {HT_NONE, HT_UNKNOWN, HT_OUR, HT_ENEMYSHIP, HT_PORTAL, HT_ALLOD, HT_ISLAND}
+  name: WString or nil - название хаба, если это HT_PORTAL
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryCursor"</h4>
+<p></p>
+<a href="CategoryCursor.html">CategoryCursor</a>
+<br><a href="EventIngameUnderCursorChanged.html">EventIngameUnderCursorChanged</a>
+<br><a href="FunctionCommonSetCursor.html">FunctionCommonSetCursor</a>
+<p></p>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryEvent.html">CategoryEvent</a>
+<a href="CategoryCursor.html">CategoryCursor</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

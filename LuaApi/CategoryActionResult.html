@@ -1,0 +1,46 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - CategoryActionResult</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h1>CategoryActionResult</h1>
+<p></p>
+<p>События и функции Lua Api, относящиеся к результатам выполнения тех или иных действий.</p>
+<p></p>
+<p>Все события данной категории реализованы по сходному принципу. Прежде всего - персонаж игрока попытался выполнить какое-то действие. Результаты действия других персонажей сюда не попадают. Действие могло оказаться неудачным, вызвать какие-то дополнительные эффекты и т.д. Причины неудачи могли быть совершенно различными. Объект, из-за которого выполнение действия оказалось неудачным, также может быть различным: это мог быть как персонаж игрока (например, он не может сейчас произносить заклинания), так и какой-то другой объект (например, он иммунен к использованному заклинанию). Все события разделены на несколько классов, имеющие сходную природу и одинаковые параметры. У каждого события есть код конкретного действия. Класс плюс код однозначно идентифицируют действие. Также может присутствовать идентификатор объекта, который оказался причиной неудачи/объектом действия, а также прочие специфические параметры.</p>
+<p></p>
+<h2>BlurpSearch: CategoryLuaApi CategoryActionResult</h2>
+<p></p>
+<a href="EnumActionFailCause.html">EnumActionFailCause</a>
+<br><a href="EnumActionResultSpecial.html">EnumActionResultSpecial</a>
+<br><a href="EventActionFailedExploit.html">EventActionFailedExploit</a>
+<br><a href="EventActionFailedOther.html">EventActionFailedOther</a>
+<br><a href="EventActionFailedSpell.html">EventActionFailedSpell</a>
+<br><a href="EventActionProcessTerminated.html">EventActionProcessTerminated</a>
+<br><a href="EventActionResultSpecialSpell.html">EventActionResultSpecialSpell</a>
+<br><a href="EventClientImageHideAll.html">EventClientImageHideAll</a>
+<br><a href="EventClientImageShow.html">EventClientImageShow</a>
+<br><a href="EventClientMessage.html">EventClientMessage</a>
+<br><a href="EventDoWarp.html">EventDoWarp</a>
+<br><a href="EventForagingFailed.html">EventForagingFailed</a>
+<br><a href="EventInterfaceToggle.html">EventInterfaceToggle</a>
+<br><a href="EventLobbyClientMessage.html">EventLobbyClientMessage</a>
+<br><a href="EventShowSubtitles.html">EventShowSubtitles</a>
+<br><a href="EventTakeItemsFailed.html">EventTakeItemsFailed</a>
+<p></p>
+<hr>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

@@ -1,0 +1,62 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - EditBaseTextFilter</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> EditBaseTextFilter</h2>
+<p></p>
+<p>Ресурсный файл. Задает фильтр для WidgetEditBase.</p>
+<p></p>
+<p>Содержит в себе список интервалов символов (например от "А" до "я"), набор отдельных символов (например "Ёё") и флажок, говорящий о возможности вставлять объекты.</p>
+<p></p>
+<pre>
+-- поля
+ranges: Range [] - массив структур, задающих интервалы допустимых символов
+  minChar: String - минимальный символ в интервале
+  maxChar: String - максимальный символ в интервале
+additionalChars: String - дополнительный набор допустимых символов
+firstChars: String - допустимые символы которые могут стоять только в начале текста (например унарный минус или заглавная буква)
+uniqueChars: String - набор допустимых символов, которые могут встречаться в тексте в единственном экземпляре (например , в десятичном дробном числе)
+isAllowObject: boolean - флажок, говорящий о возможности вставлять объекты
+</pre>
+<p></p>
+<p>Пример фильтра, разрешающего вводить только русские буквы:</p>
+<pre>
+&lt;UITextFilter&gt;
+  &lt;ranges&gt;
+    &lt;Item&gt;
+      &lt;minChar&gt;А&lt;/minChar&gt;
+      &lt;maxChar&gt;я&lt;/maxChar&gt;
+    &lt;/Item&gt;
+  &lt;/ranges&gt;
+  &lt;additionalChars&gt;Ёё&lt;/additionalChars&gt;
+  &lt;firstChars/&gt;
+  &lt;uniqueChars/&gt;
+  &lt;isAllowObject&gt;false&lt;/isAllowObject&gt;
+&lt;/UITextFilter&gt;
+</pre>
+<p></p>
+<a href="CategoryEditBase.html">CategoryEditBase</a>
+<br><a href="EditBaseTextFilter.html">EditBaseTextFilter</a>
+<br><a href="WidgetEditBase.html">WidgetEditBase</a>
+<p></p>
+<hr>
+<p></p>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryEditBase.html">CategoryEditBase</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

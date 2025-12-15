@@ -1,0 +1,93 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionLootSetLootScheme</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>loot.SetLootScheme( scheme )</h2>
+<p></p>
+<p>Задать схему дележа лута.</p>
+<p></p>
+<pre>
+-- библиотека:
+loot
+
+-- объявление:
+function SetLootScheme( scheme )
+
+-- параметры:
+scheme: number (enum LOOT_SCHEME_TYPE_...) - тип лут схемы
+
+-- возвращаемые значения:
+нет
+
+-- пример:
+local scheme = LOOT_SCHEME_TYPE_MASTER
+loot.SetLootScheme( scheme )
+</pre>
+<p></p>
+<p>Типы лут схем: <a href="EnumLootSchemeType.html">LOOT_SCHEME_TYPE_...</a></p>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryLoot"</h4>
+<p></p>
+<a href="EnumChoiceGreedNeed.html">EnumChoiceGreedNeed</a>
+<br><a href="EnumLootSchemeType.html">EnumLootSchemeType</a>
+<br><a href="EnumTakeItemActionType.html">EnumTakeItemActionType</a>
+<br><a href="EventAvatarItemDropped.html">EventAvatarItemDropped</a>
+<br><a href="EventAvatarItemTaken.html">EventAvatarItemTaken</a>
+<br><a href="EventAvatarItemTakenByGroupmate.html">EventAvatarItemTakenByGroupmate</a>
+<br><a href="EventAvatarMoneyDropped.html">EventAvatarMoneyDropped</a>
+<br><a href="EventAvatarMoneyTaken.html">EventAvatarMoneyTaken</a>
+<br><a href="EventAvatarMoneyTakenByGroupmate.html">EventAvatarMoneyTakenByGroupmate</a>
+<br><a href="EventDistributionFinished.html">EventDistributionFinished</a>
+<br><a href="EventGreedNeedRolls.html">EventGreedNeedRolls</a>
+<br><a href="EventGreedNeedSelected.html">EventGreedNeedSelected</a>
+<br><a href="EventGroupItemQualityChanged.html">EventGroupItemQualityChanged</a>
+<br><a href="EventGroupLootSchemeChanged.html">EventGroupLootSchemeChanged</a>
+<br><a href="EventLootBagAppeared.html">EventLootBagAppeared</a>
+<br><a href="EventLootBagChanged.html">EventLootBagChanged</a>
+<br><a href="EventLootBagDisappeared.html">EventLootBagDisappeared</a>
+<br><a href="EventLootBagItemDisappeared.html">EventLootBagItemDisappeared</a>
+<br><a href="EventLootBagMoneyDisappeared.html">EventLootBagMoneyDisappeared</a>
+<br><a href="EventLootBagOpenStateChanged.html">EventLootBagOpenStateChanged</a>
+<br><a href="EventLootBagSelected.html">EventLootBagSelected</a>
+<br><a href="EventLootDistributionStarted.html">EventLootDistributionStarted</a>
+<br><a href="EventLootForGreedNeed.html">EventLootForGreedNeed</a>
+<br><a href="EventLootselectorChanged.html">EventLootselectorChanged</a>
+<br><a href="EventLootToDistribute.html">EventLootToDistribute</a>
+<br><a href="FunctionAvatarCloseLootBag.html">FunctionAvatarCloseLootBag</a>
+<br><a href="FunctionAvatarGetLootBagSlotCount.html">FunctionAvatarGetLootBagSlotCount</a>
+<br><a href="FunctionAvatarGetLootBagSlots.html">FunctionAvatarGetLootBagSlots</a>
+<br><a href="FunctionAvatarIsLootBagOpen.html">FunctionAvatarIsLootBagOpen</a>
+<br><a href="FunctionLootCanSetLootScheme.html">FunctionLootCanSetLootScheme</a>
+<br><a href="FunctionLootGetCommonInfo.html">FunctionLootGetCommonInfo</a>
+<br><a href="FunctionLootGetGreedNeedForLootTimeMs.html">FunctionLootGetGreedNeedForLootTimeMs</a>
+<br><a href="FunctionLootGetGreedNeedTimeRemainingMs.html">FunctionLootGetGreedNeedTimeRemainingMs</a>
+<br><a href="FunctionLootGetLootGroupPartInfo.html">FunctionLootGetLootGroupPartInfo</a>
+<br><a href="FunctionLootGetLootScheme.html">FunctionLootGetLootScheme</a>
+<br><a href="FunctionLootGetMinItemQualityForLootScheme.html">FunctionLootGetMinItemQualityForLootScheme</a>
+<br><a href="FunctionLootSelectGreedNeedForLoot.html">FunctionLootSelectGreedNeedForLoot</a>
+<br><a href="FunctionLootSelectLootGroup.html">FunctionLootSelectLootGroup</a>
+<br><a href="FunctionLootSelectWinnerForLoot.html">FunctionLootSelectWinnerForLoot</a>
+<br><a href="FunctionLootSetLootScheme.html">FunctionLootSetLootScheme</a>
+<br><a href="FunctionLootSetMinItemQualityForLootScheme.html">FunctionLootSetMinItemQualityForLootScheme</a>
+<br><a href="FunctionLootSwitchToGreedNeed.html">FunctionLootSwitchToGreedNeed</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryLoot.html">CategoryLoot</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

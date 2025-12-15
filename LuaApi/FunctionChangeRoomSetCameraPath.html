@@ -1,0 +1,82 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionChangeRoomSetCameraPath</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> changeRoom.SetCameraPath( cameraPath, targetPath, delay )</h2>
+<p></p>
+<p>Метод позволяет, находясь в режиме парикмахерской, запустить камеру по указанному пути (в данный момент имя файла без пути и расширения. Рауты лежат в Maps/&lt;Map&gt;/GlobalObjects/Routes/...).</p>
+<p></p>
+<p>Начало движения можно отложить на delay секунд. Сама камера двигается по пути с именем camerapath, а точка, куда она направлена, по targetPath.</p>
+<p></p>
+<p>После завершения движения, придёт <a href="EventChangeRoomCharacterSceneCameraReady.html">EVENT_CHANGE_ROOM_CHARACTER_SCENE_CAMERA_READY</a>.</p>
+<p></p>
+<pre>
+-- система
+функция реализована в UI
+
+-- библиотека:
+changeRoom
+
+-- объявление:
+function SetCameraPath( cameraPath, targetPath, delay )
+
+-- параметры:
+cameraPath: string - имя раута движения камеры
+targetPath: string - имя раута движения прицела камеры
+delay: number - задержка в секундах перед запуском камеры
+
+-- возвращаемые значения:
+нет
+
+-- примеры:
+changeRoom.SetCameraPath( "cameraPath.(Route)", "targetPath.(Route)", 1.5 )
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryChangeRoom" </h4>
+<p></p>
+<a href="CategoryChangeRoom.html">CategoryChangeRoom</a>
+<br><a href="EventChangeRoomCharacterSceneCameraReady.html">EventChangeRoomCharacterSceneCameraReady</a>
+<br><a href="EventChangeRoomStarted.html">EventChangeRoomStarted</a>
+<br><a href="EventChangeRoomZoomTriggerChanged.html">EventChangeRoomZoomTriggerChanged</a>
+<br><a href="FunctionChangeRoomChargenShowHelm.html">FunctionChangeRoomChargenShowHelm</a>
+<br><a href="FunctionChangeRoomGetAvatarTemplate.html">FunctionChangeRoomGetAvatarTemplate</a>
+<br><a href="FunctionChangeRoomGetCosts.html">FunctionChangeRoomGetCosts</a>
+<br><a href="FunctionChangeRoomGetPlayerIndexes.html">FunctionChangeRoomGetPlayerIndexes</a>
+<br><a href="FunctionChangeRoomGetSceneAvatarInfo.html">FunctionChangeRoomGetSceneAvatarInfo</a>
+<br><a href="FunctionChangeRoomIsZoomEnabled.html">FunctionChangeRoomIsZoomEnabled</a>
+<br><a href="FunctionChangeRoomIsZoomOnFace.html">FunctionChangeRoomIsZoomOnFace</a>
+<br><a href="FunctionChangeRoomIsZoomOnFar.html">FunctionChangeRoomIsZoomOnFar</a>
+<br><a href="FunctionChangeRoomRemoveScene.html">FunctionChangeRoomRemoveScene</a>
+<br><a href="FunctionChangeRoomResetSceneCharacterRotation.html">FunctionChangeRoomResetSceneCharacterRotation</a>
+<br><a href="FunctionChangeRoomRotateSceneCharacter.html">FunctionChangeRoomRotateSceneCharacter</a>
+<br><a href="FunctionChangeRoomSetCameraPath.html">FunctionChangeRoomSetCameraPath</a>
+<br><a href="FunctionChangeRoomSetChargenEquipType.html">FunctionChangeRoomSetChargenEquipType</a>
+<br><a href="FunctionChangeRoomSetScene.html">FunctionChangeRoomSetScene</a>
+<br><a href="FunctionChangeRoomSetSceneAvatarByTemplate.html">FunctionChangeRoomSetSceneAvatarByTemplate</a>
+<br><a href="FunctionChangeRoomSetSceneCharacterMouseRotation.html">FunctionChangeRoomSetSceneCharacterMouseRotation</a>
+<br><a href="FunctionChangeRoomSetSceneCharacterPos.html">FunctionChangeRoomSetSceneCharacterPos</a>
+<br><a href="FunctionChangeRoomSetSceneCharacterScaleFactor.html">FunctionChangeRoomSetSceneCharacterScaleFactor</a>
+<br><a href="FunctionChangeRoomSetSceneCharacterVariation.html">FunctionChangeRoomSetSceneCharacterVariation</a>
+<br><a href="FunctionChangeRoomToggleZoom.html">FunctionChangeRoomToggleZoom</a>
+<br><a href="FunctionChangeRoomUse.html">FunctionChangeRoomUse</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryChangeRoom.html">CategoryChangeRoom</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

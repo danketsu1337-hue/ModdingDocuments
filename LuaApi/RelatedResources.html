@@ -1,0 +1,89 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - RelatedResources</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>Related Resource</h2>
+<p></p>
+<p>Скриптовая система располагает рядом функций получения из приложения ресурсов следующих типов:</p>
+<p></p>
+<p>Доступны во всех типах аддонов:</p>
+<ul><li><p> Text - текст, идентифицируется строкой (string), возвращается как WString</p></li></ul>
+<ul><li><p> Texture - текстура, идентифицируется строкой (string), возвращается как TextureId</p></li></ul>
+<ul><li><p> Sound - звук, идентифицируется строкой (string), возвращается как Sound2DId</p></li></ul>
+<ul><li><p> <a href="RelatedTextsLua.html"> RelatedTextsLua</a> - группа текстовых ресурсов</p></li></ul>
+<ul><li><p> <a href="RelatedTexturesLua.html"> RelatedTexturesLua</a> - группа текстурных ресурсов</p></li></ul>
+<ul><li><p> <a href="RelatedSoundsLua.html"> RelatedSoundsLua</a> - группа звуковых ресурсов</p></li></ul>
+<p>Доступны только во внутренних (не пользовательских) аддонах:</p>
+<ul><li><p> <a href="DecalObjectId.html"> Decal</a> - декаль, идентифицируется строкой (string), имеет тип DecalObjectId</p></li></ul>
+<ul><li><p> <a href="VisActionId.html"> VisAction</a> - визуальный скрипт, идентифицируется строкой (string), имеет тип VisActionId</p></li></ul>
+<ul><li><p> <a href="VisObjectId.html"> VisObject</a> - визуальный объект, идентифицируется строкой (string), имеет тип VisObjectId</p></li></ul>
+<ul><li><p> <a href="AliasVisObjectId.html"> AliasVisObject</a> - визуальный объект-обвязка (для коллекционных изданий и т.п.), идентифицируется строкой (string), имеет тип AliasVisObjectId</p></li></ul>
+<ul><li><p> Большая часть значимых гейммеханических ресурсов (бафы, спеллы, абилки, рулы, ...), смотри  GetAddonRelatedResources (закрытая ссылка)</p></li></ul>
+<p></p>
+<p>По месту хранения ресурсы делятся на:</p>
+<ul><li><p> стэйтовые - подключаются в описании State (UIState) - доступны во всех аддонах стейта</p></li></ul>
+<ul><li><p> ресурсы аддона - подключаются в описании аддона (UIAddon) - доступны только в конкретном аддоне</p></li></ul>
+<p></p>
+<p>Пример файла UIRelatedTextures:</p>
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;UIRelatedTextures&gt;
+	&lt;Items&gt;
+		&lt;item&gt;
+			&lt;name&gt;Background&lt;/name&gt;
+			&lt;resource href="Background.(UISingleTexture).xdb"/&gt;
+		&lt;/item&gt;
+	&lt;/Items&gt;
+&lt;/UIRelatedTextures&gt;
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryRelatedResources"</h4>
+<p></p>
+<a href="CategoryRelatedResources.html">CategoryRelatedResources</a>
+<br><a href="FunctionCommonGetAddonRelatedSoundGroup.html">FunctionCommonGetAddonRelatedSoundGroup</a>
+<br><a href="FunctionCommonGetAddonRelatedTextGroup.html">FunctionCommonGetAddonRelatedTextGroup</a>
+<br><a href="FunctionCommonGetAddonRelatedTextureGroup.html">FunctionCommonGetAddonRelatedTextureGroup</a>
+<br><a href="FunctionCommonGetAddonRelatedWidgetGroup.html">FunctionCommonGetAddonRelatedWidgetGroup</a>
+<br><a href="FunctionCommonGetStateRelatedSoundGroup.html">FunctionCommonGetStateRelatedSoundGroup</a>
+<br><a href="FunctionCommonGetStateRelatedTextGroup.html">FunctionCommonGetStateRelatedTextGroup</a>
+<br><a href="FunctionCommonGetStateRelatedTextureGroup.html">FunctionCommonGetStateRelatedTextureGroup</a>
+<br><a href="FunctionCommonGetStateRelatedWidgetGroup.html">FunctionCommonGetStateRelatedWidgetGroup</a>
+<br><a href="FunctionRelatedSoundsLuaGetList.html">FunctionRelatedSoundsLuaGetList</a>
+<br><a href="FunctionRelatedSoundsLuaGetSound.html">FunctionRelatedSoundsLuaGetSound</a>
+<br><a href="FunctionRelatedSoundsLuaHasSound.html">FunctionRelatedSoundsLuaHasSound</a>
+<br><a href="FunctionRelatedTextsLuaGetList.html">FunctionRelatedTextsLuaGetList</a>
+<br><a href="FunctionRelatedTextsLuaGetText.html">FunctionRelatedTextsLuaGetText</a>
+<br><a href="FunctionRelatedTextsLuaHasText.html">FunctionRelatedTextsLuaHasText</a>
+<br><a href="FunctionRelatedTexturesLuaGetList.html">FunctionRelatedTexturesLuaGetList</a>
+<br><a href="FunctionRelatedTexturesLuaGetTexture.html">FunctionRelatedTexturesLuaGetTexture</a>
+<br><a href="FunctionRelatedTexturesLuaHasTexture.html">FunctionRelatedTexturesLuaHasTexture</a>
+<br><a href="FunctionRelatedWidgetsLuaGetList.html">FunctionRelatedWidgetsLuaGetList</a>
+<br><a href="FunctionRelatedWidgetsLuaGetWidget.html">FunctionRelatedWidgetsLuaGetWidget</a>
+<br><a href="FunctionRelatedWidgetsLuaHasWidget.html">FunctionRelatedWidgetsLuaHasWidget</a>
+<br><a href="RelatedResources.html">RelatedResources</a>
+<br><a href="RelatedSoundsLua.html">RelatedSoundsLua</a>
+<br><a href="RelatedTextsLua.html">RelatedTextsLua</a>
+<br><a href="RelatedTexturesLua.html">RelatedTexturesLua</a>
+<br><a href="RelatedWidgetsLua.html">RelatedWidgetsLua</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryRelatedResources.html">CategoryRelatedResources</a>
+<a href="CategoryVisObjectId.html">CategoryVisObjectId</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

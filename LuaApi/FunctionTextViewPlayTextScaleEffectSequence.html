@@ -1,0 +1,107 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionTextViewPlayTextScaleEffectSequence</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<h2> PlayTextScaleEffectSequence( self, sequenceParams )</h2>
+<p></p>
+<p>Запускает цепочку эффектов масштабирования текста в TextView. Не рекомендуется оставлять масштабный коэффициент отличным от 1 на длительное время: текст может быть размытым.</p>
+<p></p>
+<p>Поддерживается только строго центрированный текст (выравнивание: alignx="center", aligny="middle").</p>
+<p></p>
+<p>Имеет <a href="WidgetsEffectsTypes.html"> тип ET_TEXT_SCALE</a>, соответствует шаблону <a href="WidgetsEffectsPlayEffectSequenceTemplate.html"> PlayEffectSequence( self, sequenceParams )</a></p>
+<p></p>
+<p>Типы start / finish: number (float) [&gt; 0] - коэффициент масштабирования текста</p>
+<p></p>
+<pre>
+-- Класс
+TextViewSafe
+
+-- Типы шаблонных аргументов
+start: number (float) [&gt; 0] or nil - начальный коэффициент масштабирования текста
+finish: number (float) [&gt; 0] or nil - конечный коэффициент масштабирования текста
+
+-- Пример
+wtTextView:PlayTextScaleEffectSequence( effectDesc )
+</pre>
+<p></p>
+<h3>Другие эффекты</h3>
+<p></p>
+<a href="CategoryWidgetEffects.html">CategoryWidgetEffects</a>
+<br><a href="EventEffectFinished.html">EventEffectFinished</a>
+<br><a href="EventEffectSequenceFinished.html">EventEffectSequenceFinished</a>
+<br><a href="EventEffectSequenceStep.html">EventEffectSequenceStep</a>
+<br><a href="FunctionTextViewFinishTextScaleEffect.html">FunctionTextViewFinishTextScaleEffect</a>
+<br><a href="FunctionTextViewPlayTextScaleEffect.html">FunctionTextViewPlayTextScaleEffect</a>
+<br><a href="FunctionTextViewPlayTextScaleEffectSequence.html">FunctionTextViewPlayTextScaleEffectSequence</a>
+<br><a href="FunctionWidgetFinishAllEffects.html">FunctionWidgetFinishAllEffects</a>
+<br><a href="FunctionWidgetFinishFadeEffect.html">FunctionWidgetFinishFadeEffect</a>
+<br><a href="FunctionWidgetFinishMoveEffect.html">FunctionWidgetFinishMoveEffect</a>
+<br><a href="FunctionWidgetFinishResizeEffect.html">FunctionWidgetFinishResizeEffect</a>
+<br><a href="FunctionWidgetFinishRotationEffect.html">FunctionWidgetFinishRotationEffect</a>
+<br><a href="FunctionWidgetGetActiveEffectRemainingMs.html">FunctionWidgetGetActiveEffectRemainingMs</a>
+<br><a href="FunctionWidgetHasActiveEffects.html">FunctionWidgetHasActiveEffects</a>
+<br><a href="FunctionWidgetPlayEffectSequencePack.html">FunctionWidgetPlayEffectSequencePack</a>
+<br><a href="FunctionWidgetPlayFadeEffect.html">FunctionWidgetPlayFadeEffect</a>
+<br><a href="FunctionWidgetPlayFadeEffectSequence.html">FunctionWidgetPlayFadeEffectSequence</a>
+<br><a href="FunctionWidgetPlayMoveEffect.html">FunctionWidgetPlayMoveEffect</a>
+<br><a href="FunctionWidgetPlayMoveEffectSequence.html">FunctionWidgetPlayMoveEffectSequence</a>
+<br><a href="FunctionWidgetPlayResizeEffect.html">FunctionWidgetPlayResizeEffect</a>
+<br><a href="FunctionWidgetPlayResizeEffectSequence.html">FunctionWidgetPlayResizeEffectSequence</a>
+<br><a href="FunctionWidgetPlayRotationEffect.html">FunctionWidgetPlayRotationEffect</a>
+<br><a href="FunctionWidgetPlayRotationEffectSequence.html">FunctionWidgetPlayRotationEffectSequence</a>
+<br><a href="FunctionWidgetPlayRotationWithChildrenEffect.html">FunctionWidgetPlayRotationWithChildrenEffect</a>
+<br><a href="FunctionWidgetPlayRotationWithChildrenEffectSequence.html">FunctionWidgetPlayRotationWithChildrenEffectSequence</a>
+<br><a href="WidgetsEffectsAlgorithms.html">WidgetsEffectsAlgorithms</a>
+<br><a href="WidgetsEffectsFinishEffectTemplate.html">WidgetsEffectsFinishEffectTemplate</a>
+<br><a href="WidgetsEffectsPlayEffectSequenceTemplate.html">WidgetsEffectsPlayEffectSequenceTemplate</a>
+<br><a href="WidgetsEffectsPlayEffectTemplate.html">WidgetsEffectsPlayEffectTemplate</a>
+<br><a href="WidgetsEffectsTypes.html">WidgetsEffectsTypes</a>
+<p></p>
+<h4>Search: "CategoryTextView"</h4>
+<p></p>
+<a href="CategoryTextView.html">CategoryTextView</a>
+<br><a href="FunctionTextViewClearValues.html">FunctionTextViewClearValues</a>
+<br><a href="FunctionTextViewGetDefaultTag.html">FunctionTextViewGetDefaultTag</a>
+<br><a href="FunctionTextViewGetTextRect.html">FunctionTextViewGetTextRect</a>
+<br><a href="FunctionTextViewGetTextScale.html">FunctionTextViewGetTextScale</a>
+<br><a href="FunctionTextViewGetValuedText.html">FunctionTextViewGetValuedText</a>
+<br><a href="FunctionTextViewGetWString.html">FunctionTextViewGetWString</a>
+<br><a href="FunctionTextViewPlayTextScaleEffect.html">FunctionTextViewPlayTextScaleEffect</a>
+<br><a href="FunctionTextViewPlayTextScaleEffectSequence.html">FunctionTextViewPlayTextScaleEffectSequence</a>
+<br><a href="FunctionTextViewSetAlignY.html">FunctionTextViewSetAlignY</a>
+<br><a href="FunctionTextViewSetClassVal.html">FunctionTextViewSetClassVal</a>
+<br><a href="FunctionTextViewSetEllipsis.html">FunctionTextViewSetEllipsis</a>
+<br><a href="FunctionTextViewSetFormat.html">FunctionTextViewSetFormat</a>
+<br><a href="FunctionTextViewSetLinespacing.html">FunctionTextViewSetLinespacing</a>
+<br><a href="FunctionTextViewSetMultiline.html">FunctionTextViewSetMultiline</a>
+<br><a href="FunctionTextViewSetTextAttributes.html">FunctionTextViewSetTextAttributes</a>
+<br><a href="FunctionTextViewSetTextScale.html">FunctionTextViewSetTextScale</a>
+<br><a href="FunctionTextViewSetTextValues.html">FunctionTextViewSetTextValues</a>
+<br><a href="FunctionTextViewSetVal.html">FunctionTextViewSetVal</a>
+<br><a href="FunctionTextViewSetValuedText.html">FunctionTextViewSetValuedText</a>
+<br><a href="FunctionTextViewSetWrapText.html">FunctionTextViewSetWrapText</a>
+<br><a href="FunctionTextViewShowClippedLine.html">FunctionTextViewShowClippedLine</a>
+<br><a href="FunctionTextViewShowClippedSymbol.html">FunctionTextViewShowClippedSymbol</a>
+<br><a href="WidgetTextView.html">WidgetTextView</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryWidget.html">CategoryWidget</a>
+<a href="CategoryWidgetEffects.html">CategoryWidgetEffects</a>
+<a href="CategoryTextView.html">CategoryTextView</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

@@ -1,0 +1,87 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionMWarGetCommonInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>mwar.GetCommonInfo()</h2>
+<p></p>
+<p>Выдаёт ряд общих параметров механики Доминион.</p>
+<p></p>
+<pre>
+-- библиотека
+mwar
+
+-- объявление:
+function GetCommonInfo()
+
+-- параметры
+нет
+
+-- возвращаемые значения
+table или nil - если есть информация, то таблица с полями:
+  serviceResourceIncreaseMax: number (integer) - максимальное значение увеличения эффективности при создании обслуживающего ресурса ("Могущество").
+  serviceResourceIncomeIncrease: number (float) - шаг увеличения эффективности при создании обслуживающего ресурса.
+  serviceResourceExchangeCost: number (integer) - стоимость покупки (в меди) одной единицы обслуживающего ресурса.
+  serviceResourceCostIncrease: number (float) - увеличение стоимости покупки с каждым увеличением эффективности (множитель).
+  serviceResource: CurrencyId или nil - обслуживающий ресурс гильдии игрока ("Могущество")
+  regionProgressIncome: number (integer) -
+  pvpResource: CurrencyId или nil - PvP-ресурс гильдии игрока ("Слава")
+  pveResource: CurrencyId или nil - PvE-ресурс гильдии игрока ("Престиж")
+  mapProgressCounterCap: number (integer) - Максимальное значение прогресса карты Доминион
+  serviceResourceExchangeFactor: number (float) - курс обмена PvP- и PvE-ресурсов на обслуживающий ресурс
+  minResourceEffectivnessFactor: number (float) - коэффициент уменьшения эффективность покупки обслуживающего ресурса, при большой разнице между PvP- и PvE-ресурсами
+  maxInitialAttackSectorsCount: number (integer) - максимально количество секторов, которое можно атаковать изначально
+  championFightsTimes: table или nil - список возможных времён начала сражений за сектора (см. mwar.SetSectorBattleTime( sectorId )), индексированная целыми числами (начиная от 0) таблица, формат элементов:
+    entries: table или nil - список времён начала раундов сражения, значения - TimeTableId
+
+-- пример использования
+local info = mwar.GetCommonInfo()
+</pre>
+<p></p>
+<p>См. также</p>
+<ul><li><p> <a href="FunctionResourceIdGetInfo.html"> CurrencyId:GetInfo()</a></p></li></ul>
+<ul><li><p> <a href="TimeTableId.html"> TimeTableId</a></p></li></ul>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryMWar"</h4>
+<p></p>
+<a href="AstralSectorId.html">AstralSectorId</a>
+<br><a href="CategoryMWar.html">CategoryMWar</a>
+<br><a href="EventMWarFlagCostsChanged.html">EventMWarFlagCostsChanged</a>
+<br><a href="EventMWarLadderChanged.html">EventMWarLadderChanged</a>
+<br><a href="EventMWarQueueChanched.html">EventMWarQueueChanched</a>
+<br><a href="EventMWarRatingProgressChanged.html">EventMWarRatingProgressChanged</a>
+<br><a href="FunctionAstralGetSectorInfoById.html">FunctionAstralGetSectorInfoById</a>
+<br><a href="FunctionMWarGetCommonInfo.html">FunctionMWarGetCommonInfo</a>
+<br><a href="FunctionMWarGetCommonMatchMakingInfo.html">FunctionMWarGetCommonMatchMakingInfo</a>
+<br><a href="FunctionMWarGetEventStartTimeEntries.html">FunctionMWarGetEventStartTimeEntries</a>
+<br><a href="FunctionMWarGetGuildHistory.html">FunctionMWarGetGuildHistory</a>
+<br><a href="FunctionMWarGetGuildInfo.html">FunctionMWarGetGuildInfo</a>
+<br><a href="FunctionMWarGetLadderInfo.html">FunctionMWarGetLadderInfo</a>
+<br><a href="FunctionMWarGetQueueInfo.html">FunctionMWarGetQueueInfo</a>
+<br><a href="FunctionMWarGetRatingProgressInfo.html">FunctionMWarGetRatingProgressInfo</a>
+<br><a href="FunctionMWarJoinRequestRaid.html">FunctionMWarJoinRequestRaid</a>
+<br><a href="FunctionMWarReplicateLadder.html">FunctionMWarReplicateLadder</a>
+<br><a href="FunctionMWarStake.html">FunctionMWarStake</a>
+<br><a href="InstancedEventResourceId.html">InstancedEventResourceId</a>
+<br><a href="LootGroupId.html">LootGroupId</a>
+<br><a href="TimeTableId.html">TimeTableId</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryMWar.html">CategoryMWar</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

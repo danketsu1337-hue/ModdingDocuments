@@ -1,0 +1,181 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - EventUnitTookMoney</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> EVENT_UNIT_TOOK_MONEY</h2>
+<p></p>
+<p>Событие присылается, если игрок в группе (или аватар) взял лут (деньги).</p>
+<p></p>
+<pre>
+-- поля:
+ownerId: ObjectId (not nil) - идентификатор игрока, взявшего предмет
+mobId: ObjectId / nil - идентификатор моба, с которого были взяты деньги (nil, если моб далеко)
+money: number (int) - количество взятых денег
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryUnit"</h4>
+<p></p>
+<a href="CombatTagId.html">CombatTagId</a>
+<br><a href="EnumMobWorldOvertipCustomView.html">EnumMobWorldOvertipCustomView</a>
+<br><a href="EnumPridenFactionChoice.html">EnumPridenFactionChoice</a>
+<br><a href="EventAccountHasDestroyed.html">EventAccountHasDestroyed</a>
+<br><a href="EventActivePetChanged.html">EventActivePetChanged</a>
+<br><a href="EventActivePetExistChanged.html">EventActivePetExistChanged</a>
+<br><a href="EventActivePetSpellsChanged.html">EventActivePetSpellsChanged</a>
+<br><a href="EventActivePetStateChanged.html">EventActivePetStateChanged</a>
+<br><a href="EventAfkStateChanged.html">EventAfkStateChanged</a>
+<br><a href="EventCrosshairTargetPosChanged.html">EventCrosshairTargetPosChanged</a>
+<br><a href="EventEndureBarrierDamage.html">EventEndureBarrierDamage</a>
+<br><a href="EventEquipmentActivePresetChanged.html">EventEquipmentActivePresetChanged</a>
+<br><a href="EventEquipmentDressEnableChanged.html">EventEquipmentDressEnableChanged</a>
+<br><a href="EventGuildBuffAdded.html">EventGuildBuffAdded</a>
+<br><a href="EventGuildBuffsChanged.html">EventGuildBuffsChanged</a>
+<br><a href="EventHealAbsorbPoolAppeared.html">EventHealAbsorbPoolAppeared</a>
+<br><a href="EventHealAbsorbPoolChanged.html">EventHealAbsorbPoolChanged</a>
+<br><a href="EventHealAbsorbPoolDisappeared.html">EventHealAbsorbPoolDisappeared</a>
+<br><a href="EventItemRelatedQuestsChanged.html">EventItemRelatedQuestsChanged</a>
+<br><a href="EventManaReceived.html">EventManaReceived</a>
+<br><a href="EventMobRelatedGoalsChanged.html">EventMobRelatedGoalsChanged</a>
+<br><a href="EventMobRelatedQuestsChanged.html">EventMobRelatedQuestsChanged</a>
+<br><a href="EventObjectBuffAdded.html">EventObjectBuffAdded</a>
+<br><a href="EventObjectBuffChanged.html">EventObjectBuffChanged</a>
+<br><a href="EventObjectBuffProgressAdded.html">EventObjectBuffProgressAdded</a>
+<br><a href="EventObjectBuffProgressChanged.html">EventObjectBuffProgressChanged</a>
+<br><a href="EventObjectBuffProgressRemoved.html">EventObjectBuffProgressRemoved</a>
+<br><a href="EventObjectBuffRemoved.html">EventObjectBuffRemoved</a>
+<br><a href="EventObjectBuffsChanged.html">EventObjectBuffsChanged</a>
+<br><a href="EventObjectBuffsElementChanged.html">EventObjectBuffsElementChanged</a>
+<br><a href="EventPartyMemberActivePetChanged.html">EventPartyMemberActivePetChanged</a>
+<br><a href="EventPartyMemberPositionUpdated.html">EventPartyMemberPositionUpdated</a>
+<br><a href="EventPetInfoChanged.html">EventPetInfoChanged</a>
+<br><a href="EventPlayerAstralUnlockChanged.html">EventPlayerAstralUnlockChanged</a>
+<br><a href="EventPlayerGearScoreChanged.html">EventPlayerGearScoreChanged</a>
+<br><a href="EventPlayerGreatChanged.html">EventPlayerGreatChanged</a>
+<br><a href="EventPlayerTitleChanged.html">EventPlayerTitleChanged</a>
+<br><a href="EventPlayerTitlesChanged.html">EventPlayerTitlesChanged</a>
+<br><a href="EventPridenFactionChoice.html">EventPridenFactionChoice</a>
+<br><a href="EventPurgeBarrierDamage.html">EventPurgeBarrierDamage</a>
+<br><a href="EventRaidMemberPositionUpdated.html">EventRaidMemberPositionUpdated</a>
+<br><a href="EventReliefBarrierDamage.html">EventReliefBarrierDamage</a>
+<br><a href="EventSpousePositionUpdated.html">EventSpousePositionUpdated</a>
+<br><a href="EventTargetPosChanged.html">EventTargetPosChanged</a>
+<br><a href="EventUnitClassChanged.html">EventUnitClassChanged</a>
+<br><a href="EventUnitDamageReceived.html">EventUnitDamageReceived</a>
+<br><a href="EventUnitDeadChanged.html">EventUnitDeadChanged</a>
+<br><a href="EventUnitEquipmentChanged.html">EventUnitEquipmentChanged</a>
+<br><a href="EventUnitFactionChanged.html">EventUnitFactionChanged</a>
+<br><a href="EventUnitFairyChanged.html">EventUnitFairyChanged</a>
+<br><a href="EventUnitFairyRankChanged.html">EventUnitFairyRankChanged</a>
+<br><a href="EventUnitFatalityChanged.html">EventUnitFatalityChanged</a>
+<br><a href="EventUnitFollowersListChanged.html">EventUnitFollowersListChanged</a>
+<br><a href="EventUnitGuildChanged.html">EventUnitGuildChanged</a>
+<br><a href="EventUnitHonorValueChanged.html">EventUnitHonorValueChanged</a>
+<br><a href="EventUnitLevelChanged.html">EventUnitLevelChanged</a>
+<br><a href="EventUnitManaChanged.html">EventUnitManaChanged</a>
+<br><a href="EventUnitManaPercentageChanged.html">EventUnitManaPercentageChanged</a>
+<br><a href="EventUnitMessage.html">EventUnitMessage</a>
+<br><a href="EventUnitMoodChanged.html">EventUnitMoodChanged</a>
+<br><a href="EventUnitMountHealthChanged.html">EventUnitMountHealthChanged</a>
+<br><a href="EventUnitPosChanged.html">EventUnitPosChanged</a>
+<br><a href="EventUnitPvPFlagChanged.html">EventUnitPvPFlagChanged</a>
+<br><a href="EventUnitRageChanged.html">EventUnitRageChanged</a>
+<br><a href="EventUnitRelationChanged.html">EventUnitRelationChanged</a>
+<br><a href="EventUnitsChanged.html">EventUnitsChanged</a>
+<br><a href="EventUnitTagChanged.html">EventUnitTagChanged</a>
+<br><a href="EventUnitTookMoney.html">EventUnitTookMoney</a>
+<br><a href="EventUnitVeteranRankChanged.html">EventUnitVeteranRankChanged</a>
+<br><a href="EventUnitWillChanged.html">EventUnitWillChanged</a>
+<br><a href="EventUnitZonePvPTypeChanged.html">EventUnitZonePvPTypeChanged</a>
+<br><a href="FunctionMountGetUnitMountHealth.html">FunctionMountGetUnitMountHealth</a>
+<br><a href="FunctionObjectGetBuffCount.html">FunctionObjectGetBuffCount</a>
+<br><a href="FunctionUnitCanHaveEnemy.html">FunctionUnitCanHaveEnemy</a>
+<br><a href="FunctionUnitCanSelectTarget.html">FunctionUnitCanSelectTarget</a>
+<br><a href="FunctionUnitCanUse.html">FunctionUnitCanUse</a>
+<br><a href="FunctionUnitGetActivePet.html">FunctionUnitGetActivePet</a>
+<br><a href="FunctionUnitGetCharacterForm.html">FunctionUnitGetCharacterForm</a>
+<br><a href="FunctionUnitGetClass.html">FunctionUnitGetClass</a>
+<br><a href="FunctionUnitGetClassId.html">FunctionUnitGetClassId</a>
+<br><a href="FunctionUnitGetEquipmentItemId.html">FunctionUnitGetEquipmentItemId</a>
+<br><a href="FunctionUnitGetEquipmentItemIds.html">FunctionUnitGetEquipmentItemIds</a>
+<br><a href="FunctionUnitGetEquipmentItemSlotUnlockedQualities.html">FunctionUnitGetEquipmentItemSlotUnlockedQualities</a>
+<br><a href="FunctionUnitGetEquipmentSize.html">FunctionUnitGetEquipmentSize</a>
+<br><a href="FunctionUnitGetEquipmentSlotBonus.html">FunctionUnitGetEquipmentSlotBonus</a>
+<br><a href="FunctionUnitGetFactionId.html">FunctionUnitGetFactionId</a>
+<br><a href="FunctionUnitGetFairyInfo.html">FunctionUnitGetFairyInfo</a>
+<br><a href="FunctionUnitGetFairyPowerBonus.html">FunctionUnitGetFairyPowerBonus</a>
+<br><a href="FunctionUnitGetFollowerMaster.html">FunctionUnitGetFollowerMaster</a>
+<br><a href="FunctionUnitGetFollowers.html">FunctionUnitGetFollowers</a>
+<br><a href="FunctionUnitGetGearScore.html">FunctionUnitGetGearScore</a>
+<br><a href="FunctionUnitGetGuildInfo.html">FunctionUnitGetGuildInfo</a>
+<br><a href="FunctionUnitGetHealAbsorbPoolInfo.html">FunctionUnitGetHealAbsorbPoolInfo</a>
+<br><a href="FunctionUnitGetLevel.html">FunctionUnitGetLevel</a>
+<br><a href="FunctionUnitGetMana.html">FunctionUnitGetMana</a>
+<br><a href="FunctionUnitGetManaPercentage.html">FunctionUnitGetManaPercentage</a>
+<br><a href="FunctionUnitGetMobActionProgress.html">FunctionUnitGetMobActionProgress</a>
+<br><a href="FunctionUnitGetMoodEmoteId.html">FunctionUnitGetMoodEmoteId</a>
+<br><a href="FunctionUnitGetOvertipCustomView.html">FunctionUnitGetOvertipCustomView</a>
+<br><a href="FunctionUnitGetOvertipTexture.html">FunctionUnitGetOvertipTexture</a>
+<br><a href="FunctionUnitGetPetName.html">FunctionUnitGetPetName</a>
+<br><a href="FunctionUnitGetPetOwner.html">FunctionUnitGetPetOwner</a>
+<br><a href="FunctionUnitGetPlayerShardName.html">FunctionUnitGetPlayerShardName</a>
+<br><a href="FunctionUnitGetPlayerTitle.html">FunctionUnitGetPlayerTitle</a>
+<br><a href="FunctionUnitGetPlayerTitles.html">FunctionUnitGetPlayerTitles</a>
+<br><a href="FunctionUnitGetPlayerValuedObject.html">FunctionUnitGetPlayerValuedObject</a>
+<br><a href="FunctionUnitGetPrimaryTarget.html">FunctionUnitGetPrimaryTarget</a>
+<br><a href="FunctionUnitGetPvPFlagInfo.html">FunctionUnitGetPvPFlagInfo</a>
+<br><a href="FunctionUnitGetQuality.html">FunctionUnitGetQuality</a>
+<br><a href="FunctionUnitGetRace.html">FunctionUnitGetRace</a>
+<br><a href="FunctionUnitGetRage.html">FunctionUnitGetRage</a>
+<br><a href="FunctionUnitGetRelatedGoals.html">FunctionUnitGetRelatedGoals</a>
+<br><a href="FunctionUnitGetRelatedQuestObjectives.html">FunctionUnitGetRelatedQuestObjectives</a>
+<br><a href="FunctionUnitGetReputationLevel.html">FunctionUnitGetReputationLevel</a>
+<br><a href="FunctionUnitGetRuneWoundsComplexity.html">FunctionUnitGetRuneWoundsComplexity</a>
+<br><a href="FunctionUnitGetSex.html">FunctionUnitGetSex</a>
+<br><a href="FunctionUnitGetTarget.html">FunctionUnitGetTarget</a>
+<br><a href="FunctionUnitGetTitle.html">FunctionUnitGetTitle</a>
+<br><a href="FunctionUnitGetTrainerClass.html">FunctionUnitGetTrainerClass</a>
+<br><a href="FunctionUnitGetTransport.html">FunctionUnitGetTransport</a>
+<br><a href="FunctionUnitGetTrioInfo.html">FunctionUnitGetTrioInfo</a>
+<br><a href="FunctionUnitGetUnitValuedObject.html">FunctionUnitGetUnitValuedObject</a>
+<br><a href="FunctionUnitGetVeteranRank.html">FunctionUnitGetVeteranRank</a>
+<br><a href="FunctionUnitGetWill.html">FunctionUnitGetWill</a>
+<br><a href="FunctionUnitGetZonePvPDanger.html">FunctionUnitGetZonePvPDanger</a>
+<br><a href="FunctionUnitGetZonePvPType.html">FunctionUnitGetZonePvPType</a>
+<br><a href="FunctionUnitGetZonesMapId.html">FunctionUnitGetZonesMapId</a>
+<br><a href="FunctionUnitHasBossPlate.html">FunctionUnitHasBossPlate</a>
+<br><a href="FunctionUnitHasEquipment.html">FunctionUnitHasEquipment</a>
+<br><a href="FunctionUnitIsAfk.html">FunctionUnitIsAfk</a>
+<br><a href="FunctionUnitIsAggressive.html">FunctionUnitIsAggressive</a>
+<br><a href="FunctionUnitIsFatalityDeath.html">FunctionUnitIsFatalityDeath</a>
+<br><a href="FunctionUnitIsGreat.html">FunctionUnitIsGreat</a>
+<br><a href="FunctionUnitIsPet.html">FunctionUnitIsPet</a>
+<br><a href="FunctionUnitIsPlayer.html">FunctionUnitIsPlayer</a>
+<br><a href="FunctionUnitIsRitualEnabled.html">FunctionUnitIsRitualEnabled</a>
+<br><a href="FunctionUnitIsTagged.html">FunctionUnitIsTagged</a>
+<br><a href="FunctionUnitIsTaggedByMainPlayer.html">FunctionUnitIsTaggedByMainPlayer</a>
+<br><a href="FunctionUnitIsTrainer.html">FunctionUnitIsTrainer</a>
+<br><a href="FunctionUnitIsUsable.html">FunctionUnitIsUsable</a>
+<br><a href="FunctionUnitSelect.html">FunctionUnitSelect</a>
+<br><a href="FunctionUnitSetPlayerTitle.html">FunctionUnitSetPlayerTitle</a>
+<p></p>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryEvent.html">CategoryEvent</a>
+<a href="CategoryUnit.html">CategoryUnit</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

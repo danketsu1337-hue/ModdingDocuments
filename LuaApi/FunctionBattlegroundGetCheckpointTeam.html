@@ -1,0 +1,71 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionBattlegroundGetCheckpointTeam</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p>.</p>
+<h2> battleground.GetCheckpointTeam( checkpointId )</h2>
+<p></p>
+<p>Выдаёт идентификатор команды указанной контрольной точки баттлграунда</p>
+<p></p>
+<pre>
+-- библиотека:
+battleground
+
+-- объявление:
+function GetCheckpointTeam( checkpointId )
+
+-- параметры:
+checkpointId : ObjectId - контрольная точка
+
+-- возвращаемое значение:
+teamId :  BattlegroundMarkId или nil - если принадлежность определённой команде имеется, то возвращается идентификатор команды, если принадлежность не определена или чекпойнт с указанным Id не найден - возвращается nil
+</pre>
+<p></p>
+<p>Пример:</p>
+<p></p>
+<pre>
+local teamId = battleground.GetCheckpointTeam( checkpointId )
+</pre>
+<p></p>
+<p>См. также:</p>
+<p><a href="FunctionBattlegroundGetCheckpointInfo.html"> battleground.GetCheckpointInfo( checkpointId )</a>,</p>
+<p><a href="FunctionBattlegroundGetLinkedCheckpoint.html"> battleground.GetLinkedCheckpoint( checkpointId )</a></p>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryBattleground"</h4>
+<p></p>
+<a href="BattlegroundMarkId.html">BattlegroundMarkId</a>
+<br><a href="CategoryBattleground.html">CategoryBattleground</a>
+<br><a href="EnumBattlegroundRecapturablePlayerSpawnPlaceState.html">EnumBattlegroundRecapturablePlayerSpawnPlaceState</a>
+<br><a href="EventBattlegroundCheckpointAdded.html">EventBattlegroundCheckpointAdded</a>
+<br><a href="EventBattlegroundCheckpointRemoved.html">EventBattlegroundCheckpointRemoved</a>
+<br><a href="EventBattlegroundCheckpointsChanged.html">EventBattlegroundCheckpointsChanged</a>
+<br><a href="EventBattlegroundCheckpointStateChanged.html">EventBattlegroundCheckpointStateChanged</a>
+<br><a href="FunctionBattlegroundGetAvatarMark.html">FunctionBattlegroundGetAvatarMark</a>
+<br><a href="FunctionBattlegroundGetCheckpointInfo.html">FunctionBattlegroundGetCheckpointInfo</a>
+<br><a href="FunctionBattlegroundGetCheckpoints.html">FunctionBattlegroundGetCheckpoints</a>
+<br><a href="FunctionBattlegroundGetCheckpointTeam.html">FunctionBattlegroundGetCheckpointTeam</a>
+<br><a href="FunctionBattlegroundGetHeroesArenaQuitSpell.html">FunctionBattlegroundGetHeroesArenaQuitSpell</a>
+<br><a href="FunctionBattlegroundGetHeroesArenaStartStageSpell.html">FunctionBattlegroundGetHeroesArenaStartStageSpell</a>
+<br><a href="FunctionBattlegroundGetLinkedCheckpoint.html">FunctionBattlegroundGetLinkedCheckpoint</a>
+<br><a href="FunctionBattlegroundGetPlayerMark.html">FunctionBattlegroundGetPlayerMark</a>
+<br><a href="FunctionBattlegroundIsCheckpoint.html">FunctionBattlegroundIsCheckpoint</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryBattleground.html">CategoryBattleground</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

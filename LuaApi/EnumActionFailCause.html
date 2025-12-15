@@ -1,0 +1,364 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - EnumActionFailCause</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> "ENUM_ActionFailCause_..."</h2>
+<p></p>
+<p>Текстовый enum. Префикс для автоматической проверки - "ENUM_ActionFailCause".</p>
+<p></p>
+<p>Представляет результаты выполнения действия:</p>
+<pre>
+"ENUM_ActionFailCause_NoFail"
+"ENUM_ActionFailCause_Void"
+"ENUM_ActionFailCause_Cooldown"
+"ENUM_ActionFailCause_Disabled"
+"ENUM_ActionFailCause_TooFar"
+"ENUM_ActionFailCause_NotInGroup"
+"ENUM_ActionFailCause_NotInRaid"
+"ENUM_ActionFailCause_Immune"
+"ENUM_ActionFailCause_NotInFront"
+"ENUM_ActionFailCause_NoLoS"
+"ENUM_ActionFailCause_NoPath"
+"ENUM_ActionFailCause_NoTarget"
+"ENUM_ActionFailCause_NoTargetPoint"
+"ENUM_ActionFailCause_Occupied"
+"ENUM_ActionFailCause_Resisted"
+"ENUM_ActionFailCause_NotFriend"
+"ENUM_ActionFailCause_NotEnemy"
+"ENUM_ActionFailCause_NoPvpFlag"
+"ENUM_ActionFailCause_BarrierInNotActive"
+"ENUM_ActionFailCause_CannotTakeItem"
+"ENUM_ActionFailCause_NoSpaceInBag"
+"ENUM_ActionFailCause_WrongCharacterClass"
+"ENUM_ActionFailCause_ItemCountTooSmall"
+"ENUM_ActionFailCause_ItemCountTooBig"
+"ENUM_ActionFailCause_WrongCreatureRace"
+"ENUM_ActionFailCause_WrongAvatarRace"
+"ENUM_ActionFailCause_WrongAvatarSex"
+"ENUM_ActionFailCause_NotEquipped"
+"ENUM_ActionFailCause_NoItem"
+"ENUM_ActionFailCause_NotInZone"
+"ENUM_ActionFailCause_NotInScriptZone"
+"ENUM_ActionFailCause_NotManaCaster"
+"ENUM_ActionFailCause_NotEnergyUser"
+"ENUM_ActionFailCause_NotHonorUser"
+"ENUM_ActionFailCause_WrongMobWorld"
+"ENUM_ActionFailCause_NotInCombat"
+"ENUM_ActionFailCause_InCombat"
+"ENUM_ActionFailCause_CannotStrike"
+"ENUM_ActionFailCause_TooClose"
+"ENUM_ActionFailCause_NoShield"
+"ENUM_ActionFailCause_NoMainhandWeapon"
+"ENUM_ActionFailCause_NotEnoughMana"
+"ENUM_ActionFailCause_NotEnoughEnergy"
+"ENUM_ActionFailCause_NotEnoughHonor"
+"ENUM_ActionFailCause_NoBuff"
+"ENUM_ActionFailCause_InterruptedMove"
+"ENUM_ActionFailCause_InterruptedRotate"
+"ENUM_ActionFailCause_Canceled"
+"ENUM_ActionFailCause_Fizzled"
+"ENUM_ActionFailCause_Evaded"
+"ENUM_ActionFailCause_QuestNotActive"
+"ENUM_ActionFailCause_CreatureLevelTooSmall"
+"ENUM_ActionFailCause_QuestNotFinished"
+"ENUM_ActionFailCause_NotNeededForQuests"
+"ENUM_ActionFailCause_QuestAlreadyVisitedScriptZone"
+"ENUM_ActionFailCause_QuestActive"
+"ENUM_ActionFailCause_HasNoQuestsOnCooldown"
+"ENUM_ActionFailCause_WrongFaction"
+"ENUM_ActionFailCause_InterruptedDamage"
+"ENUM_ActionFailCause_InterruptedChangeTarget"
+"ENUM_ActionFailCause_HealthNotLower"
+"ENUM_ActionFailCause_HealthNotHigher"
+"ENUM_ActionFailCause_LootableOccupied"
+"ENUM_ActionFailCause_Dead"
+"ENUM_ActionFailCause_MorePowerfulEffectActive"
+"ENUM_ActionFailCause_HavePet"
+"ENUM_ActionFailCause_DontHavePet"
+"ENUM_ActionFailCause_PvpFlagSet"
+"ENUM_ActionFailCause_PvpFlagNotSet"
+"ENUM_ActionFailCause_NotEnoughSkillScore"
+"ENUM_ActionFailCause_HasSkill"
+"ENUM_ActionFailCause_NotAvatar"
+"ENUM_ActionFailCause_NotMob"
+"ENUM_ActionFailCause_NotDead"
+"ENUM_ActionFailCause_NotAlive"
+"ENUM_ActionFailCause_ResurrectNotActive"
+"ENUM_ActionFailCause_ExploitForQuestsOnly"
+"ENUM_ActionFailCause_CannotBeResized"
+"ENUM_ActionFailCause_QuestCounterLessThenTest"
+"ENUM_ActionFailCause_QuestStatusMismatch"
+"ENUM_ActionFailCause_CannotAttack"
+"ENUM_ActionFailCause_CartridgeBeltIsEmpty"
+"ENUM_ActionFailCause_CartridgeBeltIsFull"
+"ENUM_ActionFailCause_NoCartridgeBelt"
+"ENUM_ActionFailCause_NoPsionicContact"
+"ENUM_ActionFailCause_PsionicContactHasNoBuff"
+"ENUM_ActionFailCause_StatTooLow"
+"ENUM_ActionFailCause_DeviceAlreadyInUse"
+"ENUM_ActionFailCause_CreatureIsTooFat"
+"ENUM_ActionFailCause_DeviceBroken"
+"ENUM_ActionFailCause_DeviceOffline"
+"ENUM_ActionFailCause_TargetNotVisible"
+"ENUM_ActionFailCause_NotEnoughCombatAdvantage"
+"ENUM_ActionFailCause_BuffStackCountNotInRange"
+"ENUM_ActionFailCause_NothingToDispel"
+"ENUM_ActionFailCause_NoPlane"
+"ENUM_ActionFailCause_VariableValueIsTooSmall"
+"ENUM_ActionFailCause_VariableValueIsTooBig"
+"ENUM_ActionFailCause_NoVariable"
+"ENUM_ActionFailCause_InvalidPos"
+"ENUM_ActionFailCause_NotOnBoundShip"
+"ENUM_ActionFailCause_NoStolenLoot"
+"ENUM_ActionFailCause_CannotGetAddressImmediately"
+"ENUM_ActionFailCause_DruidPetIsNotActive"
+"ENUM_ActionFailCause_NoBoundShip"
+"ENUM_ActionFailCause_NoShipInProgress"
+"ENUM_ActionFailCause_ShipInProgressNotComplete"
+"ENUM_ActionFailCause_ShipInProgressNotSummoned"
+"ENUM_ActionFailCause_NoShipInRepair"
+"ENUM_ActionFailCause_HonorNotLess"
+"ENUM_ActionFailCause_NoForagingInstrument"
+"ENUM_ActionFailCause_NoForagingDeviceFound"
+"ENUM_ActionFailCause_ForagingSkillNotEnough"
+"ENUM_ActionFailCause_ReputationNotLess"
+"ENUM_ActionFailCause_ReputationLevelNotLess"
+"ENUM_ActionFailCause_NotOurShip"
+"ENUM_ActionFailCause_TooHigh"
+"ENUM_ActionFailCause_NoAbility"
+"ENUM_ActionFailCause_NoFairy"
+"ENUM_ActionFailCause_InvalidFairyRank"
+"ENUM_ActionFailCause_FairyNotActive"
+"ENUM_ActionFailCause_NoSpell"
+"ENUM_ActionFailCause_DressedItemCannotBeUpgraded"
+"ENUM_ActionFailCause_NothingToTalkAbout"
+"ENUM_ActionFailCause_NoContentKey"
+"ENUM_ActionFailCause_NoSpellInSpellBook"
+"ENUM_ActionFailCause_NotEnoughMoney"
+"ENUM_ActionFailCause_PetHealthNotHigher"
+"ENUM_ActionFailCause_NotEnoughAlternativeCurrency"
+"ENUM_ActionFailCause_CannotLearnSkill"
+"ENUM_ActionFailCause_CantSummonShipHere"
+"ENUM_ActionFailCause_CannotConvertItems"
+"ENUM_ActionFailCause_HasNotGuildRight"
+"ENUM_ActionFailCause_NotUnlocked"
+"ENUM_ActionFailCause_GroupInviteOtherShip"
+"ENUM_ActionFailCause_AlreadyHaveShip"
+"ENUM_ActionFailCause_TeleportTargetNotFound"
+"ENUM_ActionFailCause_InvalidShipName"
+"ENUM_ActionFailCause_ShipNameAlreadyUsed"
+"ENUM_ActionFailCause_GuildCreateWrongPlace"
+"ENUM_ActionFailCause_GuildCreateMemberBusy"
+"ENUM_ActionFailCause_GuildCreateAlreadyInGuild"
+"ENUM_ActionFailCause_RaidInviteOtherShip"
+"ENUM_ActionFailCause_NotEnoughRepairMats"
+"ENUM_ActionFailCause_ShipDoesNotNeedRepair"
+"ENUM_ActionFailCause_UnstuckNotAllowed"
+"ENUM_ActionFailCause_ItemMoveNotAvailable"
+"ENUM_ActionFailCause_LootOpenOccupied"
+"ENUM_ActionFailCause_NoLoot"
+"ENUM_ActionFailCause_DepositeBoxAlreadyOpened"
+"ENUM_ActionFailCause_DepositeBoxNotOpened"
+"ENUM_ActionFailCause_DepositeBoxUpdateEmptySlot"
+"ENUM_ActionFailCause_DepositeBoxUpdateNotBox"
+"ENUM_ActionFailCause_DepositeBoxUpdateTooSmall"
+"ENUM_ActionFailCause_DepositeBoxPutNoSpace"
+"ENUM_ActionFailCause_DepositeBoxItemCannotBePut"
+"ENUM_ActionFailCause_NoSkill"
+"ENUM_ActionFailCause_NoProficiency"
+"ENUM_ActionFailCause_NoItemWithRune"
+"ENUM_ActionFailCause_NotEnoughInsight"
+"ENUM_ActionFailCause_NoReturnPoint"
+"ENUM_ActionFailCause_ScanPortalNotFound"
+"ENUM_ActionFailCause_ScanIslandNotFound"
+"ENUM_ActionFailCause_ScanContinentNotFound"
+"ENUM_ActionFailCause_ScanWreckNotFound"
+"ENUM_ActionFailCause_ScanShipNotFound"
+"ENUM_ActionFailCause_NotOnLand"
+"ENUM_ActionFailCause_DeviceActionDisabled"
+"ENUM_ActionFailCause_DeviceActionOnCooldown"
+"ENUM_ActionFailCause_NotOnEnemyShip"
+"ENUM_ActionFailCause_NotOnFriendlyShip"
+"ENUM_ActionFailCause_NoMorePowerfulBuff"
+"ENUM_ActionFailCause_DeviceNotNear"
+"ENUM_ActionFailCause_MobNotNear"
+"ENUM_ActionFailCause_ProjectileNotNear"
+"ENUM_ActionFailCause_CaptainCantTeleportToAllod"
+"ENUM_ActionFailCause_AvatarNotCapableForAllod"
+"ENUM_ActionFailCause_AvatarBindedToAnotherAllod"
+"ENUM_ActionFailCause_CannotEnterMapInCombat"
+"ENUM_ActionFailCause_NoFreeStableSlots"
+"ENUM_ActionFailCause_DontHaveMount"
+"ENUM_ActionFailCause_AlreadyHaveMount"
+"ENUM_ActionFailCause_ShipNotInCustomizeMode"
+"ENUM_ActionFailCause_NoShipInUpgrade"
+"ENUM_ActionFailCause_NotOnIsland"
+"ENUM_ActionFailCause_CantRideIndoor"
+"ENUM_ActionFailCause_FairyAutoFeedIsOff"
+"ENUM_ActionFailCause_NoFairyAutoFeedItem"
+"ENUM_ActionFailCause_HangarIsNotEmpty"
+"ENUM_ActionFailCause_InAstral"
+"ENUM_ActionFailCause_PurifySlotOutOfBounds"
+"ENUM_ActionFailCause_PurifyEmptySlot"
+"ENUM_ActionFailCause_ItemNotCursed"
+"ENUM_ActionFailCause_CannotPurifyStack"
+"ENUM_ActionFailCause_ItemIsNotPurifier"
+"ENUM_ActionFailCause_PurifierCannotPurifyThis"
+"ENUM_ActionFailCause_MustOwnShipToUpgrade"
+"ENUM_ActionFailCause_NotAllowedToStartReadyCheck"
+"ENUM_ActionFailCause_ReadyCheckAlreadyInProgress"
+"ENUM_ActionFailCause_HaveNoTargetShip"
+"ENUM_ActionFailCause_UsingIncorrectDevice"
+"ENUM_ActionFailCause_EnemiesNear"
+"ENUM_ActionFailCause_SlotCannotBeEmpty"
+"ENUM_ActionFailCause_TransportIsOverloaded"
+"ENUM_ActionFailCause_NotADweller"
+"ENUM_ActionFailCause_NotAllowedToListTWarAuctions"
+"ENUM_ActionFailCause_NotAllowedToBidTWarAuction"
+"ENUM_ActionFailCause_NotInAffectGroup"
+"ENUM_ActionFailCause_CannotLootThisTreasure"
+"ENUM_ActionFailCause_QuestBookTooBig"
+"ENUM_ActionFailCause_ShipIsNotPersistent"
+"ENUM_ActionFailCause_NotGuildLeader"
+"ENUM_ActionFailCause_GuildProgressAlreadyEnabled"
+"ENUM_ActionFailCause_IncorrectGuildLevel"
+"ENUM_ActionFailCause_MetaSourceSlotOutOfBounds"
+"ENUM_ActionFailCause_MetaEnhancerSlotOutOfBounds"
+"ENUM_ActionFailCause_MetaAgentSlotOutOfBounds"
+"ENUM_ActionFailCause_MetaSourceSlotEqualsEnhancerSlot"
+"ENUM_ActionFailCause_MetaSourceSlotEmpty"
+"ENUM_ActionFailCause_MetaEnhancerSlotEmpty"
+"ENUM_ActionFailCause_MetaAgentSlotEmpty"
+"ENUM_ActionFailCause_MetaItemNotMeta"
+"ENUM_ActionFailCause_MetaCannotUpgradeStack"
+"ENUM_ActionFailCause_MetaEnhancerIsDifferent"
+"ENUM_ActionFailCause_MetaAgentIsNotAgent"
+"ENUM_ActionFailCause_MetaWrongAgentCount"
+"ENUM_ActionFailCause_MetaCannotUpgradeMaxQuality"
+"ENUM_ActionFailCause_NoNecessaryGuildTabardRight"
+"ENUM_ActionFailCause_NoCustomizeCurrency"
+"ENUM_ActionFailCause_NoGuildProgress"
+"ENUM_ActionFailCause_PeerNoSpaceInBag"
+"ENUM_ActionFailCause_MountIsHungry"
+"ENUM_ActionFailCause_NotOnTWar"
+"ENUM_ActionFailCause_OtherMap"
+"ENUM_ActionFailCause_SectorUnavailable"
+"ENUM_ActionFailCause_SectorIsFactionRestricted"
+"ENUM_ActionFailCause_InHangar"
+"ENUM_ActionFailCause_NotInHangar"
+"ENUM_ActionFailCause_TreasuryIsNotEmpty"
+"ENUM_ActionFailCause_OnAstralIsland"
+"ENUM_ActionFailCause_CantRideInZone"
+"ENUM_ActionFailCause_NotMounted"
+"ENUM_ActionFailCause_NoAssistant"
+"ENUM_ActionFailCause_NoUsedStatPoints"
+"ENUM_ActionFailCause_NotMarried"
+"ENUM_ActionFailCause_NoGuildRenameMark" - гильдия не помечена, как безымянная (требующая переименования)
+"ENUM_ActionFailCause_NoGuild" - аватар не является членом гильдии
+"ENUM_ActionFailCause_CCItemsProhibited" - аватар пытается сменить класс, но у него есть предметы, которые несовместимы со сменой класса
+"ENUM_ActionFailCause_GoalIsNotCompleted" - Цель не выполнена
+"ENUM_ActionFailCause_RuleIsNotActive" - Правило не выполнено
+"ENUM_ActionFailCause_MetaItemNotAppear" - Метапредмет не появлялся
+"ENUM_ActionFailCause_AvatarNotUsedTeleport" - Аватар не использовал телепорт
+"ENUM_ActionFailCause_NotLookingForGroup"
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryActionResult"</h4>
+<p></p>
+<a href="EnumActionFailCause.html">EnumActionFailCause</a>
+<br><a href="EnumActionResultSpecial.html">EnumActionResultSpecial</a>
+<br><a href="EventActionFailedExploit.html">EventActionFailedExploit</a>
+<br><a href="EventActionFailedOther.html">EventActionFailedOther</a>
+<br><a href="EventActionFailedSpell.html">EventActionFailedSpell</a>
+<br><a href="EventActionProcessTerminated.html">EventActionProcessTerminated</a>
+<br><a href="EventActionResultSpecialSpell.html">EventActionResultSpecialSpell</a>
+<br><a href="EventClientImageHideAll.html">EventClientImageHideAll</a>
+<br><a href="EventClientImageShow.html">EventClientImageShow</a>
+<br><a href="EventClientMessage.html">EventClientMessage</a>
+<br><a href="EventDoWarp.html">EventDoWarp</a>
+<br><a href="EventForagingFailed.html">EventForagingFailed</a>
+<br><a href="EventInterfaceToggle.html">EventInterfaceToggle</a>
+<br><a href="EventLobbyClientMessage.html">EventLobbyClientMessage</a>
+<br><a href="EventShowSubtitles.html">EventShowSubtitles</a>
+<br><a href="EventTakeItemsFailed.html">EventTakeItemsFailed</a>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryAction"</h4>
+<p></p>
+<a href="EnumActionFailCause.html">EnumActionFailCause</a>
+<br><a href="EnumActionResultSpecial.html">EnumActionResultSpecial</a>
+<br><a href="EnumSaleTag.html">EnumSaleTag</a>
+<br><a href="EventActionFailedExploit.html">EventActionFailedExploit</a>
+<br><a href="EventActionFailedOther.html">EventActionFailedOther</a>
+<br><a href="EventActionFailedSpell.html">EventActionFailedSpell</a>
+<br><a href="EventActionPanelChanged.html">EventActionPanelChanged</a>
+<br><a href="EventActionPanelElementChanged.html">EventActionPanelElementChanged</a>
+<br><a href="EventActionPanelElementEffect.html">EventActionPanelElementEffect</a>
+<br><a href="EventActionProcessTerminated.html">EventActionProcessTerminated</a>
+<br><a href="EventActionProgressFinish.html">EventActionProgressFinish</a>
+<br><a href="EventActionProgressFreeze.html">EventActionProgressFreeze</a>
+<br><a href="EventActionProgressStart.html">EventActionProgressStart</a>
+<br><a href="EventActionProgressUpdate.html">EventActionProgressUpdate</a>
+<br><a href="EventActionResultSpecialSpell.html">EventActionResultSpecialSpell</a>
+<br><a href="EventAEMarkPointClicked.html">EventAEMarkPointClicked</a>
+<br><a href="EventAttackResult.html">EventAttackResult</a>
+<br><a href="EventAvatarDestinyPointsChanged.html">EventAvatarDestinyPointsChanged</a>
+<br><a href="EventAvatarExperienceChanged.html">EventAvatarExperienceChanged</a>
+<br><a href="EventClientImageHideAll.html">EventClientImageHideAll</a>
+<br><a href="EventClientImageShow.html">EventClientImageShow</a>
+<br><a href="EventClientMessage.html">EventClientMessage</a>
+<br><a href="EventContextActionPointStarted.html">EventContextActionPointStarted</a>
+<br><a href="EventContextActionsChanged.html">EventContextActionsChanged</a>
+<br><a href="EventDoWarp.html">EventDoWarp</a>
+<br><a href="EventHealingReceived.html">EventHealingReceived</a>
+<br><a href="EventInterfaceToggle.html">EventInterfaceToggle</a>
+<br><a href="EventLobbyClientMessage.html">EventLobbyClientMessage</a>
+<br><a href="EventLootMark.html">EventLootMark</a>
+<br><a href="EventMobActionProgressFinish.html">EventMobActionProgressFinish</a>
+<br><a href="EventMobActionProgressFreeze.html">EventMobActionProgressFreeze</a>
+<br><a href="EventMobActionProgressStart.html">EventMobActionProgressStart</a>
+<br><a href="EventMobEvaded.html">EventMobEvaded</a>
+<br><a href="EventShowSubtitles.html">EventShowSubtitles</a>
+<br><a href="EventTakeItemsFailed.html">EventTakeItemsFailed</a>
+<br><a href="FunctionAvatarBindItemToActionPanel.html">FunctionAvatarBindItemToActionPanel</a>
+<br><a href="FunctionAvatarBindMountMetamorphToActionPanel.html">FunctionAvatarBindMountMetamorphToActionPanel</a>
+<br><a href="FunctionAvatarBindMountSkinToActionPanel.html">FunctionAvatarBindMountSkinToActionPanel</a>
+<br><a href="FunctionAvatarBindMountToActionPanel.html">FunctionAvatarBindMountToActionPanel</a>
+<br><a href="FunctionAvatarBindSpellToActionPanel.html">FunctionAvatarBindSpellToActionPanel</a>
+<br><a href="FunctionAvatarGetActionInfo.html">FunctionAvatarGetActionInfo</a>
+<br><a href="FunctionAvatarGetContextActions.html">FunctionAvatarGetContextActions</a>
+<br><a href="FunctionAvatarGetMaxActionCount.html">FunctionAvatarGetMaxActionCount</a>
+<br><a href="FunctionAvatarGetPetAggroMode.html">FunctionAvatarGetPetAggroMode</a>
+<br><a href="FunctionAvatarGetPetMoveMode.html">FunctionAvatarGetPetMoveMode</a>
+<br><a href="FunctionAvatarIsPetInCombat.html">FunctionAvatarIsPetInCombat</a>
+<br><a href="FunctionAvatarLoadActionPanel.html">FunctionAvatarLoadActionPanel</a>
+<br><a href="FunctionAvatarPetAttack.html">FunctionAvatarPetAttack</a>
+<br><a href="FunctionAvatarSaveActionPanel.html">FunctionAvatarSaveActionPanel</a>
+<br><a href="FunctionAvatarSetPetAggroMode.html">FunctionAvatarSetPetAggroMode</a>
+<br><a href="FunctionAvatarSetPetMoveMode.html">FunctionAvatarSetPetMoveMode</a>
+<br><a href="FunctionAvatarStopCasting.html">FunctionAvatarStopCasting</a>
+<br><a href="FunctionAvatarSwapActionsInActionPanel.html">FunctionAvatarSwapActionsInActionPanel</a>
+<br><a href="FunctionAvatarUnBindFromActionPanel.html">FunctionAvatarUnBindFromActionPanel</a>
+<br><a href="FunctionUnitGetMobActionProgress.html">FunctionUnitGetMobActionProgress</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryEvent.html">CategoryEvent</a>
+<a href="CategoryEnums.html">CategoryEnums</a>
+<a href="CategoryAction.html">CategoryAction</a>
+<a href="CategoryActionResult.html">CategoryActionResult</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

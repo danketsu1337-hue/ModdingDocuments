@@ -1,0 +1,59 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAstralUnitGetImage</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>astralUnit.GetImage( unitId )</h2>
+<p></p>
+<p>Возвращает иконку астрального моба, отображаемую на карте.</p>
+<p></p>
+<pre>
+-- подсистема:
+UIState
+
+-- библиотека:
+astralUnit
+
+-- объявление:
+function GetImage( unitId )
+
+-- параметры:
+unitId: ObjectId (not nil) - идентификатор юнита
+
+-- возвращаемые значения:
+TextureId - идентификатор ресурса иконки, обозначающей моба
+
+-- пример:
+local textureId = astralUnit.GetImage( unitId )
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryAstralUnit"</h4>
+<p></p>
+<a href="EventAstralObjectsChanged.html">EventAstralObjectsChanged</a>
+<br><a href="EventAstralUnitAggroChanged.html">EventAstralUnitAggroChanged</a>
+<br><a href="EventAstralUnitPosChanged.html">EventAstralUnitPosChanged</a>
+<br><a href="EventAstralUnitsChanged.html">EventAstralUnitsChanged</a>
+<br><a href="FunctionAstralGetUnits.html">FunctionAstralGetUnits</a>
+<br><a href="FunctionAstralUnitGetImage.html">FunctionAstralUnitGetImage</a>
+<br><a href="FunctionAstralUnitGetLevel.html">FunctionAstralUnitGetLevel</a>
+<br><a href="FunctionAstralUnitHasAggro.html">FunctionAstralUnitHasAggro</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryAstralUnit.html">CategoryAstralUnit</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

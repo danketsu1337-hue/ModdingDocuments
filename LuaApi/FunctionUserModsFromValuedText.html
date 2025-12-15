@@ -1,0 +1,119 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionUserModsFromValuedText</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> userMods.FromValuedText( valuedText )</h2>
+<p></p>
+<p>Возвращает переданный ValuedText в виде строки - развернутого html представления этого текста.</p>
+<p></p>
+<p>Функцию можно использовать только в пользовательских дополнениях.</p>
+<p></p>
+<pre>
+-- библиотека:
+userMods
+
+-- объявление:
+function FromValuedText( valuedText, oneLine )
+
+-- параметры:
+valuedText: ValuedText - переданный объект
+oneLine: boolean or nil - Если true \ nil то вывод будет в 1 строку, если false то вывод будет в виде форматированного html с отступами и переносами строк.
+
+-- возвращаемые значения:
+string - html-структура текста в обычном строковом типе
+
+-- примеры:
+userMods.FromValuedText( valuedText, false )
+</pre>
+<p></p>
+<p>Пример результата:</p>
+<pre>
+Однострочное представление
+&lt;body shadow="1"&gt;&lt;rs name="color" class="LogColorWhite"&gt;&lt;rs name="fontsize" class="Size16"&gt;&lt;rs name="fontname" class="AllodsSystem"&gt;&lt;r name="main"&gt;&lt;html&gt;&lt;rs name="color_code"&gt;&lt;r name="time"/&gt;&lt;r name="pretext"&gt;&lt;html&gt;&lt;r name="channel"&gt;&lt;html&gt;[&lt;r name="name"&gt;Разговор&lt;/r&gt;]&lt;/html&gt;&lt;/r&gt;&lt;r name="sender"&gt;&lt;html&gt;[&lt;r name="player_object"&gt;[ValuedObject]: p_mm&lt;/r&gt;]&lt;/html&gt;&lt;/r&gt;&lt;r name="whisper"/&gt;: &lt;/html&gt;&lt;/r&gt;&lt;r name="text"&gt;sad&lt;/r&gt;&lt;/rs&gt;&lt;/html&gt;&lt;/r&gt;&lt;/rs&gt;&lt;/rs&gt;&lt;/rs&gt;&lt;/body&gt;
+
+Развернутое представление
+&lt;body shadow="1"&gt;
+  &lt;rs name="color" class="LogColorWhite"&gt;
+    &lt;rs name="fontsize" class="Size16"&gt;
+      &lt;rs name="fontname" class="AllodsSystem"&gt;
+        &lt;r name="main"&gt;
+          &lt;html&gt;
+            &lt;rs name="color_code"&gt;
+              &lt;r name="time"/&gt;
+              &lt;r name="pretext"&gt;
+                &lt;html&gt;
+                  &lt;r name="channel"&gt;
+                    &lt;html&gt;
+                      [
+                      &lt;r name="name"&gt;
+                        Разговор
+                      &lt;/r&gt;
+                      ]
+                    &lt;/html&gt;
+                  &lt;/r&gt;
+                  &lt;r name="sender"&gt;
+                    &lt;html&gt;
+                      [
+                      &lt;r name="player_object"&gt;
+                        [ValuedObject]: p_mm
+                      &lt;/r&gt;
+                      ]
+                    &lt;/html&gt;
+                  &lt;/r&gt;
+                  &lt;r name="whisper"/&gt;
+                  :
+                &lt;/html&gt;
+              &lt;/r&gt;
+              &lt;r name="text"&gt;
+                asd
+              &lt;/r&gt;
+            &lt;/rs&gt;
+          &lt;/html&gt;
+        &lt;/r&gt;
+      &lt;/rs&gt;
+    &lt;/rs&gt;
+  &lt;/rs&gt;
+&lt;/body&gt;
+</pre>
+<p></p>
+<p>В логе видна структура текста. Видно, что в первом ValuedText-е есть подстановочный тэг, в который подставлен другой ValuedText, а потом ещё один. У которого, в свою очередь, есть три подстановочных тэга. В первый уже подставлен текст "Разговор", во второй подставлен некий ValuedText с ValuedObject-ом p_mm, в третий ничего не подставлено.</p>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryUserMods"</h4>
+<p></p>
+<a href="CategoryUserMods.html">CategoryUserMods</a>
+<br><a href="EnumAddonHealthStatus.html">EnumAddonHealthStatus</a>
+<br><a href="EventAddonHealthChanged.html">EventAddonHealthChanged</a>
+<br><a href="EventAddonReducePerfomance.html">EventAddonReducePerfomance</a>
+<br><a href="FunctionUserModsFromValuedText.html">FunctionUserModsFromValuedText</a>
+<br><a href="FunctionUserModsFromWString.html">FunctionUserModsFromWString</a>
+<br><a href="FunctionUserModsGetAccountUniqueId.html">FunctionUserModsGetAccountUniqueId</a>
+<br><a href="FunctionUserModsGetAvatarConfigSection.html">FunctionUserModsGetAvatarConfigSection</a>
+<br><a href="FunctionUserModsGetCallStack.html">FunctionUserModsGetCallStack</a>
+<br><a href="FunctionUserModsGetGlobalConfigSection.html">FunctionUserModsGetGlobalConfigSection</a>
+<br><a href="FunctionUserModsGetResourcePersistentId.html">FunctionUserModsGetResourcePersistentId</a>
+<br><a href="FunctionUserModsSendEvent.html">FunctionUserModsSendEvent</a>
+<br><a href="FunctionUserModsSendSelfChatMessage.html">FunctionUserModsSendSelfChatMessage</a>
+<br><a href="FunctionUserModsSetAvatarConfigSection.html">FunctionUserModsSetAvatarConfigSection</a>
+<br><a href="FunctionUserModsSetGlobalConfigSection.html">FunctionUserModsSetGlobalConfigSection</a>
+<br><a href="FunctionUserModsToWString.html">FunctionUserModsToWString</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryUserMods.html">CategoryUserMods</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

@@ -1,0 +1,101 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAvatarGetContextActionInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> avatar.GetContextActionInfo( id )</h2>
+<p></p>
+<p>Вернуть информацию о контекстном действии. Контекстное действие может находится в списке контекстных действий аватара, но в то же время быть недоступным (например цель не в зоне действия или не в той полусфере игрока). Поле enabled принимает значение true, если действие доступно и false, если не доступно. В случае изменения поля, на клиент приходит <a href="EventContextActionsChanged.html"> EVENT_CONTEXT_ACTIONS_CHANGED</a>.</p>
+<p></p>
+<p>Внимание! Есть более оптимииованный вариант: <a href="FunctionAvatarGetContextActionShortInfo.html"> avatar.GetContextActionShortInfo( id )</a> и <a href="FunctionAvatarGetContextActionCooldown.html"> avatar.GetContextActionCooldown( id )</a>.</p>
+<p></p>
+<pre>
+-- система:
+UIState/GameState
+функция имеет основную реализация в логике и расширенную реализацию в UI
+
+-- библиотека
+avatar
+
+-- объявление:
+function GetContextActionInfo( id )
+
+-- параметры
+id: ObjectId -  идентификатор контекстного действия
+
+-- возвращаемые значения
+nil, если контекстного действия нет
+table, если действие есть - информация по действию
+  id: ObjectId -  идентификатор контекстного действия
+  priority: number (int) - приоритет действия
+  name: WString - название
+  description: ValuedText or nil - описание с подставленными текущими значениями параметров
+--{ часть таблицы, реализованная только для UI
+  image: TextureId - идентификатор текстуры для иконки
+--}
+  enabled: boolean - true, если действие доступно
+  sysType: string (строковый enum "ENUM_CONTEXT_ACTION_TYPE_XXX") - название типа контекстного действия
+  objectId: ObjectId or nil -  идентификатор объекта, если он есть, к которому применяется контекстное действие
+
+  spellId: SpellId or nil - идентификатор ресурса заклинания, которое запустится при использовании этого действия
+  itemId: ObjectId or nil - идентификатор предмета, который будет использован
+
+  cooldown: Table or nil - информация о кулдауне, если доступна. Таблица с полями:
+    durationMs: number(integer) - длительность кулдауна в миллисекундах
+    remainingMs: number(integer) - сколько осталось кулдауна в миллисекундах
+
+  pointInfo: table or nil - если это контекстное действие требует точку установки, то таблица с полями:
+    range: number (float) - максимальное растояние до цели, на котором действует (0, если не указано)
+    minRange: number (float) - минимальное растояние до цели, на котором действует (0, если не указано)
+    radius: number (float) - радиус действия AOE от точки применения (0, если не указано)
+  sysNameAEMark: string or nil - для АЕ спеллов имя текстуры AEMark, которую нужно визуализировать (nil, если не указана)
+
+
+-- пример использования
+local actionInfo = avatar.GetContextActionInfo( id )
+if actionInfo then
+  local enabled = actionInfo.enabled
+end
+</pre>
+<p></p>
+<p></p>
+<p>Типы контекстных действий:</p>
+<pre>
+  "ENUM_CONTEXT_ACTION_TYPE_UNKNOWN" - тип не известен
+  "ENUM_CONTEXT_ACTION_TYPE_SPELL" - запустить заклинание
+  "ENUM_CONTEXT_ACTION_TYPE_EXPLOIT" - использовать устройство
+  "ENUM_CONTEXT_ACTION_TYPE_LOOT" - собрать лут
+  "ENUM_CONTEXT_ACTION_TYPE_NPC_TALK" - поговорить с NPC
+  "ENUM_CONTEXT_ACTION_TYPE_ITEM" - использовать предмет из сумки
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryContextActions"</h4>
+<p></p>
+<a href="CategoryContextActions.html">CategoryContextActions</a>
+<br><a href="EventContextActionPointStarted.html">EventContextActionPointStarted</a>
+<br><a href="EventContextActionsChanged.html">EventContextActionsChanged</a>
+<br><a href="FunctionAvatarGetContextActionCooldown.html">FunctionAvatarGetContextActionCooldown</a>
+<br><a href="FunctionAvatarGetContextActionInfo.html">FunctionAvatarGetContextActionInfo</a>
+<br><a href="FunctionAvatarGetContextActionShortInfo.html">FunctionAvatarGetContextActionShortInfo</a>
+<br><a href="FunctionMountGetActiveContextActions.html">FunctionMountGetActiveContextActions</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryContextActions.html">CategoryContextActions</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

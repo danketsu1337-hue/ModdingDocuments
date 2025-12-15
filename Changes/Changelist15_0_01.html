@@ -1,0 +1,149 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - Changelist15_0_01</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<br>
+<h2>Список изменений</h2>
+<br>
+<br>
+<h3>Удалены документы</h3>
+AddonBaseInternal.lua<br>
+CategorySimpleTable<br>
+common.ExtractWStringFromValuedText( valuedText )<br>
+common.GetIntFromWString( text )<br>
+common.GetTexturePath( textureId )<br>
+common.GetWStringLength ( str )<br>
+common.SetTextValues( object, textValues )<br>
+common.TruncateWString( str, maxOverallLen, trailingDotsCount, needTrim )<br>
+ENUM_RedefineRaceType<br>
+ForceReposition( self )<br>
+Play( self )<br>
+PushBack( self, WidgetSafe )<br>
+RemoveItems( self )<br>
+SimpleTableSafe<br>
+spellLib.GetGroups( id )<br>
+spellLib.GetGroupsDescriptions( id )<br>
+Stop( self, immediate )<br>
+<br>
+<h3>Добавлены документы</h3>
+<a href="../LuaApi/FunctionApitype.html">apitype( value )</a><br>
+<a href="../LuaApi/CategoryLuaApiDeprecated.html">CategoryLuaApiDeprecated</a><br>
+<a href="../LuaApi/FunctionCommonGetPosConverterParams.html">common.GetPosConverterParams()</a><br>
+<a href="../LuaApi/FunctionCommonGetTextureInfo.html">common.GetTextureInfo( textureId )</a><br>
+<a href="../LuaApi/FunctionCommonGetTextureSize.html">common.GetTextureSize( textureId )</a><br>
+<a href="../LuaApi/FunctionCommonIsWidget.html">common.IsWidget( any )</a><br>
+<a href="../LuaApi/FunctionWidgetCreateChildByDesc.html">CreateChildByDesc( self, widgetDesc )</a><br>
+<a href="../LuaApi/FunctionWidgetGetActiveChildrenRects.html">GetActiveChildrenRects( self, excludeType )</a><br>
+<a href="../LuaApi/FunctionWidgetGetBackgroundTexture.html">GetBackgroundTexture( self )</a><br>
+<a href="../LuaApi/FunctionWidgetGetForegroundTexture.html">GetForegroundTexture( self )</a><br>
+<a href="../LuaApi/FunctionSound2DLuaGetVolume.html">GetVolume( self )</a><br>
+<a href="../LuaApi/FunctionFormGetWidgetCoreTree.html">GetWidgetCoreTree( self, indexFunction, tWidgetByInstanceId )</a><br>
+<a href="../LuaApi/FunctionWidgetHasBackground.html">HasBackground()</a><br>
+<a href="../LuaApi/FunctionWidgetHasForeground.html">HasForeground()</a><br>
+<a href="../LuaApi/FunctionControl3DIsAddedAsWidget3D.html">IsAddedAsWidget3D( self, widget )</a><br>
+<a href="../LuaApi/FunctionIsIndexableUdata.html">isindexableudata( value )</a><br>
+<a href="../LuaApi/FunctionSound2DLuaIsMuted.html">IsMuted( self )</a><br>
+<a href="../LuaApi/FunctionSound2DLuaIsPaused.html">IsPaused( self )</a><br>
+<a href="../LuaApi/FunctionSound2DLuaIsPlaying.html">IsPlaying( self )</a><br>
+<a href="../LuaApi/FunctionObjectGetBuffBySysName.html">object.GetBuffBySysName( objectId, sysName )</a><br>
+<a href="../LuaApi/FunctionSound2DLuaPlay.html">Play( self )</a><br>
+<a href="../LuaApi/FunctionScrollableContainerRemove.html">Remove( self, widget )</a><br>
+<a href="../LuaApi/FunctionSound2DLuaSetMuted.html">SetMuted( self, isMuted )</a><br>
+<a href="../LuaApi/FunctionSound2DLuaSetPaused.html">SetPaused( self, isPaused )</a><br>
+<a href="../LuaApi/FunctionSound2DLuaSetVolume.html">SetVolume( self, volume )</a><br>
+<a href="../LuaApi/FunctionSpellLibGetActionGroupsDescriptions.html">spellLib.GetActionGroupsDescriptions( id )</a><br>
+<a href="../LuaApi/FunctionSpellLibGetDescriptionParams.html">spellLib.GetDescriptionParams( SpellId )</a><br>
+<a href="../LuaApi/FunctionSound2DLuaStop.html">Stop( self, immediate )</a><br>
+<a href="../LuaApi/FunctionUserModsGetResourcePersistentId.html">userMods.GetResourcePersistentId ( resourceId )</a><br>
+<br>
+<h3>Изменены документы</h3>
+<a href="../LuaApi/EnumMatchMakingMechanicsType.html">"ENUM_MatchMakingMechanicsType..."</a><br>
+<a href="../LuaApi/FunctionWidgetAddChild.html">AddChild( self, widget )</a><br>
+<a href="../LuaApi/CoreScriptAddonBase.html">AddonBase.lua</a><br>
+<a href="../LuaApi/CoreScriptAddonBaseUserMods.html">AddonBaseUserMods.lua</a><br>
+<a href="../LuaApi/FunctionControl3DAddWidget3D.html">AddWidget3D( self, widget, size, pos, autoResizeX, autoResizeY, cutDistance, bindPointY, minSizeLimit, maxSizeLimit )</a><br>
+<a href="../LuaApi/FunctionScrollableContainerAt.html">At( self, pos )</a><br>
+<a href="../LuaApi/FunctionAvatarGetEmoteInfo.html">avatar.GetEmoteInfo( emoteId )</a><br>
+<a href="../LuaApi/FunctionAvatarGetEmotes.html">avatar.GetEmotes()</a><br>
+<a href="../LuaApi/FunctionAvatarGetSpellBook.html">avatar.GetSpellBook()</a><br>
+<a href="../LuaApi/CategoryLuaApi.html">CategoryLuaApi</a><br>
+<a href="../LuaApi/CategoryWidget.html">CategoryWidget</a><br>
+<a href="../LuaApi/CategoryWidgetEffects.html">CategoryWidgetEffects</a><br>
+<a href="../LuaApi/FunctionCompareWString.html">common.CompareWString( text1, text2 )</a><br>
+<a href="../LuaApi/FunctionCompareWStringEx.html">common.CompareWStringEx( text1, text2 )</a><br>
+<a href="../LuaApi/FunctionCommonCreateProlongedStateSound.html">common.CreateProlongedStateSound( soundId, slot )</a><br>
+<a href="../LuaApi/FunctionCommonCreateSound.html">common.CreateSound( soundId )</a><br>
+<a href="../LuaApi/FunctionCommonGetAddonRelatedSoundGroup.html">common.GetAddonRelatedSoundGroup( sysGroup, optional )</a><br>
+<a href="../LuaApi/FunctionCommonGetApiType.html">common.GetApiType( value )</a><br>
+<a href="../LuaApi/FunctionCommonGetCredits.html">common.GetCredits()</a><br>
+<a href="../LuaApi/FunctionCommonGetShortString.html">common.GetShortString( text )</a><br>
+<a href="../LuaApi/FunctionCommonGetStateRelatedSoundGroup.html">common.GetStateRelatedSoundGroup( sysGroup, optional )</a><br>
+<a href="../LuaApi/FunctionCommonIsEmptyValuedText.html">common.IsEmptyValuedText( valuedText )</a><br>
+<a href="../LuaApi/FunctionCommonIsEmptyWstring.html">common.IsEmptyWString( text )</a><br>
+<a href="../LuaApi/FunctionCommonIsSoundEnabled.html">common.IsSoundEnabled()</a><br>
+<a href="../LuaApi/FunctionCommonIsSubstring.html">common.IsSubstring( text1, text2 )</a><br>
+<a href="../LuaApi/FunctionCommonIsSubstringEx.html">common.IsSubstringEx( text1, text2 )</a><br>
+<a href="../LuaApi/FunctionCommonIsValuedObject.html">common.IsValuedObject( object )</a><br>
+<a href="../LuaApi/FunctionCommonIsValuedText.html">common.IsValuedText( value )</a><br>
+<a href="../LuaApi/FunctionCommonIsWString.html">common.IsWString( value )</a><br>
+<a href="../LuaApi/FunctionCommonRegisterEventHandler.html">common.RegisterEventHandler( eventFunction, sysEventName, params )</a><br>
+<a href="../LuaApi/FunctionCommonRegisterReactionHandler.html">common.RegisterReactionHandler( reactionFunction, sysReactionName )</a><br>
+<a href="../LuaApi/FunctionFormCreateWidgetByDesc.html">CreateWidgetByDesc( self, widgetDesc )</a><br>
+<a href="../LuaApi/FunctionWidgetDestroyWidget.html">DestroyWidget( self )</a><br>
+<a href="../LuaApi/EnumQuizQuestionType.html">enum ENUM_QuizQuestionType</a><br>
+<a href="../LuaApi/EnumMonth.html">ENUM_Month_...</a><br>
+<a href="../LuaApi/EnumRatingArenaType.html">ENUM_RatingArenaType</a><br>
+<a href="../LuaApi/EnumBattlegroundRecapturablePlayerSpawnPlaceState.html">ENUM_RecapturablePlayerSpawnPlaceState_...</a><br>
+<a href="../LuaApi/EnumVisualizeMode.html">ENUM_VisualizeMode_...</a><br>
+<a href="../LuaApi/EventPosConverterChanged.html">EVENT_POS_CONVERTER_CHANGED</a><br>
+<a href="../LuaApi/EventUpdateShrinkRatio.html">EVENT_UPDATE_SHRINK_RATIO</a><br>
+<a href="../LuaApi/EventValuedObjectClicked.html">EVENT_VALUED_OBJECT_CLICKED</a><br>
+<a href="../LuaApi/EventValuedObjectDoubleClicked.html">EVENT_VALUED_OBJECT_DOUBLE_CLICKED</a><br>
+<a href="../LuaApi/EventValuedObjectMouseOver.html">EVENT_VALUED_OBJECT_MOUSEOVER</a><br>
+<a href="../LuaApi/FunctionWidgetGetChildChecked.html">GetChildChecked( self, name, recursive )</a><br>
+<a href="../LuaApi/FunctionWidgetGetChildUnchecked.html">GetChildUnchecked( self, name, recursive )</a><br>
+<a href="../LuaApi/FunctionWidgetsSystemGetPosConverterParams.html">GetPosConverterParams( self )</a><br>
+<a href="../LuaApi/FunctionWidgetGetRealRect.html">GetRealRect( self )</a><br>
+<a href="../LuaApi/FunctionWidgetsSystemGetStyle.html">GetStyle( self, styleName )</a><br>
+<a href="../LuaApi/FunctionWidgetsSystemGetTextureSize.html">GetTextureSize( self, texture )</a><br>
+<a href="../LuaApi/FunctionWidgetGetWidgetDesc.html">GetWidgetDesc( self )</a><br>
+<a href="../LuaApi/FunctionHangarGetSlotDevices.html">hangar.GetSlotDevices()</a><br>
+<a href="../LuaApi/FunctionScrollableContainerInsert.html">Insert( self )</a><br>
+<a href="../LuaApi/EnumItemCont.html">ITEM_CONT_...</a><br>
+<a href="../LuaApi/FunctionScrollableContainerPopBack.html">PopBack( self )</a><br>
+<a href="../LuaApi/FunctionScrollableContainerPopFront.html">PopFront( self )</a><br>
+<a href="../LuaApi/FunctionScrollableContainerPushBack.html">PushBack( self, widget )</a><br>
+<a href="../LuaApi/FunctionScrollableContainerPushFront.html">PushFront( self, widget )</a><br>
+<a href="../LuaApi/FunctionRemortCreationGetAvatarTemplatesInfo.html">remortCreation.GetAvatarTemplatesInfo()</a><br>
+<a href="../LuaApi/FunctionControl3DRemoveAllWidget3D.html">RemoveAllWidget3D( self )</a><br>
+<a href="../LuaApi/FunctionScrollableContainerRemoveAt.html">RemoveAt( self, pos )</a><br>
+<a href="../LuaApi/FunctionScrollableContainerRemoveItems.html">RemoveItems( self )</a><br>
+<a href="../LuaApi/FunctionControl3DRemoveWidget3D.html">RemoveWidget3D( self, widget )</a><br>
+<a href="../LuaApi/WidgetScrollableContainer.html">ScrollableContainer. Описание универсального скроллируемого контейнера произвольных виджетов.</a><br>
+<a href="../LuaApi/WidgetScrollBar.html">ScrollBar. Описание базового класса скроллбара.</a><br>
+<a href="../LuaApi/FunctionWidgetSetPlacementPlain.html">SetPlacementPlain( self, placement )</a><br>
+<a href="../LuaApi/FunctionWidgetSetPriority.html">SetPriority( self, priority )</a><br>
+<a href="../LuaApi/FunctionWidgetsSystemSetShrinkRatio.html">SetShrinkRatio( shrinkRatio )</a><br>
+<a href="../LuaApi/WidgetSlider.html">Slider. Описание базового класса слайдера.</a><br>
+<a href="../LuaApi/FunctionSpellLibGetActionGroups.html">spellLib.GetActionGroups( id )</a><br>
+<a href="../LuaApi/Widget.html">Widget. Описание виджета.</a><br>
+<a href="../LuaApi/FunctionWidgetSetName.html">Widget:SetName( name )</a><br>
+<a href="../LuaApi/WidgetsArrangement.html">WidgetsArrangement. Направление, порядок расположения элементов.</a><br>
+<a href="../LuaApi/FunctionWidgetsSystemGetImeSelectorInfo.html">widgetsSystem:GetImeSelectorInfo( self )</a><br>
+<a href="../LuaApi/FunctionWidgetsSystemSelectImeText.html">widgetsSystem:SelectImeText( self, index )</a><br>
+<br>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

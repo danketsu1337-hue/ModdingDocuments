@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WidgetLayerAnimatedTexture>
+  <Color>0xffffffff</Color>
+  <Grayed>false</Grayed>
+  <BlendEffect>BLEND_EFFECT_ALPHABLND</BlendEffect>
+  <flatPlacement>false</flatPlacement>
+  <lazyLoad>false</lazyLoad>
+  <scaling>false</scaling>
+  <repeatForever>true</repeatForever>
+  <playImmidiatly>true</playImmidiatly>
+  <delayMs>0</delayMs>
+  <frames>
+    <Item>
+      <textureItem href="" />
+      <rects />
+    </Item>
+  </frames>
+</WidgetLayerAnimatedTexture>

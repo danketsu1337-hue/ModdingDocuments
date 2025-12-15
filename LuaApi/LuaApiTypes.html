@@ -1,0 +1,161 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - LuaApiTypes</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h1>Используемые типы в LuaApi</h1>
+<p></p>
+<p>В <a href="CategoryLuaApi.html"> LuaApi</a> используются встроенные Lua типы и пользовательские типы. Как правило, пользовательские типы определены в коде. Уточнение: пользовательские типы не обязательно являются userdata/lightuserdata из Lua, реализация каждого типа описана отдельно.</p>
+<p></p>
+<p>Базовые типы Lua:</p>
+<ul><li><p> nil - отсутствие значения,</p></li></ul>
+<ul><li><p> number - реальные (с плавающей запятой) числа,</p></li></ul>
+<ul><li><p> number (integer) - целое число,</p></li></ul>
+<ul><li><p> number (enum) - перечисление, константы целочисленные, оговариваются особо в каждом случае,</p></li></ul>
+<ul><li><p> string - встроенная строка Lua, не локализуемая (для локализованных строк следует использовать <a href="TypeWString.html"> WString</a>),</p></li></ul>
+<ul><li><p> boolean - логическое значение (true/false),</p></li></ul>
+<ul><li><p> table - Lua таблица,</p></li></ul>
+<ul><li><p> userdata - позволяет хранить любые пользовательские данныe преданные из C в переменных Lua,</p></li></ul>
+<ul><li><p> "list" - список значений (конструкция языка, а не тип).</p></li></ul>
+<p></p>
+<p>Различные пользовательские типы (определенные в коде):</p>
+<ul><li><p> <a href="ObjectId.html"> ObjectId</a> - идентификатор объекта (в настоящее время number (int) или nil),</p></li></ul>
+<ul><li><p> <a href="UniqueId.html"> UniqueId</a> - уникальный идентификатор аватара,</p></li></ul>
+<ul><li><p> <a href="ResourceId.html"> ResourceId</a> - группа типов, являющихся идентификаторами ресурсов из базы, подробное описание см. на странице этого типа. Идентификаторы можно сравнивать используя <a href="FunctionResourceIdIsEqual.html"> ResourceId:IsEqual( resource )</a>.</p></li></ul>
+<ul><ul><li><p> <a href="QuestId.html"> QuestId</a> - идентификатор квеста,</p></li></ul></ul>
+<ul><ul><li><p> <a href="SpellId.html"> SpellId</a> - идентификатор умения (spell),</p></li></ul></ul>
+<ul><ul><li><p> <a href="ItemCategoryId.html"> ItemCategoryId</a> - идентификатор категории предмета</p></li></ul></ul>
+<ul><ul><li><p> <a href="TextureId.html"> TextureId</a> - идентификатор текстуры из базы,</p></li></ul></ul>
+<ul><ul><li><p> <a href="VisObjectId.html"> VisObjectId</a> - идентификатор визуального объекта из базы,</p></li></ul></ul>
+<ul><ul><li><p> <a href="AliasVisObjectId.html"> AliasVisObjectId</a> - идентификатор визуального объекта-обвязки из базы,</p></li></ul></ul>
+<ul><ul><li><p> <a href="Sound2DId.html"> Sound2DId</a> - идентификатор звука из базы,</p></li></ul></ul>
+<ul><ul><li><p> и т.д.</p></li></ul></ul>
+<ul><li><p> Color - цвет в виде таблицы с полями a, r, g, b типа number (float). Диапазон значений [0..1]. Например: { r = 1, g = 0, b = 0, a = 0.2 },</p></li></ul>
+<ul><li><p> ["GamePosition"] - игровые координаты</p></li></ul>
+<ul><li><p> <a href="RelatedTextsLua.html"> RelatedTextsLua</a> - группа текстовых ресурсов</p></li></ul>
+<ul><li><p> <a href="RelatedTexturesLua.html"> RelatedTexturesLua</a> - группа текстурных ресурсов</p></li></ul>
+<p></p>
+<p>Различные типы Widget-ов (определены в коде):</p>
+<ul><li><p> WidgetsSystemSafe - система Widgets в целом,</p></li></ul>
+<ul><li><p> WidgetSafe - базовый тип для widget-ов (можно сравнивать используя <a href="FunctionResourceIdIsEqual.html"> ResourceId:IsEqual( resource )</a>),</p></li></ul>
+<ul><li><p> ButtonSafe - кнопка,</p></li></ul>
+<ul><li><p> Control3DSafe - 3D контрол (кукла и т.п.),</p></li></ul>
+<ul><li><p> EditLineSafe - строка ввода текста,</p></li></ul>
+<ul><li><p> FormSafe - форма,</p></li></ul>
+<ul><li><p> PanelSafe - панель,</p></li></ul>
+<ul><li><p> TextViewSafe - контрол просмотра текста.</p></li></ul>
+<ul><li><p> ScrollableContainerSafe - контрол для группировки разнородных элементов</p></li></ul>
+<p></p>
+<p>Работа с текстом:</p>
+<ul><li><p> <a href="TypeWString.html"> WString</a> - локализуемая строка,</p></li></ul>
+<ul><li><p> <a href="TypeValuedText.html"> ValuedText</a> - размеченный текст с подстановками,</p></li></ul>
+<ul><li><p> <a href="TypeValuedObject.html"> ValuedObject</a> - обёртка гейм-объекта для подстановки в <a href="TypeValuedText.html"> ValuedText</a>.</p></li></ul>
+<p></p>
+<p>Идентификаторы объектов в базе данных, см. <a href="ResourceId.html"> ResourceId</a></p>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryTypes"</h4>
+<p></p>
+<a href="AbilityId.html">AbilityId</a>
+<br><a href="ActionGroupId.html">ActionGroupId</a>
+<br><a href="AliasVisObjectId.html">AliasVisObjectId</a>
+<br><a href="AstralSectorId.html">AstralSectorId</a>
+<br><a href="BattlegroundMarkId.html">BattlegroundMarkId</a>
+<br><a href="BillingBonusId.html">BillingBonusId</a>
+<br><a href="BuffId.html">BuffId</a>
+<br><a href="CategoryTypes.html">CategoryTypes</a>
+<br><a href="CharacterClassId.html">CharacterClassId</a>
+<br><a href="CharacterFormId.html">CharacterFormId</a>
+<br><a href="CombatTagId.html">CombatTagId</a>
+<br><a href="ComponentPropertyId.html">ComponentPropertyId</a>
+<br><a href="CurrencyCategoryId.html">CurrencyCategoryId</a>
+<br><a href="CurrencyId.html">CurrencyId</a>
+<br><a href="DecalObjectId.html">DecalObjectId</a>
+<br><a href="FactionId.html">FactionId</a>
+<br><a href="FunctionApitype.html">FunctionApitype</a>
+<br><a href="FunctionCommonCreateValuedObject.html">FunctionCommonCreateValuedObject</a>
+<br><a href="FunctionCommonGetApiType.html">FunctionCommonGetApiType</a>
+<br><a href="FunctionCommonGetFatalityPhraseLimits.html">FunctionCommonGetFatalityPhraseLimits</a>
+<br><a href="FunctionCommonIsFatalityPhraseFiltered.html">FunctionCommonIsFatalityPhraseFiltered</a>
+<br><a href="FunctionCommonIsTextFiltered.html">FunctionCommonIsTextFiltered</a>
+<br><a href="FunctionCommonIsValuedObject.html">FunctionCommonIsValuedObject</a>
+<br><a href="FunctionCommonIsValuedText.html">FunctionCommonIsValuedText</a>
+<br><a href="FunctionIsIndexableUdata.html">FunctionIsIndexableUdata</a>
+<br><a href="FunctionResourceIdGetInfo.html">FunctionResourceIdGetInfo</a>
+<br><a href="FunctionResourceIdGetInstanceId.html">FunctionResourceIdGetInstanceId</a>
+<br><a href="FunctionResourceIdGetPath.html">FunctionResourceIdGetPath</a>
+<br><a href="FunctionResourceIdIsEqual.html">FunctionResourceIdIsEqual</a>
+<br><a href="GamePosition.html">GamePosition</a>
+<br><a href="Geodata.html">Geodata</a>
+<br><a href="GlossaryId.html">GlossaryId</a>
+<br><a href="InnateStatSecondary.html">InnateStatSecondary</a>
+<br><a href="InstancedEventCategoryId.html">InstancedEventCategoryId</a>
+<br><a href="InstancedEventResourceId.html">InstancedEventResourceId</a>
+<br><a href="ItemCategoryId.html">ItemCategoryId</a>
+<br><a href="ItemId.html">ItemId</a>
+<br><a href="LfgDestinationCategoryId.html">LfgDestinationCategoryId</a>
+<br><a href="LfgDestinationId.html">LfgDestinationId</a>
+<br><a href="LifestyleCategoryId.html">LifestyleCategoryId</a>
+<br><a href="LifestyleCollectionId.html">LifestyleCollectionId</a>
+<br><a href="LootGroupId.html">LootGroupId</a>
+<br><a href="LuaApiTypes.html">LuaApiTypes</a>
+<br><a href="LuaFullDateTime.html">LuaFullDateTime</a>
+<br><a href="LuaRaceClassInfoPart.html">LuaRaceClassInfoPart</a>
+<br><a href="LuaSexInfoPart.html">LuaSexInfoPart</a>
+<br><a href="MapModifierId.html">MapModifierId</a>
+<br><a href="MedalId.html">MedalId</a>
+<br><a href="MedalRankId.html">MedalRankId</a>
+<br><a href="MountTalentGroupId.html">MountTalentGroupId</a>
+<br><a href="MountTalentId.html">MountTalentId</a>
+<br><a href="MutationInfo.html">MutationInfo</a>
+<br><a href="PostTypeId.html">PostTypeId</a>
+<br><a href="QuestId.html">QuestId</a>
+<br><a href="RecipeId.html">RecipeId</a>
+<br><a href="RelatedSoundsLua.html">RelatedSoundsLua</a>
+<br><a href="RelatedTextsLua.html">RelatedTextsLua</a>
+<br><a href="RelatedTexturesLua.html">RelatedTexturesLua</a>
+<br><a href="RelatedWidgetsLua.html">RelatedWidgetsLua</a>
+<br><a href="RequirementsTable.html">RequirementsTable</a>
+<br><a href="ResourceId.html">ResourceId</a>
+<br><a href="RuleId.html">RuleId</a>
+<br><a href="ShipSkinId.html">ShipSkinId</a>
+<br><a href="SkillId.html">SkillId</a>
+<br><a href="SocketId.html">SocketId</a>
+<br><a href="Sound2DId.html">Sound2DId</a>
+<br><a href="SpecialStatId.html">SpecialStatId</a>
+<br><a href="SpellId.html">SpellId</a>
+<br><a href="TeleportMasterId.html">TeleportMasterId</a>
+<br><a href="TextureId.html">TextureId</a>
+<br><a href="TimeTableId.html">TimeTableId</a>
+<br><a href="TutorialCategoryId.html">TutorialCategoryId</a>
+<br><a href="TutorialId.html">TutorialId</a>
+<br><a href="TypeValuedObject.html">TypeValuedObject</a>
+<br><a href="TypeValuedText.html">TypeValuedText</a>
+<br><a href="TypeWidgetDesc.html">TypeWidgetDesc</a>
+<br><a href="TypeWString.html">TypeWString</a>
+<br><a href="UITextureId.html">UITextureId</a>
+<br><a href="UniqueId.html">UniqueId</a>
+<br><a href="UnlockCategoryId.html">UnlockCategoryId</a>
+<br><a href="VisActionId.html">VisActionId</a>
+<br><a href="VisObjectId.html">VisObjectId</a>
+<br><a href="VisualShipId.html">VisualShipId</a>
+<br><a href="VoteId.html">VoteId</a>
+<br><a href="WishmasterResourceId.html">WishmasterResourceId</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryTypes.html">CategoryTypes</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

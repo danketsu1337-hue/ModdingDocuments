@@ -1,0 +1,61 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionFamilyGetSpouseName</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> family.GetSpouseName( unitId )</h2>
+<p></p>
+<p>Возвращает имя супруга, если у главного игрока имеется семья.</p>
+<p></p>
+<pre>
+-- библиотека:
+family
+
+-- объявление:
+function GetSpouseName( unitId )
+
+-- параметры:
+unitId: ObjectId - идентификатор игрока
+
+-- возвращаемое значение
+WString or nil - имя супруга, если имеется семья
+
+-- пример:
+if family.IsExist( unitId ) then
+  local spouse = family.GetSpouseName( unitId )
+end
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryFamily" </h4>
+<p></p>
+<a href="CategoryFamily.html">CategoryFamily</a>
+<br><a href="EventFamilyCreated.html">EventFamilyCreated</a>
+<br><a href="EventFamilyDestroyed.html">EventFamilyDestroyed</a>
+<br><a href="EventFamilySpellExperienceChanged.html">EventFamilySpellExperienceChanged</a>
+<br><a href="EventFamilySpellsChanged.html">EventFamilySpellsChanged</a>
+<br><a href="EventSpousePositionUpdated.html">EventSpousePositionUpdated</a>
+<br><a href="FunctionFamilyGetSpellInfo.html">FunctionFamilyGetSpellInfo</a>
+<br><a href="FunctionFamilyGetSpouseId.html">FunctionFamilyGetSpouseId</a>
+<br><a href="FunctionFamilyGetSpouseName.html">FunctionFamilyGetSpouseName</a>
+<br><a href="FunctionFamilyIsExist.html">FunctionFamilyIsExist</a>
+<br><a href="FunctionFamilyIsSpouse.html">FunctionFamilyIsSpouse</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryFamily.html">CategoryFamily</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

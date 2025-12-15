@@ -1,0 +1,79 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAvatarInventoryGetPocketIndexBySlot</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> avatar.InventoryGetPocketIndexBySlot( slot )</h2>
+<p></p>
+<p>Инвентарь состоит из базовой сумки и нескольких карманов. В определенный карман можно класть только определенные предметы. Эти предметы не кладуться в базовую сумку. Слоты индексируются с 0 по всему объему инвентаря, включая карманы.</p>
+<p></p>
+<p>Этот метод возвращает индекс кармана, в котором находится указанный слот.</p>
+<p></p>
+<pre>
+-- библиотека:
+avatar
+
+-- объявление:
+function InventoryGetPocketIndexBySlot( slot )
+
+-- параметры:
+slot: number (int) - индекс слота
+
+-- возвращаемые значения:
+number (int) - индекс кармана, начиная с 0, или -1, если слот в базовой сумке
+
+-- пример:
+local pocketIndex = avatar.InventoryGetPocketIndexBySlot( slot )
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryInventory"</h4>
+<p></p>
+<a href="CategoryInventory.html">CategoryInventory</a>
+<br><a href="EnumBoxOperationResult.html">EnumBoxOperationResult</a>
+<br><a href="EnumDressResult.html">EnumDressResult</a>
+<br><a href="EnumDressSlot.html">EnumDressSlot</a>
+<br><a href="EnumItemBinding.html">EnumItemBinding</a>
+<br><a href="EnumItemmallItem.html">EnumItemmallItem</a>
+<br><a href="EventBoxOperationResult.html">EventBoxOperationResult</a>
+<br><a href="EventEquipFailed.html">EventEquipFailed</a>
+<br><a href="EventInventoryChanged.html">EventInventoryChanged</a>
+<br><a href="EventInventorySizeChanged.html">EventInventorySizeChanged</a>
+<br><a href="EventInventorySlotChanged.html">EventInventorySlotChanged</a>
+<br><a href="EventItemQuestsReceived.html">EventItemQuestsReceived</a>
+<br><a href="EventUnequipFailed.html">EventUnequipFailed</a>
+<br><a href="FunctionAvatarArrangeContainerItems.html">FunctionAvatarArrangeContainerItems</a>
+<br><a href="FunctionAvatarEquipItemById.html">FunctionAvatarEquipItemById</a>
+<br><a href="FunctionAvatarEquipItemByIdToSlot.html">FunctionAvatarEquipItemByIdToSlot</a>
+<br><a href="FunctionAvatarGetMetaUpgradeCost.html">FunctionAvatarGetMetaUpgradeCost</a>
+<br><a href="FunctionAvatarInventoryCanPlaceItemToSlot.html">FunctionAvatarInventoryCanPlaceItemToSlot</a>
+<br><a href="FunctionAvatarInventoryGetBaseBagSlotCount.html">FunctionAvatarInventoryGetBaseBagSlotCount</a>
+<br><a href="FunctionAvatarInventoryGetItemPocket.html">FunctionAvatarInventoryGetItemPocket</a>
+<br><a href="FunctionAvatarInventoryGetPocketIndexBySlot.html">FunctionAvatarInventoryGetPocketIndexBySlot</a>
+<br><a href="FunctionAvatarInventoryGetPocketInfo.html">FunctionAvatarInventoryGetPocketInfo</a>
+<br><a href="FunctionAvatarInventoryGetPocketsCount.html">FunctionAvatarInventoryGetPocketsCount</a>
+<br><a href="FunctionAvatarIsItemsStackable.html">FunctionAvatarIsItemsStackable</a>
+<br><a href="FunctionAvatarOpenBox.html">FunctionAvatarOpenBox</a>
+<br><a href="FunctionAvatarShowMetaUpgradeDialog.html">FunctionAvatarShowMetaUpgradeDialog</a>
+<br><a href="FunctionAvatarUnequipItemToSlot.html">FunctionAvatarUnequipItemToSlot</a>
+<br><a href="ItemCategoryId.html">ItemCategoryId</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<a href="CategoryInventory.html">CategoryInventory</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

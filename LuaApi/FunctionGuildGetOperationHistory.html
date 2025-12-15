@@ -1,0 +1,92 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionGuildGetOperationHistory</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> guild.GetOperationHistory()</h2>
+<p></p>
+<p>Возвращает описание истории операций в гильдейском банке.</p>
+<p></p>
+<p>См. <a href="EnumMoneyChangeReason.html"> ENUM_MoneyChangeReason</a>.</p>
+<p></p>
+<pre>
+-- библиотека:
+guild
+
+-- объявление:
+function GetOperationHistory()
+
+-- параметры:
+нет
+
+-- возвращаемое значение
+table of table - индексированная с нуля таблица с описаниями конкретных операций, каждая из которых представлена таблицей с полями:
+  balanceChange: number (integer) - величина транзакции в меди
+  comment: WString - комментарий при проведении операции
+  operationType: number (enum ENUM_MoneyChangeReason) - тип изменения баланса
+  sysOperationType: string (enum "ENUM_MoneyChangeReason") - тип изменения баланса
+  time: LuaFullDateTime - время транзакции
+  actorMemberId: ObjectId or nil - если информация доступна, то идентификатор члена гильдии, производившего операцию
+  actorMemberName: WString or nil - если информация доступна, то имя члена гильдии
+  members: table of table - индексированная с 0 таблица с таблицами описаний членов гильдии, попавших в операцию, с полями:
+    id: ObjectId or nil - если информация доступна, то идентификатор члена гильдии
+    name: WString or nil - если информация доступна, то имя члена гильдии
+  ranks: table of number (integer) - индексы рангов гильдии, попавших в транзакцию. Может быть пустым
+  tabards: table of number (enum ENUM_TabardType_...) - накидки гильдии, носители которых попали в транзакцию. Может быть пустым
+
+-- пример:
+local history = guild.GetOperationHistory()
+local firstTransactionValue = history[ 0 ] and history[ 0 ].balanceChange
+</pre>
+<p></p>
+<p>см. LuaFullDateTime, EnumTabardType</p>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryGuildBank"</h4>
+<p></p>
+<a href="EnumGuildBankOperation.html">EnumGuildBankOperation</a>
+<br><a href="EnumGuildHistoryOrder.html">EnumGuildHistoryOrder</a>
+<br><a href="EnumGuildItemsHistoryOrder.html">EnumGuildItemsHistoryOrder</a>
+<br><a href="EnumMoneyChangeReason.html">EnumMoneyChangeReason</a>
+<br><a href="EnumTransferMoneyOperationDirection.html">EnumTransferMoneyOperationDirection</a>
+<br><a href="EventGuildAvatarHistory.html">EventGuildAvatarHistory</a>
+<br><a href="EventGuildBankHistoryChanged.html">EventGuildBankHistoryChanged</a>
+<br><a href="EventGuildBankMinimumTransactionChanged.html">EventGuildBankMinimumTransactionChanged</a>
+<br><a href="EventGuildBankMoneyChanged.html">EventGuildBankMoneyChanged</a>
+<br><a href="EventGuildBankOperationResult.html">EventGuildBankOperationResult</a>
+<br><a href="EventGuildItemsHistoryChanged.html">EventGuildItemsHistoryChanged</a>
+<br><a href="EventGuildItemsOperationResult.html">EventGuildItemsOperationResult</a>
+<br><a href="EventGuildMemberBalanceChanged.html">EventGuildMemberBalanceChanged</a>
+<br><a href="FunctionGuildCorrectMemberBalance.html">FunctionGuildCorrectMemberBalance</a>
+<br><a href="FunctionGuildGetAvatarHistory.html">FunctionGuildGetAvatarHistory</a>
+<br><a href="FunctionGuildGetBankInfo.html">FunctionGuildGetBankInfo</a>
+<br><a href="FunctionGuildGetHistory.html">FunctionGuildGetHistory</a>
+<br><a href="FunctionGuildGetItemsHistory.html">FunctionGuildGetItemsHistory</a>
+<br><a href="FunctionGuildGetItemsInfo.html">FunctionGuildGetItemsInfo</a>
+<br><a href="FunctionGuildGetItemsOperationHistory.html">FunctionGuildGetItemsOperationHistory</a>
+<br><a href="FunctionGuildGetMemberBalance.html">FunctionGuildGetMemberBalance</a>
+<br><a href="FunctionGuildGetMoney.html">FunctionGuildGetMoney</a>
+<br><a href="FunctionGuildGetOperationHistory.html">FunctionGuildGetOperationHistory</a>
+<br><a href="FunctionGuildRaiseFunds.html">FunctionGuildRaiseFunds</a>
+<br><a href="FunctionGuildSetMinimumTransaction.html">FunctionGuildSetMinimumTransaction</a>
+<br><a href="FunctionGuildTransferMoney.html">FunctionGuildTransferMoney</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryGuild.html">CategoryGuild</a>
+<a href="CategoryGuildBank.html">CategoryGuildBank</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

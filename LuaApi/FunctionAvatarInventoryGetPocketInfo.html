@@ -1,0 +1,97 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAvatarInventoryGetPocketInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>avatar.InventoryGetPocketInfo( pocketIndex )</h2>
+<p></p>
+<p>Возвращает таблицу с информацией о кармане инвентаря главного игрока.</p>
+<p>Инвентарь состоит из базовой сумки и нескольких карманов. Слоты инвентаря индексируются с 0 по всему массиву и базовой сумки и карманов.</p>
+<p></p>
+<p>То есть Размер инвентаря = Размер базовой сумки + Сумма размеров всех карманов.</p>
+<p></p>
+<pre>
+-- система:
+UIState - расширенная информация, GameState - базовая информация
+
+-- библиотека:
+avatar
+
+-- объявление:
+function InventoryGetPocketInfo( pocketIndex )
+
+-- параметры:
+pocketIndex: number (int) - индекс кармана, начиная с 0
+
+-- возвращаемые значения:
+table or nil - если такой карман есть, то таблица с полями:
+  firstIndex: number (int) - первый индекс слота кармана в общем массиве слотов инвентаря
+  size: number (int) - размер кармана
+  name: WString - название категории
+  description: WString - описание категории
+Часть, доступная только в UI:
+  image: WString - текстура иконки кармана
+
+-- пример:
+local pocketInfo = avatar.InventoryGetPocketInfo( pocketIndex )
+if pocketInfo then
+  local name = pocketInfo.name
+  local firstPocketItemId = avatar.GetInventoryItemId( pocketInfo.firstIndex )
+  local lastPocketItemId = avatar.GetInventoryItemId( pocketInfo.firstIndex + pocketInfo.size - 1 )
+end
+</pre>
+<p></p>
+<p>См. также:</p>
+<ul><li><p> <a href="EventInventorySlotChanged.html">EVENT_INVENTORY_SLOT_CHANGED</a></p></li></ul>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryInventory"</h4>
+<p></p>
+<a href="CategoryInventory.html">CategoryInventory</a>
+<br><a href="EnumBoxOperationResult.html">EnumBoxOperationResult</a>
+<br><a href="EnumDressResult.html">EnumDressResult</a>
+<br><a href="EnumDressSlot.html">EnumDressSlot</a>
+<br><a href="EnumItemBinding.html">EnumItemBinding</a>
+<br><a href="EnumItemmallItem.html">EnumItemmallItem</a>
+<br><a href="EventBoxOperationResult.html">EventBoxOperationResult</a>
+<br><a href="EventEquipFailed.html">EventEquipFailed</a>
+<br><a href="EventInventoryChanged.html">EventInventoryChanged</a>
+<br><a href="EventInventorySizeChanged.html">EventInventorySizeChanged</a>
+<br><a href="EventInventorySlotChanged.html">EventInventorySlotChanged</a>
+<br><a href="EventItemQuestsReceived.html">EventItemQuestsReceived</a>
+<br><a href="EventUnequipFailed.html">EventUnequipFailed</a>
+<br><a href="FunctionAvatarArrangeContainerItems.html">FunctionAvatarArrangeContainerItems</a>
+<br><a href="FunctionAvatarEquipItemById.html">FunctionAvatarEquipItemById</a>
+<br><a href="FunctionAvatarEquipItemByIdToSlot.html">FunctionAvatarEquipItemByIdToSlot</a>
+<br><a href="FunctionAvatarGetMetaUpgradeCost.html">FunctionAvatarGetMetaUpgradeCost</a>
+<br><a href="FunctionAvatarInventoryCanPlaceItemToSlot.html">FunctionAvatarInventoryCanPlaceItemToSlot</a>
+<br><a href="FunctionAvatarInventoryGetBaseBagSlotCount.html">FunctionAvatarInventoryGetBaseBagSlotCount</a>
+<br><a href="FunctionAvatarInventoryGetItemPocket.html">FunctionAvatarInventoryGetItemPocket</a>
+<br><a href="FunctionAvatarInventoryGetPocketIndexBySlot.html">FunctionAvatarInventoryGetPocketIndexBySlot</a>
+<br><a href="FunctionAvatarInventoryGetPocketInfo.html">FunctionAvatarInventoryGetPocketInfo</a>
+<br><a href="FunctionAvatarInventoryGetPocketsCount.html">FunctionAvatarInventoryGetPocketsCount</a>
+<br><a href="FunctionAvatarIsItemsStackable.html">FunctionAvatarIsItemsStackable</a>
+<br><a href="FunctionAvatarOpenBox.html">FunctionAvatarOpenBox</a>
+<br><a href="FunctionAvatarShowMetaUpgradeDialog.html">FunctionAvatarShowMetaUpgradeDialog</a>
+<br><a href="FunctionAvatarUnequipItemToSlot.html">FunctionAvatarUnequipItemToSlot</a>
+<br><a href="ItemCategoryId.html">ItemCategoryId</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<a href="CategoryInventory.html">CategoryInventory</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

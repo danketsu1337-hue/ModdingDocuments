@@ -1,0 +1,86 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - EventObjectBuffsElementChanged</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<h2> EVENT_OBJECT_BUFFS_ELEMENT_CHANGED</h2>
+<p></p>
+<p>Событие посылается не чаще одного раза в кадр, если в данном кадре у какого-либо из объектов вокруг игрока меняется информация о каком либо буфе.</p>
+<p></p>
+<p>Является агрегированной версией <a href="EventObjectBuffChanged.html"> EVENT_OBJECT_BUFF_CHANGED</a></p>
+<p></p>
+<pre>
+-- поля:
+objects: table of tables - индексированная по ObjectId таблица таблиц:
+  key: ObjectId - идентификатор объекта
+  value: table of boolean - таблица, индексированная по идентификаторам изменившихся бафов
+    key: ObjectId - идентификатор бафа
+    value: boolean - всегда содержит true  у проиндексированных элементов
+</pre>
+<p></p>
+<p>Событие содержит собранную информацию о всех таких объектах и идентификаторов всех изменившихся бафов по каждому юниту.</p>
+<p>По индексу идентификатора объекта в полученной таблице можно получить таблицу изменившихся бафов этого юнита. В этой второй таблице во всех элементах по индексам идентификаторов изменившихся бафов прописано true.</p>
+<p></p>
+<p>То есть, можно узнать изменился ли баф buffId у юнита с идентификатором unitId:</p>
+<pre>
+local isBuffChanged = params.objects[ unitId ] and params.objects[ unitId ][ buffId ] or false
+</pre>
+<p></p>
+<p>'''ВНИМАНИЕ!''' Валидность бафов и объектов проверяется только на этапе формирования события. К моменту получения события носители или бафы могут быть уничтожены. Получение какой-либо информации по id из данного события без проверки на валидность недопустимо.</p>
+<p></p>
+<p>Связанные события и функции:</p>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryBuff" </h4>
+<a href="BuffId.html">BuffId</a>
+<br><a href="CategoryBuff.html">CategoryBuff</a>
+<br><a href="EnumDiminishingGroup.html">EnumDiminishingGroup</a>
+<br><a href="EnumUIBuffPriority.html">EnumUIBuffPriority</a>
+<br><a href="EventAvatarBuffRemovingFailed.html">EventAvatarBuffRemovingFailed</a>
+<br><a href="EventGuildBuffAdded.html">EventGuildBuffAdded</a>
+<br><a href="EventGuildBuffsChanged.html">EventGuildBuffsChanged</a>
+<br><a href="EventObjectBuffAdded.html">EventObjectBuffAdded</a>
+<br><a href="EventObjectBuffChanged.html">EventObjectBuffChanged</a>
+<br><a href="EventObjectBuffProgressAdded.html">EventObjectBuffProgressAdded</a>
+<br><a href="EventObjectBuffProgressChanged.html">EventObjectBuffProgressChanged</a>
+<br><a href="EventObjectBuffProgressRemoved.html">EventObjectBuffProgressRemoved</a>
+<br><a href="EventObjectBuffRemoved.html">EventObjectBuffRemoved</a>
+<br><a href="EventObjectBuffsChanged.html">EventObjectBuffsChanged</a>
+<br><a href="EventObjectBuffsElementChanged.html">EventObjectBuffsElementChanged</a>
+<br><a href="EventObjectDiminishingChanged.html">EventObjectDiminishingChanged</a>
+<br><a href="EventObjectDiminishingGroupChanged.html">EventObjectDiminishingGroupChanged</a>
+<br><a href="FunctionGuildGetBuffs.html">FunctionGuildGetBuffs</a>
+<br><a href="FunctionObjectGetBuffBySysName.html">FunctionObjectGetBuffBySysName</a>
+<br><a href="FunctionObjectGetBuffCount.html">FunctionObjectGetBuffCount</a>
+<br><a href="FunctionObjectGetBuffDynamicInfo.html">FunctionObjectGetBuffDynamicInfo</a>
+<br><a href="FunctionObjectGetBuffInfo.html">FunctionObjectGetBuffInfo</a>
+<br><a href="FunctionObjectGetBuffInstances.html">FunctionObjectGetBuffInstances</a>
+<br><a href="FunctionObjectGetBuffRanks.html">FunctionObjectGetBuffRanks</a>
+<br><a href="FunctionObjectGetBuffs.html">FunctionObjectGetBuffs</a>
+<br><a href="FunctionObjectGetBuffsInfo.html">FunctionObjectGetBuffsInfo</a>
+<br><a href="FunctionObjectGetBuffsWithProperties.html">FunctionObjectGetBuffsWithProperties</a>
+<br><a href="FunctionObjectGetBuffSysName.html">FunctionObjectGetBuffSysName</a>
+<br><a href="FunctionObjectGetBuffTooltipInfo.html">FunctionObjectGetBuffTooltipInfo</a>
+<br><a href="FunctionObjectGetDiminishingState.html">FunctionObjectGetDiminishingState</a>
+<br><a href="FunctionObjectHasBuffManager.html">FunctionObjectHasBuffManager</a>
+<br><a href="FunctionObjectIsValidBuff.html">FunctionObjectIsValidBuff</a>
+<br><a href="FunctionObjectRemoveBuff.html">FunctionObjectRemoveBuff</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryEvent.html">CategoryEvent</a>
+<a href="CategoryUnit.html">CategoryUnit</a>
+<a href="CategoryBuff.html">CategoryBuff</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

@@ -1,0 +1,73 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - EventChatAvatarMuted</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>EVENT_CHAT_AVATAR_MUTED</h2>
+<p></p>
+<p>Событие посылается когда аватар лишен права писать сообщения в чат.</p>
+<p></p>
+<pre>
+-- поля
+reason: WString - причина
+durationMinutes: number (int) - продолжительность в минутах
+time: table - таблица с информацией о времени отправки сообщения (локальное время сервера). Поля:
+  h: number (int) - час
+  m: number (int) - минута
+  s: number (int) - секунда
+</pre>
+<p></p>
+<p>Связанные события и функции:</p>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryChat"</h4>
+<p></p>
+<a href="EnumAccessionResult.html">EnumAccessionResult</a>
+<br><a href="EnumChatFailedType.html">EnumChatFailedType</a>
+<br><a href="EventCantSendChatByDelay.html">EventCantSendChatByDelay</a>
+<br><a href="EventChatAvatarMuted.html">EventChatAvatarMuted</a>
+<br><a href="EventChatMessage.html">EventChatMessage</a>
+<br><a href="EventChatMessageIsFlood.html">EventChatMessageIsFlood</a>
+<br><a href="EventChatMessageRejected.html">EventChatMessageRejected</a>
+<br><a href="EventChatMessageWithObjects.html">EventChatMessageWithObjects</a>
+<br><a href="EventChatNamedError.html">EventChatNamedError</a>
+<br><a href="EventChatSentToAlt.html">EventChatSentToAlt</a>
+<br><a href="EventCustomEmote.html">EventCustomEmote</a>
+<br><a href="EventGlobalNotice.html">EventGlobalNotice</a>
+<br><a href="EventPlayedCommandResponse.html">EventPlayedCommandResponse</a>
+<br><a href="EventSlashCommandFailed.html">EventSlashCommandFailed</a>
+<br><a href="EventSlashCommandPrefixChanged.html">EventSlashCommandPrefixChanged</a>
+<br><a href="EventUnknownSlashCommand.html">EventUnknownSlashCommand</a>
+<br><a href="EventVeteranranksCommandResponse.html">EventVeteranranksCommandResponse</a>
+<br><a href="EventWhisperFailed.html">EventWhisperFailed</a>
+<br><a href="FunctionMissionClearChatInput.html">FunctionMissionClearChatInput</a>
+<br><a href="FunctionMissionGetChatInput.html">FunctionMissionGetChatInput</a>
+<br><a href="FunctionMissionGetChatInputSimilarCommands.html">FunctionMissionGetChatInputSimilarCommands</a>
+<br><a href="FunctionMissionSetChatInputArg.html">FunctionMissionSetChatInputArg</a>
+<br><a href="FunctionMissionSetChatInputData.html">FunctionMissionSetChatInputData</a>
+<br><a href="FunctionMissionSetChatInputHistoryMaxSize.html">FunctionMissionSetChatInputHistoryMaxSize</a>
+<br><a href="FunctionMissionSetChatInputNextData.html">FunctionMissionSetChatInputNextData</a>
+<br><a href="FunctionMissionSetChatInputPrevData.html">FunctionMissionSetChatInputPrevData</a>
+<br><a href="FunctionMissionSetChatInputTarget.html">FunctionMissionSetChatInputTarget</a>
+<br><a href="FunctionMissionSetChatInputText.html">FunctionMissionSetChatInputText</a>
+<br><a href="FunctionMissionSetChatInputType.html">FunctionMissionSetChatInputType</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryEvent.html">CategoryEvent</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<a href="CategoryChat.html">CategoryChat</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

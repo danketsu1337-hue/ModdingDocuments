@@ -1,0 +1,101 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - CategoryDragAndDrop</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h1>CategoryDragAndDrop</h1>
+<p></p>
+<h2>BlurpSearch: CategoryLuaApi CategoryDragAndDrop</h2>
+<p></p>
+<p>Функции и события для работы с drag&drop. Реализовано для всех типов WidgetSafe.</p>
+<p></p>
+<p>Схема работы:</p>
+<p></p>
+<p>Регистрируются виджеты, которые будут обрабатываться механизмом drag&drop. Каждому контролу должен быть назначен уникальный идентификатор (может быть выбран автоматически), который используется во всех дальнейших операциях. Если при работе с drag&drop нужно вернуть идентификатор, не относящийся ни к одному из зарегистированных окон, то используется неопределенный идентификатор, DND_INVALID_ID (объявлен как глобальная константа). Для упрощения регистрации в базовом скрипте описаны несколько вспомогательных глобальных переменных и функций, позволяющих группировать контролы (экипировка, инвентарь и т.д., список расширяется по необходимости). При необходимости контролы можно разрегистрировать.</p>
+<p></p>
+<p>Система drag&drop отслеживает операции с зарегистрированными контролами и отправляет в скрипт различные уведомления:  события вида EVENT_DND_... В ответ на них скрипт может подтверждать те или иные операции (например, начало или окончание drag&drop), игнорировать их, а также выполнять работу по корректной визуализации текущего состояния (например, перемещать курсор правильного вида в указанную позицию, подсвечивать слоты и т.п.). Возможно досрочное прерывание drag&drop из скрипта.</p>
+<p></p>
+<p>Замечание: Процесс drag&drop автоматически прерывается при переходе в невидимое состояние виджета (в том числе транзитивно), который инициировал процесс drag&drop.</p>
+<p></p>
+<p>Замечание: При назначении идентификаторов для работы с Drag&drop необходимо использовать следующую формулу</p>
+<pre>
+DNDId = id * DND_CONTAINER_STEP + DNDContainer, где
+DNDId - результирующий ID
+id - идентификатор сущности: ObjectId для игровых сущностей или инкрементируемый уникальный ид для виджетов (смотри Widget:GetId)
+DND_CONTAINER_STEP - максимальное число типов контейнеров DND, глобальная константа.
+DNDContainer - тип контейнера, на текущий момент определены
+Global( "DND_EQUIPMENT", 0 )
+Global( "DND_INVENTORY", 1 )
+Global( "DND_ACTIONBAR", 2 )
+Global( "DND_SPELLBOOK", 3 )
+Global( "DND_VENDOR", 4 )
+Global( "DND_DEPOSITE", 5 )
+Global( "DND_WORLD", 6 )
+Global( "DND_ALCHEMY", 7 )
+Global( "DND_ARMOR_CRAFT", 8 )
+Global( "DND_CHARACTER_CONTROL3D", 9 )
+Global( "DND_MAIL", 10 )
+Global( "DND_AUCTION", 11 )
+Global( "DND_LOOTBAG", 12 )
+Global( "DND_PLAYER_TRADE", 13 )
+Global( "DND_WIDGET_MOVE", 14 )
+Global( "DND_WIDGET_RESIZE", 15 )
+Global( "DND_MOUNT", 16 )
+Global( "DND_LOOT", 17 )
+Global( "DND_EMOTEBOOK", 18 )
+Global( "DND_METAUPDATE", 19 )
+Global( "DND_EQUIPMENT_RITUAL", 20 )
+Global( "DND_MOUNT_SKIN", 21 )
+Global( "DND_INVENTORY_OVERFLOW", 22 )
+Global( "DND_DICE_CRAFT", 23 )
+Global( "DND_ENCHANT", 24 )
+Global( "DND_BESTIARY", 25 )
+Global( "DND_MOUNT_METAMORPH", 26 )
+Global( "DND_LIFESTYLE_WEAPON", 27 )
+Global( "DND_TALENT", 28 )
+Global( "DND_CHECKROOM", 30 )
+Global( "DND_CHAT_TAB", 100 )
+Global( "DND_CHAT_PANEL", 101 )
+Global( "DND_CHAT_AREA", 102 )
+Global( "DND_RAID_PLATE", 110 )
+Global( "DND_GENERIC_WIDGET", 254 )        -- Использование в пользовательских дополнениях запрещено, зарезервировано за интерфейсом.
+Global( "DND_GENERIC_WIDGET_CLIENT", 255 ) -- Использование в скриптах запрещено, зарезервировано в клиенте.
+Global( "DND_GENERIC_WIDGET_USER", 256 )   -- Использование в интерфейсе запрещено, зарезервировано за пользовательскими дополнениями.
+
+Все неопределенные идентификаторы контейнеров считаются зарезервированными для будущего использования и не должны применяться.
+</pre>
+<p></p>
+<a href="CategoryDragAndDrop.html">CategoryDragAndDrop</a>
+<br><a href="EnumWidgetDNDState.html">EnumWidgetDNDState</a>
+<br><a href="EventWidgetDNDDragCancelled.html">EventWidgetDNDDragCancelled</a>
+<br><a href="EventWidgetDNDDragOver.html">EventWidgetDNDDragOver</a>
+<br><a href="EventWidgetDNDDragTo.html">EventWidgetDNDDragTo</a>
+<br><a href="EventWidgetDNDDropAttempt.html">EventWidgetDNDDropAttempt</a>
+<br><a href="EventWidgetDNDPickAttempt.html">EventWidgetDNDPickAttempt</a>
+<br><a href="FunctionWidgetDNDCancelDrag.html">FunctionWidgetDNDCancelDrag</a>
+<br><a href="FunctionWidgetDNDConfirmDropAttempt.html">FunctionWidgetDNDConfirmDropAttempt</a>
+<br><a href="FunctionWidgetDNDConfirmPickAttempt.html">FunctionWidgetDNDConfirmPickAttempt</a>
+<br><a href="FunctionWidgetDNDEnable.html">FunctionWidgetDNDEnable</a>
+<br><a href="FunctionWidgetDNDGetState.html">FunctionWidgetDNDGetState</a>
+<br><a href="FunctionWidgetDNDRegister.html">FunctionWidgetDNDRegister</a>
+<br><a href="FunctionWidgetDNDRegisterGeneric.html">FunctionWidgetDNDRegisterGeneric</a>
+<br><a href="FunctionWidgetDNDUnregister.html">FunctionWidgetDNDUnregister</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryMission.html">CategoryMission</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

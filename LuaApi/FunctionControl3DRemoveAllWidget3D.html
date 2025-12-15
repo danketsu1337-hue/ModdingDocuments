@@ -1,0 +1,71 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionControl3DRemoveAllWidget3D</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>RemoveAllWidget3D( self )</h2>
+<p></p>
+<p>Удаляет все Widget3D из контрола типа Control3DSafe.</p>
+<p></p>
+<p>ВАЖНО: Удаляются именно Widget3D, но не содержащиеся в них WidgetSafe. Они будут возвращены владельцам (будет неявно вызван Owner:AddChild( widget ) )</p>
+<p></p>
+<pre>
+-- класс
+Control3DSafe
+
+-- семантика
+function RemoveAllWidget3D( self  )
+
+-- входные параметры:
+нет
+
+-- возвращаемое значение:
+нет
+
+-- пример
+wtControl3D:RemoveAllWidget3D()
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryControl3D"</h4>
+<p></p>
+<a href="CategoryControl3D.html">CategoryControl3D</a>
+<br><a href="EnumAttachedObjectPos.html">EnumAttachedObjectPos</a>
+<br><a href="EventCannotAttachWidget3D.html">EventCannotAttachWidget3D</a>
+<br><a href="FunctionChangeRoomRemoveScene.html">FunctionChangeRoomRemoveScene</a>
+<br><a href="FunctionChangeRoomSetScene.html">FunctionChangeRoomSetScene</a>
+<br><a href="FunctionControl3DAddWidget3D.html">FunctionControl3DAddWidget3D</a>
+<br><a href="FunctionControl3DIsAddedAsWidget3D.html">FunctionControl3DIsAddedAsWidget3D</a>
+<br><a href="FunctionControl3DRemoveAllWidget3D.html">FunctionControl3DRemoveAllWidget3D</a>
+<br><a href="FunctionControl3DRemoveWidget3D.html">FunctionControl3DRemoveWidget3D</a>
+<br><a href="FunctionControl3DSetWidget3DPos.html">FunctionControl3DSetWidget3DPos</a>
+<br><a href="FunctionControl3DSetWidget3DSize.html">FunctionControl3DSetWidget3DSize</a>
+<br><a href="FunctionMissionSetCharacterScene.html">FunctionMissionSetCharacterScene</a>
+<br><a href="FunctionMissionSetGuildBossScene.html">FunctionMissionSetGuildBossScene</a>
+<br><a href="FunctionMissionSetMountScene.html">FunctionMissionSetMountScene</a>
+<br><a href="FunctionMissionSetVisObjectScene.html">FunctionMissionSetVisObjectScene</a>
+<br><a href="FunctionObjectAttachWidget3D.html">FunctionObjectAttachWidget3D</a>
+<br><a href="FunctionObjectDetachAllWidgets3D.html">FunctionObjectDetachAllWidgets3D</a>
+<br><a href="FunctionObjectDetachWidget3D.html">FunctionObjectDetachWidget3D</a>
+<br><a href="FunctionObjectSetControl3DForProjected.html">FunctionObjectSetControl3DForProjected</a>
+<br><a href="FunctionRemortCreationRemoveScene.html">FunctionRemortCreationRemoveScene</a>
+<br><a href="FunctionRemortCreationSetScene.html">FunctionRemortCreationSetScene</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryControl3D.html">CategoryControl3D</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

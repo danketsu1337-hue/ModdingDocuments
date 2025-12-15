@@ -1,0 +1,189 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionRulesGetEventTimeIntervals</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> rules.GetEventTimeIntervals( eventRuleId )</h2>
+<p></p>
+<p>Получить описание времени срабатывания правил игрового эвента.</p>
+<p></p>
+<p>TODO: нужно переделать время/дату на использование локализуемого формата (из Windiws) и локального времени игрока.</p>
+<p></p>
+<pre>
+-- библиотека:
+rules
+
+-- объявление:
+function GetEventTimeIntervals( eventRuleId )
+
+-- параметры:
+eventRuleId: ObjectId - идентификатор правил эвента
+
+-- возвращаемое значение:
+table of tables (TimeInterval) - индексированная с 0 таблица с отдельными временными интервалами
+</pre>
+<p></p>
+<p>То есть возвращается список различных интервалов, в которых идёт эвент. В этом списке могут быть интервалы разного типа. Например, пять ежедневных часовых интервалов через каждые два часа и один еженедельный интервал, занимающий всё воскресение.</p>
+<p></p>
+<p>Элементом основной таблицы является таблица TimeInterval, представляющая собой описание одного временного интервала, в котором проходит эвент. Так как сам интервал может быть только одного типа (почасовой, ежемесячный, ежегодичный и т.п.), то в этой таблице заполнено только одно поле из представленых ниже. В заполненом поле содержится таблица с описанием данных для этого типа интервала.</p>
+<p></p>
+<p>Формат таблицы TimeInterval:</p>
+<pre>
+-- Поля (заполнено только одно в зависимости от типа интервала):
+hourly: table or nil - если интервал ежечасный, то таблица с полями:
+  start: table - таблица, описывающая начало интервала. Поля:
+    minute: number (integer) - минута начала события, начиная с 0
+  finish: table - таблица, описывающая конец интервала. Поля, такие же как в start.
+  durationMs: number (integer) - длина интервала в миллисекундах
+
+daily: table or nil - если интервал ежедневный, то таблица с полями:
+  start: table - таблица, описывающая начало интервала. Поля:
+    hour: number (integer) - час начала события, начиная с 0
+    minute: number (integer) - минута начала события, начиная с 0
+  finish: table - таблица, описывающая конец интервала. Поля, такие же как в start.
+  durationMs: number (integer) - длина интервала в миллисекундах
+
+weekly: table or nil - если интервал еженедельный, то таблица с полями:
+  start: table - таблица, описывающая начало интервала. Поля:
+    day: number (enum ENUM_DayOfWeek...) - день недели начала события, начиная с 1 ( 1 - понедельник, 7 - воскресенье )
+    hour: number (integer) - час начала события, начиная с 0
+    minute: number (integer) - минута начала события, начиная с 0
+  finish: table - таблица, описывающая конец интервала. Поля, такие же как в start.
+  durationMs: number (integer) - длина интервала в миллисекундах
+
+monthly: table or nil - если интервал ежемесячный, то таблица с полями:
+  start: table - таблица, описывающая начало интервала. Поля:
+    day: number (integer) - день месяца начала события, начиная с 1
+    hour: number (integer) - час начала события, начиная с 0
+    minute: number (integer) - минута начала события, начиная с 0
+  finish: table - таблица, описывающая конец интервала. Поля, такие же как в start.
+  durationMs: number (integer) - длина интервала в миллисекундах
+
+monthly_reverse: table or nil - если интервал ежемесячный, заканчивающийся к определённому времени, то таблица с полями:
+  start: table - таблица, описывающая начало интервала. Поля:
+    day: number (integer) - день месяца начала события, начиная с 1
+    hour: number (integer) - час начала события, начиная с 0
+    minute: number (integer) - минута начала события, начиная с 0
+  finish: table - таблица, описывающая конец интервала. Поля, такие же как в start.
+  durationMs: number (integer) - длина интервала в миллисекундах
+
+yearly: table or nil - если интервал ежегодный, то таблица с полями:
+  start: table - таблица, описывающая начало интервала. Поля:
+    sysMonth: string (enum "ENUM_Month...") - месяц начала события
+    month: number (enum ENUM_Month...) - месяц начала события
+    day: number (integer) - день месяца начала события, начиная с 1
+    hour: number (integer) - час начала события, начиная с 0
+    minute: number (integer) - минута начала события, начиная с 0
+  finish: table - таблица, описывающая конец интервала. Поля, такие же как в start.
+  durationMs: number (integer) - длина интервала в миллисекундах
+
+now: table or nil - если интервал "сейчас", то таблица с полями:
+  start: table - пустая таблица
+  finish: table - пустая таблица
+  durationMs: number (integer) - длина интервала в миллисекундах
+
+never: table or nil - если интервал "никогда", то таблица с полями:
+  start: table - пустая таблица
+  finish: table - пустая таблица
+  durationMs: number (integer) - длина интервала в миллисекундах
+
+once: table or nil - если интервал однократный, то таблица с полями:
+  start: table - таблица, описывающая начало интервала. Поля:
+    year: number (integer) - год начала события
+    sysMonth: string (enum "ENUM_Month...") - месяц начала события
+    month: number (enum ENUM_Month...) - месяц начала события
+    day: number (integer) - день месяца начала события, начиная с 1
+    hour: number (integer) - час начала события, начиная с 0
+    minute: number (integer) - минута начала события, начиная с 0
+  finish: table - таблица, описывающая конец интервала. Поля, такие же как в start.
+  durationMs: number (integer) - длина интервала в миллисекундах
+
+fromTime: table or nil - если интервал начинается в какой-то момент и не имеет конца, то таблица с полями:
+  start: table - таблица, описывающая начало интервала. Поля:
+    year: number (integer) - год начала события
+    sysMonth: string (enum "ENUM_Month...") - месяц начала события
+    month: number (enum ENUM_Month...) - месяц начала события
+    day: number (integer) - день месяца начала события, начиная с 1
+    hour: number (integer) - час начала события, начиная с 0
+    minute: number (integer) - минута начала события, начиная с 0
+  finish: table - таблица, описывающая конец интервала. Поля, такие же как в start с теми же значениями.
+  durationMs: number (integer) - длина интервала в миллисекундах
+cyclic: table or nil - если интервал длиться и повторяется через фиксированный период, то таблица с полями:
+  start: table - таблица, описывающая начало интервала. Поля:
+    year: number (integer) - год начала события
+    sysMonth: string (enum "ENUM_Month...") - месяц начала события
+    month: number (enum ENUM_Month...) - месяц начала события
+    day: number (integer) - день месяца начала события, начиная с 1
+    hour: number (integer) - час начала события, начиная с 0
+    minute: number (integer) - минута начала события, начиная с 0
+  finish: table - таблица, описывающая конец интервала. Поля, такие же как в start.
+  durationMs: number (integer) - длина интервала в миллисекундах
+</pre>
+<p></p>
+<p>Пример:</p>
+<p></p>
+<pre>
+local interval = rules.GetEventTimeIntervals( eventRuleId )[ 0 ]
+if interval then
+  if interval.daily then
+    LogInfo( "hour: ", interval.daily.hour )
+  end
+end
+</pre>
+<p></p>
+<p>См. также <a href="EnumMonth.html"> ENUM_Month_...</a>, <a href="EnumDayOfWeek.html"> ENUM_DayOfWeek...</a>.</p>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryRules"</h4>
+<p></p>
+<a href="BillingBonusId.html">BillingBonusId</a>
+<br><a href="CategoryRules.html">CategoryRules</a>
+<br><a href="EnumMsgGetBonusListResultResult.html">EnumMsgGetBonusListResultResult</a>
+<br><a href="EnumRuleNotificationType.html">EnumRuleNotificationType</a>
+<br><a href="EnumRuleType.html">EnumRuleType</a>
+<br><a href="EventBillingInfoBonusChanged.html">EventBillingInfoBonusChanged</a>
+<br><a href="EventBillingInfoBonusStatusChanged.html">EventBillingInfoBonusStatusChanged</a>
+<br><a href="EventMissionRuleAdded.html">EventMissionRuleAdded</a>
+<br><a href="EventMissionRuleChanged.html">EventMissionRuleChanged</a>
+<br><a href="EventMissionRuleCounterChanged.html">EventMissionRuleCounterChanged</a>
+<br><a href="EventMissionRuleRemoved.html">EventMissionRuleRemoved</a>
+<br><a href="EventMissionRulesChanged.html">EventMissionRulesChanged</a>
+<br><a href="EventNewsPostLoaded.html">EventNewsPostLoaded</a>
+<br><a href="EventNewsPostSelected.html">EventNewsPostSelected</a>
+<br><a href="EventWishmasterChanged.html">EventWishmasterChanged</a>
+<br><a href="EventWishmasterMultiplying.html">EventWishmasterMultiplying</a>
+<br><a href="FunctionRulesBillingInfoGetBonuses.html">FunctionRulesBillingInfoGetBonuses</a>
+<br><a href="FunctionRulesBillingInfoGetBonusInfo.html">FunctionRulesBillingInfoGetBonusInfo</a>
+<br><a href="FunctionRulesBillingInfoUpdate.html">FunctionRulesBillingInfoUpdate</a>
+<br><a href="FunctionRulesGetEventByRuleId.html">FunctionRulesGetEventByRuleId</a>
+<br><a href="FunctionRulesGetEventBySysName.html">FunctionRulesGetEventBySysName</a>
+<br><a href="FunctionRulesGetEventCounter.html">FunctionRulesGetEventCounter</a>
+<br><a href="FunctionRulesGetEventInfo.html">FunctionRulesGetEventInfo</a>
+<br><a href="FunctionRulesGetEvents.html">FunctionRulesGetEvents</a>
+<br><a href="FunctionRulesGetEventTimeIntervals.html">FunctionRulesGetEventTimeIntervals</a>
+<br><a href="FunctionRulesGetNotificationInfo.html">FunctionRulesGetNotificationInfo</a>
+<br><a href="FunctionRulesGetWishmaster.html">FunctionRulesGetWishmaster</a>
+<br><a href="FunctionRulesGetWishmasterMultiplyingInfos.html">FunctionRulesGetWishmasterMultiplyingInfos</a>
+<br><a href="FunctionRulesGetZonesMaps.html">FunctionRulesGetZonesMaps</a>
+<br><a href="FunctionRulesWishmasterRollMultiplying.html">FunctionRulesWishmasterRollMultiplying</a>
+<br><a href="RuleId.html">RuleId</a>
+<br><a href="WishmasterResourceId.html">WishmasterResourceId</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryRules.html">CategoryRules</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

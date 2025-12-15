@@ -1,0 +1,110 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - EventSpellbookElementEffect</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> EVENT_SPELLBOOK_ELEMENT_EFFECT</h2>
+<p></p>
+<p>Оповещение о начале эффекта для элемента в книге умений.</p>
+<p></p>
+<p>Типы эффектов: '''<a href="EnumEffectType.html"> EFFECT_TYPE_...</a>'''. Для некоторых из них в сообщении передаются дополнительные поля.</p>
+<p></p>
+<p>Событие ГКД: <a href="EventGlobalCooldown.html"> EVENT_GLOBAL_COOLDOWN</a></p>
+<p></p>
+<p>'''Внимание! Для событий COOLDOWN учитывается только КД самого спелла и КД группы спеллов (разные ранги, умения за слезы и тп). ГКД не учитывается! При начале и окончании ГКД данное событие не приходит'''</p>
+<p></p>
+<pre>
+-- поля:
+effect: number(enum EFFECT_TYPE_...) - тип начавшегося эффекта
+id: SpellId  - Id ресурса умения ( этот параметр НЕ УБИРАТЬ )
+
+Для effect == EFFECT_TYPE_COOLDOWN_STARTED дополнительные поля:
+  duration: number(int) - общая продолжительность в миллисекундах
+  remaining: number(int) - оставшееся время в миллисекундах
+
+Для effect == EFFECT_TYPE_SPELL_PREPARED дополнительное поле:
+  prepared: boolean - текущее значение флага prepared
+
+Для effect == EFFECT_TYPE_SPELL_ACTIVE_STATE_CHANGED дополнительное поле:
+  isActive: boolean - true, спелл стал активным
+  objectId: ObjectId or nil - идентификатор предмета к которому привязан данный спелл
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryEffect"</h4>
+<p></p>
+<a href="EnumEffectType.html">EnumEffectType</a>
+<br><a href="EventActionPanelElementEffect.html">EventActionPanelElementEffect</a>
+<br><a href="EventAstrolabeSpellEffect.html">EventAstrolabeSpellEffect</a>
+<br><a href="EventBestFriendTeleportSpellEffect.html">EventBestFriendTeleportSpellEffect</a>
+<br><a href="EventContainerItemEffect.html">EventContainerItemEffect</a>
+<br><a href="EventDefaultSpellEffect.html">EventDefaultSpellEffect</a>
+<br><a href="EventGlobalCooldown.html">EventGlobalCooldown</a>
+<br><a href="EventSpellbookElementEffect.html">EventSpellbookElementEffect</a>
+<br><a href="EventUnstuckSpellEffect.html">EventUnstuckSpellEffect</a>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategorySpellbook"</h4>
+<p></p>
+<a href="AbilityId.html">AbilityId</a>
+<br><a href="ActionGroupId.html">ActionGroupId</a>
+<br><a href="EnumSubElement.html">EnumSubElement</a>
+<br><a href="EventAbilitiesElementAdded.html">EventAbilitiesElementAdded</a>
+<br><a href="EventDefaultSpellChanged.html">EventDefaultSpellChanged</a>
+<br><a href="EventDefaultSpellEffect.html">EventDefaultSpellEffect</a>
+<br><a href="EventGlobalCooldown.html">EventGlobalCooldown</a>
+<br><a href="EventSpellbookChanged.html">EventSpellbookChanged</a>
+<br><a href="EventSpellbookElementAdded.html">EventSpellbookElementAdded</a>
+<br><a href="EventSpellbookElementChanged.html">EventSpellbookElementChanged</a>
+<br><a href="EventSpellbookElementEffect.html">EventSpellbookElementEffect</a>
+<br><a href="FunctionAvatarDropSpell.html">FunctionAvatarDropSpell</a>
+<br><a href="FunctionAvatarGetAbilities.html">FunctionAvatarGetAbilities</a>
+<br><a href="FunctionAvatarGetAbilityInfo.html">FunctionAvatarGetAbilityInfo</a>
+<br><a href="FunctionAvatarGetAbilityReplacementSpell.html">FunctionAvatarGetAbilityReplacementSpell</a>
+<br><a href="FunctionAvatarGetAbilityReplacementSpells.html">FunctionAvatarGetAbilityReplacementSpells</a>
+<br><a href="FunctionAvatarGetActionGroupSpells.html">FunctionAvatarGetActionGroupSpells</a>
+<br><a href="FunctionAvatarGetActionGroupStatBonus.html">FunctionAvatarGetActionGroupStatBonus</a>
+<br><a href="FunctionAvatarGetSpellBook.html">FunctionAvatarGetSpellBook</a>
+<br><a href="FunctionAvatarHasSpell.html">FunctionAvatarHasSpell</a>
+<br><a href="FunctionAvatarPrepareSpell.html">FunctionAvatarPrepareSpell</a>
+<br><a href="FunctionAvatarRunAESpell.html">FunctionAvatarRunAESpell</a>
+<br><a href="FunctionAvatarRunSpell.html">FunctionAvatarRunSpell</a>
+<br><a href="FunctionItemLibGetActionGroupsInfo.html">FunctionItemLibGetActionGroupsInfo</a>
+<br><a href="FunctionSpellLibCanRunAvatar.html">FunctionSpellLibCanRunAvatar</a>
+<br><a href="FunctionSpellLibCanRunAvatarEx.html">FunctionSpellLibCanRunAvatarEx</a>
+<br><a href="FunctionSpellLibGetActionGroups.html">FunctionSpellLibGetActionGroups</a>
+<br><a href="FunctionSpellLibGetActionGroupsDescriptions.html">FunctionSpellLibGetActionGroupsDescriptions</a>
+<br><a href="FunctionSpellLibGetAESectorProps.html">FunctionSpellLibGetAESectorProps</a>
+<br><a href="FunctionSpellLibGetCooldown.html">FunctionSpellLibGetCooldown</a>
+<br><a href="FunctionSpellLibGetCurrentValues.html">FunctionSpellLibGetCurrentValues</a>
+<br><a href="FunctionSpellLibGetDescription.html">FunctionSpellLibGetDescription</a>
+<br><a href="FunctionSpellLibGetDescriptionParams.html">FunctionSpellLibGetDescriptionParams</a>
+<br><a href="FunctionSpellLibGetDurationBuff.html">FunctionSpellLibGetDurationBuff</a>
+<br><a href="FunctionSpellLibGetIcon.html">FunctionSpellLibGetIcon</a>
+<br><a href="FunctionSpellLibGetObjectSpell.html">FunctionSpellLibGetObjectSpell</a>
+<br><a href="FunctionSpellLibGetProperties.html">FunctionSpellLibGetProperties</a>
+<br><a href="FunctionSpellLibGetRequiredBuffs.html">FunctionSpellLibGetRequiredBuffs</a>
+<br><a href="FunctionSpellLibGetRequiredResources.html">FunctionSpellLibGetRequiredResources</a>
+<br><a href="FunctionSpellLibGetRequirements.html">FunctionSpellLibGetRequirements</a>
+<br><a href="FunctionSpellLibGetState.html">FunctionSpellLibGetState</a>
+<br><a href="FunctionSpellLibHasDurationBuff.html">FunctionSpellLibHasDurationBuff</a>
+<br><a href="SpellId.html">SpellId</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryEvent.html">CategoryEvent</a>
+<a href="CategorySpellbook.html">CategorySpellbook</a>
+<a href="CategoryEffect.html">CategoryEffect</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

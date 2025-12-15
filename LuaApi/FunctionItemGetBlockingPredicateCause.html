@@ -1,0 +1,155 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionItemGetBlockingPredicateCause</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> itemLib.GetBlockingPredicateCause( itemId )</h2>
+<p></p>
+<p>Если предикат не выполнился, то вернет причину невыполнения.</p>
+<p></p>
+<pre>
+-- библиотека:
+itemLib
+
+-- объявление:
+GetBlockingPredicateCause( itemId )
+
+-- параметры:
+itemId: ObjectId - идентификатор предмета
+
+-- возвращаемые значения:
+table or nil
+  bool:   isInNotPredicate - использовался предикат NOT
+  string: sysCause - причина невыполненного предиката (например, "ENUM_ActionFailCause_CreatureLevelTooSmall" )
+
+-- пример использования
+local cause = itemLib.GetBlockingPredicateCause( itemId )
+if cause then
+  DispatchWarning{ value01 = GetTextFrom( cause.isInNotPredicate and "ActionFailCauseNot" or "ActionFailCause", cause.sysCause ), class = "WarningLogRed" }
+end
+</pre>
+<p></p>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryItemLib"</h4>
+<p></p>
+<a href="CategoryItemLib.html">CategoryItemLib</a>
+<br><a href="EnumFloatingBudgetType.html">EnumFloatingBudgetType</a>
+<br><a href="FunctionItemGetBlockingPredicateCause.html">FunctionItemGetBlockingPredicateCause</a>
+<br><a href="FunctionItemLibCanActivateForUseItem.html">FunctionItemLibCanActivateForUseItem</a>
+<br><a href="FunctionItemLibCanActivateForUseOnItem.html">FunctionItemLibCanActivateForUseOnItem</a>
+<br><a href="FunctionItemLibCanActivateForUseOnMount.html">FunctionItemLibCanActivateForUseOnMount</a>
+<br><a href="FunctionItemLibCanCreateAuction.html">FunctionItemLibCanCreateAuction</a>
+<br><a href="FunctionItemLibCanDrop.html">FunctionItemLibCanDrop</a>
+<br><a href="FunctionItemLibCanSendByMail.html">FunctionItemLibCanSendByMail</a>
+<br><a href="FunctionItemLibCanTrade.html">FunctionItemLibCanTrade</a>
+<br><a href="FunctionItemLibCanUseOnItem.html">FunctionItemLibCanUseOnItem</a>
+<br><a href="FunctionItemLibCanUseOnMount.html">FunctionItemLibCanUseOnMount</a>
+<br><a href="FunctionItemLibGetActionGroupsInfo.html">FunctionItemLibGetActionGroupsInfo</a>
+<br><a href="FunctionItemLibGetActivationInfo.html">FunctionItemLibGetActivationInfo</a>
+<br><a href="FunctionItemLibGetActivators.html">FunctionItemLibGetActivators</a>
+<br><a href="FunctionItemLibGetActivatorsAlternative.html">FunctionItemLibGetActivatorsAlternative</a>
+<br><a href="FunctionItemLibGetAlternativePriceInfo.html">FunctionItemLibGetAlternativePriceInfo</a>
+<br><a href="FunctionItemLibGetBindingInfo.html">FunctionItemLibGetBindingInfo</a>
+<br><a href="FunctionItemLibGetBonus.html">FunctionItemLibGetBonus</a>
+<br><a href="FunctionItemLibGetBoxInfo.html">FunctionItemLibGetBoxInfo</a>
+<br><a href="FunctionItemLibGetBudgets.html">FunctionItemLibGetBudgets</a>
+<br><a href="FunctionItemLibGetBundle.html">FunctionItemLibGetBundle</a>
+<br><a href="FunctionItemLibGetCategory.html">FunctionItemLibGetCategory</a>
+<br><a href="FunctionItemLibGetCategoryInfo.html">FunctionItemLibGetCategoryInfo</a>
+<br><a href="FunctionItemLibGetChildCategories.html">FunctionItemLibGetChildCategories</a>
+<br><a href="FunctionItemLibGetClass.html">FunctionItemLibGetClass</a>
+<br><a href="FunctionItemLibGetClassInfo.html">FunctionItemLibGetClassInfo</a>
+<br><a href="FunctionItemLibGetCompatibleSlots.html">FunctionItemLibGetCompatibleSlots</a>
+<br><a href="FunctionItemLibGetCountInfo.html">FunctionItemLibGetCountInfo</a>
+<br><a href="FunctionItemLibGetCouponInfo.html">FunctionItemLibGetCouponInfo</a>
+<br><a href="FunctionItemLibGetCraftInfo.html">FunctionItemLibGetCraftInfo</a>
+<br><a href="FunctionItemLibGetCraftToolInfo.html">FunctionItemLibGetCraftToolInfo</a>
+<br><a href="FunctionItemLibGetDestroyValue.html">FunctionItemLibGetDestroyValue</a>
+<br><a href="FunctionItemLibGetDressConditions.html">FunctionItemLibGetDressConditions</a>
+<br><a href="FunctionItemLibGetDressSlot.html">FunctionItemLibGetDressSlot</a>
+<br><a href="FunctionItemLibGetDressToSlotConditions.html">FunctionItemLibGetDressToSlotConditions</a>
+<br><a href="FunctionItemLibGetDropInfo.html">FunctionItemLibGetDropInfo</a>
+<br><a href="FunctionItemLibGetExchangeInfo.html">FunctionItemLibGetExchangeInfo</a>
+<br><a href="FunctionItemLibGetExtraDescs.html">FunctionItemLibGetExtraDescs</a>
+<br><a href="FunctionItemLibGetExtraDescsRatings.html">FunctionItemLibGetExtraDescsRatings</a>
+<br><a href="FunctionItemLibGetGearScore.html">FunctionItemLibGetGearScore</a>
+<br><a href="FunctionItemLibGetIncludedMob.html">FunctionItemLibGetIncludedMob</a>
+<br><a href="FunctionItemLibGetIncludedMountSkin.html">FunctionItemLibGetIncludedMountSkin</a>
+<br><a href="FunctionItemLibGetItemInfo.html">FunctionItemLibGetItemInfo</a>
+<br><a href="FunctionItemLibGetLevel.html">FunctionItemLibGetLevel</a>
+<br><a href="FunctionItemLibGetMetaInfo.html">FunctionItemLibGetMetaInfo</a>
+<br><a href="FunctionItemLibGetName.html">FunctionItemLibGetName</a>
+<br><a href="FunctionItemLibGetOverallCount.html">FunctionItemLibGetOverallCount</a>
+<br><a href="FunctionItemLibGetOverallStackCount.html">FunctionItemLibGetOverallStackCount</a>
+<br><a href="FunctionItemLibGetOwnershipLimit.html">FunctionItemLibGetOwnershipLimit</a>
+<br><a href="FunctionItemLibGetPriceInfo.html">FunctionItemLibGetPriceInfo</a>
+<br><a href="FunctionItemLibGetQuality.html">FunctionItemLibGetQuality</a>
+<br><a href="FunctionItemLibGetRelatedQuestObjectives.html">FunctionItemLibGetRelatedQuestObjectives</a>
+<br><a href="FunctionItemLibGetResourceId.html">FunctionItemLibGetResourceId</a>
+<br><a href="FunctionItemLibGetRootCategories.html">FunctionItemLibGetRootCategories</a>
+<br><a href="FunctionItemLibGetRuneInfo.html">FunctionItemLibGetRuneInfo</a>
+<br><a href="FunctionItemLibGetRuneInstrumentInfo.html">FunctionItemLibGetRuneInstrumentInfo</a>
+<br><a href="FunctionItemLibGetSetBonusInfo.html">FunctionItemLibGetSetBonusInfo</a>
+<br><a href="FunctionItemLibGetSetBonusRoot.html">FunctionItemLibGetSetBonusRoot</a>
+<br><a href="FunctionItemLibGetSource.html">FunctionItemLibGetSource</a>
+<br><a href="FunctionItemLibGetSpell.html">FunctionItemLibGetSpell</a>
+<br><a href="FunctionItemLibGetStackInfo.html">FunctionItemLibGetStackInfo</a>
+<br><a href="FunctionItemLibGetStateCooldownMs.html">FunctionItemLibGetStateCooldownMs</a>
+<br><a href="FunctionItemLibGetTemporaryInfo.html">FunctionItemLibGetTemporaryInfo</a>
+<br><a href="FunctionItemLibGetUniversalMetaEnchancerItems.html">FunctionItemLibGetUniversalMetaEnchancerItems</a>
+<br><a href="FunctionItemLibGetUsageInfo.html">FunctionItemLibGetUsageInfo</a>
+<br><a href="FunctionItemLibGetUsageItemInfo.html">FunctionItemLibGetUsageItemInfo</a>
+<br><a href="FunctionItemLibGetUsageOnItemInfo.html">FunctionItemLibGetUsageOnItemInfo</a>
+<br><a href="FunctionItemLibGetUsageOnMountInfo.html">FunctionItemLibGetUsageOnMountInfo</a>
+<br><a href="FunctionItemLibGetUsagesItemInfo.html">FunctionItemLibGetUsagesItemInfo</a>
+<br><a href="FunctionItemLibGetUsagesOnItemInfo.html">FunctionItemLibGetUsagesOnItemInfo</a>
+<br><a href="FunctionItemLibGetUsagesOnMountInfo.html">FunctionItemLibGetUsagesOnMountInfo</a>
+<br><a href="FunctionItemLibGetUseOnItemCursor.html">FunctionItemLibGetUseOnItemCursor</a>
+<br><a href="FunctionItemLibGetUseOnMountCursor.html">FunctionItemLibGetUseOnMountCursor</a>
+<br><a href="FunctionItemLibGetValuedObject.html">FunctionItemLibGetValuedObject</a>
+<br><a href="FunctionItemLibGetZodiacSignInfo.html">FunctionItemLibGetZodiacSignInfo</a>
+<br><a href="FunctionItemLibHasGuildComponent.html">FunctionItemLibHasGuildComponent</a>
+<br><a href="FunctionItemLibIsBeast.html">FunctionItemLibIsBeast</a>
+<br><a href="FunctionItemLibIsConvertible.html">FunctionItemLibIsConvertible</a>
+<br><a href="FunctionItemLibIsCopied.html">FunctionItemLibIsCopied</a>
+<br><a href="FunctionItemLibIsCursed.html">FunctionItemLibIsCursed</a>
+<br><a href="FunctionItemLibIsGem.html">FunctionItemLibIsGem</a>
+<br><a href="FunctionItemLibIsGuildCreator.html">FunctionItemLibIsGuildCreator</a>
+<br><a href="FunctionItemLibIsHideLifestyleWhileNotEquipped.html">FunctionItemLibIsHideLifestyleWhileNotEquipped</a>
+<br><a href="FunctionItemLibIsItem.html">FunctionItemLibIsItem</a>
+<br><a href="FunctionItemLibIsMetaEnhancerConvertor.html">FunctionItemLibIsMetaEnhancerConvertor</a>
+<br><a href="FunctionItemLibIsMultipleUse.html">FunctionItemLibIsMultipleUse</a>
+<br><a href="FunctionItemLibIsPointed.html">FunctionItemLibIsPointed</a>
+<br><a href="FunctionItemLibIsProbe.html">FunctionItemLibIsProbe</a>
+<br><a href="FunctionItemLibIsQuestOperator.html">FunctionItemLibIsQuestOperator</a>
+<br><a href="FunctionItemLibIsQuestRelated.html">FunctionItemLibIsQuestRelated</a>
+<br><a href="FunctionItemLibIsSOSMessageSender.html">FunctionItemLibIsSOSMessageSender</a>
+<br><a href="FunctionItemLibIsUnpackOnPickup.html">FunctionItemLibIsUnpackOnPickup</a>
+<br><a href="FunctionItemLibIsUsable.html">FunctionItemLibIsUsable</a>
+<br><a href="FunctionItemLibIsUseItemAndTakeActions.html">FunctionItemLibIsUseItemAndTakeActions</a>
+<br><a href="FunctionItemLibIsUseOnItemAndTakeActions.html">FunctionItemLibIsUseOnItemAndTakeActions</a>
+<br><a href="FunctionItemLibIsUseOnMountAndTakeActions.html">FunctionItemLibIsUseOnMountAndTakeActions</a>
+<br><a href="FunctionItemLibIsUserChoice.html">FunctionItemLibIsUserChoice</a>
+<br><a href="FunctionItemLibIsWeapon.html">FunctionItemLibIsWeapon</a>
+<br><a href="FunctionSpellLibGetRequiredResources.html">FunctionSpellLibGetRequiredResources</a>
+<br><a href="FunctionUnitGetEquipmentSlotBonus.html">FunctionUnitGetEquipmentSlotBonus</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryItemLib.html">CategoryItemLib</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

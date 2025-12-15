@@ -1,0 +1,85 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionWidgetPlayRotationWithChildrenEffectSequence</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> PlayRotationWithChildrenEffectSequence( self, sequenceParams )</h2>
+<p></p>
+<p>Запускает цепочку эффектов поворота текстур виджета и его детей. Вращаются текстуры BackLayer и FrontLayer относительно центра виджета против часовой стрелки. Если текстуры выходят за пределы вписанной в виджет окружности, то для предотвращения обрезания текстур виджет должен иметь флаг clipContent = false.</p>
+<p></p>
+<p>Имеет <a href="WidgetsEffectsTypes.html"> тип ET_TEXTURE_ROTATION</a>, соответствует шаблону <a href="WidgetsEffectsPlayEffectSequenceTemplate.html"> PlayEffectSequence( self, sequenceParams )</a></p>
+<p></p>
+<p>Работает аналогично <a href="FunctionWidgetPlayRotationEffectSequence.html">PlayRotationEffectSequence</a>, но применяется не только к целевому виджету, но и рекурсивно к его детям.</p>
+<p></p>
+<p>Типы start / finish: number (float) - угол поворота в радианах</p>
+<p></p>
+<pre>
+-- Класс
+WidgetSafe
+
+-- Типы шаблонных аргументов
+start: number (float) or nil - начальный угол поворота виджета (в радианах)
+finish: number (float) or nil - конечный угол поворота виджета (в радианах)
+
+-- Пример
+-- Плавно повернуть виджет и его детей на 180 градусов против часовой стрелки за 2 секунды, затем обратно по часовой стрелке за то же время
+wt:PlayRotationWithChildrenEffectSequence{
+  { 0, math.pi, 2000 },
+  { nil, 0, 0, { type = EA_ACCELERATED, from = -0.5 * math.pi, to = -0.5 * math.pi } }
+}
+</pre>
+<p></p>
+<h3>Другие эффекты</h3>
+<p></p>
+<a href="CategoryWidgetEffects.html">CategoryWidgetEffects</a>
+<br><a href="EventEffectFinished.html">EventEffectFinished</a>
+<br><a href="EventEffectSequenceFinished.html">EventEffectSequenceFinished</a>
+<br><a href="EventEffectSequenceStep.html">EventEffectSequenceStep</a>
+<br><a href="FunctionTextViewFinishTextScaleEffect.html">FunctionTextViewFinishTextScaleEffect</a>
+<br><a href="FunctionTextViewPlayTextScaleEffect.html">FunctionTextViewPlayTextScaleEffect</a>
+<br><a href="FunctionTextViewPlayTextScaleEffectSequence.html">FunctionTextViewPlayTextScaleEffectSequence</a>
+<br><a href="FunctionWidgetFinishAllEffects.html">FunctionWidgetFinishAllEffects</a>
+<br><a href="FunctionWidgetFinishFadeEffect.html">FunctionWidgetFinishFadeEffect</a>
+<br><a href="FunctionWidgetFinishMoveEffect.html">FunctionWidgetFinishMoveEffect</a>
+<br><a href="FunctionWidgetFinishResizeEffect.html">FunctionWidgetFinishResizeEffect</a>
+<br><a href="FunctionWidgetFinishRotationEffect.html">FunctionWidgetFinishRotationEffect</a>
+<br><a href="FunctionWidgetGetActiveEffectRemainingMs.html">FunctionWidgetGetActiveEffectRemainingMs</a>
+<br><a href="FunctionWidgetHasActiveEffects.html">FunctionWidgetHasActiveEffects</a>
+<br><a href="FunctionWidgetPlayEffectSequencePack.html">FunctionWidgetPlayEffectSequencePack</a>
+<br><a href="FunctionWidgetPlayFadeEffect.html">FunctionWidgetPlayFadeEffect</a>
+<br><a href="FunctionWidgetPlayFadeEffectSequence.html">FunctionWidgetPlayFadeEffectSequence</a>
+<br><a href="FunctionWidgetPlayMoveEffect.html">FunctionWidgetPlayMoveEffect</a>
+<br><a href="FunctionWidgetPlayMoveEffectSequence.html">FunctionWidgetPlayMoveEffectSequence</a>
+<br><a href="FunctionWidgetPlayResizeEffect.html">FunctionWidgetPlayResizeEffect</a>
+<br><a href="FunctionWidgetPlayResizeEffectSequence.html">FunctionWidgetPlayResizeEffectSequence</a>
+<br><a href="FunctionWidgetPlayRotationEffect.html">FunctionWidgetPlayRotationEffect</a>
+<br><a href="FunctionWidgetPlayRotationEffectSequence.html">FunctionWidgetPlayRotationEffectSequence</a>
+<br><a href="FunctionWidgetPlayRotationWithChildrenEffect.html">FunctionWidgetPlayRotationWithChildrenEffect</a>
+<br><a href="FunctionWidgetPlayRotationWithChildrenEffectSequence.html">FunctionWidgetPlayRotationWithChildrenEffectSequence</a>
+<br><a href="WidgetsEffectsAlgorithms.html">WidgetsEffectsAlgorithms</a>
+<br><a href="WidgetsEffectsFinishEffectTemplate.html">WidgetsEffectsFinishEffectTemplate</a>
+<br><a href="WidgetsEffectsPlayEffectSequenceTemplate.html">WidgetsEffectsPlayEffectSequenceTemplate</a>
+<br><a href="WidgetsEffectsPlayEffectTemplate.html">WidgetsEffectsPlayEffectTemplate</a>
+<br><a href="WidgetsEffectsTypes.html">WidgetsEffectsTypes</a>
+<p></p>
+<hr>
+<p></p>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryWidget.html">CategoryWidget</a>
+<a href="CategoryWidgetEffects.html">CategoryWidgetEffects</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

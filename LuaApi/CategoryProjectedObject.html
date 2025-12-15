@@ -1,0 +1,46 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - CategoryProjectedObject</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h1>CategoryProjectedObject</h1>
+<p></p>
+<p>Функции Lua API библиотеки для работы с проецированием игровых объектов в 2D. Пользователь может заполнять список таких объектов и получать сообщение об изменении их 2D координат (или других параметров) раз в кадр.</p>
+<p></p>
+<p></p>
+<p>На событиях EVENT_DETECT_STARTED / FINISHED, EVENT_TRANSPORT_SPAWN / DESPAWN и т.п. аддон заполняет список. Можно особо не оптимизировать, а добавлять все подряд.</p>
+<p></p>
+<p>Раз в кадр, если произошли изменения в 2D координатах (или LOS, дистанция до игрока) объектов, приходит сообщение</p>
+<p><a href="EventProjectedObjectsChanged.html"> EVENT_PROJECTED_OBJECTS_CHANGED</a>.</p>
+<p>Тут имеет спысл сортировать по дальности и т.п. и перемещать POI маркеры в нужную точку.</p>
+<p></p>
+<p>2D позиция (x, y) возвращается в промежутке [-1, 1]. Где -1 или 1 означает, что требуемая точка за пределами видимости. (0, 0) - центр экрана</p>
+<p></p>
+<p>Вначале необходимо задать 3D контрол с камерой.</p>
+<p></p>
+<h3>BlurpSearch: CategoryLuaApi CategoryProjectedObject</h3>
+<p></p>
+<a href="EnumAttachedObjectPos.html">EnumAttachedObjectPos</a>
+<br><a href="EventProjectedObjectsChanged.html">EventProjectedObjectsChanged</a>
+<br><a href="FunctionObjectAddToProjected.html">FunctionObjectAddToProjected</a>
+<br><a href="FunctionObjectGetInstantProjectedInfo.html">FunctionObjectGetInstantProjectedInfo</a>
+<br><a href="FunctionObjectGetProjectedInfo.html">FunctionObjectGetProjectedInfo</a>
+<br><a href="FunctionObjectRemoveFromProjected.html">FunctionObjectRemoveFromProjected</a>
+<br><a href="FunctionObjectSetControl3DForProjected.html">FunctionObjectSetControl3DForProjected</a>
+<p></p>
+<hr>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

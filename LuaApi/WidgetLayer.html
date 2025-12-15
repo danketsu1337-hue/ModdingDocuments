@@ -1,0 +1,98 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - WidgetLayer</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> WidgetLayer. Описание текстурного слоя виджета.</h2>
+<p></p>
+<p>Базовые поля WidgetLayer:</p>
+<ul><li><p> flatPlacement: boolean - использовать точное позиционирование текстуры (мелкие детали могут размазываться) или дискретное (с шагом в пиксел, максимальная четкость), по умолчанию false</p></li></ul>
+<ul><li><p> lazyLoad: boolean - позволяет использовать отложенную загрузку текстур для данного слоя, по умолчанию false</p></li></ul>
+<ul><li><p> Color: number( integer ) - покраска, по умолчанию 0xFFFFFFFF</p></li></ul>
+<ul><li><p> Grayed: boolean - обесцвечивание, по умолчанию false</p></li></ul>
+<ul><li><p> BlendEffect: number (enum BLEND_EFFECT) - смешивание, по умолчанию BLEND_EFFECT_ALPHABLND, допустимые значения:</p></li></ul>
+<ul><ul><ul><ul><li><p> BLEND_EFFECT_ALPHABLND</p></li></ul></ul></ul></ul>
+<ul><ul><ul><ul><li><p> BLEND_EFFECT_HIGHLIGHT</p></li></ul></ul></ul></ul>
+<ul><ul><ul><ul><li><p> BLEND_EFFECT_ADD</p></li></ul></ul></ul></ul>
+<ul><ul><ul><ul><li><p> BLEND_EFFECT_MULTIPLY</p></li></ul></ul></ul></ul>
+<ul><ul><ul><ul><li><p> BLEND_EFFECT_REPLACE</p></li></ul></ul></ul></ul>
+<p></p>
+<p>Существуют следующие реализации слоев WidgetLayer:</p>
+<p></p>
+<ul><li><p> WidgetLayerAnimatedTexture - слой с анимированной текстурой. Его поля:</p></li></ul>
+<ul><ul><li><p> scaling: boolean - растягивать текстуру. по умолчанию false</p></li></ul></ul>
+<ul><ul><li><p> delayMs: number( integer ) - задержка между кадрами</p></li></ul></ul>
+<ul><ul><li><p> repeatForever: boolean - циклически повторять анимацию</p></li></ul></ul>
+<ul><ul><li><p> playImmidiatly: boolean - стартовать анимацию сразу же после загрузки</p></li></ul></ul>
+<ul><ul><li><p> stopLastFrame: boolean - после остановки анимации показывать последний кадр</p></li></ul></ul>
+<ul><ul><li><p> frames: Table - список кадров анимации (в ресурсах каждый элемент списка оборачивается тегом &lt;Item&gt;&lt;/Item&gt;)</p></li></ul></ul>
+<ul><ul><ul><ul><li><p> textureItem: UITextureItem - текстура</p></li></ul></ul></ul></ul>
+<ul><ul><ul><ul><li><p> rects: Table - список "подкадров", который содержит описание границ и центра "подкадра" (в ресурсах каждый элемент списка оборачивается тегом &lt;Item&gt;&lt;/Item&gt;)</p></li></ul></ul></ul></ul>
+<p>      * offsetX: number( integer ) - отступ по горизонтали</p>
+<p>      * offsetY: number( integer ) - отступ по вертикали</p>
+<p>      * sizeX: number( integer ) - размер по горизонтали</p>
+<p>      * sizeY: number( integer ) - размер по вертикали</p>
+<p>      * centerOffsetX: number( float ) - коррекция центра по горизонтали</p>
+<p>      * centerOffsetY: number( float ) - коррекция центра по вертикали</p>
+<p></p>
+<ul><li><p> WidgetLayerSimpleTexture - слой с обычной текстурой. Поля:</p></li></ul>
+<ul><ul><li><p> textureItem: UITextureItem - текстура</p></li></ul></ul>
+<ul><ul><li><p> textureMask: UISingleTexture - Текстура с альфой. Используется для задания маски, по которой будет обрезана основная текстура</p></li></ul></ul>
+<ul><ul><li><p> Scaling: boolean - растягивать текстуру. по умолчанию false</p></li></ul></ul>
+<p></p>
+<ul><li><p> WidgetLayerTiledTexture - тайленая (повторяющаяся) текстура. Поля:</p></li></ul>
+<ul><ul><li><p> textureItem: UITextureItem - текстура</p></li></ul></ul>
+<ul><ul><li><p> Layout: WidgetLayerTiledLayout - описание тайлинга. Прямоугольник текстуры разбивается на 9 частей (3 части по вертикали и 3 по горизонтали). Угловые части не тайлятся. оставшиеся краевые части тайлятся соответственно по горизонтали и по вертикали. Центральная часть тайлится на всю оставшуюся поверхность. Поля, описывающие ширины частей:</p></li></ul></ul>
+<ul><ul><ul><li><p> LeftX, MiddleX, RightX, TopY, MiddleY, BottomY: number (integer) - ширины и высоты кусков текстуры. MiddleX и MiddleY должны быть не меньше 32 и кратны 2.</p></li></ul></ul></ul>
+<ul><ul><li><p> layoutTypeX, layoutTypeY: number (enum WidgetLayerTiledLayoutType) - Способ вывода текстуры по горизонтали и вертикали. Значения:</p></li></ul></ul>
+<ul><ul><ul><li><p> WIDGET_LAYER_TILED_LAYOUT_TYPE_TILED - черепица</p></li></ul></ul></ul>
+<ul><ul><ul><li><p> WIDGET_LAYER_TILED_LAYOUT_TYPE_SCALED - растягивание промежуточных элементов</p></li></ul></ul></ul>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryWidgetMembers"</h4>
+<p></p>
+<a href="CategoryWidgetMembers.html">CategoryWidgetMembers</a>
+<br><a href="TextFileRef.html">TextFileRef</a>
+<br><a href="Widget.html">Widget</a>
+<br><a href="WidgetButton.html">WidgetButton</a>
+<br><a href="WidgetButtonState.html">WidgetButtonState</a>
+<br><a href="WidgetButtonVariant.html">WidgetButtonVariant</a>
+<br><a href="WidgetContainer.html">WidgetContainer</a>
+<br><a href="WidgetDiscreteScrollBar.html">WidgetDiscreteScrollBar</a>
+<br><a href="WidgetDiscreteSlider.html">WidgetDiscreteSlider</a>
+<br><a href="WidgetEditBase.html">WidgetEditBase</a>
+<br><a href="WidgetEditBox.html">WidgetEditBox</a>
+<br><a href="WidgetEditLine.html">WidgetEditLine</a>
+<br><a href="WidgetFactoryCache.html">WidgetFactoryCache</a>
+<br><a href="WidgetForm.html">WidgetForm</a>
+<br><a href="WidgetGlideScrollBar.html">WidgetGlideScrollBar</a>
+<br><a href="WidgetGlideSlider.html">WidgetGlideSlider</a>
+<br><a href="WidgetLayer.html">WidgetLayer</a>
+<br><a href="WidgetPanel.html">WidgetPanel</a>
+<br><a href="WidgetPlacementLua.html">WidgetPlacementLua</a>
+<br><a href="WidgetPlacementXY.html">WidgetPlacementXY</a>
+<br><a href="WidgetsArrangement.html">WidgetsArrangement</a>
+<br><a href="WidgetScrollableContainer.html">WidgetScrollableContainer</a>
+<br><a href="WidgetScrollBar.html">WidgetScrollBar</a>
+<br><a href="WidgetSlider.html">WidgetSlider</a>
+<br><a href="WidgetTextContainer.html">WidgetTextContainer</a>
+<br><a href="WidgetTextStyle.html">WidgetTextStyle</a>
+<br><a href="WidgetTextView.html">WidgetTextView</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryWidgetMembers.html">CategoryWidgetMembers</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

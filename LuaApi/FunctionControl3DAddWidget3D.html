@@ -1,0 +1,91 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionControl3DAddWidget3D</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>AddWidget3D( self, widget, size, pos, autoResizeX, autoResizeY, cutDistance, bindPointY, minSizeLimit, maxSizeLimit )</h2>
+<p></p>
+<p>Добавляет указанный 2D-контрол как Widget3D в контрол типа Control3DSafe. Добавляемый 2D-контрол или его дочерние контролы не могут сами быть Control3DSafe. Можно задавать оба 3D-размера вручную, либо один из них может рассчитываться автоматически, исходя из размера исходного 2D-контрола.</p>
+<p></p>
+<p>Основной 3D контрол находится в аддоне Main и имеет имя MainScreenControl3D</p>
+<p></p>
+<p>Функция вернет ошибку если выполняется любое из нижележащих условий</p>
+<ul><li><p> Добавляемый дочерний виджет является внутренним</p></li></ul>
+<ul><li><p> Добавляемый дочерний виджет является формой</p></li></ul>
+<ul><li><p> Добавляемый дочерний виджет в данный момент находится в контейнере или добавлен в другую сцену как Widget3D</p></li></ul>
+<p></p>
+<pre>
+-- класс
+Control3DSafe
+
+-- семантика
+function AddWidget3D( self, widget, size, pos, autoResizeX, autoResizeY, cutDistance, bindPointY, minSizeLimit, maxSizeLimit )
+
+-- входные параметры:
+widget: WidgetSafe - 2D-контрол, который добавляется как Widget3D
+size: table с полями:
+  sizeX: number - размер контрола-3D по X в метрах
+  sizeY: number - размер контрола-3D по Y в метрах
+pos: GamePosition - позиция контрола-3D на карте
+autoResizeX: boolean - использовать ли автоматический расчет ширины объекта (нельзя включать одновременно с autoResizeY)
+autoResizeY: boolean - использовать ли автоматический расчет высоты объекта (нельзя включать одновременно с autoResizeX)
+cutDistance: number (float) - расстояние (в метрах), на котором перестает показывать контрол
+bindPointY: number (enum WIDGET_3D_BIND_POINT_...) - точка привязки контрола-3D по y
+minSizeLimit: number (float) - коэффициент, задающий минимальный абсолютный размер контрола (его реальный размер в пикселах на экране), при достижении этого размера контрол перестает уменьшаться (при отдалении объекта), абсолютный минимальный размер контрола - его виртуальный размер, умноженный на данный коэффициент с учетом отношения реального и виртуального размеров экранов
+maxSizeLimit: number (float) - коэффициент максимального размера контрола, аналогичен минимальному
+
+enum WIDGET_3D_BIND_POINT_...:
+WIDGET_3D_BIND_POINT_LOW - привязка наименьшей координаты (верхний край)
+WIDGET_3D_BIND_POINT_CENTER - привязка центра
+WIDGET_3D_BIND_POINT_HIGH - привязка наибольшей кооординаты (нижний край)
+
+-- возвращаемое значение:
+нет
+
+-- пример
+wtControl3D:AddWidget3D( widget, size, pos, true, false, 100.0, WIDGET_3D_BIND_POINT_HIGH, 0.5, 1.5 )
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryControl3D"</h4>
+<p></p>
+<a href="CategoryControl3D.html">CategoryControl3D</a>
+<br><a href="EnumAttachedObjectPos.html">EnumAttachedObjectPos</a>
+<br><a href="EventCannotAttachWidget3D.html">EventCannotAttachWidget3D</a>
+<br><a href="FunctionChangeRoomRemoveScene.html">FunctionChangeRoomRemoveScene</a>
+<br><a href="FunctionChangeRoomSetScene.html">FunctionChangeRoomSetScene</a>
+<br><a href="FunctionControl3DAddWidget3D.html">FunctionControl3DAddWidget3D</a>
+<br><a href="FunctionControl3DIsAddedAsWidget3D.html">FunctionControl3DIsAddedAsWidget3D</a>
+<br><a href="FunctionControl3DRemoveAllWidget3D.html">FunctionControl3DRemoveAllWidget3D</a>
+<br><a href="FunctionControl3DRemoveWidget3D.html">FunctionControl3DRemoveWidget3D</a>
+<br><a href="FunctionControl3DSetWidget3DPos.html">FunctionControl3DSetWidget3DPos</a>
+<br><a href="FunctionControl3DSetWidget3DSize.html">FunctionControl3DSetWidget3DSize</a>
+<br><a href="FunctionMissionSetCharacterScene.html">FunctionMissionSetCharacterScene</a>
+<br><a href="FunctionMissionSetGuildBossScene.html">FunctionMissionSetGuildBossScene</a>
+<br><a href="FunctionMissionSetMountScene.html">FunctionMissionSetMountScene</a>
+<br><a href="FunctionMissionSetVisObjectScene.html">FunctionMissionSetVisObjectScene</a>
+<br><a href="FunctionObjectAttachWidget3D.html">FunctionObjectAttachWidget3D</a>
+<br><a href="FunctionObjectDetachAllWidgets3D.html">FunctionObjectDetachAllWidgets3D</a>
+<br><a href="FunctionObjectDetachWidget3D.html">FunctionObjectDetachWidget3D</a>
+<br><a href="FunctionObjectSetControl3DForProjected.html">FunctionObjectSetControl3DForProjected</a>
+<br><a href="FunctionRemortCreationRemoveScene.html">FunctionRemortCreationRemoveScene</a>
+<br><a href="FunctionRemortCreationSetScene.html">FunctionRemortCreationSetScene</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryControl3D.html">CategoryControl3D</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

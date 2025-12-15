@@ -1,0 +1,92 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionObjectGetBuffsInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> object.GetBuffsInfo( data, includeResourceInfo, ignoreInvisibleBuffs )</h2>
+<p></p>
+<p>Возвращает таблицу hash_map&lt;buffId, buffInfo&gt;. Ключи - идентификаторы экземпляров бафа, значения - таблицы информации о бафах. Формат таблиц идентичен <a href="FunctionObjectGetBuffInfo.html"> object.GetBuffInfo</a></p>
+<p></p>
+<pre>
+-- система:
+UIState/GameState
+
+-- библиотека:
+object
+
+-- объявление:
+function GetBuffsInfo( Id )
+
+-- параметры:
+data: 2 варианта
+  ObjectId - идентификатор интерактивного объекта для которого нужно получить информацию о бафах
+  table[1] of ObjectId - таблица (индексированная с 1) идентификаторов экземпляров бафов для которых нужно получить информацию
+includeResourceInfo: boolean or nil - Включать ли информацию о ресурсе бафа при получении информации о экземпляре бафа. По умолчанию true
+ignoreInvisible: boolean or nil - игнорировать бафы с needVisualize == false. По умолчанию false.
+
+-- возвращаемые значения:
+table (hash_map&lt;buffId,  buffInfo&gt;). Ключи - идентификаторы экземпляров бафа, значения - таблицы информации о бафах.
+
+-- пример:
+LogInfo( "Список видимых бафов на аватаре:" )
+for buffId, buffInfo in pairs( object.GetBuffsInfo( avatar.GetId(), true, true ) ) do
+  LogInfo( buffId, buffInfo.name )
+end
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryBuff"</h4>
+<p></p>
+<a href="BuffId.html">BuffId</a>
+<br><a href="CategoryBuff.html">CategoryBuff</a>
+<br><a href="EnumDiminishingGroup.html">EnumDiminishingGroup</a>
+<br><a href="EnumUIBuffPriority.html">EnumUIBuffPriority</a>
+<br><a href="EventAvatarBuffRemovingFailed.html">EventAvatarBuffRemovingFailed</a>
+<br><a href="EventGuildBuffAdded.html">EventGuildBuffAdded</a>
+<br><a href="EventGuildBuffsChanged.html">EventGuildBuffsChanged</a>
+<br><a href="EventObjectBuffAdded.html">EventObjectBuffAdded</a>
+<br><a href="EventObjectBuffChanged.html">EventObjectBuffChanged</a>
+<br><a href="EventObjectBuffProgressAdded.html">EventObjectBuffProgressAdded</a>
+<br><a href="EventObjectBuffProgressChanged.html">EventObjectBuffProgressChanged</a>
+<br><a href="EventObjectBuffProgressRemoved.html">EventObjectBuffProgressRemoved</a>
+<br><a href="EventObjectBuffRemoved.html">EventObjectBuffRemoved</a>
+<br><a href="EventObjectBuffsChanged.html">EventObjectBuffsChanged</a>
+<br><a href="EventObjectBuffsElementChanged.html">EventObjectBuffsElementChanged</a>
+<br><a href="EventObjectDiminishingChanged.html">EventObjectDiminishingChanged</a>
+<br><a href="EventObjectDiminishingGroupChanged.html">EventObjectDiminishingGroupChanged</a>
+<br><a href="FunctionGuildGetBuffs.html">FunctionGuildGetBuffs</a>
+<br><a href="FunctionObjectGetBuffBySysName.html">FunctionObjectGetBuffBySysName</a>
+<br><a href="FunctionObjectGetBuffCount.html">FunctionObjectGetBuffCount</a>
+<br><a href="FunctionObjectGetBuffDynamicInfo.html">FunctionObjectGetBuffDynamicInfo</a>
+<br><a href="FunctionObjectGetBuffInfo.html">FunctionObjectGetBuffInfo</a>
+<br><a href="FunctionObjectGetBuffInstances.html">FunctionObjectGetBuffInstances</a>
+<br><a href="FunctionObjectGetBuffRanks.html">FunctionObjectGetBuffRanks</a>
+<br><a href="FunctionObjectGetBuffs.html">FunctionObjectGetBuffs</a>
+<br><a href="FunctionObjectGetBuffsInfo.html">FunctionObjectGetBuffsInfo</a>
+<br><a href="FunctionObjectGetBuffsWithProperties.html">FunctionObjectGetBuffsWithProperties</a>
+<br><a href="FunctionObjectGetBuffSysName.html">FunctionObjectGetBuffSysName</a>
+<br><a href="FunctionObjectGetBuffTooltipInfo.html">FunctionObjectGetBuffTooltipInfo</a>
+<br><a href="FunctionObjectGetDiminishingState.html">FunctionObjectGetDiminishingState</a>
+<br><a href="FunctionObjectHasBuffManager.html">FunctionObjectHasBuffManager</a>
+<br><a href="FunctionObjectIsValidBuff.html">FunctionObjectIsValidBuff</a>
+<br><a href="FunctionObjectRemoveBuff.html">FunctionObjectRemoveBuff</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryObject.html">CategoryObject</a>
+<a href="CategoryBuff.html">CategoryBuff</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

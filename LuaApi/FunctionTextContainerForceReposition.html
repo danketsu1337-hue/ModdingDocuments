@@ -1,0 +1,78 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionTextContainerForceReposition</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> ForceReposition( self, force )</h2>
+<p></p>
+<p>Вызывает немедленную репозицию контейнера. По умолчанию репозиция выполняется 1 раз в конце кадра если была запланирована. К планированию репозиции приводит</p>
+<ul><li><p> Добавление или удаление элементов</p></li></ul>
+<ul><li><p> Изменение placement контейнера, любого из его родителей или детей (в том числе элементов).</p></li></ul>
+<p>Если после такого действия необходимо сразу получить актуальные placement контейнера или его элементов - нужно вызвать данный метод.</p>
+<p></p>
+<p>Важно! Репозиция контейнера с большим числом элементов - дорогая операция, не следует вызывать ее без существенной необходимости.</p>
+<p></p>
+<p>Важно! Флаг force - жуткое колдунство. Если он вам понадобился, то что-то пошло сильно не так.</p>
+<p></p>
+<pre>
+-- класс
+TextContainerSafe
+
+-- семантика
+function ForceReposition( self )
+
+-- входные параметры:
+self - TextContainerSafe - целевой контейнер
+force - bool (default false) or nil - выполнить репозицию даже если она не запланирована
+
+-- возвращаемое значение:
+Нет
+
+-- пример
+wtTextContainer:ForceReposition( )
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryTextContainer"</h4>
+<p></p>
+<a href="CategoryTextContainer.html">CategoryTextContainer</a>
+<br><a href="FunctionTextContainerForceReposition.html">FunctionTextContainerForceReposition</a>
+<br><a href="FunctionTextContainerGetContainerOffset.html">FunctionTextContainerGetContainerOffset</a>
+<br><a href="FunctionTextContainerGetElementCount.html">FunctionTextContainerGetElementCount</a>
+<br><a href="FunctionTextContainerGetElementLimit.html">FunctionTextContainerGetElementLimit</a>
+<br><a href="FunctionTextContainerGetMaxContainerOffset.html">FunctionTextContainerGetMaxContainerOffset</a>
+<br><a href="FunctionTextContainerInsertText.html">FunctionTextContainerInsertText</a>
+<br><a href="FunctionTextContainerIsSliderMax.html">FunctionTextContainerIsSliderMax</a>
+<br><a href="FunctionTextContainerIsSliderMin.html">FunctionTextContainerIsSliderMin</a>
+<br><a href="FunctionTextContainerPopBack.html">FunctionTextContainerPopBack</a>
+<br><a href="FunctionTextContainerPopFront.html">FunctionTextContainerPopFront</a>
+<br><a href="FunctionTextContainerPushBackRawText.html">FunctionTextContainerPushBackRawText</a>
+<br><a href="FunctionTextContainerPushBackText.html">FunctionTextContainerPushBackText</a>
+<br><a href="FunctionTextContainerPushBackValuedText.html">FunctionTextContainerPushBackValuedText</a>
+<br><a href="FunctionTextContainerPushFrontRawText.html">FunctionTextContainerPushFrontRawText</a>
+<br><a href="FunctionTextContainerPushFrontText.html">FunctionTextContainerPushFrontText</a>
+<br><a href="FunctionTextContainerPushFrontValuedText.html">FunctionTextContainerPushFrontValuedText</a>
+<br><a href="FunctionTextContainerRemoveAt.html">FunctionTextContainerRemoveAt</a>
+<br><a href="FunctionTextContainerRemoveItems.html">FunctionTextContainerRemoveItems</a>
+<br><a href="FunctionTextContainerSetContainerOffset.html">FunctionTextContainerSetContainerOffset</a>
+<br><a href="WidgetContainer.html">WidgetContainer</a>
+<br><a href="WidgetTextContainer.html">WidgetTextContainer</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryTextContainer.html">CategoryTextContainer</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

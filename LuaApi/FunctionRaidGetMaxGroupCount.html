@@ -1,0 +1,113 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionRaidGetMaxGroupCount</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> raid.GetMaxGroupCount()</h2>
+<p></p>
+<p>Возвращает максимальное количество групп в рейде</p>
+<p></p>
+<pre>
+-- библиотека:
+raid
+
+-- объявление:
+function GetMaxGroupCount()
+
+-- параметры:
+нет
+
+-- возвращаемые значения:
+number - количество групп или nil если рейда не существует
+
+-- пример:
+local maxGroupCount = raid.GetMaxGroupCount()
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryRaid"</h4>
+<p></p>
+<a href="EnumRaidFailed.html">EnumRaidFailed</a>
+<br><a href="EnumRaidMemberRight.html">EnumRaidMemberRight</a>
+<br><a href="EnumRaidMemberState.html">EnumRaidMemberState</a>
+<br><a href="EnumReadyCheckReadyState.html">EnumReadyCheckReadyState</a>
+<br><a href="EventRaidAlreadyIn.html">EventRaidAlreadyIn</a>
+<br><a href="EventRaidAppeared.html">EventRaidAppeared</a>
+<br><a href="EventRaidCantAccept.html">EventRaidCantAccept</a>
+<br><a href="EventRaidCantEnterMap.html">EventRaidCantEnterMap</a>
+<br><a href="EventRaidChanged.html">EventRaidChanged</a>
+<br><a href="EventRaidDecline.html">EventRaidDecline</a>
+<br><a href="EventRaidDeclineBusy.html">EventRaidDeclineBusy</a>
+<br><a href="EventRaidDeclineIgnored.html">EventRaidDeclineIgnored</a>
+<br><a href="EventRaidDisappeared.html">EventRaidDisappeared</a>
+<br><a href="EventRaidEnterVarsMapUnavaliable.html">EventRaidEnterVarsMapUnavaliable</a>
+<br><a href="EventRaidEnterVarsMapWarning.html">EventRaidEnterVarsMapWarning</a>
+<br><a href="EventRaidFailed.html">EventRaidFailed</a>
+<br><a href="EventRaidInvite.html">EventRaidInvite</a>
+<br><a href="EventRaidInviteEnd.html">EventRaidInviteEnd</a>
+<br><a href="EventRaidLeaderChanged.html">EventRaidLeaderChanged</a>
+<br><a href="EventRaidLeaderHelperChanged.html">EventRaidLeaderHelperChanged</a>
+<br><a href="EventRaidLootMasterChanged.html">EventRaidLootMasterChanged</a>
+<br><a href="EventRaidMemberAdded.html">EventRaidMemberAdded</a>
+<br><a href="EventRaidMemberChanged.html">EventRaidMemberChanged</a>
+<br><a href="EventRaidMemberPositionUpdated.html">EventRaidMemberPositionUpdated</a>
+<br><a href="EventRaidMemberRemoved.html">EventRaidMemberRemoved</a>
+<br><a href="EventRaidSaveMapQuestion.html">EventRaidSaveMapQuestion</a>
+<br><a href="EventReadyCheckEnded.html">EventReadyCheckEnded</a>
+<br><a href="EventReadyCheckInfoChanged.html">EventReadyCheckInfoChanged</a>
+<br><a href="EventReadyCheckStarted.html">EventReadyCheckStarted</a>
+<br><a href="FunctionRaidAccept.html">FunctionRaidAccept</a>
+<br><a href="FunctionRaidAddRight.html">FunctionRaidAddRight</a>
+<br><a href="FunctionRaidCanInvite.html">FunctionRaidCanInvite</a>
+<br><a href="FunctionRaidCanKick.html">FunctionRaidCanKick</a>
+<br><a href="FunctionRaidCanLeave.html">FunctionRaidCanLeave</a>
+<br><a href="FunctionRaidChangeLeader.html">FunctionRaidChangeLeader</a>
+<br><a href="FunctionRaidCreate.html">FunctionRaidCreate</a>
+<br><a href="FunctionRaidCreateSmall.html">FunctionRaidCreateSmall</a>
+<br><a href="FunctionRaidDecline.html">FunctionRaidDecline</a>
+<br><a href="FunctionRaidDisband.html">FunctionRaidDisband</a>
+<br><a href="FunctionRaidGetInviteInfo.html">FunctionRaidGetInviteInfo</a>
+<br><a href="FunctionRaidGetLeader.html">FunctionRaidGetLeader</a>
+<br><a href="FunctionRaidGetLeaderHelpers.html">FunctionRaidGetLeaderHelpers</a>
+<br><a href="FunctionRaidGetLootMaster.html">FunctionRaidGetLootMaster</a>
+<br><a href="FunctionRaidGetMaxGroupCount.html">FunctionRaidGetMaxGroupCount</a>
+<br><a href="FunctionRaidGetMemberInfo.html">FunctionRaidGetMemberInfo</a>
+<br><a href="FunctionRaidGetMemberRights.html">FunctionRaidGetMemberRights</a>
+<br><a href="FunctionRaidGetMembers.html">FunctionRaidGetMembers</a>
+<br><a href="FunctionRaidGetReadyCheckInfo.html">FunctionRaidGetReadyCheckInfo</a>
+<br><a href="FunctionRaidInvite.html">FunctionRaidInvite</a>
+<br><a href="FunctionRaidInviteByName.html">FunctionRaidInviteByName</a>
+<br><a href="FunctionRaidIsAutomatic.html">FunctionRaidIsAutomatic</a>
+<br><a href="FunctionRaidIsExist.html">FunctionRaidIsExist</a>
+<br><a href="FunctionRaidIsLeader.html">FunctionRaidIsLeader</a>
+<br><a href="FunctionRaidIsolateMember.html">FunctionRaidIsolateMember</a>
+<br><a href="FunctionRaidIsPlayerInAvatarsRaid.html">FunctionRaidIsPlayerInAvatarsRaid</a>
+<br><a href="FunctionRaidIsPlayerInAvatarsRaidGroup.html">FunctionRaidIsPlayerInAvatarsRaidGroup</a>
+<br><a href="FunctionRaidKick.html">FunctionRaidKick</a>
+<br><a href="FunctionRaidLeave.html">FunctionRaidLeave</a>
+<br><a href="FunctionRaidMapSaveResponse.html">FunctionRaidMapSaveResponse</a>
+<br><a href="FunctionRaidMapVarsSaveResponse.html">FunctionRaidMapVarsSaveResponse</a>
+<br><a href="FunctionRaidMoveMemberToGroup.html">FunctionRaidMoveMemberToGroup</a>
+<br><a href="FunctionRaidRemoveRight.html">FunctionRaidRemoveRight</a>
+<br><a href="FunctionRaidReportReadyCheck.html">FunctionRaidReportReadyCheck</a>
+<br><a href="FunctionRaidStartReadyCheck.html">FunctionRaidStartReadyCheck</a>
+<br><a href="FunctionRaidSwapMembers.html">FunctionRaidSwapMembers</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryRaid.html">CategoryRaid</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

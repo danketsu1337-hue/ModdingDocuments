@@ -1,0 +1,92 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionMentorGetPlayerInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> mentor.GetPlayerInfo( mentorPlayerId )</h2>
+<p></p>
+<p>Возвращает подробное описание игрока - субъекта менторских взаимоотношений.</p>
+<p></p>
+<p>См. LuaRaceClassInfoPart, LuaSexInfoPart, LuaFullDateTime.</p>
+<p></p>
+<pre>
+-- библиотека:
+mentor
+
+-- объявление:
+function GetPlayerInfo( mentorPlayerId )
+
+-- параметры:
+mentorPlayerId: ObjectId - идентификатор субъекта менторских взаимоотношений
+
+-- возвращаемые значения -
+table or nil - если не произошло ошибки, то таблица с полями:
+  id: ObjectId  - идентификатор субъекта менторских взаимоотношений
+  isOnline: boolean - true, если этот субъект в онлайне
+  playerId: ObjectId or nil - идентификатор игрока (интерактивного объекта), если он в онлайне. nil - если в оффлайне или вне репликации
+  mentorId: ObjectId or nil - идентификатор субъекта менторских взаимоотношений ментора, у которого данный субъект в учениках. Если nil, то субъект - ментор
+  canRefuse: boolean - может ли главный игрок выгнать этого субъекта из своих учеников (просто проверяет, что это ученик главного игрока)
+  offlineInfo: table - всегда доступная, оффлайновая информация о субъекте
+    name: WString - имя
+    guild: WString or nil - гильдия игрока, если есть
+    level: number (integer) - уровень
+    zoneId: ObjectId or nil - идентификатор интерфейсной карты, если она доступна для этого игрока
+    raceClass: table (LuaRaceClassInfoPart) or nil - раса-класс персонажа
+    sex: table (LuaSexInfoPart) or nil - описание пола персонажа
+    startTime: table (LuaFullDateTime) or nil- если не произошло ошибки, то таблица описывающая начало учителства/ученичества
+    lastOnlineTime: table (LuaFullDateTime) or nil - если не произошло ошибки, то таблица описывающая время последнего онлайна
+
+-- пример:
+local info = mentor.GetPlayerInfo( mentorPlayerId )
+if info then
+  if mentor.mentorId then
+    LogInfo( "Это ученик" )
+  end
+  local name = info.playerId and object.GetName( info.playerId ) or info.offlineInfo.name
+end
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryMentor"</h4>
+<p></p>
+<a href="EventApprenticeMentorChanged.html">EventApprenticeMentorChanged</a>
+<br><a href="EventMentorApprenticeAdded.html">EventMentorApprenticeAdded</a>
+<br><a href="EventMentorApprenticeRemoved.html">EventMentorApprenticeRemoved</a>
+<br><a href="EventMentorApprenticeRewardChanged.html">EventMentorApprenticeRewardChanged</a>
+<br><a href="EventMentorChanged.html">EventMentorChanged</a>
+<br><a href="EventMentorCooldownsChanged.html">EventMentorCooldownsChanged</a>
+<br><a href="EventMentorDataChanged.html">EventMentorDataChanged</a>
+<br><a href="EventMentorInfoChanged.html">EventMentorInfoChanged</a>
+<br><a href="EventMentorMessageChanged.html">EventMentorMessageChanged</a>
+<br><a href="EventMentorPlayerInfoChanged.html">EventMentorPlayerInfoChanged</a>
+<br><a href="FunctionMentorGetApprentices.html">FunctionMentorGetApprentices</a>
+<br><a href="FunctionMentorGetCooldownsInfo.html">FunctionMentorGetCooldownsInfo</a>
+<br><a href="FunctionMentorGetManagerInfo.html">FunctionMentorGetManagerInfo</a>
+<br><a href="FunctionMentorGetMessage.html">FunctionMentorGetMessage</a>
+<br><a href="FunctionMentorGetPlayerInfo.html">FunctionMentorGetPlayerInfo</a>
+<br><a href="FunctionMentorGetPlayerReward.html">FunctionMentorGetPlayerReward</a>
+<br><a href="FunctionMentorGetPredictedCooldownsInfo.html">FunctionMentorGetPredictedCooldownsInfo</a>
+<br><a href="FunctionMentorRefuseApprentice.html">FunctionMentorRefuseApprentice</a>
+<br><a href="FunctionMentorRefuseMentor.html">FunctionMentorRefuseMentor</a>
+<br><a href="FunctionMentorSetApprenticeFlag.html">FunctionMentorSetApprenticeFlag</a>
+<br><a href="FunctionMentorSetMentorFlag.html">FunctionMentorSetMentorFlag</a>
+<br><a href="FunctionMentorSetMessage.html">FunctionMentorSetMessage</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryMentor.html">CategoryMentor</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

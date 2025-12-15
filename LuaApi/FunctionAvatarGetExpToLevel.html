@@ -1,0 +1,57 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAvatarGetExpToLevel</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>avatar.GetExpToLevel( level )</h2>
+<p></p>
+<p>Возвращает количество опыта персонажа, требуемое на указанный уровень</p>
+<p></p>
+<pre>
+-- библиотека:
+avatar
+
+-- объявление:
+function GetExpToLevel( leve )
+
+-- параметры:
+number (int) - уровень, для которого нужно вернуть опыт
+
+-- возвращаемые значения:
+number (int) - кол-во опыта
+
+-- пример:
+local avatarId = avatar.GetId()
+local level = unit.GetLevel( avatarId )
+local exp = avatar.GetExpToLevel( level + 1 )
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryExperience"</h4>
+<p></p>
+<a href="CategoryExperience.html">CategoryExperience</a>
+<br><a href="EventAvatarDestinyPointsChanged.html">EventAvatarDestinyPointsChanged</a>
+<br><a href="EventAvatarExperienceChanged.html">EventAvatarExperienceChanged</a>
+<br><a href="FunctionAvatarGetDestinyPoints.html">FunctionAvatarGetDestinyPoints</a>
+<br><a href="FunctionAvatarGetExperience.html">FunctionAvatarGetExperience</a>
+<br><a href="FunctionAvatarGetExpToLevel.html">FunctionAvatarGetExpToLevel</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<a href="CategoryExperience.html">CategoryExperience</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

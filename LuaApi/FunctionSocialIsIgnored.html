@@ -1,0 +1,106 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionSocialIsIgnored</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> social.IsIgnored( player )</h2>
+<p></p>
+<p>Проверяет находится ли персонаж в списке игнора у аватара.</p>
+<p></p>
+<pre>
+-- библиотека:
+social
+
+-- объявление:
+function IsIgnored( player )
+
+-- параметры:
+player: ObjectId or wstring - идентификатор или имя юнита
+
+-- возвращаемые значения
+boolean - true, если персонаж находится в списке игнора. Важно! Некоторое время после входа в мир результат может быть ложноотрицательным, смотри IsIgnoreListLoaded.
+
+-- пример
+if social.IsIgnored( avatar.GetTarget() ) then
+  LogInfo( "Ignored player tageted" )
+end
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategorySocial"</h4>
+<p></p>
+<a href="EnumAvatarFriendIgnoreListsError.html">EnumAvatarFriendIgnoreListsError</a>
+<br><a href="EnumCreateRevivalRollResultStatus.html">EnumCreateRevivalRollResultStatus</a>
+<br><a href="EventAvatarAddedToFriendList.html">EventAvatarAddedToFriendList</a>
+<br><a href="EventAvatarFriendAdded.html">EventAvatarFriendAdded</a>
+<br><a href="EventAvatarFriendAltNameChanged.html">EventAvatarFriendAltNameChanged</a>
+<br><a href="EventAvatarFriendDescriptionChanged.html">EventAvatarFriendDescriptionChanged</a>
+<br><a href="EventAvatarFriendIgnoreListsError.html">EventAvatarFriendIgnoreListsError</a>
+<br><a href="EventAvatarFriendInfoChanged.html">EventAvatarFriendInfoChanged</a>
+<br><a href="EventAvatarFriendLevelChanged.html">EventAvatarFriendLevelChanged</a>
+<br><a href="EventAvatarFriendListChanged.html">EventAvatarFriendListChanged</a>
+<br><a href="EventAvatarFriendListLoaded.html">EventAvatarFriendListLoaded</a>
+<br><a href="EventAvatarFriendMoodChanged.html">EventAvatarFriendMoodChanged</a>
+<br><a href="EventAvatarFriendMutualChanged.html">EventAvatarFriendMutualChanged</a>
+<br><a href="EventAvatarFriendOnlineChanged.html">EventAvatarFriendOnlineChanged</a>
+<br><a href="EventAvatarFriendRemoved.html">EventAvatarFriendRemoved</a>
+<br><a href="EventAvatarFriendSexChanged.html">EventAvatarFriendSexChanged</a>
+<br><a href="EventAvatarFriendZoneChanged.html">EventAvatarFriendZoneChanged</a>
+<br><a href="EventAvatarIgnoreAdded.html">EventAvatarIgnoreAdded</a>
+<br><a href="EventAvatarIgnoreDescriptionChanged.html">EventAvatarIgnoreDescriptionChanged</a>
+<br><a href="EventAvatarIgnoreListChanged.html">EventAvatarIgnoreListChanged</a>
+<br><a href="EventAvatarIgnoreListLoaded.html">EventAvatarIgnoreListLoaded</a>
+<br><a href="EventAvatarIgnoreRemoved.html">EventAvatarIgnoreRemoved</a>
+<br><a href="EventBestFriendReturnStateChanged.html">EventBestFriendReturnStateChanged</a>
+<br><a href="EventBestFriendTeleportSpellChanged.html">EventBestFriendTeleportSpellChanged</a>
+<br><a href="EventBestFriendTeleportSpellEffect.html">EventBestFriendTeleportSpellEffect</a>
+<br><a href="EventBestFriendTeleportStateChanged.html">EventBestFriendTeleportStateChanged</a>
+<br><a href="EventRevivalRollResult.html">EventRevivalRollResult</a>
+<br><a href="EventRevivalsChanged.html">EventRevivalsChanged</a>
+<br><a href="FunctionHangarCanLendShip.html">FunctionHangarCanLendShip</a>
+<br><a href="FunctionHangarGetTakeAwaySpellId.html">FunctionHangarGetTakeAwaySpellId</a>
+<br><a href="FunctionHangarLendShip.html">FunctionHangarLendShip</a>
+<br><a href="FunctionHangarTakeAwayShip.html">FunctionHangarTakeAwayShip</a>
+<br><a href="FunctionSocialAddFriend.html">FunctionSocialAddFriend</a>
+<br><a href="FunctionSocialAddIgnore.html">FunctionSocialAddIgnore</a>
+<br><a href="FunctionSocialCanReturn.html">FunctionSocialCanReturn</a>
+<br><a href="FunctionSocialCanSocialize.html">FunctionSocialCanSocialize</a>
+<br><a href="FunctionSocialCanTeleport.html">FunctionSocialCanTeleport</a>
+<br><a href="FunctionSocialEndFriendship.html">FunctionSocialEndFriendship</a>
+<br><a href="FunctionSocialGetBackMount.html">FunctionSocialGetBackMount</a>
+<br><a href="FunctionSocialGetFriend.html">FunctionSocialGetFriend</a>
+<br><a href="FunctionSocialGetFriendInfo.html">FunctionSocialGetFriendInfo</a>
+<br><a href="FunctionSocialGetFriendList.html">FunctionSocialGetFriendList</a>
+<br><a href="FunctionSocialGetFriendshipInfo.html">FunctionSocialGetFriendshipInfo</a>
+<br><a href="FunctionSocialGetIgnoreInfo.html">FunctionSocialGetIgnoreInfo</a>
+<br><a href="FunctionSocialGetIgnoreList.html">FunctionSocialGetIgnoreList</a>
+<br><a href="FunctionSocialGetRevivalRollInfo.html">FunctionSocialGetRevivalRollInfo</a>
+<br><a href="FunctionSocialGetTeleportSpell.html">FunctionSocialGetTeleportSpell</a>
+<br><a href="FunctionSocialGiveBackMount.html">FunctionSocialGiveBackMount</a>
+<br><a href="FunctionSocialIsFriendListLoaded.html">FunctionSocialIsFriendListLoaded</a>
+<br><a href="FunctionSocialIsIgnored.html">FunctionSocialIsIgnored</a>
+<br><a href="FunctionSocialIsIgnoreListLoaded.html">FunctionSocialIsIgnoreListLoaded</a>
+<br><a href="FunctionSocialLendMount.html">FunctionSocialLendMount</a>
+<br><a href="FunctionSocialRemoveFriend.html">FunctionSocialRemoveFriend</a>
+<br><a href="FunctionSocialRemoveIgnore.html">FunctionSocialRemoveIgnore</a>
+<br><a href="FunctionSocialReturnFromBestFriend.html">FunctionSocialReturnFromBestFriend</a>
+<br><a href="FunctionSocialTeleportToBestFriend.html">FunctionSocialTeleportToBestFriend</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategorySocial.html">CategorySocial</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

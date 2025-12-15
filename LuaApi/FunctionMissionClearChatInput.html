@@ -1,0 +1,148 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionMissionClearChatInput</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> mission.ClearChatInput()</h2>
+<p></p>
+<p>Очищает строку ввода с префиксами/слеш-командами.</p>
+<p></p>
+<pre>
+-- система
+UIState
+
+-- библиотека:
+mission
+
+-- объявление:
+function ClearChatInput()
+
+-- параметры:
+нет
+
+-- возвращаемые значение:
+нет
+
+-- пример:
+mission.ClearChatInput()
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryChat" </h4>
+<p></p>
+<a href="EnumAccessionResult.html">EnumAccessionResult</a>
+<br><a href="EnumChatFailedType.html">EnumChatFailedType</a>
+<br><a href="EventCantSendChatByDelay.html">EventCantSendChatByDelay</a>
+<br><a href="EventChatAvatarMuted.html">EventChatAvatarMuted</a>
+<br><a href="EventChatMessage.html">EventChatMessage</a>
+<br><a href="EventChatMessageIsFlood.html">EventChatMessageIsFlood</a>
+<br><a href="EventChatMessageRejected.html">EventChatMessageRejected</a>
+<br><a href="EventChatMessageWithObjects.html">EventChatMessageWithObjects</a>
+<br><a href="EventChatNamedError.html">EventChatNamedError</a>
+<br><a href="EventChatSentToAlt.html">EventChatSentToAlt</a>
+<br><a href="EventCustomEmote.html">EventCustomEmote</a>
+<br><a href="EventGlobalNotice.html">EventGlobalNotice</a>
+<br><a href="EventPlayedCommandResponse.html">EventPlayedCommandResponse</a>
+<br><a href="EventSlashCommandFailed.html">EventSlashCommandFailed</a>
+<br><a href="EventSlashCommandPrefixChanged.html">EventSlashCommandPrefixChanged</a>
+<br><a href="EventUnknownSlashCommand.html">EventUnknownSlashCommand</a>
+<br><a href="EventVeteranranksCommandResponse.html">EventVeteranranksCommandResponse</a>
+<br><a href="EventWhisperFailed.html">EventWhisperFailed</a>
+<br><a href="FunctionMissionClearChatInput.html">FunctionMissionClearChatInput</a>
+<br><a href="FunctionMissionGetChatInput.html">FunctionMissionGetChatInput</a>
+<br><a href="FunctionMissionGetChatInputSimilarCommands.html">FunctionMissionGetChatInputSimilarCommands</a>
+<br><a href="FunctionMissionSetChatInputArg.html">FunctionMissionSetChatInputArg</a>
+<br><a href="FunctionMissionSetChatInputData.html">FunctionMissionSetChatInputData</a>
+<br><a href="FunctionMissionSetChatInputHistoryMaxSize.html">FunctionMissionSetChatInputHistoryMaxSize</a>
+<br><a href="FunctionMissionSetChatInputNextData.html">FunctionMissionSetChatInputNextData</a>
+<br><a href="FunctionMissionSetChatInputPrevData.html">FunctionMissionSetChatInputPrevData</a>
+<br><a href="FunctionMissionSetChatInputTarget.html">FunctionMissionSetChatInputTarget</a>
+<br><a href="FunctionMissionSetChatInputText.html">FunctionMissionSetChatInputText</a>
+<br><a href="FunctionMissionSetChatInputType.html">FunctionMissionSetChatInputType</a>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryMission" </h4>
+<p></p>
+<a href="CategoryDragAndDrop.html">CategoryDragAndDrop</a>
+<br><a href="EventAvatarLogoutCancelled.html">EventAvatarLogoutCancelled</a>
+<br><a href="EventAvatarWillBeRemoved.html">EventAvatarWillBeRemoved</a>
+<br><a href="EventCameraDirectionChanged.html">EventCameraDirectionChanged</a>
+<br><a href="EventCantLeaveGameInCombat.html">EventCantLeaveGameInCombat</a>
+<br><a href="EventMissionFreePortraitSlot.html">EventMissionFreePortraitSlot</a>
+<br><a href="EventMissionInitialized.html">EventMissionInitialized</a>
+<br><a href="EventMissionLoadingProgress.html">EventMissionLoadingProgress</a>
+<br><a href="EventUnstuckSpellChanged.html">EventUnstuckSpellChanged</a>
+<br><a href="EventUnstuckSpellEffect.html">EventUnstuckSpellEffect</a>
+<br><a href="FunctionMissionCancelLogout.html">FunctionMissionCancelLogout</a>
+<br><a href="FunctionMissionClearCharacterScene.html">FunctionMissionClearCharacterScene</a>
+<br><a href="FunctionMissionClearChatInput.html">FunctionMissionClearChatInput</a>
+<br><a href="FunctionMissionDressCharacterScene.html">FunctionMissionDressCharacterScene</a>
+<br><a href="FunctionMissionFreePortrait.html">FunctionMissionFreePortrait</a>
+<br><a href="FunctionMissionGetCameraDirection.html">FunctionMissionGetCameraDirection</a>
+<br><a href="FunctionMissionGetChatInput.html">FunctionMissionGetChatInput</a>
+<br><a href="FunctionMissionGetChatInputSimilarCommands.html">FunctionMissionGetChatInputSimilarCommands</a>
+<br><a href="FunctionMissionGetGlobalDateTime.html">FunctionMissionGetGlobalDateTime</a>
+<br><a href="FunctionMissionGetGlobalDateTimeMs.html">FunctionMissionGetGlobalDateTimeMs</a>
+<br><a href="FunctionMissionGetLoginLotteryInfo.html">FunctionMissionGetLoginLotteryInfo</a>
+<br><a href="FunctionMissionGetLotteryHistory.html">FunctionMissionGetLotteryHistory</a>
+<br><a href="FunctionMissionGetLotteryInfo.html">FunctionMissionGetLotteryInfo</a>
+<br><a href="FunctionMissionGetMaxCharacterSceneCount.html">FunctionMissionGetMaxCharacterSceneCount</a>
+<br><a href="FunctionMissionGetMonthDaysCount.html">FunctionMissionGetMonthDaysCount</a>
+<br><a href="FunctionMissionGetPlayTimeMs.html">FunctionMissionGetPlayTimeMs</a>
+<br><a href="FunctionMissionGetShardName.html">FunctionMissionGetShardName</a>
+<br><a href="FunctionMissionGetUnstuckSpell.html">FunctionMissionGetUnstuckSpell</a>
+<br><a href="FunctionMissionGetWeakFactionBonus.html">FunctionMissionGetWeakFactionBonus</a>
+<br><a href="FunctionMissionGetWeakFactionId.html">FunctionMissionGetWeakFactionId</a>
+<br><a href="FunctionMissionGetWorldTimeMs.html">FunctionMissionGetWorldTimeMs</a>
+<br><a href="FunctionMissionLoginLotteryReceivePrizes.html">FunctionMissionLoginLotteryReceivePrizes</a>
+<br><a href="FunctionMissionLogout.html">FunctionMissionLogout</a>
+<br><a href="FunctionMissionRequestLotteryHistory.html">FunctionMissionRequestLotteryHistory</a>
+<br><a href="FunctionMissionResetCharacterSceneRotation.html">FunctionMissionResetCharacterSceneRotation</a>
+<br><a href="FunctionMissionRotateCharacterScene.html">FunctionMissionRotateCharacterScene</a>
+<br><a href="FunctionMissionSetAEMarkDecal.html">FunctionMissionSetAEMarkDecal</a>
+<br><a href="FunctionMissionSetAEMarkMinRange.html">FunctionMissionSetAEMarkMinRange</a>
+<br><a href="FunctionMissionSetAEMarkOutOfRangeDecal.html">FunctionMissionSetAEMarkOutOfRangeDecal</a>
+<br><a href="FunctionMissionSetAEMarkRadius.html">FunctionMissionSetAEMarkRadius</a>
+<br><a href="FunctionMissionSetAEMarkRange.html">FunctionMissionSetAEMarkRange</a>
+<br><a href="FunctionMissionSetAEMarkVisObj.html">FunctionMissionSetAEMarkVisObj</a>
+<br><a href="FunctionMissionSetAESectorProps.html">FunctionMissionSetAESectorProps</a>
+<br><a href="FunctionMissionSetAESectorVisObj.html">FunctionMissionSetAESectorVisObj</a>
+<br><a href="FunctionMissionSetCharacterScene.html">FunctionMissionSetCharacterScene</a>
+<br><a href="FunctionMissionSetCharacterScenePosition.html">FunctionMissionSetCharacterScenePosition</a>
+<br><a href="FunctionMissionSetCharacterSceneScaleFactor.html">FunctionMissionSetCharacterSceneScaleFactor</a>
+<br><a href="FunctionMissionSetCharacterSceneSmoothRotation.html">FunctionMissionSetCharacterSceneSmoothRotation</a>
+<br><a href="FunctionMissionSetChatInputArg.html">FunctionMissionSetChatInputArg</a>
+<br><a href="FunctionMissionSetChatInputData.html">FunctionMissionSetChatInputData</a>
+<br><a href="FunctionMissionSetChatInputHistoryMaxSize.html">FunctionMissionSetChatInputHistoryMaxSize</a>
+<br><a href="FunctionMissionSetChatInputNextData.html">FunctionMissionSetChatInputNextData</a>
+<br><a href="FunctionMissionSetChatInputPrevData.html">FunctionMissionSetChatInputPrevData</a>
+<br><a href="FunctionMissionSetChatInputTarget.html">FunctionMissionSetChatInputTarget</a>
+<br><a href="FunctionMissionSetChatInputText.html">FunctionMissionSetChatInputText</a>
+<br><a href="FunctionMissionSetChatInputType.html">FunctionMissionSetChatInputType</a>
+<br><a href="FunctionMissionSetGuildBossScene.html">FunctionMissionSetGuildBossScene</a>
+<br><a href="FunctionMissionSetMarkerObject.html">FunctionMissionSetMarkerObject</a>
+<br><a href="FunctionMissionSetMountScene.html">FunctionMissionSetMountScene</a>
+<br><a href="FunctionMissionSetPortraitBackgroundTexture.html">FunctionMissionSetPortraitBackgroundTexture</a>
+<br><a href="FunctionMissionSetVisObjectScene.html">FunctionMissionSetVisObjectScene</a>
+<br><a href="FunctionMissionShowAEMark.html">FunctionMissionShowAEMark</a>
+<br><a href="FunctionMissionShowAESector.html">FunctionMissionShowAESector</a>
+<br><a href="Portraits.html">Portraits</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryMission.html">CategoryMission</a>
+<a href="CategoryChat.html">CategoryChat</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

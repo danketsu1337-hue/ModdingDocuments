@@ -1,0 +1,44 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - EventAstralSectorCheckJumpResult</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> EVENT_ASTRAL_SECTOR_CHECK_JUMP_RESULT</h2>
+<p></p>
+<p>Событие возвращающее результат проверки группы на возможность совершения прыжка в выбранный сектор астрала до выбранной POI.</p>
+<p></p>
+<pre>
+-- поля:
+id: ObjectId - идентификатор выбранной POI
+sectorId: AstralSectorId - сектор астрала которому принадлежит выбранная POI
+isSuccess: boolean - true, если прыжек доступен. Проверка завершилась успешно
+failEntries: table or nil - если isSuccess == true, то nil. Список причин провала проверки (индексирован с 1), каждый элемент которого таблица с полями:
+ failType: string - тип неудовлетворенного требования "ENUM_FailType_..."
+ names: table - список имен аватаров (индексирован с 1) не удовлетворяющих требованию failType
+</pre>
+<p></p>
+<p>См. также</p>
+<p></p>
+<ul><li><p> <a href="FunctionAstralCheckJump.html"> astral.CheckJump( poiId )</a></p></li></ul>
+<ul><li><p> <a href="EnumFailType.html"> ENUM_FailType_...</a></p></li></ul>
+<p></p>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryEvent.html">CategoryEvent</a>
+<a href="CategoryAstralLua.html">CategoryAstralLua</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

@@ -1,0 +1,106 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - WidgetTextView</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> TextView. Описание виджета для показа текстов.</h2>
+<p></p>
+<h2>Текстовый виджет</h2>
+<p></p>
+<p>TextView - это виджет для показа текстов, наследованный от базового типа <a href="Widget.html"> Widget</a>. С помощью него можно показать какой-либо простой или форматированный с помощью CSS текст.</p>
+<p></p>
+<p>В скрипте простой текст задаётся в виде объекта WString. Форматированный текст - это объект типа <a href="TypeValuedText.html"> ValuedText</a>, который содержит строку форматирования и подстановочные тэги, в которые можно подставлять значения типов WString, <a href="TypeValuedText.html"> ValuedText</a> или <a href="TypeValuedObject.html"> ValuedObject</a>. Последние могут быть кликабельны.</p>
+<p></p>
+<h4>Дополнительные поля текстового виджета:</h4>
+<p></p>
+<ul><li><p> FormatFileRef: TextFileRef - ссылка на текстовый файл. Если внутри файла правильно отформатированный XHTML документ, то текстовый виджет будет содержать <a href="TypeValuedText.html"> ValuedText</a>, иначе простой WString</p></li></ul>
+<ul><li><p> TextValues: table of WidgetTextTaggedValue - список подстановочных значений по умолчанию. Каждый элемент имеет поля</p></li></ul>
+<ul><ul><li><p> Tag: string - название подстановочного значение</p></li></ul></ul>
+<ul><ul><li><p> TagValueFileRef: TextFileRef - ссылка на текстовый файл со значением</p></li></ul></ul>
+<ul><li><p> DefaultTag: string - тег по-умолчанию. Используется для удобства, если формат текста подразумевает использование только одного значения подстановки.</p></li></ul>
+<ul><li><p> TextStyle: <a href="WidgetTextStyle.html"> WidgetTextStyle</a> - стиль текста</p></li></ul>
+<ul><li><p> minWidth: number - минимальная ширина виджета при переразмеривании. По умолчанию 0.0f;</p></li></ul>
+<ul><li><p> maxWidth: number - максимальная ширина виджета при переразмеривании. По умолчанию 0.0f;</p></li></ul>
+<ul><li><p> pickObjectsOnly: boolean - кликабельны только объекты <a href="TypeValuedObject.html"> ValuedObject</a> в тексте, но не сам контрол. По умолчанию false</p></li></ul>
+<ul><li><p> isHtmlEscaping: boolean - эскейпинг вводимого через <a href="FunctionTextViewSetVal.html"> SetVal</a> теста. Позволяет обрабатывать ввод теста с переносами строк, предотвращает HTML-вандализм. По умолчанию false</p></li></ul>
+<p></p>
+<h4>Существующие реакции:</h4>
+<p></p>
+<p>Текстовый виджет не имеет никаких дополнительных реакций.</p>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryWidgetMembers"</h4>
+<p></p>
+<a href="CategoryWidgetMembers.html">CategoryWidgetMembers</a>
+<br><a href="TextFileRef.html">TextFileRef</a>
+<br><a href="Widget.html">Widget</a>
+<br><a href="WidgetButton.html">WidgetButton</a>
+<br><a href="WidgetButtonState.html">WidgetButtonState</a>
+<br><a href="WidgetButtonVariant.html">WidgetButtonVariant</a>
+<br><a href="WidgetContainer.html">WidgetContainer</a>
+<br><a href="WidgetDiscreteScrollBar.html">WidgetDiscreteScrollBar</a>
+<br><a href="WidgetDiscreteSlider.html">WidgetDiscreteSlider</a>
+<br><a href="WidgetEditBase.html">WidgetEditBase</a>
+<br><a href="WidgetEditBox.html">WidgetEditBox</a>
+<br><a href="WidgetEditLine.html">WidgetEditLine</a>
+<br><a href="WidgetFactoryCache.html">WidgetFactoryCache</a>
+<br><a href="WidgetForm.html">WidgetForm</a>
+<br><a href="WidgetGlideScrollBar.html">WidgetGlideScrollBar</a>
+<br><a href="WidgetGlideSlider.html">WidgetGlideSlider</a>
+<br><a href="WidgetLayer.html">WidgetLayer</a>
+<br><a href="WidgetPanel.html">WidgetPanel</a>
+<br><a href="WidgetPlacementLua.html">WidgetPlacementLua</a>
+<br><a href="WidgetPlacementXY.html">WidgetPlacementXY</a>
+<br><a href="WidgetsArrangement.html">WidgetsArrangement</a>
+<br><a href="WidgetScrollableContainer.html">WidgetScrollableContainer</a>
+<br><a href="WidgetScrollBar.html">WidgetScrollBar</a>
+<br><a href="WidgetSlider.html">WidgetSlider</a>
+<br><a href="WidgetTextContainer.html">WidgetTextContainer</a>
+<br><a href="WidgetTextStyle.html">WidgetTextStyle</a>
+<br><a href="WidgetTextView.html">WidgetTextView</a>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryTextView"</h4>
+<p></p>
+<a href="CategoryTextView.html">CategoryTextView</a>
+<br><a href="FunctionTextViewClearValues.html">FunctionTextViewClearValues</a>
+<br><a href="FunctionTextViewGetDefaultTag.html">FunctionTextViewGetDefaultTag</a>
+<br><a href="FunctionTextViewGetTextRect.html">FunctionTextViewGetTextRect</a>
+<br><a href="FunctionTextViewGetTextScale.html">FunctionTextViewGetTextScale</a>
+<br><a href="FunctionTextViewGetValuedText.html">FunctionTextViewGetValuedText</a>
+<br><a href="FunctionTextViewGetWString.html">FunctionTextViewGetWString</a>
+<br><a href="FunctionTextViewPlayTextScaleEffect.html">FunctionTextViewPlayTextScaleEffect</a>
+<br><a href="FunctionTextViewPlayTextScaleEffectSequence.html">FunctionTextViewPlayTextScaleEffectSequence</a>
+<br><a href="FunctionTextViewSetAlignY.html">FunctionTextViewSetAlignY</a>
+<br><a href="FunctionTextViewSetClassVal.html">FunctionTextViewSetClassVal</a>
+<br><a href="FunctionTextViewSetEllipsis.html">FunctionTextViewSetEllipsis</a>
+<br><a href="FunctionTextViewSetFormat.html">FunctionTextViewSetFormat</a>
+<br><a href="FunctionTextViewSetLinespacing.html">FunctionTextViewSetLinespacing</a>
+<br><a href="FunctionTextViewSetMultiline.html">FunctionTextViewSetMultiline</a>
+<br><a href="FunctionTextViewSetTextAttributes.html">FunctionTextViewSetTextAttributes</a>
+<br><a href="FunctionTextViewSetTextScale.html">FunctionTextViewSetTextScale</a>
+<br><a href="FunctionTextViewSetTextValues.html">FunctionTextViewSetTextValues</a>
+<br><a href="FunctionTextViewSetVal.html">FunctionTextViewSetVal</a>
+<br><a href="FunctionTextViewSetValuedText.html">FunctionTextViewSetValuedText</a>
+<br><a href="FunctionTextViewSetWrapText.html">FunctionTextViewSetWrapText</a>
+<br><a href="FunctionTextViewShowClippedLine.html">FunctionTextViewShowClippedLine</a>
+<br><a href="FunctionTextViewShowClippedSymbol.html">FunctionTextViewShowClippedSymbol</a>
+<br><a href="WidgetTextView.html">WidgetTextView</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryTextView.html">CategoryTextView</a>
+<a href="CategoryWidgetMembers.html">CategoryWidgetMembers</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

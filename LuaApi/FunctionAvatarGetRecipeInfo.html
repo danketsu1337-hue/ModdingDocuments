@@ -1,0 +1,113 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAvatarGetRecipeInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> avatar.GetRecipeInfo( id )</h2>
+<p></p>
+<p>Возвращает информацию о рецепте по идентификатору ресурса.</p>
+<p></p>
+<pre>
+-- система:
+UIState/GameState
+функция имеет основную реализация в логике и расширенную реализацию в UI
+
+-- библиотека
+avatar
+
+-- объявление:
+function GetRecipeInfo( id )
+
+-- параметры
+id: RecipeId - Id ресурса рецепта
+
+-- возвращаемые значения
+nil, если рецепт не найден по идентификатору, или table:
+  id: RecipeId - Id ресурса рецепта
+  name: WString - название
+  description: ValuedText or nil - описание с подставленными текущими значениями параметров
+  skillId: SkillId or nil - идентификатор ресурса скила, которому принадлежит рецепт (если скилл выучен игроком)
+  score: number( int ) - необходимый уровень (score) умения для изучения
+  --{ часть таблицы, реализованная только для UI
+  image: TextureId - идентификатор текстуры для иконки рецепта
+  --}
+  components: table of ObjectId or ResourceId - массив компонент рецепта (см. ниже)
+  resultQuantity: number( int ) - количество предметов, получаемых из рецепта по умолчанию
+  defaultItem: ObjectId or nil - идентификатор предмета, получаемый из рецепта по умолчанию
+  nextRecipe: UnlockId or nil - идентификатор анлока следующего ресурса (если ещё не выполнен)
+  nextRecipeId: RecipeId or nil - следующий рецепт
+  nextRecipePoints: number( int ) - Сколько надо просветления для анлока следующего рецепта
+  qualificationPoints: CurrencyId - Id альтернативной ценности
+  resultItems: table of ObjectId - индексированный с 0 массив идентификаторов предметов, создаваемых по рецепту (отсортированы по качеству от менее качественного (0) до более качественного)
+  bindResult: boolean - будет ли результат привязан к аватару
+
+-- пример использования
+local alchemy = avatar.GetAlchemyInfo()
+local recipes = alchemy.recipes
+for i = 0, GetTableSize( recipes ) - 1 do
+  local recipeInfo = avatar.GetRecipeInfo( recipes[ i ] )
+  if recipeInfo then
+    common.LogInfo( debugCommon.FromWString( recipeInfo.name ) )
+
+    local firstItemInfo = avatar.GetItemInfo( recipes[ i ].resultItems[ 0 ] )
+    if firstItemInfo then
+      common.LogInfo( "Предмет, создаваемый рецептом - ", debugCommon.FromWString( firstItemInfo.name ) )
+    end
+  end
+end
+</pre>
+<p></p>
+<p>Таблица components содержит список идентификаторов компонент рецепта. Для разных скиллов передаются разные идентификаторы:</p>
+<ul><li><p> Алхимия - table of ComponentPropertyId - массив идентификаторов ресурсов алхимических компонент рецепта (см. <a href="FunctionAvatarGetComponentInfo.html">avatar.GetComponentInfo(componentId)</a></p></li></ul>
+<ul><li><p> Создание доспехов (armorCraft или DiceCraft) - table of ObjectId - массив идентификаторов объектов предметов, необходимых для рецепта</p></li></ul>
+<p></p>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategorySkill"</h4>
+<p></p>
+<a href="CategoryCraft.html">CategoryCraft</a>
+<br><a href="ComponentPropertyId.html">ComponentPropertyId</a>
+<br><a href="EnumToolProperty.html">EnumToolProperty</a>
+<br><a href="EventForagingFailed.html">EventForagingFailed</a>
+<br><a href="EventSkillAdded.html">EventSkillAdded</a>
+<br><a href="EventSkillImprovementChanged.html">EventSkillImprovementChanged</a>
+<br><a href="EventSkillRemoved.html">EventSkillRemoved</a>
+<br><a href="EventSkillsChanged.html">EventSkillsChanged</a>
+<br><a href="EventSkillScoreChanged.html">EventSkillScoreChanged</a>
+<br><a href="FunctionAvatarGetActiveCraftingSkill.html">FunctionAvatarGetActiveCraftingSkill</a>
+<br><a href="FunctionAvatarGetComponentInfo.html">FunctionAvatarGetComponentInfo</a>
+<br><a href="FunctionAvatarGetCurrentMaxSkillScore.html">FunctionAvatarGetCurrentMaxSkillScore</a>
+<br><a href="FunctionAvatarGetMaxSkillScore.html">FunctionAvatarGetMaxSkillScore</a>
+<br><a href="FunctionAvatarGetRecipeAfflatusItem.html">FunctionAvatarGetRecipeAfflatusItem</a>
+<br><a href="FunctionAvatarGetRecipeInfo.html">FunctionAvatarGetRecipeInfo</a>
+<br><a href="FunctionAvatarGetSkillInfo.html">FunctionAvatarGetSkillInfo</a>
+<br><a href="FunctionAvatarGetSkills.html">FunctionAvatarGetSkills</a>
+<br><a href="FunctionItemLibGetActivationInfo.html">FunctionItemLibGetActivationInfo</a>
+<br><a href="FunctionItemLibGetCraftInfo.html">FunctionItemLibGetCraftInfo</a>
+<br><a href="FunctionItemLibGetCraftToolInfo.html">FunctionItemLibGetCraftToolInfo</a>
+<br><a href="FunctionItemLibGetExchangeInfo.html">FunctionItemLibGetExchangeInfo</a>
+<br><a href="FunctionItemLibGetOwnershipLimit.html">FunctionItemLibGetOwnershipLimit</a>
+<br><a href="FunctionItemLibIsCopied.html">FunctionItemLibIsCopied</a>
+<br><a href="RecipeId.html">RecipeId</a>
+<br><a href="SkillId.html">SkillId</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<a href="CategorySkill.html">CategorySkill</a>
+<a href="CategoryCraft.html">CategoryCraft</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

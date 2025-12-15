@@ -1,0 +1,81 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionBulletinBoardGetPost</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> bulletinBoard.GetPost( postId )</h2>
+<p></p>
+<p>Возвращает информацию об указанном объявлении на доске. Если объявление не найдено (например, было удалено), возвращается nil.</p>
+<p></p>
+<pre>
+-- библиотека:
+bulletinBoard
+
+-- объявление:
+function GetPost( postId )
+
+-- параметры:
+postId: number (int) - идентификатор объявления
+
+-- возвращаемые значения:
+таблица с информацией об объявлении или nil, если объявление не найдено, поля таблицы:
+ postId: number (int) - идентификатор объявления
+ isPremium: boolean - true, если это платное сообщение
+ name: WString - имя персонажа
+ guild: WString - название гильдии персонажа (если есть)
+ isOnline: boolean - находится ли персонаж в игре
+ level: number (int) - уровень персонажа
+ raceClass: table LuaRaceClassInfoPart or nil - раса-класс персонажа
+ sex: table LuaSexInfoPart or nil - описание пола персонажа
+ zoneName: WString - название зоны, где находится персонаж
+ text: WString - текст объявления, если уже был получен
+ lifeTimeMs: number (int64) or nil - время существования объявления в миллисекундах или nil, в случае ошибки
+ lifeTime: table or nil - время существования объявления или nil, в случае ошибки. Таблица с полями:
+   d, h, m, s: number (integer) - дней, часов, минут, секунд
+ remainingTimeMs: number (int64) or nil - оставшееся время существования объявления в миллисекундах или nil, если ограничений по времени нет
+ remainingTime: table or nil - оставшееся время существования объявления или nil, если ограничений по времени нет. Таблица с полями:
+   d, h, m, s: number (integer) - дней, часов, минут, секунд
+
+-- примеры:
+local post = bulletinBoard.GetPost( postId )
+if post then
+ LogInfo( "name: ", post.name )
+end
+</pre>
+<p></p>
+<p>См. <a href="LuaRaceClassInfoPart.html"> LuaRaceClassInfoPart</a>, <a href="LuaSexInfoPart.html"> LuaSexInfoPart</a></p>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryLuaBulletinBoard"</h4>
+<p></p>
+<a href="CategoryLuaBulletinBoard.html">CategoryLuaBulletinBoard</a>
+<br><a href="EventBulletinBoardChanged.html">EventBulletinBoardChanged</a>
+<br><a href="EventBulletinBoardOperationInProgressChanged.html">EventBulletinBoardOperationInProgressChanged</a>
+<br><a href="EventBulletinBoardPostAdded.html">EventBulletinBoardPostAdded</a>
+<br><a href="EventBulletinBoardPostChanged.html">EventBulletinBoardPostChanged</a>
+<br><a href="FunctionBulletinBoardCanAddText.html">FunctionBulletinBoardCanAddText</a>
+<br><a href="FunctionBulletinBoardGetPost.html">FunctionBulletinBoardGetPost</a>
+<br><a href="FunctionBulletinBoardGetPostPriceInfo.html">FunctionBulletinBoardGetPostPriceInfo</a>
+<br><a href="FunctionBulletinBoardGetSectionInfos.html">FunctionBulletinBoardGetSectionInfos</a>
+<br><a href="FunctionBulletinBoardGetText.html">FunctionBulletinBoardGetText</a>
+<br><a href="FunctionBulletinBoardIsOperationInProgress.html">FunctionBulletinBoardIsOperationInProgress</a>
+<br><a href="FunctionBulletinBoardReadSection.html">FunctionBulletinBoardReadSection</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryLuaBulletinBoard.html">CategoryLuaBulletinBoard</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

@@ -1,0 +1,192 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionObjectGetBuffTooltipInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> object.GetBuffTooltipInfo( id )</h2>
+<p></p>
+<p>Возвращает информацию о бафе для отображения в тултипе. Является усеченной версией информации о бафе, но добавлено описание бафа. В качестве аргумента может принимать как id экземпляра бафа, так и ресурса (BuffId) бафа.</p>
+<p></p>
+<p>Набор информации для ресурса бафа является подмножеством набора информации для экземпляра бафа.</p>
+<p></p>
+<pre>
+-- система:
+GameState
+
+-- библиотека:
+object
+
+-- объявление:
+function GetBuffTooltipInfo( Id )
+
+-- параметры:
+Id: ObjectId or BuffId - Идентификатор экземпляра (должен быть валидным) или ресурса буфа
+
+-- возвращаемые значения: table or nil (только при ошибке), поля:
+
+-- Доступны как для  ресурса, так и для экземпляра бафа
+name: WString - имя буфа
+texture: TextureId - идентификатор текстуры для иконки буфа
+
+-- Доступны как для ресурса, так и для экземпляра бафа, но реализация отличается
+description:
+  для ресурса бафа WString - описание из ресурса бафа "как есть".  Может сдержать форматные теги без подставленных значениий!
+  для экземпляра бафа ValuedText - описание со всеми подставленными значениями.
+
+-- Доступны только для экземпляра бафа
+ownerId: ObjectId or nil - Id объекта, на котором висит буф, если такой объект есть
+isNeedVisualizeDuration: boolean - нужно ли показывать duration
+
+stackCount: number (int) - может быть количеством одинаковых буфов, уровенем буфа или аналогичной информаций в
+durationMs: number (int) - полное время действия буфа
+remainingMs: number (int) - время до окончания действия буфа
+
+-- пример:
+--------------------------------------------------------------------------------
+templates[ TOOLTIP_BUFF ].GetDataFrom = function( self, params )
+	local data
+	local buffInfo, isResourceBuff
+
+	if apitype( params.buffId ) == "BuffId" then
+		buffInfo = object.GetBuffTooltipInfo( params.buffId )
+		isResourceBuff = true
+	else
+		buffInfo = object.IsValidBuff( params.buffId ) and object.GetBuffTooltipInfo( params.buffId )
+		params.cachedInfo = buffInfo
+		isResourceBuff = false
+	end
+
+	local data = {}
+
+	if not buffInfo then
+		if params.cachedInfo then
+			buffInfo = params.cachedInfo
+			data.expired = true
+		else
+			return
+		end
+	end
+
+	data.name = GetNameFromInfo( params, buffInfo )
+	data.desc = GetDescFromInfo( params, buffInfo )
+
+	if not isResourceBuff and not data.expired then
+		data.buffId = params.buffId
+		data.objectId = buffInfo.ownerId
+		data.initTimeMs = common.GetAbsTimeMs()
+		data.remainingMs = buffInfo.isNeedVisualizeDuration and buffInfo.remainingMs &gt; 0 and buffInfo.remainingMs or nil
+	end
+
+	return data
+end
+--------------------------------------------------------------------------------
+templates[ TOOLTIP_BUFF ].AssembleContentFrom = function ( self, data )
+	local content = {
+		{ type = TOOLTIP_CONTENT.SMART_LINE, data.name },
+		{ type = TOOLTIP_CONTENT.SMART_LINE, data.desc },
+		{ type = TOOLTIP_CONTENT.SMART_LINE, data.remainingMs and
+			{
+				format = GetAddonText( nil, "BuffDuration" ),
+				style = "tip_blue",
+				value = GetDurationComplexValuedText( data.remainingMs )
+			} or nil,
+			updaters = data.remainingMs and {
+				{
+					func = function( event )
+						local elapsedMs = data.initTimeMs and event.timeMs - data.initTimeMs or event.elapsedMs
+						data.initTimeMs = nil
+						data.remainingMs = data.remainingMs - elapsedMs
+						if data.remainingMs &gt; 0 then
+							return {
+								format = GetAddonText( nil, "BuffDuration" ),
+								value = GetDurationComplexValuedText( data.remainingMs ),
+								style = "tip_blue"
+							}
+						else
+							return {
+								format = GetAddonText( nil, "BuffExpired" ),
+								style = "tip_red"
+							}
+						end
+					end,
+					event = "EVENT_SECOND_TIMER"
+				}
+			}
+		},
+		{ type = TOOLTIP_CONTENT.SMART_LINE, data.expired and { format = GetAddonText( nil, "BuffExpired" ), style = "tip_red" } },
+		updaters = data.objectId and {
+			{
+				func = DefaultUpdaterHandler,
+				event = "EVENT_OBJECT_BUFF_CHANGED",
+				filter = { objectId = data.objectId, buffId = data.buffId },
+				flags = { cfilter = true }
+			},
+			{
+				func = DefaultUpdaterHandler,
+				event = "EVENT_OBJECT_BUFF_REMOVED",
+				filter = { objectId = data.objectId, buffId = data.buffId },
+				flags = { cfilter = true }
+			},
+		}
+	}
+	return content
+end
+--------------------------------------------------------------------------------
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryBuff"</h4>
+<p></p>
+<a href="BuffId.html">BuffId</a>
+<br><a href="CategoryBuff.html">CategoryBuff</a>
+<br><a href="EnumDiminishingGroup.html">EnumDiminishingGroup</a>
+<br><a href="EnumUIBuffPriority.html">EnumUIBuffPriority</a>
+<br><a href="EventAvatarBuffRemovingFailed.html">EventAvatarBuffRemovingFailed</a>
+<br><a href="EventGuildBuffAdded.html">EventGuildBuffAdded</a>
+<br><a href="EventGuildBuffsChanged.html">EventGuildBuffsChanged</a>
+<br><a href="EventObjectBuffAdded.html">EventObjectBuffAdded</a>
+<br><a href="EventObjectBuffChanged.html">EventObjectBuffChanged</a>
+<br><a href="EventObjectBuffProgressAdded.html">EventObjectBuffProgressAdded</a>
+<br><a href="EventObjectBuffProgressChanged.html">EventObjectBuffProgressChanged</a>
+<br><a href="EventObjectBuffProgressRemoved.html">EventObjectBuffProgressRemoved</a>
+<br><a href="EventObjectBuffRemoved.html">EventObjectBuffRemoved</a>
+<br><a href="EventObjectBuffsChanged.html">EventObjectBuffsChanged</a>
+<br><a href="EventObjectBuffsElementChanged.html">EventObjectBuffsElementChanged</a>
+<br><a href="EventObjectDiminishingChanged.html">EventObjectDiminishingChanged</a>
+<br><a href="EventObjectDiminishingGroupChanged.html">EventObjectDiminishingGroupChanged</a>
+<br><a href="FunctionGuildGetBuffs.html">FunctionGuildGetBuffs</a>
+<br><a href="FunctionObjectGetBuffBySysName.html">FunctionObjectGetBuffBySysName</a>
+<br><a href="FunctionObjectGetBuffCount.html">FunctionObjectGetBuffCount</a>
+<br><a href="FunctionObjectGetBuffDynamicInfo.html">FunctionObjectGetBuffDynamicInfo</a>
+<br><a href="FunctionObjectGetBuffInfo.html">FunctionObjectGetBuffInfo</a>
+<br><a href="FunctionObjectGetBuffInstances.html">FunctionObjectGetBuffInstances</a>
+<br><a href="FunctionObjectGetBuffRanks.html">FunctionObjectGetBuffRanks</a>
+<br><a href="FunctionObjectGetBuffs.html">FunctionObjectGetBuffs</a>
+<br><a href="FunctionObjectGetBuffsInfo.html">FunctionObjectGetBuffsInfo</a>
+<br><a href="FunctionObjectGetBuffsWithProperties.html">FunctionObjectGetBuffsWithProperties</a>
+<br><a href="FunctionObjectGetBuffSysName.html">FunctionObjectGetBuffSysName</a>
+<br><a href="FunctionObjectGetBuffTooltipInfo.html">FunctionObjectGetBuffTooltipInfo</a>
+<br><a href="FunctionObjectGetDiminishingState.html">FunctionObjectGetDiminishingState</a>
+<br><a href="FunctionObjectHasBuffManager.html">FunctionObjectHasBuffManager</a>
+<br><a href="FunctionObjectIsValidBuff.html">FunctionObjectIsValidBuff</a>
+<br><a href="FunctionObjectRemoveBuff.html">FunctionObjectRemoveBuff</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryObject.html">CategoryObject</a>
+<a href="CategoryBuff.html">CategoryBuff</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

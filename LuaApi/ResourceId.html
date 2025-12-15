@@ -1,0 +1,162 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - ResourceId</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>ResourceId</h2>
+<p></p>
+<p>Группа типов, являющихся идентификаторами ресурсов из базы. Один из пользовательских типов данных, см. также <a href="LuaApiTypes.html"> LuaApiTypes</a>. Реализация каждого из типов данной группы - userdata с метатаблицей, соответствующей определенной категории ресурсов базы или nil (в случае отсутствия ресурса). Название типа и метатаблицы совпадают.</p>
+<p></p>
+<p>Методы класса:</p>
+<p></p>
+<ul><li><p> <a href="FunctionResourceIdGetInfo.html"> ResourceId:GetInfo()</a> - информация из файла ресурса</p></li></ul>
+<ul><li><p> <a href="FunctionResourceIdGetPath.html"> ResourceId:GetPath()</a> - путь к ресурсу</p></li></ul>
+<ul><li><p> <a href="FunctionResourceIdGetInstanceId.html"> ResourceId:GetInstanceId()</a> - уникальный идентификатор ресурса</p></li></ul>
+<ul><li><p> <a href="FunctionResourceIdIsEqual.html"> ResourceId:IsEqual( resource )</a> - сравнение идентификаторов</p></li></ul>
+<p></p>
+<h4>Группа представлена следующими типами:</h4>
+<p></p>
+<ul><li><p> TextureId - идентификатор текстуры из базы</p></li></ul>
+<ul><li><p> VisObjectId - идентификатор визуального объекта из базы</p></li></ul>
+<ul><li><p> VisActionId - идентификатор визуального скрипта из базы</p></li></ul>
+<ul><li><p> AliasVisObjectId - идентификатор визуального объекта-обвязки из базы</p></li></ul>
+<ul><li><p> <a href="Sound2DId.html"> Sound2DId</a> - идентификатор звука из базы</p></li></ul>
+<ul><li><p> DecalObjectId - идентификатор декола из базы</p></li></ul>
+<p></p>
+<p>Также имеются гейммеханические идентификаторы. Эти идентификаторы можно сохранять между сессиями (см. CategoryConfig):</p>
+<ul><li><p> QuestId - идентификатор квеста, заданный идентификатором его квестового ресурса из базы</p></li></ul>
+<ul><li><p> SpellId - идентификатор заклинания из базы</p></li></ul>
+<ul><li><p> SkillId - идентификатор умения из базы</p></li></ul>
+<ul><li><p> ComponentPropertyId - идентификатор компонента крафтинга из базы</p></li></ul>
+<ul><li><p> RecipeId - идентификатор рецепта из базы</p></li></ul>
+<ul><li><p> AbilityId - идентификатор пассивного умения из базы</p></li></ul>
+<ul><li><p> CurrencyId - описание альтернативной игровой валюты</p></li></ul>
+<ul><li><p> CurrencyCategoryId - описание категории альтернативной игровой валюты (поля в self:GetInfo())</p></li></ul>
+<ul><li><p> BuffId - идентификатор бафа, навешенного на игрока</p></li></ul>
+<ul><li><p> PostTypeId - идентификатор раздела доски объявлений</p></li></ul>
+<ul><li><p> ItemCategoryId</p></li></ul>
+<ul><li><p> WishmasterResourceId</p></li></ul>
+<ul><li><p> CharacterClassId</p></li></ul>
+<ul><li><p> InterfaceMapMarkerId</p></li></ul>
+<ul><li><p> MapModifierId - идентификатор модификатора карты</p></li></ul>
+<ul><li><p> ItemId - идентификатор ресурса предмета в базе</p></li></ul>
+<ul><li><p> ActionGroupId - идентификатор группы заклинаний</p></li></ul>
+<ul><li><p> BillingBonusId - идентификатор платёжного бонуса</p></li></ul>
+<ul><li><p> InstancedEventResourceId - идентификатор сражения (инстанс-ивента)</p></li></ul>
+<ul><li><p> CheckRoomCategoryId - категория гардероба</p></li></ul>
+<ul><li><p> CheckRoomCollectionId - коллекция гардероба</p></li></ul>
+<ul><li><p> LootGroupId - вариант выбора лута, падающего на астральных островах</p></li></ul>
+<ul><li><p> FactionId - фракция</p></li></ul>
+<ul><li><p> BattlegroundMarkId - команда в массовых сражениях</p></li></ul>
+<ul><li><p> RewardsExchangeCategoryId - категория наград для биржи наград</p></li></ul>
+<ul><li><p> TierId - тир награды для биржи наград</p></li></ul>
+<p></p>
+<p>и др.</p>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryTypes"</h4>
+<p></p>
+<a href="AbilityId.html">AbilityId</a>
+<br><a href="ActionGroupId.html">ActionGroupId</a>
+<br><a href="AliasVisObjectId.html">AliasVisObjectId</a>
+<br><a href="AstralSectorId.html">AstralSectorId</a>
+<br><a href="BattlegroundMarkId.html">BattlegroundMarkId</a>
+<br><a href="BillingBonusId.html">BillingBonusId</a>
+<br><a href="BuffId.html">BuffId</a>
+<br><a href="CategoryTypes.html">CategoryTypes</a>
+<br><a href="CharacterClassId.html">CharacterClassId</a>
+<br><a href="CharacterFormId.html">CharacterFormId</a>
+<br><a href="CombatTagId.html">CombatTagId</a>
+<br><a href="ComponentPropertyId.html">ComponentPropertyId</a>
+<br><a href="CurrencyCategoryId.html">CurrencyCategoryId</a>
+<br><a href="CurrencyId.html">CurrencyId</a>
+<br><a href="DecalObjectId.html">DecalObjectId</a>
+<br><a href="FactionId.html">FactionId</a>
+<br><a href="FunctionApitype.html">FunctionApitype</a>
+<br><a href="FunctionCommonCreateValuedObject.html">FunctionCommonCreateValuedObject</a>
+<br><a href="FunctionCommonGetApiType.html">FunctionCommonGetApiType</a>
+<br><a href="FunctionCommonGetFatalityPhraseLimits.html">FunctionCommonGetFatalityPhraseLimits</a>
+<br><a href="FunctionCommonIsFatalityPhraseFiltered.html">FunctionCommonIsFatalityPhraseFiltered</a>
+<br><a href="FunctionCommonIsTextFiltered.html">FunctionCommonIsTextFiltered</a>
+<br><a href="FunctionCommonIsValuedObject.html">FunctionCommonIsValuedObject</a>
+<br><a href="FunctionCommonIsValuedText.html">FunctionCommonIsValuedText</a>
+<br><a href="FunctionIsIndexableUdata.html">FunctionIsIndexableUdata</a>
+<br><a href="FunctionResourceIdGetInfo.html">FunctionResourceIdGetInfo</a>
+<br><a href="FunctionResourceIdGetInstanceId.html">FunctionResourceIdGetInstanceId</a>
+<br><a href="FunctionResourceIdGetPath.html">FunctionResourceIdGetPath</a>
+<br><a href="FunctionResourceIdIsEqual.html">FunctionResourceIdIsEqual</a>
+<br><a href="GamePosition.html">GamePosition</a>
+<br><a href="Geodata.html">Geodata</a>
+<br><a href="GlossaryId.html">GlossaryId</a>
+<br><a href="InnateStatSecondary.html">InnateStatSecondary</a>
+<br><a href="InstancedEventCategoryId.html">InstancedEventCategoryId</a>
+<br><a href="InstancedEventResourceId.html">InstancedEventResourceId</a>
+<br><a href="ItemCategoryId.html">ItemCategoryId</a>
+<br><a href="ItemId.html">ItemId</a>
+<br><a href="LfgDestinationCategoryId.html">LfgDestinationCategoryId</a>
+<br><a href="LfgDestinationId.html">LfgDestinationId</a>
+<br><a href="LifestyleCategoryId.html">LifestyleCategoryId</a>
+<br><a href="LifestyleCollectionId.html">LifestyleCollectionId</a>
+<br><a href="LootGroupId.html">LootGroupId</a>
+<br><a href="LuaApiTypes.html">LuaApiTypes</a>
+<br><a href="LuaFullDateTime.html">LuaFullDateTime</a>
+<br><a href="LuaRaceClassInfoPart.html">LuaRaceClassInfoPart</a>
+<br><a href="LuaSexInfoPart.html">LuaSexInfoPart</a>
+<br><a href="MapModifierId.html">MapModifierId</a>
+<br><a href="MedalId.html">MedalId</a>
+<br><a href="MedalRankId.html">MedalRankId</a>
+<br><a href="MountTalentGroupId.html">MountTalentGroupId</a>
+<br><a href="MountTalentId.html">MountTalentId</a>
+<br><a href="MutationInfo.html">MutationInfo</a>
+<br><a href="PostTypeId.html">PostTypeId</a>
+<br><a href="QuestId.html">QuestId</a>
+<br><a href="RecipeId.html">RecipeId</a>
+<br><a href="RelatedSoundsLua.html">RelatedSoundsLua</a>
+<br><a href="RelatedTextsLua.html">RelatedTextsLua</a>
+<br><a href="RelatedTexturesLua.html">RelatedTexturesLua</a>
+<br><a href="RelatedWidgetsLua.html">RelatedWidgetsLua</a>
+<br><a href="RequirementsTable.html">RequirementsTable</a>
+<br><a href="ResourceId.html">ResourceId</a>
+<br><a href="RuleId.html">RuleId</a>
+<br><a href="ShipSkinId.html">ShipSkinId</a>
+<br><a href="SkillId.html">SkillId</a>
+<br><a href="SocketId.html">SocketId</a>
+<br><a href="Sound2DId.html">Sound2DId</a>
+<br><a href="SpecialStatId.html">SpecialStatId</a>
+<br><a href="SpellId.html">SpellId</a>
+<br><a href="TeleportMasterId.html">TeleportMasterId</a>
+<br><a href="TextureId.html">TextureId</a>
+<br><a href="TimeTableId.html">TimeTableId</a>
+<br><a href="TutorialCategoryId.html">TutorialCategoryId</a>
+<br><a href="TutorialId.html">TutorialId</a>
+<br><a href="TypeValuedObject.html">TypeValuedObject</a>
+<br><a href="TypeValuedText.html">TypeValuedText</a>
+<br><a href="TypeWidgetDesc.html">TypeWidgetDesc</a>
+<br><a href="TypeWString.html">TypeWString</a>
+<br><a href="UITextureId.html">UITextureId</a>
+<br><a href="UniqueId.html">UniqueId</a>
+<br><a href="UnlockCategoryId.html">UnlockCategoryId</a>
+<br><a href="VisActionId.html">VisActionId</a>
+<br><a href="VisObjectId.html">VisObjectId</a>
+<br><a href="VisualShipId.html">VisualShipId</a>
+<br><a href="VoteId.html">VoteId</a>
+<br><a href="WishmasterResourceId.html">WishmasterResourceId</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryTypes.html">CategoryTypes</a>
+<a href="CategoryVisObjectId.html">CategoryVisObjectId</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

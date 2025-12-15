@@ -1,0 +1,115 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAuctionSearch</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> auction.Search( filter, orderField, asc, page )</h2>
+<p></p>
+<p>Попытается найти все аукционы с заданными параметрами. Фильтр поиска задается в отдельной таблице. Нужно указать поле для сортировки, направление сортировки и желательную страницу результата.</p>
+<p></p>
+<p>Поле сортировки задается енумом <a href="EnumAuctionOrderField.html"> AUCTION_ORDERFIELD_...</a>. Некоторые поля фильтра требуют строковый псевдоним какого-либо ресурса (itemClass, raretyMin, raretyMax). Проверить валидность маски для поиска по имени можно функцией <a href="FunctionAuctionIsSearchNameValid.html"> auction.IsSearchNameValid</a>.</p>
+<p></p>
+<p>Дополнительные подробности:  LuaApiDetails (закрытая ссылка)</p>
+<p></p>
+<p>Новый поиск не начнётся, пока не закончен старый. См. <a href="FunctionAuctionIsSearchInProgress.html"> auction.IsSearchInProgress()</a>.</p>
+<p></p>
+<p>Результат поиска - <a href="EventAuctionSearchResult.html"> EVENT_AUCTION_SEARCH_RESULT</a>.</p>
+<p></p>
+<p>Список аукционов передается на клиент постранично и метод <a href="FunctionAuctionGetAuctions.html"> auction.GetAuctions()</a> возвращает только список из указанной при поиске страницы <a href="FunctionAuctionGetAuctionsPage.html"> auction.GetAuctionsPage()</a>. Количество страниц - <a href="FunctionAuctionGetAuctionsPageCount.html"> auction.GetAuctionsPageCount()</a>.</p>
+<p></p>
+<pre>
+-- библиотека
+auction
+
+-- объявление
+function Search( filter, orderField, asc, page )
+
+-- параметры
+filter: Table - фильр поиска. Описан таблицей с полями, каждое из которых может быть пустым (см. ниже)
+orderField: number (enum AUCTION_ORDERFIELD_...) - поле сортировке
+asc: boolean - направление сортировки. true - сортировать по возрастанию
+page: number (int) - номер страницы для показа, начиная с 1
+
+-- поля фильтра:
+name: WString or nil - маска для поиска по имени
+itemClass: string or nil - псевдоним класса предмета
+dressSlot: number (enum DRESS_SLOT_...) or nil - слот одежды
+rarityMin: string or nil - псевдоним минимального качества предмета
+rarityMax: string or nil - псевдоним максимального качества предмета
+levelMin: int or nil - минимальный уровень предмета
+levelMax: int or nil - максимальный уровень предмета
+bidMin: number or nil - минимальная последняя ставка
+bidMax: number or nil - максивальная последняя ставка
+buyoutMin: number or nil - минимальная цена выкупа
+buyoutMax: number or nil - максивальная цена выкупа
+onlyMyAuctions: bool or nil - показывать только аукционы, созданные главным игроком
+onlyAuctionsWithMyBids: bool or nil - показывать только аукционы с последней ставкой от главного игрока
+rootCategory: ItemCategoryId or nil - идентификатор корневой категории
+childCategory: ItemCategoryId or nil - идентификатор терминальной категории
+
+-- возвращаемые значения
+нет
+
+-- пример
+if not auction.IsSearchInProgress() then
+  local filter = {}
+  filter.levelMin = 10
+  filter.levelMax = 12
+  auction.Search( filter, AUCTION_ORDERFIELD_LEVEL, false, 1 )
+end
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryAuction"</h4>
+<p></p>
+<a href="EnumAuctionBidResultMsgResult.html">EnumAuctionBidResultMsgResult</a>
+<br><a href="EnumAuctionCreateResultMsg.html">EnumAuctionCreateResultMsg</a>
+<br><a href="EnumAuctionCreationTime.html">EnumAuctionCreationTime</a>
+<br><a href="EnumAuctionDescriptorParticipationStatus.html">EnumAuctionDescriptorParticipationStatus</a>
+<br><a href="EnumAuctionDiscardResultMsgResult.html">EnumAuctionDiscardResultMsgResult</a>
+<br><a href="EnumAuctionGetParamsResultMsgStatus.html">EnumAuctionGetParamsResultMsgStatus</a>
+<br><a href="EnumAuctionGetResultMsgResult.html">EnumAuctionGetResultMsgResult</a>
+<br><a href="EnumAuctionOrderField.html">EnumAuctionOrderField</a>
+<br><a href="EnumAuctionSearchResultMsgResult.html">EnumAuctionSearchResultMsgResult</a>
+<br><a href="EventAuctionBidResult.html">EventAuctionBidResult</a>
+<br><a href="EventAuctionCreationResult.html">EventAuctionCreationResult</a>
+<br><a href="EventAuctionDiscardResult.html">EventAuctionDiscardResult</a>
+<br><a href="EventAuctionProperties.html">EventAuctionProperties</a>
+<br><a href="EventAuctionSearchResult.html">EventAuctionSearchResult</a>
+<br><a href="EventAuctionUpdateResult.html">EventAuctionUpdateResult</a>
+<br><a href="FunctionAuctionBid.html">FunctionAuctionBid</a>
+<br><a href="FunctionAuctionBuyout.html">FunctionAuctionBuyout</a>
+<br><a href="FunctionAuctionCanCreateForItem.html">FunctionAuctionCanCreateForItem</a>
+<br><a href="FunctionAuctionCreateForItem.html">FunctionAuctionCreateForItem</a>
+<br><a href="FunctionAuctionDiscard.html">FunctionAuctionDiscard</a>
+<br><a href="FunctionAuctionGetAuctionInfo.html">FunctionAuctionGetAuctionInfo</a>
+<br><a href="FunctionAuctionGetAuctions.html">FunctionAuctionGetAuctions</a>
+<br><a href="FunctionAuctionGetAuctionsCount.html">FunctionAuctionGetAuctionsCount</a>
+<br><a href="FunctionAuctionGetAuctionsPage.html">FunctionAuctionGetAuctionsPage</a>
+<br><a href="FunctionAuctionGetAuctionsPageCount.html">FunctionAuctionGetAuctionsPageCount</a>
+<br><a href="FunctionAuctionGetAuctionState.html">FunctionAuctionGetAuctionState</a>
+<br><a href="FunctionAuctionGetItemForegroundLevel.html">FunctionAuctionGetItemForegroundLevel</a>
+<br><a href="FunctionAuctionGetProperties.html">FunctionAuctionGetProperties</a>
+<br><a href="FunctionAuctionIsCreationInProgress.html">FunctionAuctionIsCreationInProgress</a>
+<br><a href="FunctionAuctionIsSearchInProgress.html">FunctionAuctionIsSearchInProgress</a>
+<br><a href="FunctionAuctionIsSearchNameValid.html">FunctionAuctionIsSearchNameValid</a>
+<br><a href="FunctionAuctionSearch.html">FunctionAuctionSearch</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryAuction.html">CategoryAuction</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

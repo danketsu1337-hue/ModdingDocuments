@@ -1,0 +1,162 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - EventClientMessage</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>EVENT_CLIENT_MESSAGE</h2>
+<p></p>
+<p>Уведомление о приходе на клиент текстового сообщения.</p>
+<p></p>
+<p>Строковый код типа берётся из ресурса. Задается непосредственно в эффектах типа ClientData (серверный тип: gameMechanics.world.ClientData) в расширении InterfaceAction.</p>
+<p></p>
+<p>Рекомендуемый шаблон sysId:</p>
+<pre>
+ENUM_BATTLE_ACHIEVEMENT - достижение в астральных кораблях
+ENUM_CHAT_MESSAGE - сообщение выведется в чат
+ENUM_CHAT_MOB_MESSAGE - сообщение выведется в чат от имени моба в виде "имя моба: текст сообщения"
+ENUM_TOOLTIP - сообщение выведется в тултип(например когда нужно перечислить условия вступления на LFG-активность)
+ENUM_WARNING_MESSAGE - на экран (обычное)
+ENUM_WARNING_MESSAGE_FRAME - на экран (с рамкой)
+ENUM_WARNING_MESSAGE_RED - на экран (красное)
+ENUM_WARNING_MESSAGE_BLUE - на экран (синее)
+ENUM_ANNOUNCE_MESSAGE - анонс красным цветом
+ENUM_SHOW_BUBBLE - бабл над головой
+ENUM_POINTS_ANNOUNCE - анонс об изменении очков(на БГ)
+ENUM_ARENA_START_ANNOUNCE - анонс о 10 секундной готовности на арене
+ENUM_MESSAGE_BOX - откроется мессаджбокс (интерфейсное окно с кнопкой закрытия) с сообщением
+ENUM_MODAL_MESSAGE - модальное окно (для пользователя доступен только мессаджбокс, остальной интерфейс не доступен)
+ENUM_Tutorial_ - в учебник
+ENUM_SOCIAL_NETWORKS_POST - в автоматический постинг сообщений в соц.сети
+</pre>
+<p></p>
+<p>В сообщении передаются пары имя-значение параметров. Каждый из параметров может быть одним из пяти типов (строка, число, интерактивный объект, ресурсный объект, позиция). Каждому типу соответствует свое поле, в котором хранится информация о значении, а остальные поля пустые. То есть значение передано только в одном из полей-значений (objectId, position, resourceObject, int, text).</p>
+<p></p>
+<p>Enum CLIENT_DATA_PARAM_...^</p>
+<pre>
+CLIENT_DATA_PARAM_MONEY - надо показать в денежном формате
+CLIENT_DATA_DRESS_SLOT - надо показать имя слота на персонаже (щит, шлем, костюм...)
+CLIENT_DATA_PLAYER_NAME - надо показать имя игрока (возможно, кликабельное)
+</pre>
+<p></p>
+<pre>
+-- поля:
+ objectId: ObjectId or nil - интерактивный объект, от которого пришло сообщение, если такая информация доступна
+ sysId: string (enum) - строковый код типа
+ text: WString - текст сообщения
+ sysChatChannel: string or nil - строковый идентификатор канала в чате, если канал был задан. См. /ChatLog/Channels/ScriptMessageChannels.lua. Уровни вложенности конкатенируются через подчеркивание. Например: combat_damage_outgoing_miss
+ sysDebugName: string or nil - отладочное поле, для девелоперской версии клиента - идентификатор ресурса, описывающего сообщение; для финальной версии - nil
+ values: table of tables - индексированный с 0 список полученных параметров
+
+ Каждый параметр представлен таблицей с полями:
+   name: string - строковое имя параметра
+   viewType: number (enum CLIENT_DATA_PARAM_...) or nil - если не nil, то параметр надо показать не обычным, а указанным способом
+
+   и взаимоисключающие поля значения:
+
+   objectId: ObjectId or nil - идентификатор интерактивного объекта, если получен объект
+   position: GamePosition or nil - таблица с описанием координаты, если получена координата
+   resourceObject: ValuedObject or nil - ValuedObject для ресурса, если получен ресурсный объект
+   int: number(integer) or nil - число, если получено число
+   text: WString or nil - строка, если получена строка
+   resourceList: table of table or nil - если получен список ресурсных объектов, индексированная с 0 таблица таблиц описателей с полями:
+     name: string - строковое имя параметра, полученное конкатенацией базового имени и индекса в таблице
+     resourceObject: ValuedObject - ValuedObject для ресурса
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryActionResult"</h4>
+<p></p>
+<a href="EnumActionFailCause.html">EnumActionFailCause</a>
+<br><a href="EnumActionResultSpecial.html">EnumActionResultSpecial</a>
+<br><a href="EventActionFailedExploit.html">EventActionFailedExploit</a>
+<br><a href="EventActionFailedOther.html">EventActionFailedOther</a>
+<br><a href="EventActionFailedSpell.html">EventActionFailedSpell</a>
+<br><a href="EventActionProcessTerminated.html">EventActionProcessTerminated</a>
+<br><a href="EventActionResultSpecialSpell.html">EventActionResultSpecialSpell</a>
+<br><a href="EventClientImageHideAll.html">EventClientImageHideAll</a>
+<br><a href="EventClientImageShow.html">EventClientImageShow</a>
+<br><a href="EventClientMessage.html">EventClientMessage</a>
+<br><a href="EventDoWarp.html">EventDoWarp</a>
+<br><a href="EventForagingFailed.html">EventForagingFailed</a>
+<br><a href="EventInterfaceToggle.html">EventInterfaceToggle</a>
+<br><a href="EventLobbyClientMessage.html">EventLobbyClientMessage</a>
+<br><a href="EventShowSubtitles.html">EventShowSubtitles</a>
+<br><a href="EventTakeItemsFailed.html">EventTakeItemsFailed</a>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryAction"</h4>
+<p></p>
+<a href="EnumActionFailCause.html">EnumActionFailCause</a>
+<br><a href="EnumActionResultSpecial.html">EnumActionResultSpecial</a>
+<br><a href="EnumSaleTag.html">EnumSaleTag</a>
+<br><a href="EventActionFailedExploit.html">EventActionFailedExploit</a>
+<br><a href="EventActionFailedOther.html">EventActionFailedOther</a>
+<br><a href="EventActionFailedSpell.html">EventActionFailedSpell</a>
+<br><a href="EventActionPanelChanged.html">EventActionPanelChanged</a>
+<br><a href="EventActionPanelElementChanged.html">EventActionPanelElementChanged</a>
+<br><a href="EventActionPanelElementEffect.html">EventActionPanelElementEffect</a>
+<br><a href="EventActionProcessTerminated.html">EventActionProcessTerminated</a>
+<br><a href="EventActionProgressFinish.html">EventActionProgressFinish</a>
+<br><a href="EventActionProgressFreeze.html">EventActionProgressFreeze</a>
+<br><a href="EventActionProgressStart.html">EventActionProgressStart</a>
+<br><a href="EventActionProgressUpdate.html">EventActionProgressUpdate</a>
+<br><a href="EventActionResultSpecialSpell.html">EventActionResultSpecialSpell</a>
+<br><a href="EventAEMarkPointClicked.html">EventAEMarkPointClicked</a>
+<br><a href="EventAttackResult.html">EventAttackResult</a>
+<br><a href="EventAvatarDestinyPointsChanged.html">EventAvatarDestinyPointsChanged</a>
+<br><a href="EventAvatarExperienceChanged.html">EventAvatarExperienceChanged</a>
+<br><a href="EventClientImageHideAll.html">EventClientImageHideAll</a>
+<br><a href="EventClientImageShow.html">EventClientImageShow</a>
+<br><a href="EventClientMessage.html">EventClientMessage</a>
+<br><a href="EventContextActionPointStarted.html">EventContextActionPointStarted</a>
+<br><a href="EventContextActionsChanged.html">EventContextActionsChanged</a>
+<br><a href="EventDoWarp.html">EventDoWarp</a>
+<br><a href="EventHealingReceived.html">EventHealingReceived</a>
+<br><a href="EventInterfaceToggle.html">EventInterfaceToggle</a>
+<br><a href="EventLobbyClientMessage.html">EventLobbyClientMessage</a>
+<br><a href="EventLootMark.html">EventLootMark</a>
+<br><a href="EventMobActionProgressFinish.html">EventMobActionProgressFinish</a>
+<br><a href="EventMobActionProgressFreeze.html">EventMobActionProgressFreeze</a>
+<br><a href="EventMobActionProgressStart.html">EventMobActionProgressStart</a>
+<br><a href="EventMobEvaded.html">EventMobEvaded</a>
+<br><a href="EventShowSubtitles.html">EventShowSubtitles</a>
+<br><a href="EventTakeItemsFailed.html">EventTakeItemsFailed</a>
+<br><a href="FunctionAvatarBindItemToActionPanel.html">FunctionAvatarBindItemToActionPanel</a>
+<br><a href="FunctionAvatarBindMountMetamorphToActionPanel.html">FunctionAvatarBindMountMetamorphToActionPanel</a>
+<br><a href="FunctionAvatarBindMountSkinToActionPanel.html">FunctionAvatarBindMountSkinToActionPanel</a>
+<br><a href="FunctionAvatarBindMountToActionPanel.html">FunctionAvatarBindMountToActionPanel</a>
+<br><a href="FunctionAvatarBindSpellToActionPanel.html">FunctionAvatarBindSpellToActionPanel</a>
+<br><a href="FunctionAvatarGetActionInfo.html">FunctionAvatarGetActionInfo</a>
+<br><a href="FunctionAvatarGetContextActions.html">FunctionAvatarGetContextActions</a>
+<br><a href="FunctionAvatarGetMaxActionCount.html">FunctionAvatarGetMaxActionCount</a>
+<br><a href="FunctionAvatarGetPetAggroMode.html">FunctionAvatarGetPetAggroMode</a>
+<br><a href="FunctionAvatarGetPetMoveMode.html">FunctionAvatarGetPetMoveMode</a>
+<br><a href="FunctionAvatarIsPetInCombat.html">FunctionAvatarIsPetInCombat</a>
+<br><a href="FunctionAvatarLoadActionPanel.html">FunctionAvatarLoadActionPanel</a>
+<br><a href="FunctionAvatarPetAttack.html">FunctionAvatarPetAttack</a>
+<br><a href="FunctionAvatarSaveActionPanel.html">FunctionAvatarSaveActionPanel</a>
+<br><a href="FunctionAvatarSetPetAggroMode.html">FunctionAvatarSetPetAggroMode</a>
+<br><a href="FunctionAvatarSetPetMoveMode.html">FunctionAvatarSetPetMoveMode</a>
+<br><a href="FunctionAvatarStopCasting.html">FunctionAvatarStopCasting</a>
+<br><a href="FunctionAvatarSwapActionsInActionPanel.html">FunctionAvatarSwapActionsInActionPanel</a>
+<br><a href="FunctionAvatarUnBindFromActionPanel.html">FunctionAvatarUnBindFromActionPanel</a>
+<br><a href="FunctionUnitGetMobActionProgress.html">FunctionUnitGetMobActionProgress</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryEvent.html">CategoryEvent</a>
+<a href="CategoryAction.html">CategoryAction</a>
+<a href="CategoryActionResult.html">CategoryActionResult</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

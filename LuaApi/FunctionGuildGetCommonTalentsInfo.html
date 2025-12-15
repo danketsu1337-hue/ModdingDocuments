@@ -1,0 +1,69 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionGuildGetCommonTalentsInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> guild.GetCommonTalentsInfo()</h2>
+<p></p>
+<p>Получить размер поля талантов.</p>
+<p></p>
+<pre>
+-- библиотека:
+guild
+
+-- объявление:
+function GetFieldTalentTableSize()
+
+-- параметры:
+нет
+
+-- возвращаемые значения
+table of
+  fieldsCount: number (int) - количество полей
+  rowsCount: number (int) - количество строк
+  columnsCount: number (int) - количество столбцов
+  learnTalentCurrency: CurrencyId or nil - валюта для изучения талантов
+  dropTalentCurrency: CurrencyId or nil - валюта для сброса талантов
+
+-- пример
+local info = guild.GetCommonTalentsInfo()
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryGuildTalents"</h4>
+<p></p>
+<a href="EnumTalentType.html">EnumTalentType</a>
+<br><a href="EventGuildTalentsChanged.html">EventGuildTalentsChanged</a>
+<br><a href="FunctionGuildApplyStoredTalents.html">FunctionGuildApplyStoredTalents</a>
+<br><a href="FunctionGuildCanDropTalent.html">FunctionGuildCanDropTalent</a>
+<br><a href="FunctionGuildCanLearnTalent.html">FunctionGuildCanLearnTalent</a>
+<br><a href="FunctionGuildClearStoredTalents.html">FunctionGuildClearStoredTalents</a>
+<br><a href="FunctionGuildDropTalent.html">FunctionGuildDropTalent</a>
+<br><a href="FunctionGuildGetCommonTalentsInfo.html">FunctionGuildGetCommonTalentsInfo</a>
+<br><a href="FunctionGuildGetDropTalentCost.html">FunctionGuildGetDropTalentCost</a>
+<br><a href="FunctionGuildGetFieldInfo.html">FunctionGuildGetFieldInfo</a>
+<br><a href="FunctionGuildGetStoredTalentsCount.html">FunctionGuildGetStoredTalentsCount</a>
+<br><a href="FunctionGuildGetTalentInfo.html">FunctionGuildGetTalentInfo</a>
+<br><a href="FunctionGuildGetTalentsByGroup.html">FunctionGuildGetTalentsByGroup</a>
+<br><a href="FunctionGuildIsStoredTalent.html">FunctionGuildIsStoredTalent</a>
+<br><a href="FunctionGuildStoreTalent.html">FunctionGuildStoreTalent</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<a href="CategoryGuildTalents.html">CategoryGuildTalents</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

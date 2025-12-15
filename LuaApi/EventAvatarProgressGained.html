@@ -1,0 +1,67 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - EventAvatarProgressGained</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> EVENT_AVATAR_PROGRESS_GAINED</h2>
+<p></p>
+<p>Приходит, если главный игрок получил один из типов опыта для развития. Это может быть обычный опыт (experience), репутация с какой-либо фракцией, слава за PvP сражения.</p>
+<p></p>
+<p>См. <a href="EnumDevelopmentTrack.html"> ENUM_DevelopmentTrack_...</a>, <a href="EnumDevelopmentSource.html"> ENUM_DevelopmentSource_...</a>.</p>
+<p></p>
+<pre>
+-- поля:
+type: number (enum ENUM_DevelopmentTrack_...) - тип опыта
+sysType: string (enum "ENUM_DevelopmentTrack_...") - строковое представление типа опыта
+source: number (enum ENUM_DevelopmentSource_...) - тип источника опыта
+sysSource: string (enum "ENUM_DevelopmentSource_...") - строковое представление типа источника опыта
+total: number - полученное количество опыта
+bonus: number - сколько из этого опыта было получено за бонусные очки
+level: number - уровень
+value: number - текущее значение
+isPvPExperience: boolean - этот опыт был получен за PvP
+
+Также в некоторых случаях могут иметься дополнительные поля:
+  Если изменилась репутация с для ENUM_DevelopmentTrack_Reputation:
+    factionId: FactionId - фракция
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryAvatarProgress"</h4>
+<p></p>
+<a href="CategoryAvatarProgress.html">CategoryAvatarProgress</a>
+<br><a href="EnumDevelopmentSource.html">EnumDevelopmentSource</a>
+<br><a href="EnumDevelopmentTrack.html">EnumDevelopmentTrack</a>
+<br><a href="EnumGlobalScalerType.html">EnumGlobalScalerType</a>
+<br><a href="EventAvatarProgressGained.html">EventAvatarProgressGained</a>
+<br><a href="EventAvatarStatsCanImproveChanged.html">EventAvatarStatsCanImproveChanged</a>
+<br><a href="EventBonusPoolChanged.html">EventBonusPoolChanged</a>
+<br><a href="EventBonusPoolsChanged.html">EventBonusPoolsChanged</a>
+<br><a href="EventGlobalRatesChanged.html">EventGlobalRatesChanged</a>
+<br><a href="FunctionAvatarCanImproveInnateStats.html">FunctionAvatarCanImproveInnateStats</a>
+<br><a href="FunctionAvatarDistributeStatPoints.html">FunctionAvatarDistributeStatPoints</a>
+<br><a href="FunctionAvatarGetBonusPools.html">FunctionAvatarGetBonusPools</a>
+<br><a href="FunctionAvatarGetFreeStatPointsToDistribute.html">FunctionAvatarGetFreeStatPointsToDistribute</a>
+<br><a href="FunctionAvatarGetGlobalRates.html">FunctionAvatarGetGlobalRates</a>
+<br><a href="FunctionAvatarGetImprovedInnateStats.html">FunctionAvatarGetImprovedInnateStats</a>
+<br><a href="FunctionAvatarGetStatPointsToDistribute.html">FunctionAvatarGetStatPointsToDistribute</a>
+<br><a href="FunctionAvatarImproveInnateStat.html">FunctionAvatarImproveInnateStat</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryEvent.html">CategoryEvent</a>
+<a href="CategoryAvatarProgress.html">CategoryAvatarProgress</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

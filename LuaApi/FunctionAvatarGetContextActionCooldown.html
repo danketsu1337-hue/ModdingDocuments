@@ -1,0 +1,60 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAvatarGetContextActionCooldown</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> avatar.GetContextActionCooldown( id )</h2>
+<p></p>
+<p>Вернуть информацию о кулдауне контекстного действия.</p>
+<p></p>
+<p>Более полный вариант: <a href="FunctionAvatarGetContextActionInfo.html"> avatar.GetContextActionInfo( id )</a>.</p>
+<p></p>
+<pre>
+-- библиотека
+avatar
+
+-- объявление:
+function GetContextActionCooldown( id )
+
+-- параметры
+id: ObjectId -  идентификатор контекстного действия
+
+-- возвращаемые значения
+table or nil - если действие есть, то информация по кулдауну:
+  durationMs: number(integer) - длительность кулдауна в миллисекундах
+  remainingMs: number(integer) - сколько осталось кулдауна в миллисекундах
+
+-- пример использования
+local actionCooldown = avatar.GetContextActionCooldown( id )
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryContextActions"</h4>
+<p></p>
+<a href="CategoryContextActions.html">CategoryContextActions</a>
+<br><a href="EventContextActionPointStarted.html">EventContextActionPointStarted</a>
+<br><a href="EventContextActionsChanged.html">EventContextActionsChanged</a>
+<br><a href="FunctionAvatarGetContextActionCooldown.html">FunctionAvatarGetContextActionCooldown</a>
+<br><a href="FunctionAvatarGetContextActionInfo.html">FunctionAvatarGetContextActionInfo</a>
+<br><a href="FunctionAvatarGetContextActionShortInfo.html">FunctionAvatarGetContextActionShortInfo</a>
+<br><a href="FunctionMountGetActiveContextActions.html">FunctionMountGetActiveContextActions</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryContextActions.html">CategoryContextActions</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

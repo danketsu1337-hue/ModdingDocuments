@@ -1,0 +1,96 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - Changelist17_0_00</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<br>
+<h2>Список изменений</h2>
+<br>
+<br>
+<h3>Удалены документы</h3>
+astral.GetSectorEdgesById( astralSectorId )<br>
+avatar.GetLayerRelatedSpells( layer )<br>
+EVENT_EQUIPMENT_ACTIVATE<br>
+EVENT_EQUIPMENT_RITUAL_ENABLE_CHANGED<br>
+guild.CanUpdateTalent( field, row, column )<br>
+matchMaking.ListenEventProgress( needListen )<br>
+order.GetMainPlayerVoteWeight( )<br>
+soulProgressLib.CanInsertGem( socketId, objectId )<br>
+<br>
+<h3>Добавлены документы</h3>
+<a href="../LuaApi/FunctionAstralIsInHub.html">astral.IsInHub()</a><br>
+<a href="../LuaApi/FunctionAvatarGetActiveUsableDeviceActionInfo.html">avatar.GetActiveUsableDeviceActionInfo( index )</a><br>
+<a href="../LuaApi/FunctionAvatarGetClassChangeData.html">avatar.GetClassChangeData()</a><br>
+<a href="../LuaApi/FunctionAvatarGetRitualActivePreset.html">avatar.GetRitualActivePreset()</a><br>
+<a href="../LuaApi/FunctionAvatarIsFastLevelUpAvailable.html">avatar.IsFastLevelUpAvailable()</a><br>
+<a href="../LuaApi/FunctionAvatarLoadActionPanel.html">avatar.LoadActionPanel( sysClass, buildIndex, data )</a><br>
+<a href="../LuaApi/FunctionAvatarSaveActionPanel.html">avatar.SaveActionPanel( sysClass, buildIndex )</a><br>
+<a href="../LuaApi/FunctionAvatarSetRitualActivePreset.html">avatar.SetRitualActivePreset( preset )</a><br>
+<a href="../LuaApi/FunctionCommonGetSetBonusInfo.html">common.GetSetBonusInfo( setBonusId )</a><br>
+<a href="../LuaApi/FunctionCommonGetSpecialStatInfo.html">common.GetSpecialStatInfo( specialStatId )</a><br>
+<a href="../LuaApi/EnumDummyType.html">enum DUMMY_TYPE</a><br>
+<a href="../LuaApi/EventEquipmentActivePresetChanged.html">EVENT_EQUIPMENT_ACTIVE_PRESET_CHANGED</a><br>
+<a href="../LuaApi/EventEquipmentDressEnableChanged.html">EVENT_EQUIPMENT_DRESS_ENABLE_CHANGED</a><br>
+<a href="../LuaApi/FunctionWidgetGetActiveEffectRemainingMs.html">GetActiveEffectRemainingMs( self, effectType )</a><br>
+<a href="../LuaApi/FunctionItemLibGetSetBonusInfo.html">itemLib.GetSetBonusInfo( itemId )</a><br>
+<a href="../LuaApi/FunctionItemLibGetSetBonusRoot.html">itemLib.GetSetBonusRoot()</a><br>
+<a href="../LuaApi/FunctionUnitGetRitualActivePreset.html">unit.GetRitualActivePreset( unitId )</a><br>
+<br>
+<h3>Изменены документы</h3>
+<a href="../LuaApi/FunctionAstralGetAddons.html">astral.GetAddons()</a><br>
+<a href="../LuaApi/FunctionAstralGetAddonSectors.html">astral.GetAddonSectors( addonId )</a><br>
+<a href="../LuaApi/FunctionAstralGetAllPOIs.html">astral.GetAllPOIs()</a><br>
+<a href="../LuaApi/FunctionAstralGetAstrolabeDeniedPlayers.html">astral.GetAstrolabeDeniedPlayers()</a><br>
+<a href="../LuaApi/FunctionAstralGetAstrolabeInfoEx.html">astral.GetAstrolabeInfoEx()</a><br>
+<a href="../LuaApi/FunctionAstralGetSectorEdges.html">astral.GetSectorEdges( sectorId )</a><br>
+<a href="../LuaApi/FunctionAstralGetSectorInfo.html">astral.GetSectorInfo( sectorId )</a><br>
+<a href="../LuaApi/FunctionAstralGetSectorInfoById.html">astral.GetSectorInfoById( astralSectorId )</a><br>
+<a href="../LuaApi/FunctionAstralGetSectorPOIs.html">astral.GetSectorPOIs( sectorId )</a><br>
+<a href="../LuaApi/FunctionAvatarGetBaseTalentInfo.html">avatar.GetBaseTalentInfo( layer, line )</a><br>
+<a href="../LuaApi/FunctionAvatarGetDetectedObjects.html">avatar.GetDetectedObjects()</a><br>
+<a href="../LuaApi/FunctionAvatarGetUsableDeviceInfo.html">avatar.GetUsableDeviceInfo( deviceId )</a><br>
+<a href="../LuaApi/FunctionCartographerGetSosObjects.html">cartographer.GetSosObjects()</a><br>
+<a href="../LuaApi/CategoryLuaApi.html">CategoryLuaApi</a><br>
+<a href="../LuaApi/CategoryWidget.html">CategoryWidget</a><br>
+<a href="../LuaApi/CategoryWidgetEffects.html">CategoryWidgetEffects</a><br>
+<a href="../LuaApi/FunctionCheckroomLibGetSortedItemsInfo.html">checkroomLib.GetSortedItemsInfo( collectionId )</a><br>
+<a href="../LuaApi/FunctionDominationLibGetObjectiveInfo.html">dominationLib.GetObjectiveInfo( id )</a><br>
+<a href="../LuaApi/EventMatchMakingEventProgressAdded.html">EVENT_MATCH_MAKING_EVENT_PROGRESS_ADDED</a><br>
+<a href="../LuaApi/EventMatchMakingEventProgressCompletedChanged.html">EVENT_MATCH_MAKING_EVENT_PROGRESS_COMPLETED_CHANGED</a><br>
+<a href="../LuaApi/EventMatchMakingEventProgressDurationChanged.html">EVENT_MATCH_MAKING_EVENT_PROGRESS_DURATION_CHANGED</a><br>
+<a href="../LuaApi/EventMatchMakingEventProgressMemberChanged.html">EVENT_MATCH_MAKING_EVENT_PROGRESS_MEMBER_CHANGED</a><br>
+<a href="../LuaApi/EventMatchMakingEventProgressMembersChanged.html">EVENT_MATCH_MAKING_EVENT_PROGRESS_MEMBERS_CHANGED</a><br>
+<a href="../LuaApi/EventMatchMakingEventProgressRemoved.html">EVENT_MATCH_MAKING_EVENT_PROGRESS_REMOVED</a><br>
+<a href="../LuaApi/EventMatchMakingProgressAchievementsChanged.html">EVENT_MATCH_MAKING_PROGRESS_ACHIEVEMENTS_CHANGED</a><br>
+<a href="../LuaApi/EventMatchMakingProgressMembersAchievementsChanged.html">EVENT_MATCH_MAKING_PROGRESS_MEMBERS_ACHIEVEMENTS_CHANGED</a><br>
+<a href="../LuaApi/EventPridenFactionChoice.html">EVENT_PRIDEN_FACTION_CHOICE</a><br>
+<a href="../LuaApi/FunctionFamilyIsSpouse.html">family.IsSpouse( unitId )</a><br>
+<a href="../LuaApi/FunctionGuildCanCreateGuildHereRequest.html">guild.CanCreateGuildHereRequest( inventorySlot )</a><br>
+<a href="../LuaApi/FunctionGuildGetMemberInfo.html">guild.GetMemberInfo( memberId )</a><br>
+<a href="../LuaApi/FunctionGuildInvite.html">guild.Invite()</a><br>
+<a href="../LuaApi/FunctionGuildInviteByName.html">guild.InviteByName( playerName )</a><br>
+<a href="../LuaApi/EnumItemCont.html">ITEM_CONT_...</a><br>
+<a href="../LuaApi/FunctionItemLibGetQuality.html">itemLib.GetQuality( itemId )</a><br>
+<a href="../LuaApi/FunctionMatchMakingCanUseMatchMaking.html">matchMaking.CanUseMatchMaking()</a><br>
+<a href="../LuaApi/FunctionMatchMakingGetEventProgressInfo.html">matchMaking.GetEventProgressInfo()</a><br>
+<a href="../LuaApi/FunctionMatchMakingIsEventProgressExist.html">matchMaking.IsEventProgressExist()</a><br>
+<a href="../LuaApi/FunctionObjectGetDetectors.html">object.GetDetectors( objectId )</a><br>
+<a href="../LuaApi/FunctionOrderGetOrderInfo.html">order.GetOrderInfo( orderNumber  )</a><br>
+<a href="../LuaApi/FunctionOrderGetSeasonStartDate.html">order.GetSeasonStartDate()</a><br>
+<a href="../LuaApi/FunctionTutorialLibGetTutorialInfo.html">tutorialLib.GetTutorialInfo( id )</a><br>
+<a href="../LuaApi/FunctionUnitIsRitualEnabled.html">unit.IsRitualEnabled( unitId )</a><br>
+<br>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

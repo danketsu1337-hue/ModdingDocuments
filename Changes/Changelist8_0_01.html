@@ -1,0 +1,93 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - Changelist8_0_01</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<br>
+<h2>Список изменений</h2>
+<br>
+<br>
+<h3>Удалены документы</h3>
+avatar.GetLoginEventQuestId()<br>
+INNATE_STAT_.../"ENUM_InnateStats_..."<br>
+<br>
+<h3>Добавлены документы</h3>
+<a href="../LuaApi/FunctionAvatarGetInnateStatDescription.html">avatar.GetInnateStatDescription( sysName )</a><br>
+<a href="../LuaApi/EnumDiminishingGroup.html">ENUM_DiminishingGroup</a><br>
+<a href="../LuaApi/EventAvailableOrdersChanged.html">EVENT_AVAILABLE_ORDERS_CHANGED</a><br>
+<a href="../LuaApi/EventLoginEventGoalsChanged.html">EVENT_LOGIN_EVENT_GOALS_CHANGED</a><br>
+<a href="../LuaApi/EventMobActionProgressFinish.html">EVENT_MOB_ACTION_PROGRESS_FINISH</a><br>
+<a href="../LuaApi/EventMobActionProgressFreeze.html">EVENT_MOB_ACTION_PROGRESS_FREEZE</a><br>
+<a href="../LuaApi/EventMobActionProgressStart.html">EVENT_MOB_ACTION_PROGRESS_START</a><br>
+<a href="../LuaApi/EventMobActionProgressUpdate.html">EVENT_MOB_ACTION_PROGRESS_UPDATE</a><br>
+<a href="../LuaApi/EventObjectBuffProgressAdded.html">EVENT_OBJECT_BUFF_PROGRESS_ADDED</a><br>
+<a href="../LuaApi/EventObjectBuffProgressRemoved.html">EVENT_OBJECT_BUFF_PROGRESS_REMOVED</a><br>
+<a href="../LuaApi/EventObjectDiminishingChanged.html">EVENT_OBJECT_DIMINISHING_CHANGED</a><br>
+<a href="../LuaApi/EventObjectDiminishingGroupChanged.html">EVENT_OBJECT_DIMINISHING_GROUP_CHANGED</a><br>
+<a href="../LuaApi/EventOrderCanVoteChanged.html">EVENT_ORDER_CAN_VOTE_CHANGED</a><br>
+<a href="../LuaApi/EventPremiumBonusStageChanged.html">EVENT_PREMIUM_BONUS_STAGE_CHANGED</a><br>
+<a href="../LuaApi/EventPremiumStageChanged.html">EVENT_PREMIUM_STAGE_CHANGED</a><br>
+<a href="../LuaApi/FunctionItemLibGetOwnershipLimit.html">itemLib.GetOwnershipLimit( itemId )</a><br>
+<a href="../LuaApi/FunctionLoginEventLibGetGoals.html">loginEventLib.GetGoals()</a><br>
+<a href="../LuaApi/FunctionMountGetActiveContextActions.html">mount.GetActiveContextActions()</a><br>
+<a href="../LuaApi/FunctionObjectGetDiminishingState.html">object.GetDiminishingState( objectId )</a><br>
+<a href="../LuaApi/FunctionOrderGetBonusDuration.html">order.GetBonusDuration()</a><br>
+<a href="../LuaApi/FunctionPremiumLibGetBonusInfo.html">premiumLib.GetBonusInfo()</a><br>
+<a href="../LuaApi/FunctionPremiumLibGetNextStage.html">premiumLib.GetNextStage()</a><br>
+<a href="../LuaApi/FunctionPremiumLibGetStageInfo.html">premiumLib.GetStageInfo( stage )</a><br>
+<br>
+<h3>Изменены документы</h3>
+<a href="../LuaApi/FunctionAvatarGetActionGroupStatBonus.html">avatar.GetActionGroupStatBonus( actionGroupId )</a><br>
+<a href="../LuaApi/FunctionAvatarGetBaseTalentInfo.html">avatar.GetBaseTalentInfo( layer, line )</a><br>
+<a href="../LuaApi/FunctionAvatarGetContextActions.html">avatar.GetContextActions( withMount )</a><br>
+<a href="../LuaApi/FunctionAvatarGetInnateStats.html">avatar.GetInnateStats()</a><br>
+<a href="../LuaApi/FunctionAvatarGetStatPointsToDistribute.html">avatar.GetStatPointsToDistribute()</a><br>
+<a href="../LuaApi/FunctionAvatarImproveInnateStat.html">avatar.ImproveInnateStat( stat, amount )</a><br>
+<a href="../LuaApi/CategoryLuaApi.html">CategoryLuaApi</a><br>
+<a href="../LuaApi/CategoryWidget.html">CategoryWidget</a><br>
+<a href="../LuaApi/CategoryWidgetEffects.html">CategoryWidgetEffects</a><br>
+<a href="../LuaApi/FunctionCommonFormatNumber.html">common.FormatNumber( value, format )</a><br>
+<a href="../LuaApi/FunctionCommonRegisterEventHandler.html">common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread )</a><br>
+<a href="../LuaApi/FunctionCommonUnRegisterEventHandler.html">common.UnRegisterEventHandler( eventHandler, sysEventName, params )</a><br>
+<a href="../LuaApi/FunctionCraftGetForgeRecipeInfo.html">craft.GetForgeRecipeInfo( recipeId )</a><br>
+<a href="../LuaApi/FunctionCraftGetReforgeInfo.html">craft.GetReforgeInfo( itemId, offenceMode )</a><br>
+<a href="../LuaApi/FunctionEnchantGetItemSlotsInfo.html">enchant.GetItemSlotsInfo( itemId )</a><br>
+<a href="../LuaApi/EnumCreatureStat.html">ENUM_CreatureStat_...</a><br>
+<a href="../LuaApi/EventDeviceDamageReceived.html">EVENT_DEVICE_DAMAGE_RECEIVED</a><br>
+<a href="../LuaApi/EventHealingReceived.html">EVENT_HEALING_RECEIVED</a><br>
+<a href="../LuaApi/EventObjectBuffAdded.html">EVENT_OBJECT_BUFF_ADDED</a><br>
+<a href="../LuaApi/EventObjectBuffRemoved.html">EVENT_OBJECT_BUFF_REMOVED</a><br>
+<a href="../LuaApi/EventObjectBuffsChanged.html">EVENT_OBJECT_BUFFS_CHANGED</a><br>
+<a href="../LuaApi/EventUnitDamageReceived.html">EVENT_UNIT_DAMAGE_RECEIVED</a><br>
+<a href="../LuaApi/EventUnitHealthChanged.html">EVENT_UNIT_HEALTH_CHANGED</a><br>
+<a href="../LuaApi/EventUnitManaPercentageChanged.html">EVENT_UNIT_MANA_PERCENTAGE_CHANGED</a><br>
+<a href="../LuaApi/GoalId.html">GoalId</a><br>
+<a href="../LuaApi/InnateStatSecondary.html">InnateStatSecondary</a><br>
+<a href="../LuaApi/FunctionItemLibGetActionGroupsInfo.html">itemLib.GetActionGroupsInfo( itemId )</a><br>
+<a href="../LuaApi/FunctionItemLibGetBonus.html">itemLib.GetBonus( itemId )</a><br>
+<a href="../LuaApi/FunctionMountGetInfo.html">mount.GetInfo( mountId )</a><br>
+<a href="../LuaApi/FunctionOrderGetAchievements.html">order.GetAchievements()</a><br>
+<a href="../LuaApi/FunctionOrderGetOrderInfo.html">order.GetOrderInfo( orderNumber  )</a><br>
+<a href="../LuaApi/FunctionOrderGetPreviousAchievementTop.html">order.GetPreviousAchievementTop()</a><br>
+<a href="../LuaApi/FunctionOrderRequestPrestigeAchivements.html">order.RequestPrestigeAchivements()</a><br>
+<a href="../LuaApi/FunctionOrderRequestRatingAchivements.html">order.RequestRatingAchivements()</a><br>
+<a href="../LuaApi/FunctionPremiumLibGetInfo.html">premiumLib.GetInfo()</a><br>
+<a href="../LuaApi/FunctionRulesGetEventByRuleId.html">rules.GetEventByRuleId( ruleId, getHidden )</a><br>
+<a href="../LuaApi/FunctionRulesGetEventBySysName.html">rules.GetEventBySysName( sysName, getHidden )</a><br>
+<a href="../LuaApi/FunctionRulesGetEvents.html">rules.GetEvents( getHidden )</a><br>
+<br>
+<br>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

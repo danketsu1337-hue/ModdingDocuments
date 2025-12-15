@@ -1,0 +1,79 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionGuildBossLibGetQuests</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>guildBossLib.GetQuests()</h2>
+<p></p>
+<p>Возвращает список заданий для прогресса босса гильдии.</p>
+<p></p>
+<pre>
+-- библиотека:
+guildBossLib
+
+-- объявление:
+function GetQuests()
+
+-- параметры:
+нет
+
+-- возвращаемое значение:
+table or nil -- список заданий, индексация с 1, каждый элемент таблица с полями:
+  questId: QuestId -- идентификатор ресурса задания
+  count: Number(int) -- счетчик выполнения данного заданий, значения: 0 - если не выполненно, 1 и более если выполненно
+  texture: TextureId or nil -- идентификатор текстуры миниатюры задания
+  requiredItems: table of ItemId or nil -- список особых предметов необходимых для выполнения задания, индексация с 0
+
+-- пример:
+local guildBossQuests = guildBossLib.IsExist() and guildBossLib.GetQuests()
+local firstGuildQuest = guildBossQuests and guildBossQuests[1]
+local questReward = firstGuildQuest and guildBossLib.GetQuestReward( firstGuildQuest.questId )
+</pre>
+<p></p>
+<p>См. также:</p>
+<ul><li><p> <a href="FunctionGuildBossLibGetQuestInfo.html">guildBossLib.GetQuestInfo( questId )</a></p></li></ul>
+<ul><li><p> <a href="FunctionGuildBossLibGetQuestReward.html">guildBossLib.GetQuestReward( questId )</a></p></li></ul>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryGuildBossLib"</h4>
+<p></p>
+<a href="EnumGuildBossAbilitySlot.html">EnumGuildBossAbilitySlot</a>
+<br><a href="EventGuildBossAbilitiesChanged.html">EventGuildBossAbilitiesChanged</a>
+<br><a href="EventGuildBossChanged.html">EventGuildBossChanged</a>
+<br><a href="EventGuildBossExperienceChanged.html">EventGuildBossExperienceChanged</a>
+<br><a href="EventGuildBossGearScoreChanged.html">EventGuildBossGearScoreChanged</a>
+<br><a href="EventGuildBossQuestsChanged.html">EventGuildBossQuestsChanged</a>
+<br><a href="EventGuildBossQuestsStatusChanged.html">EventGuildBossQuestsStatusChanged</a>
+<br><a href="EventGuildBossSpellsChanged.html">EventGuildBossSpellsChanged</a>
+<br><a href="EventGuildBossStateChanged.html">EventGuildBossStateChanged</a>
+<br><a href="FunctionGuildBossLibGetAbilitiesSlots.html">FunctionGuildBossLibGetAbilitiesSlots</a>
+<br><a href="FunctionGuildBossLibGetInfo.html">FunctionGuildBossLibGetInfo</a>
+<br><a href="FunctionGuildBossLibGetQuestInfo.html">FunctionGuildBossLibGetQuestInfo</a>
+<br><a href="FunctionGuildBossLibGetQuestReward.html">FunctionGuildBossLibGetQuestReward</a>
+<br><a href="FunctionGuildBossLibGetQuests.html">FunctionGuildBossLibGetQuests</a>
+<br><a href="FunctionGuildBossLibGetSelectedAbilities.html">FunctionGuildBossLibGetSelectedAbilities</a>
+<br><a href="FunctionGuildBossLibGetSelectedSpells.html">FunctionGuildBossLibGetSelectedSpells</a>
+<br><a href="FunctionGuildBossLibGetSelfName.html">FunctionGuildBossLibGetSelfName</a>
+<br><a href="FunctionGuildBossLibGetVariations.html">FunctionGuildBossLibGetVariations</a>
+<br><a href="FunctionGuildBossLibIsExist.html">FunctionGuildBossLibIsExist</a>
+<br><a href="FunctionGuildBossLibSelectAbilities.html">FunctionGuildBossLibSelectAbilities</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryGuild.html">CategoryGuild</a>
+<a href="CategoryGuildBossLib.html">CategoryGuildBossLib</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

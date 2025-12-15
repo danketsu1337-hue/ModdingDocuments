@@ -1,0 +1,120 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionMatchMakingGetEvents</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> matchMaking.GetEvents()</h2>
+<p></p>
+<p>Получить список id существующих инстанс-ивентов.</p>
+<p></p>
+<pre>
+-- библиотека:
+matchMaking
+
+-- объявление:
+function GetEvents()
+
+-- параметры:
+нет
+
+-- возвращаемое значение:
+table or nil - если есть информация о существующих инстанс-ивентах, то таблица, индексируемая от 0, каждое поле содержит id инстанс-ивента; если нет, то nil
+</pre>
+<p></p>
+<p>Пример:</p>
+<p></p>
+<pre>
+local firstEventId = matchMaking.GetEvents()[0]
+if firstEventId  != nil then
+  LogInfo( matchMaking.GetEventInfo(firstEventId ) );
+end
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryMatchMaking"</h4>
+<p></p>
+<a href="CategoryMatchMaking.html">CategoryMatchMaking</a>
+<br><a href="EnumMatchMakingMechanicsType.html">EnumMatchMakingMechanicsType</a>
+<br><a href="EnumRatingArenaType.html">EnumRatingArenaType</a>
+<br><a href="EventLfgDestinationVisitsChanged.html">EventLfgDestinationVisitsChanged</a>
+<br><a href="EventMatchMakingAutoDepartTimeChanged.html">EventMatchMakingAutoDepartTimeChanged</a>
+<br><a href="EventMatchMakingCurrentBattleChanged.html">EventMatchMakingCurrentBattleChanged</a>
+<br><a href="EventMatchMakingEventAdded.html">EventMatchMakingEventAdded</a>
+<br><a href="EventMatchMakingEventAvailabilityChanged.html">EventMatchMakingEventAvailabilityChanged</a>
+<br><a href="EventMatchMakingEventDoubleBonusChanged.html">EventMatchMakingEventDoubleBonusChanged</a>
+<br><a href="EventMatchMakingEventProgressAdded.html">EventMatchMakingEventProgressAdded</a>
+<br><a href="EventMatchMakingEventProgressCompletedChanged.html">EventMatchMakingEventProgressCompletedChanged</a>
+<br><a href="EventMatchMakingEventProgressDurationChanged.html">EventMatchMakingEventProgressDurationChanged</a>
+<br><a href="EventMatchMakingEventProgressMemberChanged.html">EventMatchMakingEventProgressMemberChanged</a>
+<br><a href="EventMatchMakingEventProgressMembersChanged.html">EventMatchMakingEventProgressMembersChanged</a>
+<br><a href="EventMatchMakingEventProgressRemoved.html">EventMatchMakingEventProgressRemoved</a>
+<br><a href="EventMatchMakingEventProgressRoundsChanged.html">EventMatchMakingEventProgressRoundsChanged</a>
+<br><a href="EventMatchMakingEventQueueAdded.html">EventMatchMakingEventQueueAdded</a>
+<br><a href="EventMatchMakingEventQueueRemoved.html">EventMatchMakingEventQueueRemoved</a>
+<br><a href="EventMatchMakingEventQueuesRemoved.html">EventMatchMakingEventQueuesRemoved</a>
+<br><a href="EventMatchMakingEventRemoved.html">EventMatchMakingEventRemoved</a>
+<br><a href="EventMatchMakingEventsAvailabilityChanged.html">EventMatchMakingEventsAvailabilityChanged</a>
+<br><a href="EventMatchMakingEventsChanged.html">EventMatchMakingEventsChanged</a>
+<br><a href="EventMatchMakingEventTeleportReject.html">EventMatchMakingEventTeleportReject</a>
+<br><a href="EventMatchMakingEventTeleportRequest.html">EventMatchMakingEventTeleportRequest</a>
+<br><a href="EventMatchMakingEventVisitsChanged.html">EventMatchMakingEventVisitsChanged</a>
+<br><a href="EventMatchMakingJoinTimeChanged.html">EventMatchMakingJoinTimeChanged</a>
+<br><a href="EventMatchMakingMembersRolesChanged.html">EventMatchMakingMembersRolesChanged</a>
+<br><a href="EventMatchMakingProgressAchievementsChanged.html">EventMatchMakingProgressAchievementsChanged</a>
+<br><a href="EventMatchMakingProgressMembersAchievementsChanged.html">EventMatchMakingProgressMembersAchievementsChanged</a>
+<br><a href="FunctionMatchMakingAwayBattleEvent.html">FunctionMatchMakingAwayBattleEvent</a>
+<br><a href="FunctionMatchMakingCanAwayBattleEvent.html">FunctionMatchMakingCanAwayBattleEvent</a>
+<br><a href="FunctionMatchMakingCanJoinInstancedEventById.html">FunctionMatchMakingCanJoinInstancedEventById</a>
+<br><a href="FunctionMatchMakingCanJoinInstancedEvents.html">FunctionMatchMakingCanJoinInstancedEvents</a>
+<br><a href="FunctionMatchMakingCanReturnToBattle.html">FunctionMatchMakingCanReturnToBattle</a>
+<br><a href="FunctionMatchMakingCanUseMatchMaking.html">FunctionMatchMakingCanUseMatchMaking</a>
+<br><a href="FunctionMatchMakingGetAutoDepartTime.html">FunctionMatchMakingGetAutoDepartTime</a>
+<br><a href="FunctionMatchMakingGetCurrentBattleInfo.html">FunctionMatchMakingGetCurrentBattleInfo</a>
+<br><a href="FunctionMatchMakingGetEventCategories.html">FunctionMatchMakingGetEventCategories</a>
+<br><a href="FunctionMatchMakingGetEventInfo.html">FunctionMatchMakingGetEventInfo</a>
+<br><a href="FunctionMatchMakingGetEventJoinTimeEstimate.html">FunctionMatchMakingGetEventJoinTimeEstimate</a>
+<br><a href="FunctionMatchMakingGetEventProgressInfo.html">FunctionMatchMakingGetEventProgressInfo</a>
+<br><a href="FunctionMatchMakingGetEventReward.html">FunctionMatchMakingGetEventReward</a>
+<br><a href="FunctionMatchMakingGetEvents.html">FunctionMatchMakingGetEvents</a>
+<br><a href="FunctionMatchMakingGetEventsByCategory.html">FunctionMatchMakingGetEventsByCategory</a>
+<br><a href="FunctionMatchMakingGetEventScore.html">FunctionMatchMakingGetEventScore</a>
+<br><a href="FunctionMatchMakingGetJoinRequirements.html">FunctionMatchMakingGetJoinRequirements</a>
+<br><a href="FunctionMatchMakingGetMembersRoles.html">FunctionMatchMakingGetMembersRoles</a>
+<br><a href="FunctionMatchMakingGetRatingPvPScoreByUnitId.html">FunctionMatchMakingGetRatingPvPScoreByUnitId</a>
+<br><a href="FunctionMatchMakingGetRatingURL.html">FunctionMatchMakingGetRatingURL</a>
+<br><a href="FunctionMatchMakingIsAvatarInMatchMakingEvent.html">FunctionMatchMakingIsAvatarInMatchMakingEvent</a>
+<br><a href="FunctionMatchMakingIsAvatarJoinedAnyEvent.html">FunctionMatchMakingIsAvatarJoinedAnyEvent</a>
+<br><a href="FunctionMatchMakingIsAvatarJoinedAnySpecificEvent.html">FunctionMatchMakingIsAvatarJoinedAnySpecificEvent</a>
+<br><a href="FunctionMatchMakingIsEventIdExist.html">FunctionMatchMakingIsEventIdExist</a>
+<br><a href="FunctionMatchMakingIsEventListValid.html">FunctionMatchMakingIsEventListValid</a>
+<br><a href="FunctionMatchMakingIsEventProgressExist.html">FunctionMatchMakingIsEventProgressExist</a>
+<br><a href="FunctionMatchMakingIsFreePass.html">FunctionMatchMakingIsFreePass</a>
+<br><a href="FunctionMatchMakingIsPvE.html">FunctionMatchMakingIsPvE</a>
+<br><a href="FunctionMatchMakingIsRaid.html">FunctionMatchMakingIsRaid</a>
+<br><a href="FunctionMatchMakingIsRatingPvPScoreAvailable.html">FunctionMatchMakingIsRatingPvPScoreAvailable</a>
+<br><a href="FunctionMatchMakingLeaveInstancedEventQueue.html">FunctionMatchMakingLeaveInstancedEventQueue</a>
+<br><a href="FunctionMatchMakingLeaveInstancedEventQueueById.html">FunctionMatchMakingLeaveInstancedEventQueueById</a>
+<br><a href="FunctionMatchMakingListenEvents.html">FunctionMatchMakingListenEvents</a>
+<br><a href="FunctionMatchMakingReturnToBattle.html">FunctionMatchMakingReturnToBattle</a>
+<br><a href="InstancedEventCategoryId.html">InstancedEventCategoryId</a>
+<br><a href="InstancedEventResourceId.html">InstancedEventResourceId</a>
+<br><a href="LootGroupId.html">LootGroupId</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryMatchMaking.html">CategoryMatchMaking</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

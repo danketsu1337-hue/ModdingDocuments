@@ -1,0 +1,93 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAvatarGetSkillInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> avatar.GetSkillInfo( id )</h2>
+<p></p>
+<p>Возвращает информацию о скилле по идентификатору ресурса. Дает информацию по любому скиллу, даже если он не изучен игроком. В этом случае score = nil.</p>
+<p></p>
+<p>ВНИМАНИЕ! В данный момент существует две системы прокачки:</p>
+<ul><li><p> старая - уровень плавно изменяется от 1 до максимально возможной величины</p></li></ul>
+<ul><li><p> новая - ступенчатыми уровнями. Уровни накапливают некотороый опыт, выраженный в процентах и при накоплении до 100% уровень повышается на 1.</p></li></ul>
+<p></p>
+<pre>
+-- система:
+GameState
+
+-- библиотека
+avatar
+
+-- объявление:
+function GetSkillInfo( id )
+
+-- параметры
+id: SkillId - Id умения (скила)
+
+-- возвращаемые значения
+nil, если такого умения нет
+table, если действие в слоте есть
+
+-- поля возвращаемой таблицы
+id: SkillId - Id ресурса умения
+score: number( int ) or nil - уровень скилла. nil, если скилл не изучен игроком
+exp: number( int ) or nil - накопленный опыт текущего уровня скилла в процентах. nil, если скилл не изучен игроком или скилл прокачивается плавно
+
+-- пример использования
+local skills = avatar.GetSkills()
+for i = 0, GetTableSize( skills ) - 1 do
+  local skillInfo = avatar.GetSkillInfo( skills[ i ] )
+  if skillInfo then
+    common.LogInfo( skillInfo.exp )
+  end
+end
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategorySkill"</h4>
+<p></p>
+<a href="CategoryCraft.html">CategoryCraft</a>
+<br><a href="ComponentPropertyId.html">ComponentPropertyId</a>
+<br><a href="EnumToolProperty.html">EnumToolProperty</a>
+<br><a href="EventForagingFailed.html">EventForagingFailed</a>
+<br><a href="EventSkillAdded.html">EventSkillAdded</a>
+<br><a href="EventSkillImprovementChanged.html">EventSkillImprovementChanged</a>
+<br><a href="EventSkillRemoved.html">EventSkillRemoved</a>
+<br><a href="EventSkillsChanged.html">EventSkillsChanged</a>
+<br><a href="EventSkillScoreChanged.html">EventSkillScoreChanged</a>
+<br><a href="FunctionAvatarGetActiveCraftingSkill.html">FunctionAvatarGetActiveCraftingSkill</a>
+<br><a href="FunctionAvatarGetComponentInfo.html">FunctionAvatarGetComponentInfo</a>
+<br><a href="FunctionAvatarGetCurrentMaxSkillScore.html">FunctionAvatarGetCurrentMaxSkillScore</a>
+<br><a href="FunctionAvatarGetMaxSkillScore.html">FunctionAvatarGetMaxSkillScore</a>
+<br><a href="FunctionAvatarGetRecipeAfflatusItem.html">FunctionAvatarGetRecipeAfflatusItem</a>
+<br><a href="FunctionAvatarGetRecipeInfo.html">FunctionAvatarGetRecipeInfo</a>
+<br><a href="FunctionAvatarGetSkillInfo.html">FunctionAvatarGetSkillInfo</a>
+<br><a href="FunctionAvatarGetSkills.html">FunctionAvatarGetSkills</a>
+<br><a href="FunctionItemLibGetActivationInfo.html">FunctionItemLibGetActivationInfo</a>
+<br><a href="FunctionItemLibGetCraftInfo.html">FunctionItemLibGetCraftInfo</a>
+<br><a href="FunctionItemLibGetCraftToolInfo.html">FunctionItemLibGetCraftToolInfo</a>
+<br><a href="FunctionItemLibGetExchangeInfo.html">FunctionItemLibGetExchangeInfo</a>
+<br><a href="FunctionItemLibGetOwnershipLimit.html">FunctionItemLibGetOwnershipLimit</a>
+<br><a href="FunctionItemLibIsCopied.html">FunctionItemLibIsCopied</a>
+<br><a href="RecipeId.html">RecipeId</a>
+<br><a href="SkillId.html">SkillId</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<a href="CategorySkill.html">CategorySkill</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

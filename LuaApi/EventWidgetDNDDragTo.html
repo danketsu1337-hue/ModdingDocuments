@@ -1,0 +1,62 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - EventWidgetDNDDragTo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p>## page was renamed from EventMissionDragAndDropDragTo</p>
+<p></p>
+<h2>EVENT_DND_DRAG_TO</h2>
+<p></p>
+<p>Событие приходит при перемещении курсора во время drag&drop.</p>
+<p></p>
+<p>Замечание. Событие может прийти после окончания drag&drop, если оно было отправлено в очередь до уведомления системы об окончании перетаскивания. Эту ситуацию надо проверять дополнительно.</p>
+<p></p>
+<pre>
+-- поля:
+srcWidget: WidgetSafe - перетаскиваемый виджет
+srcId: number (int) - идентификатор DNDId перетаскиваемого виджета
+posX: number (int) - координата курсора по X (реальная)
+posY: number (int) - координата курсора по Y (реальная)
+outside: boolean - находится ли курсор за пределами окна приложения
+kbFlags: number (enum KBF_...) - состояние модификаторов клавиатуры (ссылка ниже)
+</pre>
+<p></p>
+<p>См. <a href="EnumKeyboardFlags.html"> KBF_...</a></p>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryDragAndDrop" </h4>
+<p></p>
+<a href="CategoryDragAndDrop.html">CategoryDragAndDrop</a>
+<br><a href="EnumWidgetDNDState.html">EnumWidgetDNDState</a>
+<br><a href="EventWidgetDNDDragCancelled.html">EventWidgetDNDDragCancelled</a>
+<br><a href="EventWidgetDNDDragOver.html">EventWidgetDNDDragOver</a>
+<br><a href="EventWidgetDNDDragTo.html">EventWidgetDNDDragTo</a>
+<br><a href="EventWidgetDNDDropAttempt.html">EventWidgetDNDDropAttempt</a>
+<br><a href="EventWidgetDNDPickAttempt.html">EventWidgetDNDPickAttempt</a>
+<br><a href="FunctionWidgetDNDCancelDrag.html">FunctionWidgetDNDCancelDrag</a>
+<br><a href="FunctionWidgetDNDConfirmDropAttempt.html">FunctionWidgetDNDConfirmDropAttempt</a>
+<br><a href="FunctionWidgetDNDConfirmPickAttempt.html">FunctionWidgetDNDConfirmPickAttempt</a>
+<br><a href="FunctionWidgetDNDEnable.html">FunctionWidgetDNDEnable</a>
+<br><a href="FunctionWidgetDNDGetState.html">FunctionWidgetDNDGetState</a>
+<br><a href="FunctionWidgetDNDRegister.html">FunctionWidgetDNDRegister</a>
+<br><a href="FunctionWidgetDNDRegisterGeneric.html">FunctionWidgetDNDRegisterGeneric</a>
+<br><a href="FunctionWidgetDNDUnregister.html">FunctionWidgetDNDUnregister</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryEvent.html">CategoryEvent</a>
+<a href="CategoryWidget.html">CategoryWidget</a>
+<a href="CategoryDragAndDrop.html">CategoryDragAndDrop</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

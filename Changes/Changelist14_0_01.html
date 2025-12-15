@@ -1,0 +1,187 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - Changelist14_0_01</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<br>
+<h2>Список изменений</h2>
+<br>
+<br>
+<h3>Удалены документы</h3>
+avatar.GetActionGroupInfo( id )<br>
+common.AddonCreateChildForm( formId )<br>
+common.GetAddonRelatedAliasVisObject( name )<br>
+common.GetAddonRelatedGroupSound( group, name )<br>
+common.GetAddonRelatedGroupSoundOptional( group, name )<br>
+common.GetAddonRelatedGroupText( sysGroup, sysName )<br>
+common.GetAddonRelatedGroupTexts( sysGroup )<br>
+common.GetAddonRelatedGroupTexture( group, name )<br>
+common.GetAddonRelatedResources( name, type )<br>
+common.GetAddonRelatedSound( name )<br>
+common.GetAddonRelatedText( sysName )<br>
+common.GetAddonRelatedVisAction( name )<br>
+common.GetAddonRelatedVisObject( name )<br>
+common.GetStateRelatedAliasVisObject( name )<br>
+common.GetStateRelatedGroupSound( group, name )<br>
+common.GetStateRelatedGroupSoundOptional( group, name )<br>
+common.GetStateRelatedGroupText( sysGroup, sysName )<br>
+common.GetStateRelatedGroupTexture( group, name )<br>
+common.GetStateRelatedSound( name )<br>
+common.GetStateRelatedText( sysName )<br>
+common.GetStateRelatedVisAction( name )<br>
+common.GetStateRelatedVisObject( name )<br>
+EVENT_AVATAR_LONGTIMELIFE_BUFF_ADDED<br>
+EVENT_AVATAR_LONGTIMELIFE_BUFF_REMOVED<br>
+EVENT_AVATAR_LONGTIMELIFE_BUFFS_CHANGED<br>
+FinishRotationEffect( self, addonName )<br>
+GetAddonRelatedDecal( name )<br>
+GetAddonRelatedTexture( name )<br>
+GetStateRelatedDecal( name )<br>
+GetStateRelatedTexture( name )<br>
+matchMaking.ExitBattleEvent()<br>
+PlayRotationEffect( self, from, to, timeMs, algorithmType )<br>
+PlayRotationWithChildrenEffect( self, from, to, timeMs, algorithmType )<br>
+<br>
+<h3>Добавлены документы</h3>
+<a href="../LuaApi/CoreScriptAddonBase.html">AddonBase.lua</a><br>
+<a href="../LuaApi/CoreScriptAddonBaseInternal.html">AddonBaseInternal.lua</a><br>
+<a href="../LuaApi/CoreScriptAddonBaseUserMods.html">AddonBaseUserMods.lua</a><br>
+<a href="../LuaApi/FunctionButtonSetTextValues.html">ButtonSafe:SetTextValues( self, textValues )</a><br>
+<a href="../LuaApi/CategoryWString.html">CategoryWString</a><br>
+<a href="../LuaApi/FunctionCommonGetAddonRelatedSoundGroup.html">common.GetAddonRelatedSoundGroup( sysGroup, optional )</a><br>
+<a href="../LuaApi/FunctionCommonGetLocalDateTimeMs.html">common.GetLocalDateTimeMs()</a><br>
+<a href="../LuaApi/FunctionCommonGetStateRelatedSoundGroup.html">common.GetStateRelatedSoundGroup( sysGroup, optional )</a><br>
+<a href="../LuaApi/FunctionCommonIsSoundEnabled.html">common.IsSoundEnabled()</a><br>
+<a href="../LuaApi/FunctionCommonIsValidText.html">common.IsValidText( text )</a><br>
+<a href="../LuaApi/CategoryCoreScripts.html">CoreScripts</a><br>
+<a href="../LuaApi/EventEffectSequenceFinished.html">EVENT_EFFECT_SEQUENCE_FINISHED</a><br>
+<a href="../LuaApi/EventEffectSequenceStep.html">EVENT_EFFECT_SEQUENCE_STEP</a><br>
+<a href="../LuaApi/FunctionWidgetFinishAllEffects.html">FinishAllEffects( self, finalPosition, sendEvent )</a><br>
+<a href="../LuaApi/WidgetsEffectsFinishEffectTemplate.html">FinishEffect( self, finalPosition, sendEvent )</a><br>
+<a href="../LuaApi/FunctionWidgetFinishRotationEffect.html">FinishRotationEffect( self, finalPosition, sendEvent )</a><br>
+<a href="../LuaApi/FunctionWidgetGetAddonName.html">GetAddonName ( self )</a><br>
+<a href="../LuaApi/FunctionWidgetHasActiveEffects.html">HasActiveEffects( self, effectType )</a><br>
+<a href="../LuaApi/FunctionMissionGetGlobalDateTimeMs.html">mission.GetGlobalDateTimeMs()</a><br>
+<a href="../LuaApi/WidgetsEffectsPlayEffectTemplate.html">PlayEffect( self, start, finish, timeMs, algoDesc, needEvent, eventReceivers )</a><br>
+<a href="../LuaApi/WidgetsEffectsPlayEffectSequenceTemplate.html">PlayEffectSequence( self, sequenceParams )</a><br>
+<a href="../LuaApi/FunctionWidgetPlayEffectSequencePack.html">PlayEffectSequencePack( self, effectPack )</a><br>
+<a href="../LuaApi/FunctionWidgetPlayFadeEffectSequence.html">PlayFadeEffectSequence( self, sequenceParams )</a><br>
+<a href="../LuaApi/FunctionWidgetPlayMoveEffectSequence.html">PlayMoveEffectSequence( self, sequenceParams )</a><br>
+<a href="../LuaApi/FunctionWidgetPlayResizeEffectSequence.html">PlayResizeEffectSequence( self, sequenceParams )</a><br>
+<a href="../LuaApi/FunctionWidgetPlayRotationEffect.html">PlayRotationEffect( self, start, finish, timeMs, algoDesc, needEvent, eventReceivers )</a><br>
+<a href="../LuaApi/FunctionWidgetPlayRotationEffectSequence.html">PlayRotationEffectSequence( self, sequenceParams )</a><br>
+<a href="../LuaApi/FunctionWidgetPlayRotationWithChildrenEffect.html">PlayRotationWithChildrenEffect( self, start, finish, timeMs, algoDesc, needEvent, eventReceivers )</a><br>
+<a href="../LuaApi/FunctionWidgetPlayRotationWithChildrenEffectSequence.html">PlayRotationWithChildrenEffectSequence( self, sequenceParams )</a><br>
+<a href="../LuaApi/FunctionTextViewPlayTextScaleEffectSequence.html">PlayTextScaleEffectSequence( self, sequenceParams )</a><br>
+<a href="../LuaApi/FunctionRelatedSoundsLuaGetList.html">RelatedSoundsLua:GetList( self )</a><br>
+<a href="../LuaApi/FunctionRelatedSoundsLuaGetSound.html">RelatedSoundsLua:GetSound( self, sysName )</a><br>
+<a href="../LuaApi/FunctionRelatedSoundsLuaHasSound.html">RelatedSoundsLua:HasSound( self, sysName )</a><br>
+<a href="../LuaApi/RelatedSoundsLua.html">RelatedSoundsLua</a><br>
+<a href="../LuaApi/FunctionRelatedTextsLuaGetList.html">RelatedTextsLua:GetList( self )</a><br>
+<a href="../LuaApi/FunctionRelatedTexturesLuaGetList.html">RelatedTexturesLua:GetList( self )</a><br>
+<a href="../LuaApi/FunctionTextViewGetWString.html">TextViewSafe:GetWString( self )</a><br>
+<a href="../LuaApi/FunctionTextViewSetTextValues.html">TextViewSafe:SetTextValues( self, textValues )</a><br>
+<a href="../LuaApi/FunctionUserModsFromValuedText.html">userMods.FromValuedText( valuedText )</a><br>
+<a href="../LuaApi/FunctionUserModsGetCallStack.html">userMods.GetCallStack()</a><br>
+<a href="../LuaApi/FunctionUserModsSendSelfChatMessage.html">userMods.SendSelfChatMessage( message, messageLevel )</a><br>
+<a href="../LuaApi/FunctionValuedTextIsEmpty.html">ValuedText:IsEmpty( self )</a><br>
+<a href="../LuaApi/FunctionValuedTextSetTextValues.html">ValuedText:SetTextValues( self, textValues )</a><br>
+<a href="../LuaApi/FunctionValuedTextToWString.html">ValuedText:ToWString()</a><br>
+<a href="../LuaApi/WidgetPlacementLua.html">WidgetPlacementLua.  Описание расположение виджета в скрипте.</a><br>
+<a href="../LuaApi/FunctionWStringCompare.html">WString:Compare( self, other, ignoreRegistry )</a><br>
+<a href="../LuaApi/FunctionWStringIsContain.html">Wstring:IsContain( self, part, ignoreRegistry )</a><br>
+<a href="../LuaApi/FunctionWStringIsEmpty.html">WString:IsEmpty( self )</a><br>
+<a href="../LuaApi/FunctionWStringToAbbr.html">WString:ToAbbr( self )</a><br>
+<a href="../LuaApi/FunctionWStringToInt.html">WString:ToInt( self )</a><br>
+<a href="../LuaApi/FunctionWStringToLower.html">WString:ToLower( self )</a><br>
+<a href="../LuaApi/FunctionWStringTruncate.html">WString:Truncate( self, maxOverallLen, trailingDotsCount, needTrim  )</a><br>
+<a href="../LuaApi/LuaApiRuntime.html">Особенности Lua runtime</a><br>
+<br>
+<h3>Изменены документы</h3>
+<a href="../LuaApi/ActionGroupId.html">ActionGroupId</a><br>
+<a href="../LuaApi/FunctionControl3DAddWidget3D.html">AddWidget3D( self, widget, size, pos, autoResizeX, autoResizeY, cutDistance, bindPointY, minSizeLimit, maxSizeLimit )</a><br>
+<a href="../LuaApi/AliasVisObjectId.html">AliasVisObjectId</a><br>
+<a href="../LuaApi/FunctionAuctionCreateForItem.html">auction.CreateForItem( itemId, startPrice, buyoutPrice, timeLength )</a><br>
+<a href="../LuaApi/CategoryLuaApi.html">CategoryLuaApi</a><br>
+<a href="../LuaApi/CategoryWidget.html">CategoryWidget</a><br>
+<a href="../LuaApi/CategoryWidgetEffects.html">CategoryWidgetEffects</a><br>
+<a href="../LuaApi/FunctionCompareWString.html">common.CompareWString( text1, text2 )</a><br>
+<a href="../LuaApi/FunctionCompareWStringEx.html">common.CompareWStringEx( text1, text2 )</a><br>
+<a href="../LuaApi/FunctionCommonCreateValuedText.html">common.CreateValuedText( textValues )</a><br>
+<a href="../LuaApi/FunctionEscapeWString.html">common.EscapeWString( str )</a><br>
+<a href="../LuaApi/FunctionCommonExtractWStringFromValuedText.html">common.ExtractWStringFromValuedText( valuedText )</a><br>
+<a href="../LuaApi/FunctionCommonGetAddonMainForm.html">common.GetAddonMainForm( sysAddonName )</a><br>
+<a href="../LuaApi/FunctionCommonGetAddonRelatedTextGroup.html">common.GetAddonRelatedTextGroup( sysGroup, optional )</a><br>
+<a href="../LuaApi/FunctionCommonGetAddonRelatedTextureGroup.html">common.GetAddonRelatedTextureGroup( sysGroup, optional )</a><br>
+<a href="../LuaApi/FunctionCommonGetCSSList.html">common.GetCSSList()</a><br>
+<a href="../LuaApi/FunctionCommonGetEmptyWstring.html">common.GetEmptyWString()</a><br>
+<a href="../LuaApi/FunctionCommonGetIntFromWString.html">common.GetIntFromWString( text )</a><br>
+<a href="../LuaApi/FunctionCommonGetShortString.html">common.GetShortString( text )</a><br>
+<a href="../LuaApi/FunctionCommonGetStateManagedAddons.html">common.GetStateManagedAddons()</a><br>
+<a href="../LuaApi/FunctionCommonGetStateRelatedTextGroup.html">common.GetStateRelatedTextGroup( sysGroup, optional )</a><br>
+<a href="../LuaApi/FunctionCommonGetStateRelatedTextureGroup.html">common.GetStateRelatedTextureGroup( sysGroup, optional )</a><br>
+<a href="../LuaApi/FunctionGetWStringLength.html">common.GetWStringLength ( str )</a><br>
+<a href="../LuaApi/FunctionCommonIsEmptyValuedObject.html">common.IsEmptyValuedObject( valuedText )</a><br>
+<a href="../LuaApi/FunctionCommonIsEmptyWstring.html">common.IsEmptyWString( text )</a><br>
+<a href="../LuaApi/FunctionCommonIsSubstring.html">common.IsSubstring( text1, text2 )</a><br>
+<a href="../LuaApi/FunctionCommonIsSubstringEx.html">common.IsSubstringEx( text1, text2 )</a><br>
+<a href="../LuaApi/FunctionCommonIsWString.html">common.IsWString( value )</a><br>
+<a href="../LuaApi/FunctionCommonSetTextValues.html">common.SetTextValues( object, textValues )</a><br>
+<a href="../LuaApi/FunctionTruncateWString.html">common.TruncateWString( str, maxOverallLen, trailingDotsCount, needTrim )</a><br>
+<a href="../LuaApi/FunctionContainerLibMoveItem.html">containerLib.MoveItem( itemId, slotType, slot, count )</a><br>
+<a href="../LuaApi/DecalObjectId.html">DecalObjectId</a><br>
+<a href="../LuaApi/WidgetsEffectsTypes.html">ET_...</a><br>
+<a href="../LuaApi/EventAvatarUsedObjectChanged.html">EVENT_AVATAR_USED_OBJECT_CHANGED</a><br>
+<a href="../LuaApi/EventContainerItemAdded.html">EVENT_CONTAINER_ITEM_ADDED</a><br>
+<a href="../LuaApi/EventContainerItemRemoved.html">EVENT_CONTAINER_ITEM_REMOVED</a><br>
+<a href="../LuaApi/EventCurrencyValueChanged.html">EVENT_CURRENCY_VALUE_CHANGED</a><br>
+<a href="../LuaApi/EventEffectFinished.html">EVENT_EFFECT_FINISHED</a><br>
+<a href="../LuaApi/EventHiddenCurrencyValueChanged.html">EVENT_HIDDEN_CURRENCY_VALUE_CHANGED</a><br>
+<a href="../LuaApi/EventObjectBuffAdded.html">EVENT_OBJECT_BUFF_ADDED</a><br>
+<a href="../LuaApi/EventObjectBuffRemoved.html">EVENT_OBJECT_BUFF_REMOVED</a><br>
+<a href="../LuaApi/FunctionWidgetFinishFadeEffect.html">FinishFadeEffect( self, finalPosition, sendEvent )</a><br>
+<a href="../LuaApi/FunctionWidgetFinishMoveEffect.html">FinishMoveEffect( self, finalPosition, sendEvent )</a><br>
+<a href="../LuaApi/FunctionWidgetFinishResizeEffect.html">FinishResizeEffect( self, finalPosition, sendEvent )</a><br>
+<a href="../LuaApi/FunctionTextViewFinishTextScaleEffect.html">FinishTextScaleEffect( self, finalPosition, sendEvent )</a><br>
+<a href="../LuaApi/FunctionWidgetGetNamedChildren.html">GetNamedChildren( self )</a><br>
+<a href="../LuaApi/FunctionWidgetGetPlacementPlain.html">GetPlacementPlain( self )</a><br>
+<a href="../LuaApi/FunctionWidgetGetSmartPlacementPlain.html">GetSmartPlacementPlain( self )</a><br>
+<a href="../LuaApi/FunctionItemLibGetActionGroupsInfo.html">itemLib.GetActionGroupsInfo( itemId )</a><br>
+<a href="../LuaApi/EnumKeyboardFlags.html">KBF_...</a><br>
+<a href="../LuaApi/FunctionMissionGetGlobalDateTime.html">mission.GetGlobalDateTime()</a><br>
+<a href="../LuaApi/FunctionWidgetPlayFadeEffect.html">PlayFadeEffect( self, start, finish, timeMs, algoDesc, needEvent, eventReceivers )</a><br>
+<a href="../LuaApi/FunctionWidgetPlayMoveEffect.html">PlayMoveEffect( self, start, finish, timeMs, algoDesc, needEvent, eventReceivers )</a><br>
+<a href="../LuaApi/FunctionWidgetPlayResizeEffect.html">PlayResizeEffect( self, start, finish, timeMs, algoDesc, needEvent, eventReceivers )</a><br>
+<a href="../LuaApi/FunctionTextViewPlayTextScaleEffect.html">PlayTextScaleEffect( self, start, finish, timeMs, algoDesc, needEvent, eventReceivers )</a><br>
+<a href="../LuaApi/RelatedResources.html">Related Resource</a><br>
+<a href="../LuaApi/FunctionObjectSetControl3DForProjected.html">SetControl3DForProjected( wtControl3D )</a><br>
+<a href="../LuaApi/FunctionWidgetSetPlacementPlain.html">SetPlacementPlain( self, placement )</a><br>
+<a href="../LuaApi/FunctionWidgetSetSmartPlacementPlain.html">SetSmartPlacementPlain( self, placement )</a><br>
+<a href="../LuaApi/Sound2DId.html">Sound2DId</a><br>
+<a href="../LuaApi/FunctionSpellLibGetActionGroups.html">spellLib.GetActionGroups( id )</a><br>
+<a href="../LuaApi/WidgetTextView.html">TextView. Описание виджета для показа текстов.</a><br>
+<a href="../LuaApi/FunctionTutorialLibGetTutorialContent.html">tutorialLib.GetTutorialContent( id )</a><br>
+<a href="../LuaApi/FunctionTutorialLibGetTutorialInfo.html">tutorialLib.GetTutorialInfo( id )</a><br>
+<a href="../LuaApi/FunctionUserModsFromWString.html">userMods.FromWString( localizedText )</a><br>
+<a href="../LuaApi/FunctionUserModsToWString.html">userMods.ToWString( sysText )</a><br>
+<a href="../LuaApi/TypeValuedText.html">ValuedText - форматированная строка с подстановочными значениями</a><br>
+<a href="../LuaApi/VisActionId.html">VisActionId</a><br>
+<a href="../LuaApi/VisObjectId.html">VisObjectId</a><br>
+<a href="../LuaApi/FunctionWStringToUpper.html">WString:ToUpper( self )</a><br>
+<a href="../LuaApi/TypeWString.html">WString</a><br>
+<a href="../LuaApi/LuaApiTypes.html">Используемые типы в LuaApi</a><br>
+<br>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

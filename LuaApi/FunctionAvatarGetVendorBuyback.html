@@ -1,0 +1,128 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAvatarGetVendorBuyback</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>avatar.GetVendorBuyback()</h2>
+<p></p>
+<p>Возвращает список Id проданных вещей на выкуп у NPC-торговца.</p>
+<p>Должна быть вызвана после <a href="FunctionAvatarRequestVendor.html">avatar.RequestVendor()</a>.</p>
+<p></p>
+<pre>
+-- библиотека
+avatar
+
+-- объявление
+function GetVendorBuyback()
+
+-- параметры
+нет
+
+-- возвращаемые значения
+objects: table of VendorItem - список описаний объектов на продажу:
+  id: ObjectId - Id объекта
+  quantity: number( int ) - количество предметов, имеющихся у торговца. Если -1, то количество не ограничено.
+  price: number( int )- цена одного предмета
+  counter: number( int )- значение итемого счётчика (заряды), -1 означает, что счётчик отсутствует
+  isBound: boolean - прибинтенность итема
+
+-- пример
+local list = avatar.GetVendorBuyback()
+for i = 0, GetTableSize( list ) - 1 do
+  local itemId = list[i].id
+  local object = avatar.GetItemInfo( itemId )
+  local name = object.name
+end
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryInteraction"</h4>
+<p></p>
+<a href="EnumLearnError.html">EnumLearnError</a>
+<br><a href="EnumVendor.html">EnumVendor</a>
+<br><a href="EventInteractionStarted.html">EventInteractionStarted</a>
+<br><a href="EventItemsExchangeDeclineIgnored.html">EventItemsExchangeDeclineIgnored</a>
+<br><a href="EventItemsExchangeError.html">EventItemsExchangeError</a>
+<br><a href="EventItemsExchangeFinished.html">EventItemsExchangeFinished</a>
+<br><a href="EventItemsExchangeInvited.html">EventItemsExchangeInvited</a>
+<br><a href="EventItemsExchangeOfferFinalConfirmedChanged.html">EventItemsExchangeOfferFinalConfirmedChanged</a>
+<br><a href="EventItemsExchangeOfferItemsChanged.html">EventItemsExchangeOfferItemsChanged</a>
+<br><a href="EventItemsExchangeOfferMoneyChanged.html">EventItemsExchangeOfferMoneyChanged</a>
+<br><a href="EventItemsExchangeOfferPrimaryConfirmedChanged.html">EventItemsExchangeOfferPrimaryConfirmedChanged</a>
+<br><a href="EventItemsExchangeSlotIsBusy.html">EventItemsExchangeSlotIsBusy</a>
+<br><a href="EventItemsExchangeStarted.html">EventItemsExchangeStarted</a>
+<br><a href="EventItemsExchangeStateChanged.html">EventItemsExchangeStateChanged</a>
+<br><a href="EventTalkStarted.html">EventTalkStarted</a>
+<br><a href="EventTalkStopped.html">EventTalkStopped</a>
+<br><a href="EventTrainerLearnError.html">EventTrainerLearnError</a>
+<br><a href="EventVendorBuyNotEnoughPlace.html">EventVendorBuyNotEnoughPlace</a>
+<br><a href="EventVendorBuyReputationIsTooSmall.html">EventVendorBuyReputationIsTooSmall</a>
+<br><a href="EventVendorBuyRequiredAchievement.html">EventVendorBuyRequiredAchievement</a>
+<br><a href="EventVendorItemAlreadySold.html">EventVendorItemAlreadySold</a>
+<br><a href="EventVendorItemNotForSale.html">EventVendorItemNotForSale</a>
+<br><a href="EventVendorListUpdated.html">EventVendorListUpdated</a>
+<br><a href="FunctionAvatarBuy.html">FunctionAvatarBuy</a>
+<br><a href="FunctionAvatarBuyToSlot.html">FunctionAvatarBuyToSlot</a>
+<br><a href="FunctionAvatarGetInteractorCue.html">FunctionAvatarGetInteractorCue</a>
+<br><a href="FunctionAvatarGetInteractorCurrentLocations.html">FunctionAvatarGetInteractorCurrentLocations</a>
+<br><a href="FunctionAvatarGetInteractorInfo.html">FunctionAvatarGetInteractorInfo</a>
+<br><a href="FunctionAvatarGetInteractorNextCues.html">FunctionAvatarGetInteractorNextCues</a>
+<br><a href="FunctionAvatarGetInteractorTeleportLocations.html">FunctionAvatarGetInteractorTeleportLocations</a>
+<br><a href="FunctionAvatarGetInterlocutor.html">FunctionAvatarGetInterlocutor</a>
+<br><a href="FunctionAvatarGetSecondhandList.html">FunctionAvatarGetSecondhandList</a>
+<br><a href="FunctionAvatarGetTeleportLocationInfo.html">FunctionAvatarGetTeleportLocationInfo</a>
+<br><a href="FunctionAvatarGetTeleportLocations.html">FunctionAvatarGetTeleportLocations</a>
+<br><a href="FunctionAvatarGetVendorBuyback.html">FunctionAvatarGetVendorBuyback</a>
+<br><a href="FunctionAvatarGetVendorList.html">FunctionAvatarGetVendorList</a>
+<br><a href="FunctionAvatarHasInteractorCue.html">FunctionAvatarHasInteractorCue</a>
+<br><a href="FunctionAvatarHasInteractorQuest.html">FunctionAvatarHasInteractorQuest</a>
+<br><a href="FunctionAvatarIsInteractorRootCue.html">FunctionAvatarIsInteractorRootCue</a>
+<br><a href="FunctionAvatarIsInteractorTrainer.html">FunctionAvatarIsInteractorTrainer</a>
+<br><a href="FunctionAvatarIsInteractorVendor.html">FunctionAvatarIsInteractorVendor</a>
+<br><a href="FunctionAvatarIsTalking.html">FunctionAvatarIsTalking</a>
+<br><a href="FunctionAvatarIsTeleportLocationValid.html">FunctionAvatarIsTeleportLocationValid</a>
+<br><a href="FunctionAvatarRequestInteractions.html">FunctionAvatarRequestInteractions</a>
+<br><a href="FunctionAvatarRequestVendor.html">FunctionAvatarRequestVendor</a>
+<br><a href="FunctionAvatarReturnToStartCue.html">FunctionAvatarReturnToStartCue</a>
+<br><a href="FunctionAvatarSelectInteractorCue.html">FunctionAvatarSelectInteractorCue</a>
+<br><a href="FunctionAvatarStartInteract.html">FunctionAvatarStartInteract</a>
+<br><a href="FunctionAvatarStopInteract.html">FunctionAvatarStopInteract</a>
+<br><a href="FunctionAvatarTeleportToLocation.html">FunctionAvatarTeleportToLocation</a>
+<br><a href="FunctionInteractionCancelExchange.html">FunctionInteractionCancelExchange</a>
+<br><a href="FunctionInteractionGetExchangeInvited.html">FunctionInteractionGetExchangeInvited</a>
+<br><a href="FunctionInteractionGetExchangeInviter.html">FunctionInteractionGetExchangeInviter</a>
+<br><a href="FunctionInteractionGetExchangeSlotCount.html">FunctionInteractionGetExchangeSlotCount</a>
+<br><a href="FunctionInteractionHasExchange.html">FunctionInteractionHasExchange</a>
+<br><a href="FunctionInteractionInviteToExchange.html">FunctionInteractionInviteToExchange</a>
+<br><a href="FunctionInteractionIsAvatarExchangeInviter.html">FunctionInteractionIsAvatarExchangeInviter</a>
+<br><a href="FunctionInteractionIsExchangeInInvitation.html">FunctionInteractionIsExchangeInInvitation</a>
+<br><a href="FunctionInteractionIsExchangeInProgress.html">FunctionInteractionIsExchangeInProgress</a>
+<br><a href="FunctionInteractionRemoveExchangeItem.html">FunctionInteractionRemoveExchangeItem</a>
+<br><a href="FunctionObjectGetInteractorInfo.html">FunctionObjectGetInteractorInfo</a>
+<br><a href="FunctionObjectHasMobVisual.html">FunctionObjectHasMobVisual</a>
+<br><a href="FunctionObjectHasQuest.html">FunctionObjectHasQuest</a>
+<br><a href="FunctionObjectHasWorldSecret.html">FunctionObjectHasWorldSecret</a>
+<br><a href="FunctionObjectIsVendor.html">FunctionObjectIsVendor</a>
+<br><a href="FunctionUnitGetTrainerClass.html">FunctionUnitGetTrainerClass</a>
+<br><a href="FunctionUnitIsTrainer.html">FunctionUnitIsTrainer</a>
+<br><a href="ItemsExchangeState.html">ItemsExchangeState</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryInteraction.html">CategoryInteraction</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

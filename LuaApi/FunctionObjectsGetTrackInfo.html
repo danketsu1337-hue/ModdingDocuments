@@ -1,0 +1,78 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionObjectsGetTrackInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> objects.GetTrackInfo( trackId )</h2>
+<p></p>
+<p>Возвращает описание "отслеживаемого" объекта - Track - в зоне игрока. Такие объекты, например, могут обозначать хорунжего или т.п.</p>
+<p></p>
+<p>См. также <a href="GamePosition.html"> GamePosition</a> - позиция объекта, <a href="MutationInfo.html"> MutationInfo</a> - информация о мутации.</p>
+<p></p>
+<pre>
+-- система:
+UIState - расширенная информация, GameState - базовая информация
+
+-- библиотека:
+objects
+
+-- объявление:
+function GetTrackInfo( trackId )
+
+-- параметры:
+objectId: ObjectId (not nil) - идентификатор Track-а
+
+-- возвращаемые значения:
+table or nil - описание объекта. Таблица (если объект найден) с полями:
+  id: ObjectId - идентификатор Track-а
+  objectId: ObjectId or nil - идентификатор отслеживаемого объекта, может отсутствовать
+  playerName: WString - имя объекта (например, игрока)
+  text: WString - описание объекта. Может быть шаблоном строки
+  sysName: String - техническая спецификация Track-а
+  characterClass: CharacterClassId (ResourceId) or nil - класс персонажа, если доступен
+  level: number (integer) or 0 - уровень персонажа
+  position or nil: GamePosition - координаты объекта, если можно получить
+  durationMs: number (integer) - сколько миллисекунд полностью длится отслеживание
+  remainingMs: number (integer) - сколько миллисекунд осталось до окончания отслеживания
+  mutation or nil: MutationInfo - информация о мутации распространяемой данным объектом
+  image: TextureId or nil - текстура с иконкой объекта
+
+-- пример:
+local trackInfo = objects.GetTrackInfo( trackId )
+if trackInfo then
+  local valuedText = common.CreateValuedText()
+  valuedText:SetFormat( trackInfo.text )
+  valuedText:SetVal( "name", trackInfo.playerName )
+end
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryObjects"</h4>
+<p></p>
+<a href="CategoryObjects.html">CategoryObjects</a>
+<br><a href="EventTrackAdded.html">EventTrackAdded</a>
+<br><a href="EventTrackObjectChanged.html">EventTrackObjectChanged</a>
+<br><a href="EventTrackPosChanged.html">EventTrackPosChanged</a>
+<br><a href="EventTrackRemoved.html">EventTrackRemoved</a>
+<br><a href="FunctionObjectsGetTrackInfo.html">FunctionObjectsGetTrackInfo</a>
+<br><a href="FunctionObjectsGetTracks.html">FunctionObjectsGetTracks</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryObjects.html">CategoryObjects</a>
+<a href="CategoryHuntingGrounds.html">CategoryHuntingGrounds</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

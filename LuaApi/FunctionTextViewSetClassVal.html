@@ -1,0 +1,74 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionTextViewSetClassVal</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>SetClassVal( self, tag, value )</h2>
+<p></p>
+<p>Задает значение для подстановки класса (из тега "rs") для данного TextViewSafe.</p>
+<p></p>
+<p>Замечание: в текущей реализации нет проверки, что данное значение не будет использоваться для подстановки значений (в теге "r").</p>
+<p></p>
+<pre>
+-- класс
+TextViewSafe
+
+-- семантика
+function SetClassVal( self, tag, value )
+
+-- входные параметры
+tag: string/WString - тег, для которого задается значение
+value: string/WString - значение тега
+
+-- возвращаемое значение отсутствует
+
+-- пример
+wtTextView:SetClassVal( "log_format", "log_red" )
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryTextView"</h4>
+<p></p>
+<a href="CategoryTextView.html">CategoryTextView</a>
+<br><a href="FunctionTextViewClearValues.html">FunctionTextViewClearValues</a>
+<br><a href="FunctionTextViewGetDefaultTag.html">FunctionTextViewGetDefaultTag</a>
+<br><a href="FunctionTextViewGetTextRect.html">FunctionTextViewGetTextRect</a>
+<br><a href="FunctionTextViewGetTextScale.html">FunctionTextViewGetTextScale</a>
+<br><a href="FunctionTextViewGetValuedText.html">FunctionTextViewGetValuedText</a>
+<br><a href="FunctionTextViewGetWString.html">FunctionTextViewGetWString</a>
+<br><a href="FunctionTextViewPlayTextScaleEffect.html">FunctionTextViewPlayTextScaleEffect</a>
+<br><a href="FunctionTextViewPlayTextScaleEffectSequence.html">FunctionTextViewPlayTextScaleEffectSequence</a>
+<br><a href="FunctionTextViewSetAlignY.html">FunctionTextViewSetAlignY</a>
+<br><a href="FunctionTextViewSetClassVal.html">FunctionTextViewSetClassVal</a>
+<br><a href="FunctionTextViewSetEllipsis.html">FunctionTextViewSetEllipsis</a>
+<br><a href="FunctionTextViewSetFormat.html">FunctionTextViewSetFormat</a>
+<br><a href="FunctionTextViewSetLinespacing.html">FunctionTextViewSetLinespacing</a>
+<br><a href="FunctionTextViewSetMultiline.html">FunctionTextViewSetMultiline</a>
+<br><a href="FunctionTextViewSetTextAttributes.html">FunctionTextViewSetTextAttributes</a>
+<br><a href="FunctionTextViewSetTextScale.html">FunctionTextViewSetTextScale</a>
+<br><a href="FunctionTextViewSetTextValues.html">FunctionTextViewSetTextValues</a>
+<br><a href="FunctionTextViewSetVal.html">FunctionTextViewSetVal</a>
+<br><a href="FunctionTextViewSetValuedText.html">FunctionTextViewSetValuedText</a>
+<br><a href="FunctionTextViewSetWrapText.html">FunctionTextViewSetWrapText</a>
+<br><a href="FunctionTextViewShowClippedLine.html">FunctionTextViewShowClippedLine</a>
+<br><a href="FunctionTextViewShowClippedSymbol.html">FunctionTextViewShowClippedSymbol</a>
+<br><a href="WidgetTextView.html">WidgetTextView</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryTextView.html">CategoryTextView</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

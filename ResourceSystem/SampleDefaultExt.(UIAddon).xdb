@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<UIAddon>
+	<Name />
+	<AutoStart>false</AutoStart>
+	<userAddonInfo>
+		<name href="" />
+		<description href="" />
+		<license href="" />
+		<sourceLink href="" />
+		<supportLink href="" />
+		<author />
+		<version />
+		<apiVersion>-1</apiVersion>
+		<buildTime>0</buildTime>
+		<useCommonScripts>false</useCommonScripts>
+	</userAddonInfo>
+	<ScriptFileRefs>
+		<Item href="" />
+	</ScriptFileRefs>
+	<Form href="" />
+	<textsGroups>
+		<Item>
+			<groupName />
+			<texts href="" />
+		</Item>
+	</textsGroups>
+	<widgetGroups>
+		<Item>
+			<groupName />
+			<widgets href="" />
+		</Item>
+	</widgetGroups>
+	<texturesGroups>
+		<Item>
+			<groupName />
+			<textures href="" />
+		</Item>
+	</texturesGroups>
+	<soundsGroups>
+		<Item>
+			<groupName />
+			<sounds href="" />
+		</Item>
+	</soundsGroups>
+	<styleSheets>
+		<Item href="" />
+	</styleSheets>
+</UIAddon>

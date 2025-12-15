@@ -1,0 +1,73 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAvatarImproveInnateStat</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>avatar.ImproveInnateStat( stat, amount )</h2>
+<p></p>
+<p>Отводит для будущего распределения пункты характеристик. Работает только если <a href="FunctionAvatarCanImproveInnateStats.html">avatar.CanImproveInnateStats()</a> даёт true.</p>
+<p></p>
+<pre>
+-- библиотека:
+avatar
+
+-- объявление:
+ImproveInnateStat( stat, amount )
+
+-- параметры:
+stat: number (ENUM_InnateStats) - значение множества InnateStats, соответствующее характеристике, которую планируется изменить
+amount: number (integer) - количество пунктов характеристик, на которое планируется изменить; не может быть больше текущего количества свободных пунктов характеристик; может быть отрицательным, в этом случае уменьшит ранее заданное этой же функцией количество пунктов для этой характеристики, однако не может уменьшить общее запланированное количество для этой характеристики ниже 0
+
+-- возвращаемые значения:
+нет
+
+
+
+-- пример:
+avatar.ImproveInnateStat( stat, amount )
+</pre>
+<p></p>
+<p>См. также:</p>
+<p></p>
+<ul><li><p> <a href="FunctionAvatarCanImproveInnateStats.html">avatar.CanImproveInnateStats()</a></p></li></ul>
+<ul><li><p> <a href="EnumInnateStats.html">ENUM_InnateStats</a></p></li></ul>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryAvatarProgress"</h4>
+<p></p>
+<a href="CategoryAvatarProgress.html">CategoryAvatarProgress</a>
+<br><a href="EnumDevelopmentSource.html">EnumDevelopmentSource</a>
+<br><a href="EnumDevelopmentTrack.html">EnumDevelopmentTrack</a>
+<br><a href="EnumGlobalScalerType.html">EnumGlobalScalerType</a>
+<br><a href="EventAvatarProgressGained.html">EventAvatarProgressGained</a>
+<br><a href="EventAvatarStatsCanImproveChanged.html">EventAvatarStatsCanImproveChanged</a>
+<br><a href="EventBonusPoolChanged.html">EventBonusPoolChanged</a>
+<br><a href="EventBonusPoolsChanged.html">EventBonusPoolsChanged</a>
+<br><a href="EventGlobalRatesChanged.html">EventGlobalRatesChanged</a>
+<br><a href="FunctionAvatarCanImproveInnateStats.html">FunctionAvatarCanImproveInnateStats</a>
+<br><a href="FunctionAvatarDistributeStatPoints.html">FunctionAvatarDistributeStatPoints</a>
+<br><a href="FunctionAvatarGetBonusPools.html">FunctionAvatarGetBonusPools</a>
+<br><a href="FunctionAvatarGetFreeStatPointsToDistribute.html">FunctionAvatarGetFreeStatPointsToDistribute</a>
+<br><a href="FunctionAvatarGetGlobalRates.html">FunctionAvatarGetGlobalRates</a>
+<br><a href="FunctionAvatarGetImprovedInnateStats.html">FunctionAvatarGetImprovedInnateStats</a>
+<br><a href="FunctionAvatarGetStatPointsToDistribute.html">FunctionAvatarGetStatPointsToDistribute</a>
+<br><a href="FunctionAvatarImproveInnateStat.html">FunctionAvatarImproveInnateStat</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryAvatarProgress.html">CategoryAvatarProgress</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

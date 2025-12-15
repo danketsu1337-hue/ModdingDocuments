@@ -1,0 +1,134 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - CategoryCommon</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h1>CategoryCommon</h1>
+<p></p>
+<p>Функции и события Lua API библиотеки common, а также глобальные функции.</p>
+<p></p>
+<h4>Связанные страницы: CategoryLuaApi CategoryCommon</h4>
+<p></p>
+<a href="CategoryCommon.html">CategoryCommon</a>
+<br><a href="EnumAddonState.html">EnumAddonState</a>
+<br><a href="EnumGoalState.html">EnumGoalState</a>
+<br><a href="EventAddonLoadStateChanged.html">EventAddonLoadStateChanged</a>
+<br><a href="EventAllodsGoalAdded.html">EventAllodsGoalAdded</a>
+<br><a href="EventAllodsGoalChanged.html">EventAllodsGoalChanged</a>
+<br><a href="EventAllodsGoalCompleted.html">EventAllodsGoalCompleted</a>
+<br><a href="EventFullscreenChanged.html">EventFullscreenChanged</a>
+<br><a href="EventLocaleChanged.html">EventLocaleChanged</a>
+<br><a href="EventPosConverterChanged.html">EventPosConverterChanged</a>
+<br><a href="EventUserScreenshot.html">EventUserScreenshot</a>
+<br><a href="FunctionApitype.html">FunctionApitype</a>
+<br><a href="FunctionCommonCreateValuedObject.html">FunctionCommonCreateValuedObject</a>
+<br><a href="FunctionCommonCreateValuedText.html">FunctionCommonCreateValuedText</a>
+<br><a href="FunctionCommonDisablePersonalEvent.html">FunctionCommonDisablePersonalEvent</a>
+<br><a href="FunctionCommonEnablePersonalEvent.html">FunctionCommonEnablePersonalEvent</a>
+<br><a href="FunctionCommonEnableUIRender.html">FunctionCommonEnableUIRender</a>
+<br><a href="FunctionCommonFormatFloat.html">FunctionCommonFormatFloat</a>
+<br><a href="FunctionCommonFormatInt.html">FunctionCommonFormatInt</a>
+<br><a href="FunctionCommonFormatNumber.html">FunctionCommonFormatNumber</a>
+<br><a href="FunctionCommonGetAbsTimeMs.html">FunctionCommonGetAbsTimeMs</a>
+<br><a href="FunctionCommonGetAddonInfo.html">FunctionCommonGetAddonInfo</a>
+<br><a href="FunctionCommonGetAddonMainForm.html">FunctionCommonGetAddonMainForm</a>
+<br><a href="FunctionCommonGetAddonName.html">FunctionCommonGetAddonName</a>
+<br><a href="FunctionCommonGetAddonSysName.html">FunctionCommonGetAddonSysName</a>
+<br><a href="FunctionCommonGetAllodsGoals.html">FunctionCommonGetAllodsGoals</a>
+<br><a href="FunctionCommonGetAllodsGoalsOnLoadingScreen.html">FunctionCommonGetAllodsGoalsOnLoadingScreen</a>
+<br><a href="FunctionCommonGetApiType.html">FunctionCommonGetApiType</a>
+<br><a href="FunctionCommonGetApiVersion.html">FunctionCommonGetApiVersion</a>
+<br><a href="FunctionCommonGetClientArch.html">FunctionCommonGetClientArch</a>
+<br><a href="FunctionCommonGetCredits.html">FunctionCommonGetCredits</a>
+<br><a href="FunctionCommonGetCSSList.html">FunctionCommonGetCSSList</a>
+<br><a href="FunctionCommonGetDateTimeFromMs.html">FunctionCommonGetDateTimeFromMs</a>
+<br><a href="FunctionCommonGetEmptyWstring.html">FunctionCommonGetEmptyWstring</a>
+<br><a href="FunctionCommonGetFatalityPhraseLimits.html">FunctionCommonGetFatalityPhraseLimits</a>
+<br><a href="FunctionCommonGetFirstPaymentBonusInfo.html">FunctionCommonGetFirstPaymentBonusInfo</a>
+<br><a href="FunctionCommonGetFPSData.html">FunctionCommonGetFPSData</a>
+<br><a href="FunctionCommonGetLocalDateTime.html">FunctionCommonGetLocalDateTime</a>
+<br><a href="FunctionCommonGetLocalDateTimeMs.html">FunctionCommonGetLocalDateTimeMs</a>
+<br><a href="FunctionCommonGetLocale.html">FunctionCommonGetLocale</a>
+<br><a href="FunctionCommonGetLocaleList.html">FunctionCommonGetLocaleList</a>
+<br><a href="FunctionCommonGetLocalization.html">FunctionCommonGetLocalization</a>
+<br><a href="FunctionCommonGetMks.html">FunctionCommonGetMks</a>
+<br><a href="FunctionCommonGetMsFromDateTime.html">FunctionCommonGetMsFromDateTime</a>
+<br><a href="FunctionCommonGetPosConverterParams.html">FunctionCommonGetPosConverterParams</a>
+<br><a href="FunctionCommonGetRandFloat.html">FunctionCommonGetRandFloat</a>
+<br><a href="FunctionCommonGetRandInt.html">FunctionCommonGetRandInt</a>
+<br><a href="FunctionCommonGetScriptCfgVar.html">FunctionCommonGetScriptCfgVar</a>
+<br><a href="FunctionCommonGetSetBonusInfo.html">FunctionCommonGetSetBonusInfo</a>
+<br><a href="FunctionCommonGetShortString.html">FunctionCommonGetShortString</a>
+<br><a href="FunctionCommonGetSpecialStatInfo.html">FunctionCommonGetSpecialStatInfo</a>
+<br><a href="FunctionCommonGetStateManagedAddons.html">FunctionCommonGetStateManagedAddons</a>
+<br><a href="FunctionCommonGetStateName.html">FunctionCommonGetStateName</a>
+<br><a href="FunctionCommonGetTerritoryInfo.html">FunctionCommonGetTerritoryInfo</a>
+<br><a href="FunctionCommonGetTextureInfo.html">FunctionCommonGetTextureInfo</a>
+<br><a href="FunctionCommonGetTextureSize.html">FunctionCommonGetTextureSize</a>
+<br><a href="FunctionCommonHitFrameHandler.html">FunctionCommonHitFrameHandler</a>
+<br><a href="FunctionCommonIsAvatarNameValid.html">FunctionCommonIsAvatarNameValid</a>
+<br><a href="FunctionCommonIsCapsLockEnabled.html">FunctionCommonIsCapsLockEnabled</a>
+<br><a href="FunctionCommonIsEmptyValuedText.html">FunctionCommonIsEmptyValuedText</a>
+<br><a href="FunctionCommonIsEmptyWstring.html">FunctionCommonIsEmptyWstring</a>
+<br><a href="FunctionCommonIsEqualStats.html">FunctionCommonIsEqualStats</a>
+<br><a href="FunctionCommonIsFatalityPhraseFiltered.html">FunctionCommonIsFatalityPhraseFiltered</a>
+<br><a href="FunctionCommonIsKeyEnabled.html">FunctionCommonIsKeyEnabled</a>
+<br><a href="FunctionCommonIsOnPayToPlayShard.html">FunctionCommonIsOnPayToPlayShard</a>
+<br><a href="FunctionCommonIsSoundEnabled.html">FunctionCommonIsSoundEnabled</a>
+<br><a href="FunctionCommonIsSubstring.html">FunctionCommonIsSubstring</a>
+<br><a href="FunctionCommonIsSubstringEx.html">FunctionCommonIsSubstringEx</a>
+<br><a href="FunctionCommonIsTextFiltered.html">FunctionCommonIsTextFiltered</a>
+<br><a href="FunctionCommonIsUIRenderEnabled.html">FunctionCommonIsUIRenderEnabled</a>
+<br><a href="FunctionCommonIsValidText.html">FunctionCommonIsValidText</a>
+<br><a href="FunctionCommonIsValuedObject.html">FunctionCommonIsValuedObject</a>
+<br><a href="FunctionCommonIsValuedText.html">FunctionCommonIsValuedText</a>
+<br><a href="FunctionCommonIsWidget.html">FunctionCommonIsWidget</a>
+<br><a href="FunctionCommonIsWString.html">FunctionCommonIsWString</a>
+<br><a href="FunctionCommonLogError.html">FunctionCommonLogError</a>
+<br><a href="FunctionCommonLogInfo.html">FunctionCommonLogInfo</a>
+<br><a href="FunctionCommonLogWarning.html">FunctionCommonLogWarning</a>
+<br><a href="FunctionCommonMakeUserScreenshot.html">FunctionCommonMakeUserScreenshot</a>
+<br><a href="FunctionCommonOnEvent.html">FunctionCommonOnEvent</a>
+<br><a href="FunctionCommonOnFrame.html">FunctionCommonOnFrame</a>
+<br><a href="FunctionCommonOnReaction.html">FunctionCommonOnReaction</a>
+<br><a href="FunctionCommonQuitGame.html">FunctionCommonQuitGame</a>
+<br><a href="FunctionCommonRegisterEventHandler.html">FunctionCommonRegisterEventHandler</a>
+<br><a href="FunctionCommonRegisterFrameHandler.html">FunctionCommonRegisterFrameHandler</a>
+<br><a href="FunctionCommonRegisterReactionHandler.html">FunctionCommonRegisterReactionHandler</a>
+<br><a href="FunctionCommonSendEvent.html">FunctionCommonSendEvent</a>
+<br><a href="FunctionCommonSendUserModsEvent.html">FunctionCommonSendUserModsEvent</a>
+<br><a href="FunctionCommonSetCursor.html">FunctionCommonSetCursor</a>
+<br><a href="FunctionCommonSetIconFlash.html">FunctionCommonSetIconFlash</a>
+<br><a href="FunctionCommonSetLocale.html">FunctionCommonSetLocale</a>
+<br><a href="FunctionCommonStateLoadManagedAddon.html">FunctionCommonStateLoadManagedAddon</a>
+<br><a href="FunctionCommonStateReloadManagedAddon.html">FunctionCommonStateReloadManagedAddon</a>
+<br><a href="FunctionCommonStateUnloadManagedAddon.html">FunctionCommonStateUnloadManagedAddon</a>
+<br><a href="FunctionCommonUnRegisterEvent.html">FunctionCommonUnRegisterEvent</a>
+<br><a href="FunctionCommonUnRegisterEventHandler.html">FunctionCommonUnRegisterEventHandler</a>
+<br><a href="FunctionCommonUnRegisterFrameHandler.html">FunctionCommonUnRegisterFrameHandler</a>
+<br><a href="FunctionCommonUnRegisterReaction.html">FunctionCommonUnRegisterReaction</a>
+<br><a href="FunctionCommonUnRegisterReactionHandler.html">FunctionCommonUnRegisterReactionHandler</a>
+<br><a href="FunctionCompareWString.html">FunctionCompareWString</a>
+<br><a href="FunctionCompareWStringEx.html">FunctionCompareWStringEx</a>
+<br><a href="FunctionEscapeWString.html">FunctionEscapeWString</a>
+<br><a href="FunctionGlobal.html">FunctionGlobal</a>
+<br><a href="FunctionIsIndexableUdata.html">FunctionIsIndexableUdata</a>
+<br><a href="GoalId.html">GoalId</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

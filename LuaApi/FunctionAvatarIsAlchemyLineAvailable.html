@@ -1,0 +1,67 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAvatarIsAlchemyLineAvailable</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>avatar.IsAlchemyLineAvailable( line )</h2>
+<p></p>
+<p>Возвращает базовую информацию об умении алхимии главного игрока.</p>
+<p></p>
+<pre>
+-- библиотека
+avatar
+
+-- объявление:
+function IsAlchemyLineAvailable( line )
+
+-- параметры
+line: number( int ) - строка результата (-1, 0, 1)
+
+-- возвращаемые значения
+boolean - true, если строка доступна
+
+-- пример использования
+if avatar.IsAlchemyLineAvailable( line ) do
+  common.LogInfo( "можем использовать строку " .. tostring( line ) )
+end
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryAlchemy"</h4>
+<p></p>
+<a href="EventAlchemyCanceled.html">EventAlchemyCanceled</a>
+<br><a href="EventAlchemyItemPlaced.html">EventAlchemyItemPlaced</a>
+<br><a href="EventAlchemyNotAlchemyItem.html">EventAlchemyNotAlchemyItem</a>
+<br><a href="EventAlchemyNotAvailableResources.html">EventAlchemyNotAvailableResources</a>
+<br><a href="EventAlchemyNotEnoughComponents.html">EventAlchemyNotEnoughComponents</a>
+<br><a href="EventAlchemyReactionFinished.html">EventAlchemyReactionFinished</a>
+<br><a href="EventAlchemyRecipesChanged.html">EventAlchemyRecipesChanged</a>
+<br><a href="EventAlchemyScoreChanged.html">EventAlchemyScoreChanged</a>
+<br><a href="EventAlchemyStarted.html">EventAlchemyStarted</a>
+<br><a href="FunctionAvatarCancelAlchemy.html">FunctionAvatarCancelAlchemy</a>
+<br><a href="FunctionAvatarGetAlchemyDrumInfo.html">FunctionAvatarGetAlchemyDrumInfo</a>
+<br><a href="FunctionAvatarGetAlchemyInfo.html">FunctionAvatarGetAlchemyInfo</a>
+<br><a href="FunctionAvatarGetAlchemyMatchedRecipe.html">FunctionAvatarGetAlchemyMatchedRecipe</a>
+<br><a href="FunctionAvatarIsAlchemyComponentsReady.html">FunctionAvatarIsAlchemyComponentsReady</a>
+<br><a href="FunctionAvatarIsAlchemyLineAvailable.html">FunctionAvatarIsAlchemyLineAvailable</a>
+<br><a href="FunctionAvatarPutAlchemyItemToSlot.html">FunctionAvatarPutAlchemyItemToSlot</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<a href="CategoryAlchemy.html">CategoryAlchemy</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

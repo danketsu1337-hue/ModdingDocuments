@@ -1,0 +1,69 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAvatarGetProficiencyInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>avatar.GetProficiencyInfo( id )</h2>
+<p></p>
+<p>Возвращает информацию о профессии главного игрока по идентификатору. В данный момент это умение носить вещи определенного класса. Зависит от уровня и класса персонажа.</p>
+<p></p>
+<pre>
+-- система:
+UIState/GameState
+функция имеет основную реализация в логике и расширенную реализацию в UI
+
+-- библиотека
+avatar
+
+-- объявление:
+function GetProficiencyInfo( id )
+
+-- параметры
+id: ObjectId - Id объекта профессии
+
+-- возвращаемые значения
+nil, если такой профессии нет
+table, если профессия есть, то поля возвращаемой таблицы:
+ id: ObjectId - Id профессии
+ name: WString (название)
+ description: WString (описание)
+ sysInfo: string - системная информация для дебага (путь к файлу)
+ --{ часть таблицы, реализованная только для UI
+ image: TextureId - идентификатор текстуры для иконки
+ --}
+
+-- пример использования
+local proficiences = avatar.GetProficiences()
+local proficiencyInfo = avatar.GetProficiencyInfo( proficiences[0] )
+if proficiencyInfo then
+  local name = proficiencyInfo.name
+end
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryProficiency"</h4>
+<p></p>
+<a href="EventProficiencyAdded.html">EventProficiencyAdded</a>
+<br><a href="EventProficiencyRemoved.html">EventProficiencyRemoved</a>
+<br><a href="FunctionAvatarGetProficiencies.html">FunctionAvatarGetProficiencies</a>
+<br><a href="FunctionAvatarGetProficiencyInfo.html">FunctionAvatarGetProficiencyInfo</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryProficiency.html">CategoryProficiency</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

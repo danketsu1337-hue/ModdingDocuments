@@ -1,0 +1,70 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionCustomizationLibGetActiveSlotInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> customizationLib.GetActiveSlotInfo()</h2>
+<p></p>
+<p>Возвращает информацию о кастомизируемом (активном) слоте в состоянии кастомизации.</p>
+<p></p>
+<p>ENUM_SlotName_... - содержит номер слота в общем пространстве множества слотов, используемых во всей системе. Можно использовать для хранения состояния, но точное множество значений в общем случае не известно.</p>
+<p></p>
+<p>См. <a href="EnumBeastType.html"> ENUM_BeastType_...</a>.</p>
+<p></p>
+<pre>
+-- библиотека:
+customizationLib
+
+-- объявление:
+function GetActiveSlotInfo()
+
+-- параметры:
+нет
+
+-- возвращаемые значения:
+table or nil - если сейчас главный игрок настраивает слот, то возвращает таблицу с полями
+  slot: number (enym ENUM_SlotName_...) - номер слота
+  sysSlot: sting (enym "ENUM_SlotName_...") - строковое обозначение слота
+  itemId: ObjectId or nil - идентификатор предмета, если он есть в слоте
+
+  Если настраиваем слот в личном приключении, то ещё поля:
+   beastType: number (enum ENUM_BeastType_...) - тип монстра
+   sysBeastType: string (enum "ENUM_BeastType_...") - тип монстра
+
+-- пример:
+if customizationLib.IsActive() then
+  local info = сustomizationLib.GetActiveSlotInfo()
+end
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryCustomizationLib"</h4>
+<p></p>
+<a href="CategoryCustomizationLib.html">CategoryCustomizationLib</a>
+<br><a href="EnumBeastType.html">EnumBeastType</a>
+<br><a href="EventCustomizationActiveSlotChanged.html">EventCustomizationActiveSlotChanged</a>
+<br><a href="EventCustomizationActiveSlotContentChanged.html">EventCustomizationActiveSlotContentChanged</a>
+<br><a href="EventCustomizationStateChanged.html">EventCustomizationStateChanged</a>
+<br><a href="FunctionCustomizationLibGetActiveSlotInfo.html">FunctionCustomizationLibGetActiveSlotInfo</a>
+<br><a href="FunctionCustomizationLibInstallItem.html">FunctionCustomizationLibInstallItem</a>
+<br><a href="FunctionCustomizationLibIsActive.html">FunctionCustomizationLibIsActive</a>
+<br><a href="FunctionCustomizationLibUninstallItem.html">FunctionCustomizationLibUninstallItem</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryCustomizationLib.html">CategoryCustomizationLib</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

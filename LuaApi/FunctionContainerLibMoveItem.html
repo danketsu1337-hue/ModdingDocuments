@@ -1,0 +1,85 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionContainerLibMoveItem</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> containerLib.MoveItem( itemId, slotType, slot, count )</h2>
+<p></p>
+<p>Переместить предмет.</p>
+<p></p>
+<p>Если будет провалена какая-либо из <a href="FunctionContainerLibCheckMoveItem.html"> проверок</a>, то функция  завершится с ошибкой.</p>
+<p></p>
+<p>См. <a href="EnumItemCont.html"> ITEM_CONT_...</a>.</p>
+<p></p>
+<pre>
+-- библиотека:
+containerLib
+
+-- объявление:
+MoveItem( itemId, slotType, slot, count )
+
+-- параметры:
+itemId: ObjectId - идентификатор предмета
+slotType: number (enum ITEM_CONT_...) - тип контейнера места назначения
+slot: number (integer) or nil - номер слота в контейнере. Если указан nil, то слот подберётся автоматически
+count: number (integer) or nil - количество перемещаемых предметов. Если указан nil, то переместится весь слот
+
+-- возвращаемые значения:
+нет
+</pre>
+<p></p>
+<p>Пример:</p>
+<p></p>
+<pre>
+containerLib.MoveItem( itemId, ITEM_CONT_INVENTORY, 12 )
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryContainerLib"</h4>
+<p></p>
+<a href="CategoryContainerLib.html">CategoryContainerLib</a>
+<br><a href="EnumItemCont.html">EnumItemCont</a>
+<br><a href="EventContainerChanged.html">EventContainerChanged</a>
+<br><a href="EventContainerItemAdded.html">EventContainerItemAdded</a>
+<br><a href="EventContainerItemChanged.html">EventContainerItemChanged</a>
+<br><a href="EventContainerItemEffect.html">EventContainerItemEffect</a>
+<br><a href="EventContainerItemRemoved.html">EventContainerItemRemoved</a>
+<br><a href="FunctionContainerLibCheckMoveItem.html">FunctionContainerLibCheckMoveItem</a>
+<br><a href="FunctionContainerLibCheckMoveSlotItem.html">FunctionContainerLibCheckMoveSlotItem</a>
+<br><a href="FunctionContainerLibClose.html">FunctionContainerLibClose</a>
+<br><a href="FunctionContainerLibGetAllResourceItemIds.html">FunctionContainerLibGetAllResourceItemIds</a>
+<br><a href="FunctionContainerLibGetAllSimilarItemIds.html">FunctionContainerLibGetAllSimilarItemIds</a>
+<br><a href="FunctionContainerLibGetFirstResourceItemId.html">FunctionContainerLibGetFirstResourceItemId</a>
+<br><a href="FunctionContainerLibGetFirstSimilarItemId.html">FunctionContainerLibGetFirstSimilarItemId</a>
+<br><a href="FunctionContainerLibGetItem.html">FunctionContainerLibGetItem</a>
+<br><a href="FunctionContainerLibGetItems.html">FunctionContainerLibGetItems</a>
+<br><a href="FunctionContainerLibGetItemSlot.html">FunctionContainerLibGetItemSlot</a>
+<br><a href="FunctionContainerLibGetResourceItemStackCount.html">FunctionContainerLibGetResourceItemStackCount</a>
+<br><a href="FunctionContainerLibGetSimilarItemStackCount.html">FunctionContainerLibGetSimilarItemStackCount</a>
+<br><a href="FunctionContainerLibGetSize.html">FunctionContainerLibGetSize</a>
+<br><a href="FunctionContainerLibIsInteracting.html">FunctionContainerLibIsInteracting</a>
+<br><a href="FunctionContainerLibIsItemEnabled.html">FunctionContainerLibIsItemEnabled</a>
+<br><a href="FunctionContainerLibIsItemSlotEnabled.html">FunctionContainerLibIsItemSlotEnabled</a>
+<br><a href="FunctionContainerLibIsOpen.html">FunctionContainerLibIsOpen</a>
+<br><a href="FunctionContainerLibMoveItem.html">FunctionContainerLibMoveItem</a>
+<br><a href="FunctionContainerLibMoveSlotItem.html">FunctionContainerLibMoveSlotItem</a>
+<br><a href="FunctionContainerLibOpen.html">FunctionContainerLibOpen</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryContainerLib.html">CategoryContainerLib</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

@@ -1,0 +1,250 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - Changelist16_0_01</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<br>
+<h2>Список изменений</h2>
+<br>
+<br>
+<h3>Удалены документы</h3>
+avatar.EquipItem( slot )<br>
+avatar.EquipItemToSlot( slot, equipSlot )<br>
+avatar.GetBuffInfoById( resourceId )<br>
+avatar.GetContainerItem( itemSlot, itemSlotType )<br>
+avatar.GetEquipmentItemSlot( itemId )<br>
+avatar.GetInventoryBagItemId()<br>
+avatar.GetInventoryItemId( index )<br>
+avatar.GetInventoryItemIds()<br>
+avatar.GetInventoryItemSlot( itemId )<br>
+avatar.GetInventoryOverflowItemIds()<br>
+avatar.GetInventoryOverflowSize()<br>
+avatar.GetInventorySize()<br>
+avatar.GetSameBindingStackCount( itemId )<br>
+avatar.HasItemGuildComponent( itemId )<br>
+avatar.InventoryMoveItem( slotFrom, slotTo )<br>
+avatar.InventorySplitItem( slotFrom, slotTo, count )<br>
+avatar.IsBuffDisease( buffId )<br>
+avatar.IsBuffMagic( buffId )<br>
+avatar.IsBuffPoison( buffId )<br>
+avatar.IsInventoryMoveItemModified( slotFrom, slotTo )<br>
+avatar.IsItemEnabledForActions( slot )<br>
+CategoryProgressiveDownloadLib<br>
+common.StateLoadManagedAddonGroup( groupName )<br>
+common.StateUnloadManagedAddonGroup( groupName )<br>
+containerLib.GetItemStackCount( slotType, itemId )<br>
+craft.GetForgeComponent( slot )<br>
+craft.GetForgeRecipe()<br>
+craft.PutForgeComponent( slot, itemId )<br>
+craft.SetForgeRecipe( recipeId )<br>
+depositeBox.ChangeTypeByItem( inventorySlot )<br>
+depositeBox.GetDepositeBoxItemId()<br>
+depositeBox.GetItemId( depositeSlot )<br>
+depositeBox.GetSlotCount()<br>
+depositeBox.IsChangeTypeItem( inventorySlot )<br>
+depositeBox.IsChangeTypeItemById( itemId )<br>
+depositeBox.IsItemEnabled( depositeSlot )<br>
+depositeBox.IsMoveModified( depositeSlotFrom, depositeSlotTo )<br>
+depositeBox.Move( depositeSlotFrom, depositeSlotTo, countNoMore )<br>
+depositeBox.PutItemIn( itemId, depositeSlotTo, countNoMore )<br>
+depositeBox.TakeFrom( depositeSlotFrom, inventorySlotTo, countNoMore )<br>
+EVENT_DEPOSITE_BOX_ITEM_EFFECT<br>
+EVENT_DEPOSITE_BOX_SIZE_CHANGED<br>
+EVENT_EQUIPMENT_ITEM_EFFECT<br>
+EVENT_INVENTORY_ITEM_EFFECT<br>
+EVENT_OBJECT_UIINFO_CHANGED<br>
+EVENT_PROGRESSIVEDOWNLOADING_ERROR_API_MISMATCH<br>
+EVENT_PROGRESSIVEDOWNLOADING_ERROR_CONNECTION_LOST<br>
+EVENT_PROGRESSIVEDOWNLOADING_ERROR_FILE_ACCESS_DENIED<br>
+EVENT_PROGRESSIVEDOWNLOADING_ERROR_FILE_DISK_FULL<br>
+EVENT_PROGRESSIVEDOWNLOADING_ERROR_FILE_GENERAL<br>
+EVENT_PROGRESSIVEDOWNLOADING_ERROR_NOT_READY<br>
+EVENT_PROGRESSIVEDOWNLOADING_ERROR_PROTO<br>
+EVENT_PROGRESSIVEDOWNLOADING_ERROR_SIMPLE<br>
+EVENT_PROGRESSIVEDOWNLOADING_ERROR_WARNING_RECONNECTIONS<br>
+EVENT_PROGRESSIVEDOWNLOADING_HALTEDPACKS_CHANGED<br>
+EVENT_PROGRESSIVEDOWNLOADING_LATESTMSGS_CHANGED<br>
+EVENT_PROGRESSIVEDOWNLOADING_LATESTPACKS_CHANGED<br>
+EVENT_PROGRESSIVEDOWNLOADING_MAP_PERCENT_CHANGED<br>
+EVENT_PROGRESSIVEDOWNLOADING_RECHECKPACKS_CHANGED<br>
+EVENT_PROGRESSIVEDOWNLOADING_STATUS_CHANGED<br>
+EVENT_PROGRESSIVEDOWNLOADING_TOPPACKS_CHANGED<br>
+EVENT_PROGRESSIVEDOWNLOADING_WHITEINFO_CHANGED<br>
+EVENT_UPDATE_SHRINK_RATIO<br>
+guild.GetBuffInfo( Id )<br>
+itemLib.CountSimilarItemInBag( itemId )<br>
+itemLib.GetContainerInfo( itemId )<br>
+itemLib.GetInBagStackCount( itemId )<br>
+itemLib.GetOverallItemsByResource( itemId )<br>
+object.GetUIInfo( unitId )<br>
+PROGRESSIVE_DOWNLOAD_ACTIVITY_...<br>
+progressiveDownloadLib.GetDownloadRateLimit()<br>
+progressiveDownloadLib.GetHaltedPacks()<br>
+progressiveDownloadLib.GetLatestDownloadedPacks()<br>
+progressiveDownloadLib.GetLatestErrors()<br>
+progressiveDownloadLib.GetMapDownloadedPercent()<br>
+progressiveDownloadLib.GetPackInfoById( id, mode )<br>
+progressiveDownloadLib.GetPriorityGroup( priority  )<br>
+progressiveDownloadLib.GetPriorityGroupsCount()<br>
+progressiveDownloadLib.GetRecheckPacks()<br>
+progressiveDownloadLib.GetStatus()<br>
+progressiveDownloadLib.GetUploadRateLimit()<br>
+progressiveDownloadLib.GetWhiteDescr()<br>
+progressiveDownloadLib.SetDownloadRateLimit( limit )<br>
+progressiveDownloadLib.SetTopPacksWindow( start, size )<br>
+progressiveDownloadLib.SetTopPacksWindow( start, size )<br>
+progressiveDownloadLib.SetUploadRateLimit( limit )<br>
+spellLib.BuffsCanDispel ( UnitId )<br>
+<br>
+<h3>Добавлены документы</h3>
+<a href="../LuaApi/EnumAddonState.html">ADDON_STATE_*. Состояние аддона.</a><br>
+<a href="../LuaApi/FunctionAvatarGetGlobalCooldown.html">avatar.GetGlobalCooldown()</a><br>
+<a href="../LuaApi/FunctionAvatarGetGlossaryDescription.html">avatar.GetGlossaryDescription( glossaryId )</a><br>
+<a href="../LuaApi/FunctionAvatarGetInfiniteUnlockCategories.html">avatar.GetInfiniteUnlockCategories()</a><br>
+<a href="../LuaApi/FunctionAvatarGetInfiniteUnlocksInCategory.html">avatar.GetInfiniteUnlocksInCategory( unlockCategoryId )</a><br>
+<a href="../LuaApi/FunctionAvatarGetTemporaryUnlockCategories.html">avatar.GetTemporaryUnlockCategories()</a><br>
+<a href="../LuaApi/FunctionAvatarGetTemporaryUnlocksInCategory.html">avatar.GetTemporaryUnlocksInCategory( unlockCategoryId )</a><br>
+<a href="../LuaApi/FunctionCommonDisablePersonalEvent.html">common.DisablePersonalEvent( sysEventName, object )</a><br>
+<a href="../LuaApi/FunctionCommonEnablePersonalEvent.html">common.EnablePersonalEvent( sysEventName, object )</a><br>
+<a href="../LuaApi/FunctionCommonGetAbsTimeMs.html">common.GetAbsTimeMs()</a><br>
+<a href="../LuaApi/FunctionCommonGetAddonSysName.html">common.GetAddonSysName()</a><br>
+<a href="../LuaApi/FunctionCommonGetFPSData.html">common.GetFPSData()</a><br>
+<a href="../LuaApi/FunctionCommonHitFrameHandler.html">common.HitFrameHandler()</a><br>
+<a href="../LuaApi/FunctionCommonRegisterFrameHandler.html">common.RegisterFrameHandler( handlerFunction, needHit )</a><br>
+<a href="../LuaApi/FunctionCommonSendEvent.html">common.SendEvent( eventName, eventData )</a><br>
+<a href="../LuaApi/FunctionCommonSendUserModsEvent.html">common.SendUserModsEvent( eventName, eventData )</a><br>
+<a href="../LuaApi/FunctionCommonStateReloadManagedAddon.html">common.StateReloadManagedAddon( name )</a><br>
+<a href="../LuaApi/FunctionCommonUnRegisterFrameHandler.html">common.UnRegisterFrameHandler()</a><br>
+<a href="../LuaApi/FunctionContainerLibCheckMoveItem.html">containerLib.CheckMoveItem( itemId, slotType, slot, count )</a><br>
+<a href="../LuaApi/FunctionContainerLibCheckMoveSlotItem.html">containerLib.CheckMoveSlotItem( slotTypeFrom, slotFrom, slotTypeTo, slotTo, count )</a><br>
+<a href="../LuaApi/FunctionContainerLibGetAllResourceItemIds.html">containerLib.GetAllResourceItemIds( slotType, id )</a><br>
+<a href="../LuaApi/FunctionContainerLibGetAllSimilarItemIds.html">containerLib.GetAllSimilarItemIds( slotType, id )</a><br>
+<a href="../LuaApi/FunctionContainerLibGetFirstResourceItemId.html">containerLib.GetFirstResourceItemId( slotType, id )</a><br>
+<a href="../LuaApi/FunctionContainerLibGetFirstSimilarItemId.html">containerLib.GetFirstSimilarItemId( slotType, id )</a><br>
+<a href="../LuaApi/FunctionContainerLibGetResourceItemStackCount.html">containerLib.GetResourceItemStackCount( slotType, id )</a><br>
+<a href="../LuaApi/FunctionContainerLibGetSimilarItemStackCount.html">containerLib.GetSimilarItemStackCount( slotType, id )</a><br>
+<a href="../LuaApi/FunctionContainerLibIsItemEnabled.html">containerLib.IsItemEnabled( itemId )</a><br>
+<a href="../LuaApi/FunctionContainerLibIsItemSlotEnabled.html">containerLib.IsItemSlotEnabled( slotType, slot )</a><br>
+<a href="../LuaApi/FunctionContainerLibMoveSlotItem.html">containerLib.MoveSlotItem( slotTypeFrom, slotFrom, slotTypeTo, slotTo, count )</a><br>
+<a href="../LuaApi/EnumUIBuffPriority.html">ENUM_UIBuffPriority</a><br>
+<a href="../LuaApi/EventGlobalCooldown.html">EVENT_GLOBAL_COOLDOWN</a><br>
+<a href="../LuaApi/EventObjectBuffChanged.html">EVENT_OBJECT_BUFF_CHANGED</a><br>
+<a href="../LuaApi/EventObjectBuffProgressChanged.html">EVENT_OBJECT_BUFF_PROGRESS_CHANGED</a><br>
+<a href="../LuaApi/FunctionCommonOnFrame.html">FunctionName( elapsedMs, timeMs )</a><br>
+<a href="../LuaApi/GlossaryId.html">GlossaryId</a><br>
+<a href="../LuaApi/FunctionItemLibGetDressSlot.html">itemLib.GetDressSlot( objectId )</a><br>
+<a href="../LuaApi/FunctionItemLibHasGuildComponent.html">itemLib.HasGuildComponent( itemId )</a><br>
+<a href="../LuaApi/FunctionMissionGetWorldTimeMs.html">mission.GetWorldTimeMs()</a><br>
+<a href="../LuaApi/FunctionObjectGetBuffRanks.html">object.GetBuffRanks( buffId )</a><br>
+<a href="../LuaApi/FunctionObjectGetBuffTooltipInfo.html">object.GetBuffTooltipInfo( id )</a><br>
+<a href="../LuaApi/FunctionObjectGetDistance.html">object.GetDistance( objectId, is2D, isInternal )</a><br>
+<a href="../LuaApi/FunctionObjectHasBuffManager.html">object.HasBuffManager( id )</a><br>
+<a href="../LuaApi/UITextureId.html">UITextureId</a><br>
+<a href="../LuaApi/FunctionWidgetGetDebugInfo.html">Widget:GetDebugInfo()</a><br>
+<a href="../LuaApi/FunctionWidgetIsContentLoaded.html">WidgetSafe:IsContentLoaded()</a><br>
+<br>
+<h3>Изменены документы</h3>
+<a href="../LuaApi/FunctionAvatarGetInfiniteUnlocks.html">avatar.GetInfiniteUnlocks()</a><br>
+<a href="../LuaApi/FunctionAvatarGetQuestReward.html">avatar.GetQuestReward( questId )</a><br>
+<a href="../LuaApi/FunctionAvatarGetRecipeInfo.html">avatar.GetRecipeInfo( id )</a><br>
+<a href="../LuaApi/FunctionAvatarGetTemporaryUnlocks.html">avatar.GetTemporaryUnlocks()</a><br>
+<a href="../LuaApi/FunctionAvatarGetUnlockCategories.html">avatar.GetUnlockCategories()</a><br>
+<a href="../LuaApi/FunctionAvatarGetUnlockInfo.html">avatar.GetUnlockInfo( unlockId )</a><br>
+<a href="../LuaApi/FunctionAvatarGetUnlocks.html">avatar.GetUnlocks()</a><br>
+<a href="../LuaApi/FunctionAvatarGetUnlocksInCategory.html">avatar.GetUnlocksInCategory( unlockCategoryId )</a><br>
+<a href="../LuaApi/FunctionCartographerGetMarkerInfo.html">cartographer.GetMarkerInfo( markerId )</a><br>
+<a href="../LuaApi/CategoryLuaApi.html">CategoryLuaApi</a><br>
+<a href="../LuaApi/CategoryWidget.html">CategoryWidget</a><br>
+<a href="../LuaApi/CategoryWidgetEffects.html">CategoryWidgetEffects</a><br>
+<a href="../LuaApi/FunctionCommonGetAddonInfo.html">common.GetAddonInfo( addonName )</a><br>
+<a href="../LuaApi/FunctionCommonGetAddonName.html">common.GetAddonName()</a><br>
+<a href="../LuaApi/FunctionCommonGetStateManagedAddons.html">common.GetStateManagedAddons()</a><br>
+<a href="../LuaApi/FunctionCommonRegisterEventHandler.html">common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal )</a><br>
+<a href="../LuaApi/FunctionCommonStateLoadManagedAddon.html">common.StateLoadManagedAddon( name )</a><br>
+<a href="../LuaApi/FunctionCommonUnRegisterEvent.html">common.UnRegisterEvent( sysEventName )</a><br>
+<a href="../LuaApi/FunctionCommonUnRegisterEventHandler.html">common.UnRegisterEventHandler( eventHandler, sysEventName, filter, unregisterPersonal )</a><br>
+<a href="../LuaApi/FunctionCommonUnRegisterReaction.html">common.UnRegisterReaction( sysReactionName )</a><br>
+<a href="../LuaApi/FunctionContainerLibGetItem.html">containerLib.GetItem( slotType, slot )</a><br>
+<a href="../LuaApi/FunctionContainerLibGetItems.html">containerLib.GetItems( slotType )</a><br>
+<a href="../LuaApi/FunctionContainerLibGetItemSlot.html">containerLib.GetItemSlot( itemId, slotType )</a><br>
+<a href="../LuaApi/FunctionContainerLibGetSize.html">containerLib.GetSize( slotType )</a><br>
+<a href="../LuaApi/FunctionContainerLibIsInteracting.html">containerLib.IsInteracting( slotType )</a><br>
+<a href="../LuaApi/FunctionContainerLibMoveItem.html">containerLib.MoveItem( itemId, slotType, slot, count )</a><br>
+<a href="../LuaApi/FunctionContainerLibOpen.html">containerLib.Open( slotType )</a><br>
+<a href="../LuaApi/FunctionCraftDiceCraftRecipeIsSameItem.html">craft.DiceCraftRecipeIsSameItem( recipeItemId, inventoryItemId )</a><br>
+<a href="../LuaApi/FunctionCraftMakeForge.html">craft.MakeForge( forgeId, recipeId, components )</a><br>
+<a href="../LuaApi/CurrencyId.html">CurrencyId</a><br>
+<a href="../LuaApi/EnumEffectType.html">EFFECT_TYPE_...</a><br>
+<a href="../LuaApi/EventActionPanelElementEffect.html">EVENT_ACTION_PANEL_ELEMENT_EFFECT</a><br>
+<a href="../LuaApi/EventAddonHealthChanged.html">EVENT_ADDON_HEALTH_CHANGED</a><br>
+<a href="../LuaApi/EventAddonLoadStateChanged.html">EVENT_ADDON_LOAD_STATE_CHANGED</a><br>
+<a href="../LuaApi/EventAddonReducePerfomance.html">EVENT_ADDON_REDUCE_PERFOMANCE</a><br>
+<a href="../LuaApi/EventAstralObjectsChanged.html">EVENT_ASTRAL_OBJECTS_CHANGED</a><br>
+<a href="../LuaApi/EventAstralUnitsChanged.html">EVENT_ASTRAL_UNITS_CHANGED</a><br>
+<a href="../LuaApi/EventContainerItemChanged.html">EVENT_CONTAINER_ITEM_CHANGED</a><br>
+<a href="../LuaApi/EventContainerItemEffect.html">EVENT_CONTAINER_ITEM_EFFECT</a><br>
+<a href="../LuaApi/EventDevicesChanged.html">EVENT_DEVICES_CHANGED</a><br>
+<a href="../LuaApi/EventGuildBuffsChanged.html">EVENT_GUILD_BUFFS_CHANGED</a><br>
+<a href="../LuaApi/EventInterfaceToggle.html">EVENT_INTERFACE_TOGGLE</a><br>
+<a href="../LuaApi/EventObjectBuffAdded.html">EVENT_OBJECT_BUFF_ADDED</a><br>
+<a href="../LuaApi/EventObjectBuffProgressAdded.html">EVENT_OBJECT_BUFF_PROGRESS_ADDED</a><br>
+<a href="../LuaApi/EventObjectBuffProgressRemoved.html">EVENT_OBJECT_BUFF_PROGRESS_REMOVED</a><br>
+<a href="../LuaApi/EventObjectBuffRemoved.html">EVENT_OBJECT_BUFF_REMOVED</a><br>
+<a href="../LuaApi/EventObjectBuffsChanged.html">EVENT_OBJECT_BUFFS_CHANGED</a><br>
+<a href="../LuaApi/EventObjectBuffsElementChanged.html">EVENT_OBJECT_BUFFS_ELEMENT_CHANGED</a><br>
+<a href="../LuaApi/EventSpellbookElementEffect.html">EVENT_SPELLBOOK_ELEMENT_EFFECT</a><br>
+<a href="../LuaApi/EventTransportsChanged.html">EVENT_TRANSPORTS_CHANGED</a><br>
+<a href="../LuaApi/EventUnitsChanged.html">EVENT_UNITS_CHANGED</a><br>
+<a href="../LuaApi/EventUsableDevicesChanged.html">EVENT_USABLE_DEVICES_CHANGED</a><br>
+<a href="../LuaApi/WidgetFactoryCache.html">FactoryCache. Описание специального кэширующего виджета.</a><br>
+<a href="../LuaApi/FunctionCommonOnEvent.html">FunctionName( eventData )</a><br>
+<a href="../LuaApi/FunctionGuildCreate.html">guild.Create( itemId, guildName )</a><br>
+<a href="../LuaApi/FunctionHangarGetAllowedDeviceTypes.html">hangar.GetAllowedDeviceTypes()</a><br>
+<a href="../LuaApi/FunctionHangarGetAvailableHulls.html">hangar.GetAvailableHulls()</a><br>
+<a href="../LuaApi/FunctionHangarGetAvailableSkins.html">hangar.GetAvailableSkins()</a><br>
+<a href="../LuaApi/FunctionHangarGetCustomizationSlotDevices.html">hangar.GetCustomizationSlotDevices( slotId )</a><br>
+<a href="../LuaApi/FunctionHangarGetCustomizationSlots.html">hangar.GetCustomizationSlots()</a><br>
+<a href="../LuaApi/FunctionHangarGetDevices.html">hangar.GetDevices()</a><br>
+<a href="../LuaApi/FunctionHangarGetShips.html">hangar.GetShips()</a><br>
+<a href="../LuaApi/FunctionItemLibGetItemInfo.html">itemLib.GetItemInfo( itemId )</a><br>
+<a href="../LuaApi/FunctionItemLibGetOverallStackCount.html">itemLib.GetOverallStackCount( itemId )</a><br>
+<a href="../LuaApi/FunctionItemLibGetStackInfo.html">itemLib.GetStackInfo( itemId )</a><br>
+<a href="../LuaApi/FunctionItemLibGetUsagesItemInfo.html">itemLib.GetUsagesItemInfo( itemId )</a><br>
+<a href="../LuaApi/FunctionItemLibGetUsagesOnItemInfo.html">itemLib.GetUsagesOnItemInfo( itemId, targetItemId )</a><br>
+<a href="../LuaApi/FunctionLfgLibGetDestinationReward.html">lfgLib.GetDestinationReward( destinationId )</a><br>
+<a href="../LuaApi/FunctionMatchMakingGetEventReward.html">matchMaking.GetEventReward( eventId ))</a><br>
+<a href="../LuaApi/MutationInfo.html">MutationInfo</a><br>
+<a href="../LuaApi/FunctionObjectGetBuffDynamicInfo.html">object.GetBuffDynamicInfo( Id )</a><br>
+<a href="../LuaApi/FunctionObjectGetBuffInfo.html">object.GetBuffInfo( id, includeResourceInfo )</a><br>
+<a href="../LuaApi/FunctionObjectGetBuffInstances.html">object.GetBuffInstances ( objectId, key )</a><br>
+<a href="../LuaApi/FunctionObjectGetBuffs.html">object.GetBuffs( objectId, ignoreInvisible )</a><br>
+<a href="../LuaApi/FunctionObjectGetBuffsInfo.html">object.GetBuffsInfo( data, includeResourceInfo, ignoreInvisibleBuffs )</a><br>
+<a href="../LuaApi/FunctionObjectGetBuffsWithProperties.html">object.GetBuffsWithProperties( objectId, isPositive, isNeedVisualize )</a><br>
+<a href="../LuaApi/FunctionObjectIsValidBuff.html">object.IsValidBuff( id )</a><br>
+<a href="../LuaApi/FunctionObjectsGetTrackInfo.html">objects.GetTrackInfo( trackId )</a><br>
+<a href="../LuaApi/FunctionPoweredLSWeaponsLibGetItems.html">poweredLSWeaponsLib.GetItems()</a><br>
+<a href="../LuaApi/FunctionResourceIdGetPath.html">ResourceId:GetPath()</a><br>
+<a href="../LuaApi/FunctionSoulProgressLibGetInfo.html">soulProgressLib.GetInfo()</a><br>
+<a href="../LuaApi/FunctionSpellLibGetCooldown.html">spellLib.GetCooldown( SpellId )</a><br>
+<a href="../LuaApi/FunctionSpellLibGetDurationBuff.html">spellLib.GetDurationBuff( spellId )</a><br>
+<a href="../LuaApi/FunctionSpellLibGetRequiredBuffs.html">spellLib.GetRequiredBuffs( SpellId )</a><br>
+<a href="../LuaApi/FunctionSpellLibGetRequiredResources.html">spellLib.GetRequiredResources( SpellId )</a><br>
+<a href="../LuaApi/FunctionSpellLibHasDurationBuff.html">spellLib.HasDurationBuff( spellId )</a><br>
+<a href="../LuaApi/TextureId.html">TextureId</a><br>
+<a href="../LuaApi/FunctionUserModsSendEvent.html">userMods.SendEvent( eventName, eventParams )</a><br>
+<a href="../LuaApi/TypeValuedText.html">ValuedText - форматированная строка с подстановочными значениями</a><br>
+<br>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

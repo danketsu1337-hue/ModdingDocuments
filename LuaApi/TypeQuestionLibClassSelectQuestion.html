@@ -1,0 +1,71 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - TypeQuestionLibClassSelectQuestion</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> ClassSelectQuestion</h2>
+<p></p>
+<p>Вопрос для выбора класса персонажа (например в процессе смены класса). Списка классов, из которых нужно выбирать, в этих данных не имеется. Предполагается, что он будет получен другими методами Lua API, например <a href="FunctionRemortCreationGetAvatarTemplatesInfo.html"> remortCreation.GetAvatarTemplatesInfo()</a>.</p>
+<p></p>
+<p>Формат поля questionData у <a href="FunctionQuestionLibGetInfo.html">questionLib.GetInfo( questionId )</a> при значении поля type равном "!ClassSelectQuestion":</p>
+<p></p>
+<pre>
+table - таблица с полями:
+  text: WString - локализованная строка, текст, информирующий игрока о смысле требуемого от него выбора
+</pre>
+<p></p>
+<p>Формат параметра result, который нужно передать в <a href="FunctionQuestionLibSendData.html">questionLib.SendData( questionId, result )</a> в ответ на вопрос этого типа:</p>
+<pre>
+table - таблица с полями:
+  characterClass: CharacterClassId (ResourceId) - идентификатор класса
+</pre>
+<p></p>
+<p>См. также</p>
+<p></p>
+<ul><li><p> <a href="FunctionRemortCreationGetAvatarTemplatesInfo.html"> remortCreation.GetAvatarTemplatesInfo()</a> - поля factions[0..].races[0..].classes[0..].classId</p></li></ul>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryQuestionType"</h4>
+<p></p>
+<a href="CategoryQuestionType.html">CategoryQuestionType</a>
+<br><a href="EnumQuestionShowResultType.html">EnumQuestionShowResultType</a>
+<br><a href="EnumQuizQuestionType.html">EnumQuizQuestionType</a>
+<br><a href="FunctionQuestionLibGetInfo.html">FunctionQuestionLibGetInfo</a>
+<br><a href="TypeQuestionLibClassSelectQuestion.html">TypeQuestionLibClassSelectQuestion</a>
+<br><a href="TypeQuestionLibQuizQuestion.html">TypeQuestionLibQuizQuestion</a>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryQuestionLib"</h4>
+<p></p>
+<a href="CategoryQuestionLib.html">CategoryQuestionLib</a>
+<br><a href="CategoryQuestionType.html">CategoryQuestionType</a>
+<br><a href="EnumQuestionShowResultType.html">EnumQuestionShowResultType</a>
+<br><a href="EnumQuizQuestionType.html">EnumQuizQuestionType</a>
+<br><a href="EventQuestionAdded.html">EventQuestionAdded</a>
+<br><a href="EventQuestionRemoved.html">EventQuestionRemoved</a>
+<br><a href="EventQuestionResultsChanged.html">EventQuestionResultsChanged</a>
+<br><a href="FunctionQuestionLibCancel.html">FunctionQuestionLibCancel</a>
+<br><a href="FunctionQuestionLibGetInfo.html">FunctionQuestionLibGetInfo</a>
+<br><a href="FunctionQuestionLibGetQuestions.html">FunctionQuestionLibGetQuestions</a>
+<br><a href="FunctionQuestionLibSendData.html">FunctionQuestionLibSendData</a>
+<br><a href="TypeQuestionLibClassSelectQuestion.html">TypeQuestionLibClassSelectQuestion</a>
+<br><a href="TypeQuestionLibQuizQuestion.html">TypeQuestionLibQuizQuestion</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryQuestionLib.html">CategoryQuestionLib</a>
+<a href="CategoryQuestionType.html">CategoryQuestionType</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

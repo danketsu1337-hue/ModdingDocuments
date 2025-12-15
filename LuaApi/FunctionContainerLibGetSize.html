@@ -1,0 +1,85 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionContainerLibGetSize</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> containerLib.GetSize( slotType )</h2>
+<p></p>
+<p>Возвращает размер контейнера главного игрока.</p>
+<p></p>
+<p>Внимание! <a href="FunctionContainerLibGetItems.html"> containerLib.GetItems( slotType )</a> может вернуть пустой или не полный список, если контейнер не полон. Точный размер контейнера надо узнавать только по <a href="FunctionContainerLibGetSize.html"> containerLib.GetSize( slotType )</a>.</p>
+<p></p>
+<p>Внимание! Некоторые контейнеры (например переполненная сумка) имеют плавающий размер по количеству содержащихся предметов и проверка размера требуется перед каждой операцией с предметами по номеру слота.</p>
+<p></p>
+<p>Список контейнеров см. в <a href="EnumItemCont.html"> ITEM_CONT_...</a>.</p>
+<p></p>
+<pre>
+-- библиотека:
+containerLib
+
+-- объявление:
+GetSize( slotType )
+
+-- параметры:
+slotType: number (enum ITEM_CONT_...) - тип контейнера с предметами
+
+-- возвращаемые значения:
+number (integer) - размер контейнера
+</pre>
+<p></p>
+<p>Пример:</p>
+<p></p>
+<pre>
+local size = containerLib.GetSize( ITEM_CONT_INVENTORY )
+local itemIds = containerLib.GetItems( ITEM_CONT_INVENTORY )
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryContainerLib"</h4>
+<p></p>
+<a href="CategoryContainerLib.html">CategoryContainerLib</a>
+<br><a href="EnumItemCont.html">EnumItemCont</a>
+<br><a href="EventContainerChanged.html">EventContainerChanged</a>
+<br><a href="EventContainerItemAdded.html">EventContainerItemAdded</a>
+<br><a href="EventContainerItemChanged.html">EventContainerItemChanged</a>
+<br><a href="EventContainerItemEffect.html">EventContainerItemEffect</a>
+<br><a href="EventContainerItemRemoved.html">EventContainerItemRemoved</a>
+<br><a href="FunctionContainerLibCheckMoveItem.html">FunctionContainerLibCheckMoveItem</a>
+<br><a href="FunctionContainerLibCheckMoveSlotItem.html">FunctionContainerLibCheckMoveSlotItem</a>
+<br><a href="FunctionContainerLibClose.html">FunctionContainerLibClose</a>
+<br><a href="FunctionContainerLibGetAllResourceItemIds.html">FunctionContainerLibGetAllResourceItemIds</a>
+<br><a href="FunctionContainerLibGetAllSimilarItemIds.html">FunctionContainerLibGetAllSimilarItemIds</a>
+<br><a href="FunctionContainerLibGetFirstResourceItemId.html">FunctionContainerLibGetFirstResourceItemId</a>
+<br><a href="FunctionContainerLibGetFirstSimilarItemId.html">FunctionContainerLibGetFirstSimilarItemId</a>
+<br><a href="FunctionContainerLibGetItem.html">FunctionContainerLibGetItem</a>
+<br><a href="FunctionContainerLibGetItems.html">FunctionContainerLibGetItems</a>
+<br><a href="FunctionContainerLibGetItemSlot.html">FunctionContainerLibGetItemSlot</a>
+<br><a href="FunctionContainerLibGetResourceItemStackCount.html">FunctionContainerLibGetResourceItemStackCount</a>
+<br><a href="FunctionContainerLibGetSimilarItemStackCount.html">FunctionContainerLibGetSimilarItemStackCount</a>
+<br><a href="FunctionContainerLibGetSize.html">FunctionContainerLibGetSize</a>
+<br><a href="FunctionContainerLibIsInteracting.html">FunctionContainerLibIsInteracting</a>
+<br><a href="FunctionContainerLibIsItemEnabled.html">FunctionContainerLibIsItemEnabled</a>
+<br><a href="FunctionContainerLibIsItemSlotEnabled.html">FunctionContainerLibIsItemSlotEnabled</a>
+<br><a href="FunctionContainerLibIsOpen.html">FunctionContainerLibIsOpen</a>
+<br><a href="FunctionContainerLibMoveItem.html">FunctionContainerLibMoveItem</a>
+<br><a href="FunctionContainerLibMoveSlotItem.html">FunctionContainerLibMoveSlotItem</a>
+<br><a href="FunctionContainerLibOpen.html">FunctionContainerLibOpen</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryContainerLib.html">CategoryContainerLib</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

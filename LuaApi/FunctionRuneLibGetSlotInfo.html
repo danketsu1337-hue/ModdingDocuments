@@ -1,0 +1,64 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionRuneLibGetSlotInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> runeLib.GetSlotInfo( dressSlot )</h2>
+<p></p>
+<p>Возвращает таблицу с информацией о слоте одежды под руну.</p>
+<p></p>
+<p>См. также: <a href="EnumDressSlot.html"> DRESS_SLOT_...</a></p>
+<p></p>
+<pre>
+-- библиотека:
+runeLib
+
+-- объявление:
+function GetSlotInfo( dressSlot )
+
+-- параметры:
+dressSlot: number (enum DRESS_SLOT_...) - номер слота
+
+-- возвращаемые значения:
+table or nil - таблица с информацией о слоте под руну или nil в случае ошибок
+  dressSlot: number (enum DRESS_SLOT_...) - номер слота
+  requiredLevel: number (integer) - уровень игрока, с которого руна в этом слоте начнёт работать
+  isOffensive: boolean - этот слот для атакующей руны
+
+-- пример:
+local runeSlotInfo = runeLib.GetSlotInfo( dressSlot )
+if runeSlotInfo then
+  local requiredLevel = runeSlotInfo.requiredLevel
+end
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryRune"</h4>
+<p></p>
+<a href="CategoryRune.html">CategoryRune</a>
+<br><a href="EnumRuneOperationResult.html">EnumRuneOperationResult</a>
+<br><a href="EventRuneOperationResult.html">EventRuneOperationResult</a>
+<br><a href="FunctionRuneLibCombine.html">FunctionRuneLibCombine</a>
+<br><a href="FunctionRuneLibGetCombinePrice.html">FunctionRuneLibGetCombinePrice</a>
+<br><a href="FunctionRuneLibGetCommonInfo.html">FunctionRuneLibGetCommonInfo</a>
+<br><a href="FunctionRuneLibGetSlotInfo.html">FunctionRuneLibGetSlotInfo</a>
+<p></p>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryRune.html">CategoryRune</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

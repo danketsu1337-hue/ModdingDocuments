@@ -1,0 +1,182 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - Changelist4_0_04</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<br>
+<h2>Список изменений</h2>
+<br>
+<br>
+<h3>Удалены документы</h3>
+"ENUM_MsgTWarAuctionBidResultResult_..."<br>
+"ENUM_TWarBattleAttackerFinishType_..."<br>
+"ENUM_TWarState_..."<br>
+avatar.GetItemInfo( itemId )<br>
+avatar.InventoryDestroyItem( index )<br>
+avatar.InventoryOverflowDestroyItem( index )<br>
+CategoryTwar<br>
+containerLib.DropItem( itemId, count )<br>
+EditLineTextFilter<br>
+ENUM_TwarStage_...<br>
+EVENT_ALCHEMY_FINISHED<br>
+EVENT_TWAR_ACTIVE_CHECKPOINT_CHANGED<br>
+EVENT_TWAR_ACTIVE_CHECKPOINT_FINISHED<br>
+EVENT_TWAR_ACTIVE_CHECKPOINT_STARTED<br>
+EVENT_TWAR_ALLOD_AUCTION_BID_RESULT<br>
+EVENT_TWAR_ALLOD_AUCTION_CHANGED<br>
+EVENT_TWAR_ALLOD_CHANGED<br>
+EVENT_TWAR_ALLOD_TELEPORT_COOLDOWN_FINISHED<br>
+EVENT_TWAR_ALLOD_TELEPORT_COOLDOWN_STARTED<br>
+EVENT_TWAR_ALLODS_CHANGED<br>
+EVENT_TWAR_REWARD_CHANGED<br>
+EVENT_TWAR_STAGE_CHANGED<br>
+EVENT_TWAR_STATE_CHANGED<br>
+EVENT_TWAR_WIN_CHOICE_FINISHED<br>
+EVENT_TWAR_WIN_CHOICE_STARTED<br>
+guild.Disband()<br>
+guild.Kick( memberId )<br>
+guild.ReassignLeader( memberId )<br>
+mount.Dismiss( mountId )<br>
+object.AttachVisibleObject( objectId, index, visObjectOrAliasId, position, directionAnchorObjId )<br>
+twar.CanQualification( allodId )<br>
+twar.CanTeleport( allodId )<br>
+twar.DoWinChoice( index )<br>
+twar.EnterQualification( allodId )<br>
+twar.GetActiveCheckpoint()<br>
+twar.GetAllodInfo( allodId )<br>
+twar.GetAllods()<br>
+twar.GetAllodTeleportCooldown( allodId )<br>
+twar.GetAuctionInfo( allodId )<br>
+twar.GetBgRole()<br>
+twar.GetCommonInfo()<br>
+twar.GetPlayerRewardsInfo()<br>
+twar.GetStage()<br>
+twar.GetWinChoices()<br>
+twar.GetWinChoiceTime()<br>
+twar.HasOwnAllod()<br>
+twar.Listen( needListen )<br>
+twar.TeleportToAllod( allodId )<br>
+unit.IsFatalityActive( unitId )<br>
+<br>
+<h3>Добавлены документы</h3>
+<a href="../LuaApi/FunctionAvatarBindMountMetamorphToActionPanel.html">avatar.BindMountMetamorphToActionPanel( index )</a><br>
+<a href="../LuaApi/FunctionAvatarCancelClassChanger.html">avatar.CancelClassChanger()</a><br>
+<a href="../LuaApi/FunctionAvatarFindNextSecretComponentQuest.html">avatar.FindNextSecretComponentQuest( secretId, componentIndex )</a><br>
+<a href="../LuaApi/FunctionAvatarGetClassChangerBonusStats.html">avatar.GetClassChangerBonusStats( changeList )</a><br>
+<a href="../LuaApi/FunctionAvatarGetClassChangerInfo.html">avatar.GetClassChangerInfo()</a><br>
+<a href="../LuaApi/FunctionAvatarGetClassChangerRangeBonusStats.html">avatar.GetClassChangerRangeBonusStats( changeList )</a><br>
+<a href="../LuaApi/FunctionAvatarSetClassChangerInfo.html">avatar.SetClassChangerInfo( changeList )</a><br>
+<a href="../LuaApi/CategoryEditBase.html">CategoryEditBase</a><br>
+<a href="../LuaApi/CharacterClassId.html">CharacterClassId</a><br>
+<a href="../LuaApi/TypeQuestionLibClassSelectQuestion.html">ClassSelectQuestion</a><br>
+<a href="../LuaApi/FunctionEscapeWString.html">common.EscapeWString( str )</a><br>
+<a href="../LuaApi/FunctionCommonGetAddonRelatedTextureGroup.html">common.GetAddonRelatedTextureGroup( sysGroup )</a><br>
+<a href="../LuaApi/FunctionCommonGetStateRelatedTextureGroup.html">common.GetStateRelatedTextureGroup( sysGroup )</a><br>
+<a href="../LuaApi/FunctionCommonSetTextValues.html">common.SetTextValues( object, textValues )</a><br>
+<a href="../LuaApi/WidgetEditBase.html">EditBase. Описание базового виджета ввода текста.</a><br>
+<a href="../LuaApi/EditBaseTextFilter.html">EditBaseTextFilter</a><br>
+<a href="../LuaApi/EnumShipInfoMarker.html">ENUM_ShipInfoMarker_...</a><br>
+<a href="../LuaApi/EventCharacterClassChangerChanged.html">EVENT_CHARACTER_CLASS_CHANGER_CHANGED</a><br>
+<a href="../LuaApi/EventMailBoxChangedOnServer.html">EVENT_MAILBOX_CHANGED_ON_SERVER</a><br>
+<a href="../LuaApi/EventMailBoxServerOperationResult.html">EVENT_MAILBOX_SERVER_OPERATION_RESULT</a><br>
+<a href="../LuaApi/EventMWarLadderChanged.html">EVENT_MWAR_LADDER_CHANGED</a><br>
+<a href="../LuaApi/EventMWarQueueChanched.html">EVENT_MWAR_QUEUE_CHANGED</a><br>
+<a href="../LuaApi/EventMWarRatingProgressChanged.html">EVENT_MWAR_RATING_PROGRESS_CHANGED</a><br>
+<a href="../LuaApi/EventUnstuckSpellEffect.html">EVENT_UNSTUCK_SPELL_CHANGED</a><br>
+<a href="../LuaApi/EventUnstuckSpellChanged.html">EVENT_UNSTUCK_SPELL_EFFECT</a><br>
+<a href="../LuaApi/FunctionHangarCanLendShip.html">hangar.CanLendShip()</a><br>
+<a href="../LuaApi/FunctionHangarGetTakeAwaySpellId.html">hangar.GetTakeAwaySpellId()</a><br>
+<a href="../LuaApi/FunctionHangarLendShip.html">hangar.LendShip( friendId )</a><br>
+<a href="../LuaApi/FunctionHangarTakeAwayShip.html">hangar.TakeAwayShip( shipId )</a><br>
+<a href="../LuaApi/InnateStatSecondary.html">InnateStatSecondary</a><br>
+<a href="../LuaApi/InstancedEventResourceId.html">InstancedEventResourceId</a><br>
+<a href="../LuaApi/FunctionWidgetIsClipContent.html">IsClipContent( self )</a><br>
+<a href="../LuaApi/FunctionEditBoxIsOverflow.html">IsOverflow()</a><br>
+<a href="../LuaApi/FunctionMailBoxGetInfoNG.html">mailBox.GetInfoNG()</a><br>
+<a href="../LuaApi/FunctionMailBoxGetMail.html">mailBox.GetMailNG( mailId )</a><br>
+<a href="../LuaApi/FunctionMailBoxGetMails.html">mailBox.GetMailsNG()</a><br>
+<a href="../LuaApi/FunctionMailBoxRequestMailGroupOperation.html">mailBox.RequestMailGroupOperationNG( operation, mailList )</a><br>
+<a href="../LuaApi/FunctionMailBoxRequestMail.html">mailBox.RequestMailNG( mailId )</a><br>
+<a href="../LuaApi/FunctionMailBoxRequestMails.html">mailBox.RequestMailsNG( startIndex, count )</a><br>
+<a href="../LuaApi/FunctionMatchMakingLeaveInstancedEventQueueById.html">matchMaking.LeaveInstancedEventQueueById( eventResourceId )</a><br>
+<a href="../LuaApi/FunctionMissionGetUnstuckSpell.html">mission.GetUnstuckSpell()</a><br>
+<a href="../LuaApi/FunctionMissionSetAEMarkMinRange.html">mission.SetAEMarkMinRange( minRange )</a><br>
+<a href="../LuaApi/FunctionMountGetMetamorph.html">mount.GetMetamorph()</a><br>
+<a href="../LuaApi/FunctionMountGetMetamorphBaseInfo.html">mount.GetMetamorphBaseInfo()</a><br>
+<a href="../LuaApi/FunctionMountGetMetamorphName.html">mount.GetMetamorphName()</a><br>
+<a href="../LuaApi/FunctionMountHasSwitchCost.html">mount.HasSwitchCost( skinId )</a><br>
+<a href="../LuaApi/FunctionMountSetMetamorphSkin.html">mount.SetMetamorphSkin( skinId )</a><br>
+<a href="../LuaApi/FunctionMWarGetCommonMatchMakingInfo.html">mwar.GetCommonMatchMakingInfo()</a><br>
+<a href="../LuaApi/FunctionMWarGetGuildInfo.html">mwar.GetGuildInfo( guildId )</a><br>
+<a href="../LuaApi/FunctionMWarGetLadderInfo.html">mwar.GetLadderInfo()</a><br>
+<a href="../LuaApi/FunctionMWarGetQueueInfo.html">mwar.GetQueueInfo()</a><br>
+<a href="../LuaApi/FunctionMWarGetRatingProgressInfo.html">mwar.GetRatingProgressInfo()</a><br>
+<a href="../LuaApi/FunctionMWarJoinRequestRaid.html">mwar.JoinRequestRaid( targetGuildId )</a><br>
+<a href="../LuaApi/FunctionMWarReplicateLadder.html">mwar.ReplicateLadder( isReplicate )</a><br>
+<a href="../LuaApi/FunctionMWarStake.html">mwar.Stake( targetGuildId, value )</a><br>
+<a href="../LuaApi/FunctionProtectedMissionGetInnateStatSecondary.html">protectedMission.GetInnateStatSecondary( stat, characterClassId, value )</a><br>
+<a href="../LuaApi/FunctionQuestionLibCancel.html">questionLib.Cancel( questionId )</a><br>
+<a href="../LuaApi/FunctionRelatedTexturesLuaGetTexture.html">RelatedTexturesLua: GetTexture( self, sysName )</a><br>
+<a href="../LuaApi/FunctionRelatedTexturesLuaHasTexture.html">RelatedTexturesLua: HasTexture( self, sysName )</a><br>
+<a href="../LuaApi/RelatedTexturesLua.html">RelatedTexturesLua</a><br>
+<a href="../LuaApi/FunctionWidgetSetClipContent.html">SetClipContent( self, clipContent )</a><br>
+<a href="../LuaApi/FunctionEditBoxShowScrollbar.html">ShowScrollbar( show )</a><br>
+<a href="../LuaApi/FunctionUnitGetClassId.html">unit.GetClassId( unitId )</a><br>
+<br>
+<h3>Изменены документы</h3>
+<a href="../LuaApi/EnumActionFailCause.html">"ENUM_ActionFailCause_..."</a><br>
+<a href="../LuaApi/FunctionAvatarConvertMetaEnhancer.html">avatar.ConvertMetaEnhancer( itemId, instrumentId )</a><br>
+<a href="../LuaApi/FunctionAvatarGetActionInfo.html">avatar.GetActionInfo( index )</a><br>
+<a href="../LuaApi/FunctionAvatarGetActiveUsableDeviceInfo.html">avatar.GetActiveUsableDeviceInfo()</a><br>
+<a href="../LuaApi/FunctionAvatarGetContextActionInfo.html">avatar.GetContextActionInfo( id )</a><br>
+<a href="../LuaApi/FunctionAvatarGetInnateStats.html">avatar.GetInnateStats()</a><br>
+<a href="../LuaApi/FunctionAvatarGetQuestObjectiveInfo.html">avatar.GetQuestObjectiveInfo( objectiveId )</a><br>
+<a href="../LuaApi/FunctionAvatarGetRecipeInfo.html">avatar.GetRecipeInfo( id )</a><br>
+<a href="../LuaApi/FunctionAvatarGetSecretComponents.html">avatar.GetSecretComponents( secretId )</a><br>
+<a href="../LuaApi/CategoryEditBox.html">CategoryEditBox</a><br>
+<a href="../LuaApi/CategoryLuaApi.html">CategoryLuaApi</a><br>
+<a href="../LuaApi/CategoryWidget.html">CategoryWidget</a><br>
+<a href="../LuaApi/CategoryWidgetEffects.html">CategoryWidgetEffects</a><br>
+<a href="../LuaApi/FunctionCommonGetTerritoryInfo.html">common.GetTerritoryInfo()</a><br>
+<a href="../LuaApi/FunctionCommonMakeUserScreenshot.html">common.MakeUserScreenshot( postpone )</a><br>
+<a href="../LuaApi/WidgetEditBox.html">EditBox. Описание многострочного поля ввода.</a><br>
+<a href="../LuaApi/WidgetEditLine.html">EditLine. Описание строки ввода.</a><br>
+<a href="../LuaApi/EnumMailServiceReply.html">enum "ENUM_MailServiceReply_..."</a><br>
+<a href="../LuaApi/EventAstrolabeSpellEffect.html">EVENT_ASTROLABE_SPELL_EFFECT</a><br>
+<a href="../LuaApi/EventAvatarItemTakenByGroupmate.html">EVENT_AVATAR_ITEM_TAKEN_BY_GROUPMATE</a><br>
+<a href="../LuaApi/EventAvatarItemTaken.html">EVENT_AVATAR_ITEM_TAKEN</a><br>
+<a href="../LuaApi/EventMetaUpgradeResult.html">EVENT_META_UPGRADE_RESULT</a><br>
+<a href="../LuaApi/FunctionHangarGetShipInfo.html">hangar.GetShipInfo( shipId )</a><br>
+<a href="../LuaApi/FunctionLifestyleGetPreset.html">lifestyle.GetPreset( presetIndex )</a><br>
+<a href="../LuaApi/FunctionMatchMakingGetCurrentBattleInfo.html">matchMaking.GetCurrentBattleInfo()</a><br>
+<a href="../LuaApi/FunctionMatchMakingGetEventInfo.html">matchMaking.GetEventInfo( eventId )</a><br>
+<a href="../LuaApi/FunctionMatchMakingLeaveInstancedEventQueue.html">matchMaking.LeaveInstancedEventQueue( eventId )</a><br>
+<a href="../LuaApi/FunctionMissionSetPortraitBackgroundTexture.html">mission.SetPortraitBackgroundTexture( slotIndex, isSmall, wtPortrait, unitId )</a><br>
+<a href="../LuaApi/FunctionQuestionLibGetQuestions.html">questionLib.GetQuestions()</a><br>
+<a href="../LuaApi/FunctionQuestionLibSendData.html">questionLib.SendData( questionId, result )</a><br>
+<a href="../LuaApi/TypeQuestionLibQuizQuestion.html">QuizQuestion</a><br>
+<a href="../LuaApi/RelatedResources.html">Related Resource</a><br>
+<a href="../LuaApi/FunctionRemortGetRemortsList.html">remort.GetRemortsList()</a><br>
+<a href="../LuaApi/ResourceId.html">ResourceId</a><br>
+<a href="../LuaApi/FunctionRulesGetEventTimeIntervals.html">rules.GetEventTimeIntervals( eventRuleId )</a><br>
+<a href="../LuaApi/WidgetTextView.html">TextView. Описание виджета для показа текстов.</a><br>
+<a href="../LuaApi/FunctionUnitGetClass.html">unit.GetClass(id)</a><br>
+<a href="../LuaApi/FunctionUnitGetTrainerClass.html">unit.GetTrainerClass(id)</a><br>
+<a href="../LuaApi/Widget.html">Widget. Описание виджета.</a><br>
+<a href="../LuaApi/LuaApiTypes.html">Используемые типы в LuaApi</a><br>
+<br>
+<br>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

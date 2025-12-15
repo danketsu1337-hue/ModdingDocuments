@@ -1,0 +1,116 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionCartographerGetZonesMapInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>cartographer.GetZonesMapInfo( zonesMapId )</h2>
+<p></p>
+<p>Возвращает интерфейсные данные карты зоны по её Id. Или nil, если такой карты нет.</p>
+<p></p>
+<pre>
+-- система:
+UIState - расширенная информация, GameState - базовая информация
+
+-- библиотека:
+cartographer
+
+-- объявление:
+function GetZonesMapInfo( zonesMapId )
+
+-- параметры:
+zonesMapId: ObjectId or nil - идентификатор интерфейсной карты, если nil то будет взята текущая зона
+
+-- возвращаемые значения
+table or nil - если такая карта есть, то таблица с полями:
+
+  id: ObjectId - идентификатор карты
+  sysName: string - уникальное внутреннее имя карты
+  name: WString - имя карты
+  description: WString - описание карты
+  mapBlockId: ObjectId or nil - идентификатор блока карт, в который входит эта карта
+  isShowInList: boolean - true, если эта карта показывается в списке карт её блока
+  isShowPositions: boolean - true, если на этой карте можно показыватьобъекты (для них можно получить геодату)
+  isShowQuestProgress: boolean - true, если показывать для этой карты количество выполненых/всех важных заданий. Для таких карт список квестов пустой.
+  isUnknown: boolean - true, если это карта неизвестных мест (астрал, закрытые или ненайденные, ошибочные области)
+  isNeedTeleportUnlock: boolean - true, если для карты требуется анлок портала (нужен и еще не был получен)
+  minLevel: number (integer) or nil - минимальный комфортный уровень игрока, на котором ему следует играть на этой карте. Может быть не задан
+  maxLevel: number (integer) or nil - максимальный комфортный уровень игрока, на котором ему следует играть на этой карте. Может быть не задан
+  zoneCeil: number (integer) or nil - верхний вертикальный предел зоны
+  zoneFloor: number (integer) or nil - нижний вертикальный предел зоны
+  --{ часть таблицы, реализованная только для UI
+  texture: TextureId - идентификатор текстуры карты
+  --}
+  ------- доступно только в отладочном клиенте -------
+  sysMapResources: table - массив имен отладочных карт, входящих в состав интерфейсной карты
+  ------- доступно только в отладочном клиенте -------
+</pre>
+<p></p>
+<p>Пример:</p>
+<pre>
+local mapInfo = cartographer.GetZonesMapInfo( zonesMapId )
+if mapInfo then
+  wtMap:SetBackgroundTexture( mapInfo.texture )
+end
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryCartographer" </h4>
+<p></p>
+<a href="CategoryCartographer.html">CategoryCartographer</a>
+<br><a href="EventAvatarClientZoneChanged.html">EventAvatarClientZoneChanged</a>
+<br><a href="EventAvatarMapModifiersChanged.html">EventAvatarMapModifiersChanged</a>
+<br><a href="EventAvatarZoneChanged.html">EventAvatarZoneChanged</a>
+<br><a href="EventNavigateEnabledChanged.html">EventNavigateEnabledChanged</a>
+<br><a href="EventSosFinished.html">EventSosFinished</a>
+<br><a href="EventSosStarted.html">EventSosStarted</a>
+<br><a href="FunctionCartographerCanNavigateToPoint.html">FunctionCartographerCanNavigateToPoint</a>
+<br><a href="FunctionCartographerGetCurrentMapInfo.html">FunctionCartographerGetCurrentMapInfo</a>
+<br><a href="FunctionCartographerGetCurrentMapModifiers.html">FunctionCartographerGetCurrentMapModifiers</a>
+<br><a href="FunctionCartographerGetCurrentZoneAttributes.html">FunctionCartographerGetCurrentZoneAttributes</a>
+<br><a href="FunctionCartographerGetCurrentZoneInfo.html">FunctionCartographerGetCurrentZoneInfo</a>
+<br><a href="FunctionCartographerGetMapBlockInfo.html">FunctionCartographerGetMapBlockInfo</a>
+<br><a href="FunctionCartographerGetMapBlocks.html">FunctionCartographerGetMapBlocks</a>
+<br><a href="FunctionCartographerGetMapGeodata.html">FunctionCartographerGetMapGeodata</a>
+<br><a href="FunctionCartographerGetMapMarkerObjects.html">FunctionCartographerGetMapMarkerObjects</a>
+<br><a href="FunctionCartographerGetMapMarkers.html">FunctionCartographerGetMapMarkers</a>
+<br><a href="FunctionCartographerGetMapModifierInfo.html">FunctionCartographerGetMapModifierInfo</a>
+<br><a href="FunctionCartographerGetMapModifierValuedObject.html">FunctionCartographerGetMapModifierValuedObject</a>
+<br><a href="FunctionCartographerGetMarkerInfo.html">FunctionCartographerGetMarkerInfo</a>
+<br><a href="FunctionCartographerGetObjectGeodata.html">FunctionCartographerGetObjectGeodata</a>
+<br><a href="FunctionCartographerGetQuestGeodata.html">FunctionCartographerGetQuestGeodata</a>
+<br><a href="FunctionCartographerGetQuestObjectiveGeodata.html">FunctionCartographerGetQuestObjectiveGeodata</a>
+<br><a href="FunctionCartographerGetSosInfo.html">FunctionCartographerGetSosInfo</a>
+<br><a href="FunctionCartographerGetSosObjects.html">FunctionCartographerGetSosObjects</a>
+<br><a href="FunctionCartographerGetZonesMapId.html">FunctionCartographerGetZonesMapId</a>
+<br><a href="FunctionCartographerGetZonesMapInfo.html">FunctionCartographerGetZonesMapInfo</a>
+<br><a href="FunctionCartographerGetZonesMapLowQuests.html">FunctionCartographerGetZonesMapLowQuests</a>
+<br><a href="FunctionCartographerGetZonesMapQuests.html">FunctionCartographerGetZonesMapQuests</a>
+<br><a href="FunctionCartographerIsCurrentZoneAnonymizedMap.html">FunctionCartographerIsCurrentZoneAnonymizedMap</a>
+<br><a href="FunctionCartographerIsCurrentZoneRiftMap.html">FunctionCartographerIsCurrentZoneRiftMap</a>
+<br><a href="FunctionCartographerIsFinalQuestCompleted.html">FunctionCartographerIsFinalQuestCompleted</a>
+<br><a href="FunctionCartographerIsOnCommon.html">FunctionCartographerIsOnCommon</a>
+<br><a href="FunctionRulesGetZonesMaps.html">FunctionRulesGetZonesMaps</a>
+<br><a href="FunctionUnitGetZonesMapId.html">FunctionUnitGetZonesMapId</a>
+<br><a href="Geodata.html">Geodata</a>
+<br><a href="MapModifierId.html">MapModifierId</a>
+<p></p>
+<hr>
+<p></p>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryPosition.html">CategoryPosition</a>
+<a href="CategoryCartographer.html">CategoryCartographer</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

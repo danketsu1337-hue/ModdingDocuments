@@ -1,0 +1,181 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - CoreScriptAddonBase</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h1>AddonBase.lua</h1>
+<p></p>
+<p>Скрипт содержит различные общеупотребительные функции.</p>
+<p></p>
+<p>Путь: '''/Interface/Common/CoreScripts/AddonBase.lua'''</p>
+<p></p>
+<p>Зависимости:</p>
+<ul><li><p> AddonBaseInternal (закрытая ссылка) или <a href="CoreScriptAddonBaseUserMods.html">AddonBaseUserMods</a></p></li></ul>
+<p></p>
+<p>Функции, алиасы и переменные доступные всегда:</p>
+<pre>
+Глобальные переменные:
+ ADDON_NAME - string - системное имя аддона
+ HALF_PI = math.pi / 2
+ DOUBLE_PI = math.pi * 2
+ TO_DEGREES = 180 / math.pi
+ TO_RADIANS = math.pi / 180
+
+Алиасы:
+ apitype = common.GetApiType
+ IsWs = common.IsWString
+ IsVt = common.IsValuedText
+ IsVo = common.IsValuedObject
+ IsValidText = common.IsValidText
+ IntWs = common.FormatInt
+ FloatWs = common.FormatFloat
+ NumberWs = common.FormatNumber
+ GetIntWs = common.GetIntFromWString
+ GetEWs = common.GetEmptyWString      -- Пояснение: Оптимизировано, возвращает статическую переменную а не новый экземпляр пустого WString
+ GetEVt = common.CreateValuedText     -- Пояснение: Рекомендуется использовать только без параметров
+ GetEVo = common.CreateValuedObject
+ CreateVt = common.CreateValuedText   -- Пояснение: Рекомендуется использовать только с параметром textValues
+
+Функции:
+ table.isempty( tab ) - Проверка таблицы tab на пустоту, без проверки типов
+ table.size( tab ) - Количество ключей в таблице tab, без проверки типов
+ table.map( tab ) - "Перевернуть" таблицу tab (ключ-значение =&gt; значение-ключ), без проверки типов, без проверки корректности биективного преобразования
+ table.minn( tab ) - Возвращает минимальный числовой ключ в таблице tab, при отсутствии числовых ключей возвращает nil, без проверки типов
+ table.maxn2( tab ) - Возвращает максимальный числовой ключ в таблице tab, при отсутствии числовых ключей возвращает nil, без проверки типов
+ table.append( tab, arg1, arg2 ) - Аналог table.insert по параметрам, но вставляет не одно значение а все из таблицы
+ table.normalize( tab ) - Меняет индексацию таблицы с 0 на 1, без проверки типов
+ table.denormalize( tab ) - Меняет индексацию таблицы с 1 на 0, без проверки типов
+ table.index( tab, ... ) - Эквивалент val = tab[ arg1 ][ arg2 ]...[ argN ], без проверки типов
+ table.newindex( tab, ... ) - Эквивалент tab[ arg1 ][ arg2 ]...[ argN - 1 ] = argN, без проверки типов
+
+ table.getcount( tab, entry, [equal] ) - Количество элементов entry в таблице tab, без проверки типов
+  Параметры:
+   tab - table - таблица в которой производится подсчет
+   entry - any - искомое значение
+   equal - function or nil - Функция компаратор (по умолчанию проверка на равенство)
+  Возвращаемые значения:
+   number - количество вхождений
+
+ table.search( tab, entry, [equal] ) - Поиск элемента entry в таблице tab, без проверки типов
+  Параметры:
+   tab - table - таблица в которой производится поиск
+   entry - any - искомое значение
+   equal - function or nil - Функция компаратор (по умолчанию проверка на равенство)
+  Возвращаемые значения:
+   boolean - найдено или нет
+   [any] - ключ по которому найден entry (если найден, если несколько то произвольный из их числа)
+
+ table.binsearch( tab, entry, [comp], [equal] ) - Бинарный поиск элемента entry в таблице tab, tab должна иметь непрерывную индексацию с 1 и быть отсортирована, без проверки типов
+  Параметры:
+   tab - table - таблица в которой производится поиск
+   entry - any - искомое значение
+   comp - function or nil - Функция компаратор "меньше" (по умолчанию проверка на меньше)
+   equal - function or nil - Функция компаратор "равно" (по умолчанию проверка на равенство)
+  Возвращаемые значения:
+   Если элемент найден:
+    true
+    any - ключ по которому найден entry (если несколько то произвольный из их числа)
+    any - значение по данному ключу
+   Если элемент не найден:
+    false
+    any - ключ при вставке по которому entry (через table.insert) сортировка таблицы сохранится
+    any - текущее значение по данному ключу
+
+ table.getrandom( tab ) - Получить случайную пару ключ/значение из таблицы tab, без проверки типов
+ string.escape( str ) - Экранировать управляющие символы регулярных выражений в строке str, без проверки типов
+
+ string.split( str, [separators], [noEscape] ) - Разбить строку на массив подстрок по заданным сепараторам
+  Разбиение выполняется по регулярке: "([^" .. separators .. "]+)"
+  Параметры:
+   str - string - строка к разбиению
+   separators- string or nil - символы по которым будет выполнено разбиение (по умолчанию - пробельные символы)
+   noEscape- boolean or nil - не экранировать управляющие символы в separators (по умолчанию false)
+  Возвращаемые значения:
+   table of strings (from 1) - результат разбиения: массив строк индексированный с 1
+
+ ValidateText( text ) - Валидирует текст (через common.IsValidText), при запуске с lua невалидный текст меняется на подробное сообщение об ошибке, при запуске с luac - на пустую строку
+ JoinTextValues( values, [glueFormatWString], [iter] ) - Склеивает все тексты из values в один
+  Параметры:
+   values - table - исходные тексты (WString, ValuedText или ValuedObject в любых комбинациях)
+   glueFormatWString - WString or nil - Формат склейки двух элементов, должен содержать теги __accumulated_value, __added_value. По умолчанию State::DefaultJoinTextValuesFormat
+   iter - function or nil - Итератор по values, по умолчанию ipairs
+  Возвращаемые значения:
+   ValuedText - результирующий текст
+
+ GetAddonText( [sysGroup], sysName, [optional] ) - получить текст sysName из группы аддона sysGroup с кешированием
+ GetStateText( [sysGroup], sysName, [optional] ) - получить текст sysName из группы стейта sysGroup с кешированием
+ GetAddonTexture( [sysGroup], sysName, [optional] ) - получить текстуру sysName из группы аддона sysGroup с кешированием
+ GetStateTexture( [sysGroup], sysName, [optional] ) - получить текстуру sysName из группы стейта sysGroup с кешированием
+ GetAddonSound( [sysGroup], sysName, [optional] ) - получить простой звук sysName из группы аддона sysGroup с кешированием
+ GetStateSound( [sysGroup], sysName, [optional] ) - получить простой звук sysName из группы стейта sysGroup с кешированием
+  Параметр sysGroup может быть не задан - по умолчанию Common
+  Параметр optional - если задано то отсутствие ресурса (или группы) не считается ошибкой
+
+ getindex( val ) - Алиас для getindex_rw
+  Получить "индекс" от произвольного значения
+  Если значение это не userdata - вернет само значение
+  Если значение это userdata - вернет эквивалентную userdata, при этом
+   1) Все методы userdata и API продолжают корректно с ней работать
+   2) Гарантируется что getindex( userdata1 ) == getindex( userdata2 ) выполняется тогда и только тогда когда юзердаты равны по значению (равенство по ссылке не требуется)
+   3) Выполнение предыдущего пункта гарантируется независимо от времени вызова getindex (до перезапуска аддона)
+  Варианты getindex:
+   getindex_rw - Получить и сохранить индекс
+   getindex_ro - получить, но не сохранять индекс (если от данной юзердаты (по значению) не брался getindex_rw то последующие вызовы getindex не будут удовлетворять свойству 2)
+   getindex_fast_rw - getindex_rw без проверок, требуется действительная userdata на входе (иначе ошибка)
+   getindex_fast_ro - getindex_ro без проверок, требуется действительная userdata на входе (иначе ошибка)
+
+ zpairs - аналог ipairs для индексации с 0
+</pre>
+<p></p>
+<p>Функции, алиасы и переменные доступные при наличии логирования (определяется по наличию FromWs):</p>
+<pre>
+Глобальные переменные:
+ LOG_MULTILINE_FORMAT = true - Выполнять преобразование вывода N строк за раз в в вывод N раз по одной строке (удобно для вывода в консоль)
+
+Функции:
+ ReloadAddon() - Перезагрузить самого себя
+ advtostring( val ) - Преобразовать что угодно в "красивую" строку
+ LogInfo( ... ) - Вывести произвольные данные в лог с уровнем INFO
+ LogWarning( ... ) - Вывести произвольные данные в лог с уровнем WARNING
+ LogError( ... ) - Вывести произвольные данные в лог с уровнем ERROR
+ LogInfoTS( ... ) - Вывести произвольные данные в лог с уровнем INFO, время прошедшее с первого и последнего вызова LogInfoTS
+ LogInfoTN( ... ) - Вывести произвольные данные в лог с уровнем INFO, время прошедшее с первого и последнего вызова LogInfoTS и сбросить таймер.
+ LogMemoryUsage() - Вывести в лог информацию о потреблении памяти аддоном
+ LogTrace() - Вывести в лог lua-стектрейс
+</pre>
+<p></p>
+<p>Функции, алиасы и переменные доступные при запуске с lua (без компиляции):</p>
+<pre>
+Глобальные переменные:
+ DEBUG_BYPASS_ASSERTS = false - игнорировать ассерты
+
+Алиасы:
+ print = LogInfo
+
+Функции:
+ error( format, ... ) - Ошибка, поддерживает вывод сложного сообщения об ошибке с параметрами (через string.format, поддерживается только %s, все параметры приводятся к строкам через advtostring)
+ assert( check, format, ... ) = function( check, format, ... ) if not check then return error( format, ... ) end end
+ LogIndexSize - Вывести подробную статистику по размеру индекса для getindex
+ ResetIndex - Сбросить индекс для getindex. МОЖЕТ СЛОМАТЬ РАБОТУ АДДОНА.
+</pre>
+<p></p>
+<h4>Связанные страницы: CategoryLuaApi CategoryCoreScripts</h4>
+<p></p>
+<p></p>
+<hr>
+<a href="CategoryCoreScripts.html">CategoryCoreScripts</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

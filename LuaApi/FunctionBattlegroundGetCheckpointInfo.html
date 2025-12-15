@@ -1,0 +1,87 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionBattlegroundGetCheckpointInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> battleground.GetCheckpointInfo( checkpointId )</h2>
+<p></p>
+<p>Выдаёт информацию о контрольной точке баттлграунда.</p>
+<p></p>
+<pre>
+-- библиотека:
+battleground
+
+-- объявление:
+function GetCheckpointInfo( checkpointId )
+
+-- параметры:
+checkpointId: ObjectId - id контрольной точки
+
+-- возвращаемое значение:
+table или nil - nil если контрольная точка с таким checkpointId не существует; иначе таблица с полями:
+  name: WSting - локализованое имя контрольной точки
+  textureId: TextureId - идентификатор текстуры иконки для обозначения контрольной точки
+  state: string (enum "ENUM_RecapturablePlayerSpawnPlaceState_...") - состояние контрольной точки (свободна, в процессе захвата, захвачена)
+  ownerMarkId: BattlegroundMarkId или nil - идентификатор команды, которой захвачена контрольная точка
+  prevState: string (enum "ENUM_RecapturablePlayerSpawnPlaceState_...") - предыдущее состояние контрольной точки (до того, как её начал захватывать нынешняя команда-владелец)
+  prevOwnerMarkId: BattlegroundMarkId или nil - идентификатор команды, которой раньше была захвачена контрольная точка (nil, если точка ранее была свободна)
+  capturedTime: number (integer) или nil - время (в миллисекундах, округляется всегда в большую сторону), оставшееся до окончания захвата контрольной точки; если контрольная в данный момент не захватывается (свободна или захват уже завершён), то nil
+  captureDuration: number (integer) или nil - длительность (в миллисекундах) захвата контрольной точки; если контрольная точка в силу каких-то обстоятельств не может захватываться, то nil
+  gain: number (integer) или nil - прогресс захвата точки
+  defendersCount: number (integer) или nil - возвращает число защищающих, если поддерживается стеллой
+  attackersCount: number (integer) или nil - возвращает число атакующих, если поддерживается стеллой
+  oldMechanics: boolean - true, если используется старая механика
+  radius: number - радиус точки захвата
+  isEnable: boolean - активна ли точка
+</pre>
+<p></p>
+<p>Пример:</p>
+<p></p>
+<pre>
+local checkpoints = battleground.GetCheckpoints()
+if checkpoints[0] != nil then
+  LogInfo( "1st battleground checkpoint info: ", battleground.GetCheckpointInfo(checkpoints[0]) )
+end
+</pre>
+<p></p>
+<p>См. также <a href="FunctionBattlegroundGetCheckpoints.html"> battleground.GetCheckpoints()</a>, <a href="FunctionBattlegroundGetAvatarMark.html"> battleground.GetAvatarMark()</a>, <a href="EnumBattlegroundRecapturablePlayerSpawnPlaceState.html"> ENUM_RecapturablePlayerSpawnPlaceState_...</a></p>
+<p></p>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryBattleground"</h4>
+<p></p>
+<a href="BattlegroundMarkId.html">BattlegroundMarkId</a>
+<br><a href="CategoryBattleground.html">CategoryBattleground</a>
+<br><a href="EnumBattlegroundRecapturablePlayerSpawnPlaceState.html">EnumBattlegroundRecapturablePlayerSpawnPlaceState</a>
+<br><a href="EventBattlegroundCheckpointAdded.html">EventBattlegroundCheckpointAdded</a>
+<br><a href="EventBattlegroundCheckpointRemoved.html">EventBattlegroundCheckpointRemoved</a>
+<br><a href="EventBattlegroundCheckpointsChanged.html">EventBattlegroundCheckpointsChanged</a>
+<br><a href="EventBattlegroundCheckpointStateChanged.html">EventBattlegroundCheckpointStateChanged</a>
+<br><a href="FunctionBattlegroundGetAvatarMark.html">FunctionBattlegroundGetAvatarMark</a>
+<br><a href="FunctionBattlegroundGetCheckpointInfo.html">FunctionBattlegroundGetCheckpointInfo</a>
+<br><a href="FunctionBattlegroundGetCheckpoints.html">FunctionBattlegroundGetCheckpoints</a>
+<br><a href="FunctionBattlegroundGetCheckpointTeam.html">FunctionBattlegroundGetCheckpointTeam</a>
+<br><a href="FunctionBattlegroundGetHeroesArenaQuitSpell.html">FunctionBattlegroundGetHeroesArenaQuitSpell</a>
+<br><a href="FunctionBattlegroundGetHeroesArenaStartStageSpell.html">FunctionBattlegroundGetHeroesArenaStartStageSpell</a>
+<br><a href="FunctionBattlegroundGetLinkedCheckpoint.html">FunctionBattlegroundGetLinkedCheckpoint</a>
+<br><a href="FunctionBattlegroundGetPlayerMark.html">FunctionBattlegroundGetPlayerMark</a>
+<br><a href="FunctionBattlegroundIsCheckpoint.html">FunctionBattlegroundIsCheckpoint</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryBattleground.html">CategoryBattleground</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

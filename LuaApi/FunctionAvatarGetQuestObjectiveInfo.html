@@ -1,0 +1,151 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionAvatarGetQuestObjectiveInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> avatar.GetQuestObjectiveInfo( objectiveId )</h2>
+<p></p>
+<p>Получить информацию об одной цели какого-либо задания игрока.</p>
+<p></p>
+<p>См. QuestLocation.</p>
+<p></p>
+<pre>
+-- библиотека
+avatar
+
+-- объявление:
+function GetQuestObjectiveInfo( objectiveId )
+
+-- параметры
+objectiveId: ObjectId - идентификатор цели задания
+
+-- возвращаемые значения: nil или таблица с описанием задания вида:
+questId: QuestId - идентификатор ресурса квеста
+id: ObjectId - идентификатор цели квеста
+name: WString - название цели квеста
+description: WString - описание цели квеста
+sysDebugName: string or nil - дебажный строковый идентификатор (путь к файлу) или nil для финальной версии
+progress: number (int) - текущее значение счетчика (например, сколько уже собрано предметов на квест)
+required: number (int) - целевое значение счетчика (например, сколько надо собрать предметов на квест)
+isInternal: boolean - счётчик внутренний, поэтому, счётчик и маркер вообще не должны быть показаны пользователю
+type: number (enum QUEST_COUNT_...) - тип цели квеста, см. ниже
+showCounterValue: boolean - нужно показывать пользователю прогресс (цифры progress и required)
+alwaysShowMarker: boolean - всегда показывать маркер квеста на карте, даже если isInternal=true
+items: table of ObjectId - если имеется список предметов, то таблица с идентификаторами этих предметов
+dressSlots: table of number (enum DRESS_SLOT_...) - если имеется список слотов предметов, то таблица со значениями слотов
+locations: table of QuestLocation - таблица с описаниями точек цели задания
+
+-- objective type
+QUEST_COUNT_KILL
+QUEST_COUNT_ITEM
+QUEST_COUNT_SPECIAL
+QUEST_COUNT_KILL_AVATAR
+QUEST_COUNT_MONEY
+QUEST_COUNT_SHIP_UPGRADE_MONEY
+QUEST_COUNT_UPGRADABLE_SHIP
+QUEST_COUNT_REPUTATION
+QUEST_COUNT_ALT_CURRENCY
+</pre>
+<p></p>
+<p>Пример:</p>
+<p></p>
+<pre>
+local progress = avatar.GetQuestProgress( questId )
+if progress then
+  local locations= progress.locations;
+  for index, location in pairs( locations ) do
+    LogInfo( location )
+  end
+end
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryQuest"</h4>
+<p></p>
+<a href="CategoryQuest.html">CategoryQuest</a>
+<br><a href="EnumQuestCategory.html">EnumQuestCategory</a>
+<br><a href="EnumQuestFindNextQuestMode.html">EnumQuestFindNextQuestMode</a>
+<br><a href="EnumQuestType.html">EnumQuestType</a>
+<br><a href="EventCurrentQuestChanged.html">EventCurrentQuestChanged</a>
+<br><a href="EventInteractionStarted.html">EventInteractionStarted</a>
+<br><a href="EventItemQuestsReceived.html">EventItemQuestsReceived</a>
+<br><a href="EventQuestAbandoned.html">EventQuestAbandoned</a>
+<br><a href="EventQuestAcceptError.html">EventQuestAcceptError</a>
+<br><a href="EventQuestBookChanged.html">EventQuestBookChanged</a>
+<br><a href="EventQuestBookLimitsChanged.html">EventQuestBookLimitsChanged</a>
+<br><a href="EventQuestCompleted.html">EventQuestCompleted</a>
+<br><a href="EventQuestDiscarded.html">EventQuestDiscarded</a>
+<br><a href="EventQuestFailed.html">EventQuestFailed</a>
+<br><a href="EventQuestFindNextResult.html">EventQuestFindNextResult</a>
+<br><a href="EventQuestFinishFailedNoSpace.html">EventQuestFinishFailedNoSpace</a>
+<br><a href="EventQuestMarkUpdated.html">EventQuestMarkUpdated</a>
+<br><a href="EventQuestObjectiveUpdated.html">EventQuestObjectiveUpdated</a>
+<br><a href="EventQuestReadyToReturnChanged.html">EventQuestReadyToReturnChanged</a>
+<br><a href="EventQuestReceived.html">EventQuestReceived</a>
+<br><a href="EventQuestRewardUpdated.html">EventQuestRewardUpdated</a>
+<br><a href="EventQuestShareInvitation.html">EventQuestShareInvitation</a>
+<br><a href="EventQuestShareInvitationResult.html">EventQuestShareInvitationResult</a>
+<br><a href="EventQuestShareInvitationTimeout.html">EventQuestShareInvitationTimeout</a>
+<br><a href="EventQuestStartFailedLogFull.html">EventQuestStartFailedLogFull</a>
+<br><a href="EventQuestStartFailedNoSpace.html">EventQuestStartFailedNoSpace</a>
+<br><a href="EventQuestTimerFinished.html">EventQuestTimerFinished</a>
+<br><a href="EventQuestTimerUpdated.html">EventQuestTimerUpdated</a>
+<br><a href="EventQuestUpdated.html">EventQuestUpdated</a>
+<br><a href="FunctionAvatarAcceptQuest.html">FunctionAvatarAcceptQuest</a>
+<br><a href="FunctionAvatarAcceptShareQuest.html">FunctionAvatarAcceptShareQuest</a>
+<br><a href="FunctionAvatarDeclineShareQuest.html">FunctionAvatarDeclineShareQuest</a>
+<br><a href="FunctionAvatarDiscardQuest.html">FunctionAvatarDiscardQuest</a>
+<br><a href="FunctionAvatarFindCurrentSecretComponentQuest.html">FunctionAvatarFindCurrentSecretComponentQuest</a>
+<br><a href="FunctionAvatarFindNextQuest.html">FunctionAvatarFindNextQuest</a>
+<br><a href="FunctionAvatarFindNextSecretComponentQuest.html">FunctionAvatarFindNextSecretComponentQuest</a>
+<br><a href="FunctionAvatarGetAvailableItemQuests.html">FunctionAvatarGetAvailableItemQuests</a>
+<br><a href="FunctionAvatarGetAvailableQuests.html">FunctionAvatarGetAvailableQuests</a>
+<br><a href="FunctionAvatarGetCurrentQuest.html">FunctionAvatarGetCurrentQuest</a>
+<br><a href="FunctionAvatarGetQuestBook.html">FunctionAvatarGetQuestBook</a>
+<br><a href="FunctionAvatarGetQuestHistory.html">FunctionAvatarGetQuestHistory</a>
+<br><a href="FunctionAvatarGetQuestImage.html">FunctionAvatarGetQuestImage</a>
+<br><a href="FunctionAvatarGetQuestInfo.html">FunctionAvatarGetQuestInfo</a>
+<br><a href="FunctionAvatarGetQuestObjectiveInfo.html">FunctionAvatarGetQuestObjectiveInfo</a>
+<br><a href="FunctionAvatarGetQuestProgress.html">FunctionAvatarGetQuestProgress</a>
+<br><a href="FunctionAvatarGetQuestReward.html">FunctionAvatarGetQuestReward</a>
+<br><a href="FunctionAvatarGetQuestShareInvitations.html">FunctionAvatarGetQuestShareInvitations</a>
+<br><a href="FunctionAvatarGetQuestsLimit.html">FunctionAvatarGetQuestsLimit</a>
+<br><a href="FunctionAvatarGetReturnableQuests.html">FunctionAvatarGetReturnableQuests</a>
+<br><a href="FunctionAvatarIsQuestAutoNavigationAllowed.html">FunctionAvatarIsQuestAutoNavigationAllowed</a>
+<br><a href="FunctionAvatarIsQuestFinished.html">FunctionAvatarIsQuestFinished</a>
+<br><a href="FunctionAvatarRequestInteractions.html">FunctionAvatarRequestInteractions</a>
+<br><a href="FunctionAvatarRequestQuestsForItem.html">FunctionAvatarRequestQuestsForItem</a>
+<br><a href="FunctionAvatarReturnQuest.html">FunctionAvatarReturnQuest</a>
+<br><a href="FunctionAvatarSetCurrentQuest.html">FunctionAvatarSetCurrentQuest</a>
+<br><a href="FunctionAvatarShareQuest.html">FunctionAvatarShareQuest</a>
+<br><a href="FunctionCartographerGetQuestGeodata.html">FunctionCartographerGetQuestGeodata</a>
+<br><a href="FunctionCartographerGetQuestObjectiveGeodata.html">FunctionCartographerGetQuestObjectiveGeodata</a>
+<br><a href="FunctionCartographerGetZonesMapLowQuests.html">FunctionCartographerGetZonesMapLowQuests</a>
+<br><a href="FunctionCartographerGetZonesMapQuests.html">FunctionCartographerGetZonesMapQuests</a>
+<br><a href="FunctionCartographerIsFinalQuestCompleted.html">FunctionCartographerIsFinalQuestCompleted</a>
+<br><a href="FunctionDeviceGetRelatedQuestObjectives.html">FunctionDeviceGetRelatedQuestObjectives</a>
+<br><a href="FunctionObjectGetInteractorQuests.html">FunctionObjectGetInteractorQuests</a>
+<br><a href="FunctionUnitGetRelatedQuestObjectives.html">FunctionUnitGetRelatedQuestObjectives</a>
+<br><a href="QuestId.html">QuestId</a>
+<br><a href="QuestLocation.html">QuestLocation</a>
+<br><a href="QuestShareResult.html">QuestShareResult</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryQuest.html">CategoryQuest</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

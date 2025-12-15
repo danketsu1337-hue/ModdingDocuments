@@ -1,0 +1,92 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionWidgetPlayEffectSequencePack</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> PlayEffectSequencePack( self, effectPack )</h2>
+<p></p>
+<p>Запускает набор цепочек эффектов разных типов. В качестве аргумента принимает таблицу вида ET_* -&gt; sequenceParams.</p>
+<p></p>
+<p>Описание sequenceParams смотреть в <a href="WidgetsEffectsPlayEffectSequenceTemplate.html"> PlayEffectSequence( self, sequenceParams )</a></p>
+<p></p>
+<p>Примечание: для ET_TEXTURE_ROTAION используется <a href="FunctionWidgetPlayRotationEffectSequence.html">PlayRotationEffectSequence</a></p>
+<p></p>
+<pre>
+-- Класс
+WidgetSafe
+
+-- Семантика
+function PlayEffectSequencePack( self, effectPack )
+
+-- Семантика
+function PlayEffect( self, sequenceParams )
+
+-- Входные параметры
+self: WidgetSafe - Виджет на котором запускается пакет эффект
+effectPack: table - Таблица описывающая набор цепочек эффектов. Ключом является тип эффекта ET_*, значением sequenceParams для данного эффекта.
+
+-- Возвращаемые значения
+Нет
+
+-- Пример
+-- Вспышка на 800мс, виджет будет показан перед вспышкой, скрыт после, при вспышке текст на виджете будет отмасштабирован
+wtTextView:PlayEffectSequencePack{
+  [ ET_FADE ] = { { 0.25, 1, 800, EA_SYMMETRIC_FLASH }, showOnStart = true, hideOnFinish = true },
+  [ ET_TEXT_SCALE ] = { { 1, 1.25, 200 }, { nil, nil, 400 }, { nil, 0.1, 200 } }
+}
+</pre>
+<p></p>
+<h3>Другие эффекты</h3>
+<p></p>
+<a href="CategoryWidgetEffects.html">CategoryWidgetEffects</a>
+<br><a href="EventEffectFinished.html">EventEffectFinished</a>
+<br><a href="EventEffectSequenceFinished.html">EventEffectSequenceFinished</a>
+<br><a href="EventEffectSequenceStep.html">EventEffectSequenceStep</a>
+<br><a href="FunctionTextViewFinishTextScaleEffect.html">FunctionTextViewFinishTextScaleEffect</a>
+<br><a href="FunctionTextViewPlayTextScaleEffect.html">FunctionTextViewPlayTextScaleEffect</a>
+<br><a href="FunctionTextViewPlayTextScaleEffectSequence.html">FunctionTextViewPlayTextScaleEffectSequence</a>
+<br><a href="FunctionWidgetFinishAllEffects.html">FunctionWidgetFinishAllEffects</a>
+<br><a href="FunctionWidgetFinishFadeEffect.html">FunctionWidgetFinishFadeEffect</a>
+<br><a href="FunctionWidgetFinishMoveEffect.html">FunctionWidgetFinishMoveEffect</a>
+<br><a href="FunctionWidgetFinishResizeEffect.html">FunctionWidgetFinishResizeEffect</a>
+<br><a href="FunctionWidgetFinishRotationEffect.html">FunctionWidgetFinishRotationEffect</a>
+<br><a href="FunctionWidgetGetActiveEffectRemainingMs.html">FunctionWidgetGetActiveEffectRemainingMs</a>
+<br><a href="FunctionWidgetHasActiveEffects.html">FunctionWidgetHasActiveEffects</a>
+<br><a href="FunctionWidgetPlayEffectSequencePack.html">FunctionWidgetPlayEffectSequencePack</a>
+<br><a href="FunctionWidgetPlayFadeEffect.html">FunctionWidgetPlayFadeEffect</a>
+<br><a href="FunctionWidgetPlayFadeEffectSequence.html">FunctionWidgetPlayFadeEffectSequence</a>
+<br><a href="FunctionWidgetPlayMoveEffect.html">FunctionWidgetPlayMoveEffect</a>
+<br><a href="FunctionWidgetPlayMoveEffectSequence.html">FunctionWidgetPlayMoveEffectSequence</a>
+<br><a href="FunctionWidgetPlayResizeEffect.html">FunctionWidgetPlayResizeEffect</a>
+<br><a href="FunctionWidgetPlayResizeEffectSequence.html">FunctionWidgetPlayResizeEffectSequence</a>
+<br><a href="FunctionWidgetPlayRotationEffect.html">FunctionWidgetPlayRotationEffect</a>
+<br><a href="FunctionWidgetPlayRotationEffectSequence.html">FunctionWidgetPlayRotationEffectSequence</a>
+<br><a href="FunctionWidgetPlayRotationWithChildrenEffect.html">FunctionWidgetPlayRotationWithChildrenEffect</a>
+<br><a href="FunctionWidgetPlayRotationWithChildrenEffectSequence.html">FunctionWidgetPlayRotationWithChildrenEffectSequence</a>
+<br><a href="WidgetsEffectsAlgorithms.html">WidgetsEffectsAlgorithms</a>
+<br><a href="WidgetsEffectsFinishEffectTemplate.html">WidgetsEffectsFinishEffectTemplate</a>
+<br><a href="WidgetsEffectsPlayEffectSequenceTemplate.html">WidgetsEffectsPlayEffectSequenceTemplate</a>
+<br><a href="WidgetsEffectsPlayEffectTemplate.html">WidgetsEffectsPlayEffectTemplate</a>
+<br><a href="WidgetsEffectsTypes.html">WidgetsEffectsTypes</a>
+<p></p>
+<hr>
+<p></p>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryWidget.html">CategoryWidget</a>
+<a href="CategoryWidgetEffects.html">CategoryWidgetEffects</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

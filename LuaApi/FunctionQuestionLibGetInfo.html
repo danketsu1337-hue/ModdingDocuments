@@ -1,0 +1,96 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionQuestionLibGetInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>questionLib.GetInfo( questionId )</h2>
+<p></p>
+<p>Выдаёт информацию о вопросе с соответствующим идентификатором, на которые в данный момент ожидается ответ от игрока.</p>
+<p></p>
+<pre>
+-- библиотека:
+questionLib
+
+-- объявление:
+GetInfo( questionId )
+
+-- параметры:
+questionId: ObjectId - идентификатор вопроса, должен быть одним из списка, получаемого посредством questionLib.GetQuestions()
+
+-- возвращаемые значения:
+table или nil - nil если нет информации, иначе таблица с полями:
+  id: ObjectId - идентификатор вопроса
+  isObserver: boolean - если true то игрок не участвует в голосовании, а только наблюдает за его ходом
+  type: string - идентификатор типа вопроса
+  showResults: Number(ENUM_Question_ShowResultsType) - как нужно отображать результаты голосования
+  clientData: table или nil - nil если нет информации; иначе таблица, аналогичная полю values события EVENT_CLIENT_MESSAGE
+  questionData: table - описание данных из ресурса вопроса. Таблица с полями:
+    questionCustomData: table или nil - nil если нет информации, иначе таблица, формат которой зависит от типа вопроса (см. CategoryQuestionType)
+  remainingTimeMs: number (integer) или nil - время в миллисекундах, оставшееся до потери вопросом актуальности; nil если ограничения по времени нет
+  endTimeMs: number (integer) или nil - дата окончания опроса в миллисекундах
+  results: table или nil - результатом опроса("кто как проголосовал?"), представляет собой массив(индексация начинается 1), каждый элемент которого таблица с полями
+    playerId: ObjectId or nil - идентификатор игрока, если есть
+    playerName: wstring  or nil - имя игрока, если есть(голосование может быть анонимным)
+    clientData: table - таблица аналогичная полю values события EVENT_CLIENT_MESSAGE
+
+-- пример:
+local questions = questionLib.GetQuestions()
+if questions[0] then
+  local question = questionLib.GetInfo( questions[0] )
+end
+</pre>
+<p></p>
+<p>См. также:</p>
+<p></p>
+<ul><li><p> <a href="EventClientMessage.html">EVENT_CLIENT_MESSAGE</a> (поле values)</p></li></ul>
+<ul><li><p> <a href="FunctionQuestionLibGetQuestions.html">questionLib.GetQuestions()</a></p></li></ul>
+<ul><li><p> <a href="FunctionQuestionLibSendData.html">questionLib.SendData( questionId, result )</a></p></li></ul>
+<ul><li><p> <a href="EventQuestionAdded.html">EVENT_QUESTION_ADDED</a></p></li></ul>
+<ul><li><p> <a href="EventQuestionRemoved.html">EVENT_QUESTION_REMOVED</a></p></li></ul>
+<ul><li><p> <a href="EnumQuestionShowResultType.html">ENUM_Question_ShowResultsType</a></p></li></ul>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryQuestionType"</h4>
+<p></p>
+<a href="CategoryQuestionType.html">CategoryQuestionType</a>
+<br><a href="EnumQuestionShowResultType.html">EnumQuestionShowResultType</a>
+<br><a href="EnumQuizQuestionType.html">EnumQuizQuestionType</a>
+<br><a href="FunctionQuestionLibGetInfo.html">FunctionQuestionLibGetInfo</a>
+<br><a href="TypeQuestionLibClassSelectQuestion.html">TypeQuestionLibClassSelectQuestion</a>
+<br><a href="TypeQuestionLibQuizQuestion.html">TypeQuestionLibQuizQuestion</a>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryQuestionLib"</h4>
+<p></p>
+<a href="CategoryQuestionLib.html">CategoryQuestionLib</a>
+<br><a href="CategoryQuestionType.html">CategoryQuestionType</a>
+<br><a href="EnumQuestionShowResultType.html">EnumQuestionShowResultType</a>
+<br><a href="EnumQuizQuestionType.html">EnumQuizQuestionType</a>
+<br><a href="EventQuestionAdded.html">EventQuestionAdded</a>
+<br><a href="EventQuestionRemoved.html">EventQuestionRemoved</a>
+<br><a href="EventQuestionResultsChanged.html">EventQuestionResultsChanged</a>
+<br><a href="FunctionQuestionLibCancel.html">FunctionQuestionLibCancel</a>
+<br><a href="FunctionQuestionLibGetInfo.html">FunctionQuestionLibGetInfo</a>
+<br><a href="FunctionQuestionLibGetQuestions.html">FunctionQuestionLibGetQuestions</a>
+<br><a href="FunctionQuestionLibSendData.html">FunctionQuestionLibSendData</a>
+<br><a href="TypeQuestionLibClassSelectQuestion.html">TypeQuestionLibClassSelectQuestion</a>
+<br><a href="TypeQuestionLibQuizQuestion.html">TypeQuestionLibQuizQuestion</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryQuestionLib.html">CategoryQuestionLib</a>
+<a href="CategoryQuestionType.html">CategoryQuestionType</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

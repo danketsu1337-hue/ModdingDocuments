@@ -1,0 +1,73 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionWStringIsContain</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> Wstring:IsContain( self, part, ignoreRegistry )</h2>
+<p></p>
+<p>Возвращает true, если part является подстрокой self</p>
+<p></p>
+<pre>
+-- Класс:
+WString
+
+-- Семантика:
+function IsContain( self, part, ignoreRegistry )
+
+-- параметры:
+self: WString - объект WString
+part: WString - строка проверяемая на вхождение
+ignoreRegistry: boolean or nil - игнорировать регистр, по умолчанию false
+
+-- возвращаемые значения:
+boolean or nil - является ли part подстрокой self. В случае ошибки типа возвращается nil
+
+-- примеры:
+ToWs( "Text" ):IsContain( "xt" )
+  -- true
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryWString"</h4>
+<p></p>
+<a href="CategoryWString.html">CategoryWString</a>
+<br><a href="FunctionCommonGetEmptyWstring.html">FunctionCommonGetEmptyWstring</a>
+<br><a href="FunctionCommonGetShortString.html">FunctionCommonGetShortString</a>
+<br><a href="FunctionCommonIsEmptyWstring.html">FunctionCommonIsEmptyWstring</a>
+<br><a href="FunctionCommonIsSubstring.html">FunctionCommonIsSubstring</a>
+<br><a href="FunctionCommonIsSubstringEx.html">FunctionCommonIsSubstringEx</a>
+<br><a href="FunctionCommonIsWString.html">FunctionCommonIsWString</a>
+<br><a href="FunctionCompareWString.html">FunctionCompareWString</a>
+<br><a href="FunctionCompareWStringEx.html">FunctionCompareWStringEx</a>
+<br><a href="FunctionEscapeWString.html">FunctionEscapeWString</a>
+<br><a href="FunctionUserModsFromWString.html">FunctionUserModsFromWString</a>
+<br><a href="FunctionUserModsToWString.html">FunctionUserModsToWString</a>
+<br><a href="FunctionValuedTextToWString.html">FunctionValuedTextToWString</a>
+<br><a href="FunctionWStringCompare.html">FunctionWStringCompare</a>
+<br><a href="FunctionWStringIsContain.html">FunctionWStringIsContain</a>
+<br><a href="FunctionWStringIsEmpty.html">FunctionWStringIsEmpty</a>
+<br><a href="FunctionWStringToAbbr.html">FunctionWStringToAbbr</a>
+<br><a href="FunctionWStringToInt.html">FunctionWStringToInt</a>
+<br><a href="FunctionWStringToLower.html">FunctionWStringToLower</a>
+<br><a href="FunctionWStringToUpper.html">FunctionWStringToUpper</a>
+<br><a href="FunctionWStringTruncate.html">FunctionWStringTruncate</a>
+<br><a href="TypeWString.html">TypeWString</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryWString.html">CategoryWString</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

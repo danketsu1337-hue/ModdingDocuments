@@ -1,0 +1,72 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionGuildBossLibGetSelectedAbilities</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>guildBossLib.GetSelectedAbilities()</h2>
+<p></p>
+<p>Возвращает список выбранных способностей босса гильдии.</p>
+<p></p>
+<pre>
+-- библиотека:
+guildBossLib
+
+-- объявление:
+function GetSelectedAbilities()
+
+-- параметры:
+нет
+
+-- возвращаемое значение:
+table of AbilityId or nil -- список выбранных способностей босса гильдии, индексация с 1
+
+-- пример:
+local currentAbilities = guildBossLib.IsExist() and guildBossLib.GetSelectedAbilities()
+</pre>
+<p></p>
+<p>См. также:</p>
+<ul><li><p> <a href="FunctionGuildBossLibSelectAbilities.html">guildBossLib.SelectAbilities( abilities )</a></p></li></ul>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryGuildBossLib"</h4>
+<p></p>
+<a href="EnumGuildBossAbilitySlot.html">EnumGuildBossAbilitySlot</a>
+<br><a href="EventGuildBossAbilitiesChanged.html">EventGuildBossAbilitiesChanged</a>
+<br><a href="EventGuildBossChanged.html">EventGuildBossChanged</a>
+<br><a href="EventGuildBossExperienceChanged.html">EventGuildBossExperienceChanged</a>
+<br><a href="EventGuildBossGearScoreChanged.html">EventGuildBossGearScoreChanged</a>
+<br><a href="EventGuildBossQuestsChanged.html">EventGuildBossQuestsChanged</a>
+<br><a href="EventGuildBossQuestsStatusChanged.html">EventGuildBossQuestsStatusChanged</a>
+<br><a href="EventGuildBossSpellsChanged.html">EventGuildBossSpellsChanged</a>
+<br><a href="EventGuildBossStateChanged.html">EventGuildBossStateChanged</a>
+<br><a href="FunctionGuildBossLibGetAbilitiesSlots.html">FunctionGuildBossLibGetAbilitiesSlots</a>
+<br><a href="FunctionGuildBossLibGetInfo.html">FunctionGuildBossLibGetInfo</a>
+<br><a href="FunctionGuildBossLibGetQuestInfo.html">FunctionGuildBossLibGetQuestInfo</a>
+<br><a href="FunctionGuildBossLibGetQuestReward.html">FunctionGuildBossLibGetQuestReward</a>
+<br><a href="FunctionGuildBossLibGetQuests.html">FunctionGuildBossLibGetQuests</a>
+<br><a href="FunctionGuildBossLibGetSelectedAbilities.html">FunctionGuildBossLibGetSelectedAbilities</a>
+<br><a href="FunctionGuildBossLibGetSelectedSpells.html">FunctionGuildBossLibGetSelectedSpells</a>
+<br><a href="FunctionGuildBossLibGetSelfName.html">FunctionGuildBossLibGetSelfName</a>
+<br><a href="FunctionGuildBossLibGetVariations.html">FunctionGuildBossLibGetVariations</a>
+<br><a href="FunctionGuildBossLibIsExist.html">FunctionGuildBossLibIsExist</a>
+<br><a href="FunctionGuildBossLibSelectAbilities.html">FunctionGuildBossLibSelectAbilities</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryGuild.html">CategoryGuild</a>
+<a href="CategoryGuildBossLib.html">CategoryGuildBossLib</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

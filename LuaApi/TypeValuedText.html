@@ -1,0 +1,506 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - TypeValuedText</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> ValuedText - форматированная строка с подстановочными значениями</h2>
+<p></p>
+<p>ValuedText – это объект ( форматированная строка с подстановочным значением ), задача которого получение, хранение и использование ФОРМАТИРОВАННОГО текста.</p>
+<p></p>
+<p>Форматированный текст представляет собой</p>
+<ul><li><p> форматную строку с тэгами подстановки. Это WString, содержащий правильно форматированную строку XHTML, возможно, с CSS-тэгами и с тэгами подстановки значений:</p></li></ul>
+<ul><ul><li><p> подстановка текстовых значений &lt;r name="..."/&gt;</p></li></ul></ul>
+<ul><ul><li><p> подстановка CSS-класса &lt;rs class="..."&gt;...&lt;/rs&gt;</p></li></ul></ul>
+<ul><li><p> и какие-либо подстановочные значения, подставляемый в тэги &lt;r/&gt; и &lt;/rs&gt;</p></li></ul>
+<p></p>
+<p>Поддерживаются:</p>
+<ul><li><p> базовые тэги</p></li></ul>
+<ul><ul><li><p> &lt;default/&gt;</p></li></ul></ul>
+<ul><ul><li><p> &lt;span/&gt;</p></li></ul></ul>
+<ul><ul><li><p> &lt;p/&gt;</p></li></ul></ul>
+<ul><li><p> CSS-тэги.</p></li></ul>
+<p>Полный список см. в <a href="FunctionCommonGetCSSList.html"> common.GetCSSList()</a></p>
+<p></p>
+<p>В скриптах <a href="TypeValuedText.html"> ValuedText</a> - это специальный вариант userdata.</p>
+<p></p>
+<p>Перегруженные операции</p>
+<pre>
+# - взятие длины ValuedText. Важно! Считается по числу отображаемых символов, длина тегов оформления не учитывается
+</pre>
+<p></p>
+<h2>Создание</h2>
+<p></p>
+<p><a href="TypeValuedText.html"> ValuedText</a> создаётся с помощью <a href="FunctionCommonCreateValuedText.html">common.CreateValuedText( values )</a></p>
+<p></p>
+<p>Замечание. Lua работает с userdata по ссылке, а не по значению. Поэтому, в частности, для создания отдельной копии ValuedText нужно пользоваться специальной функцией (<a href="FunctionValuedTextCreateCopy.html">CreateCopy</a>).</p>
+<p></p>
+<h2>Подстановка значений</h2>
+<p></p>
+<p>Подставляются новые значения с помощью интерфейсного методов <a href="FunctionValuedTextSetTextValues.html"> SetTextValues( self, values )</a>, <a href="FunctionValuedTextSetVal.html"> SetVal( self, key, value )</a>.</p>
+<p></p>
+<p>Так же допустимо использовние:</p>
+<p><a href="FunctionValuedTextSetClassVal.html"> SetClassVal( self, key, value )</a>, <a href="FunctionValuedTextSetTagAttributes.html"> SetTagAttributes( self, isRTag, tagName, tagAttributes )</a>.</p>
+<p></p>
+<p>Не рекомендуется использовать:</p>
+<p><a href="FunctionValuedTextSetFormat.html"> SetFormat( self, format )</a>, <a href="FunctionValuedTextSetPlainText.html"> SetPlainText( self, text )</a>.</p>
+<p></p>
+<p>Для подстановки используются только тэги &lt;r/&gt; и &lt;rs&gt;...&lt;/rs&gt;.</p>
+<p></p>
+<p>В качестве подстановочных значений для тэга &lt;r/&gt; можно использовать WString, объекты <a href="TypeValuedText.html"> ValuedText</a> или <a href="TypeValuedObject.html"> ValuedObject</a>.</p>
+<p></p>
+<p>В тэг &lt;rs&gt;...&lt;/rs&gt; можно подставлять только имеющиеся CSS-классы (их названия типа string).</p>
+<p></p>
+<p>Поиск тэга подстановки производится по значению аттрибута "name" для тэга &lt;r/&gt; или значению аттрибута "class" тэга &lt;rs&gt;...&lt;/rs&gt;. Эти тэги не должны содержать нетребующихся для форматирования аттрибутов. Если необходимый тэг &lt;r/&gt; не найден, то подстановочное значение сохраняется и потом будет подставлено, если у <a href="TypeValuedText.html"> ValuedText</a> появится такой подстановочный тэг после установки каких-либо других подстановочных значений.</p>
+<p></p>
+<h2>Например</h2>
+<p></p>
+<p>Форматирующий текст, являющийся related-текстом аддона "FormatText":</p>
+<pre>
+&lt;html&gt; &lt;header&gt; text1 &lt;/header&gt; &lt;rs class="class01"&gt; text2 &lt;r name="value01"/&gt; &lt;/rs&gt; &lt;/html&gt;
+</pre>
+<p></p>
+<p>Скрипт:</p>
+<pre>
+local valuedText = common.CreateValuedText{
+    format = common.GetAddonRelatedText( "FormatText" ),
+    value01 = common.FormatInt( 2, "%d" ),
+    class01 = "header"
+}
+</pre>
+<p></p>
+<p>Для изменения текста используется функция SetTextValues().</p>
+<p>Использование SetTextValues крайне рекомендовано в случаях подставления 3 и более значений, чтобы сделать это за один раз.</p>
+<p>Также текстовики можно заводить ресурсно, создав и подключив его в необходимом аддоне, при создании текстовиков через ресурсы требуется учитывать кодировку текста, она СТРОГО должна быть UTF-16LE.</p>
+<p>Отдельно стоит отметить, что при переопределять поле format не рекомендуется, после его изначального определения.</p>
+<p></p>
+<p></p>
+<h2>Встроенные теги и правила работы с ними</h2>
+<p></p>
+<h3>Базовые тэги ValuedText:</h3>
+<ul><li><p> &lt;r&gt; - тэг подстановки текстовых значений.</p></li></ul>
+<ul><li><p> &lt;rs&gt; - тэг подстановки стиля оформления.</p></li></ul>
+<ul><li><p> &lt;t&gt; - тэг для повторного использования текстов в ресурсе</p></li></ul>
+<ul><li><p> &lt;object&gt; - тэг объявления ValuedObject в ресурсе</p></li></ul>
+<ul><li><p> &lt;span&gt; - тэг подстановки стилей текста</p></li></ul>
+<p></p>
+<h3>Гендерные тэги :</h3>
+<p></p>
+<ul><li><p> &lt;f&gt; - тэг подстановки текста для женских персонажей игроков</p></li></ul>
+<ul><li><p> &lt;m&gt; - тэг подстановки текста для мужских персонажей игроков</p></li></ul>
+<p></p>
+<h3>Расовые теги:</h3>
+<p></p>
+<ul><li><p> &lt;race&gt; - тэг подстановки текста в зависимости от расы персонажа</p></li></ul>
+<ul><li><p> &lt;kania&gt; - тэг подстановки текста если персонаж игрока каниец</p></li></ul>
+<ul><li><p> &lt;hadagan&gt; - тэг подстановки текста если персонаж игрока хадаганец</p></li></ul>
+<ul><li><p> &lt;gibberling&gt; - тэг подстановки текста если персонаж игрока гибберлинг</p></li></ul>
+<ul><li><p> &lt;elf&gt; - тэг подстановки текста если персонаж игрока эльф</p></li></ul>
+<ul><li><p> &lt;orc&gt; - тэг подстановки текста если персонаж игрока орк</p></li></ul>
+<ul><li><p> &lt;undead&gt; - тэг подстановки текста если персонаж игрока зэм</p></li></ul>
+<ul><li><p> &lt;priden&gt; - тэг подстановки текста если персонаж игрока прайден</p></li></ul>
+<ul><li><p> &lt;aed&gt; - тэг подстановки текста если персонаж игрока аэд</p></li></ul>
+<ul><li><p> &lt;not_kania&gt; - тэг подстановки текста если персонаж игрока не каниец</p></li></ul>
+<ul><li><p> &lt;not_hadagan&gt; - тэг подстановки текста если персонаж игрока не хадаганец</p></li></ul>
+<ul><li><p> &lt;not_gibberling&gt; - тэг подстановки текста если персонаж игрока не гибберлинг</p></li></ul>
+<ul><li><p> &lt;not_elf&gt; - тэг подстановки текста если персонаж игрока не эльф</p></li></ul>
+<ul><li><p> &lt;not_orc&gt; - тэг подстановки текста если персонаж игрока не орк</p></li></ul>
+<ul><li><p> &lt;not_undead&gt; - тэг подстановки текста если персонаж игрока не зэм</p></li></ul>
+<ul><li><p> &lt;not_priden&gt; - тэг подстановки текста если персонаж игрока не прайден</p></li></ul>
+<ul><li><p> &lt;not_aed&gt; - тэг подстановки текста если персонаж игрока не аэд</p></li></ul>
+<p></p>
+<h3>Фракционные теги:</h3>
+<p></p>
+<ul><li><p> &lt;empire&gt; - тэг подстановки текста если персонаж игрока входит в империю</p></li></ul>
+<ul><li><p> &lt;league&gt; - тэг подстановки текста если персонаж игрока входит в лигу</p></li></ul>
+<p></p>
+<h3>Тэги типа сервера:</h3>
+<p></p>
+<ul><li><p> &lt;p2p&gt; - тэг подстановки текста если персонаж на подписочном сервере</p></li></ul>
+<ul><li><p> &lt;f2p&gt; - тэг подстановки текста если персонаж на бесплатном сервере</p></li></ul>
+<p></p>
+<h3>Тэги пользователей:</h3>
+<p></p>
+<ul><li><p> &lt;username&gt; - тэг подстановки имени текущего персонажа игрока в текст</p></li></ul>
+<ul><li><p> &lt;classname&gt; - тэг подстановки класса текущего персонажа игрока в текст</p></li></ul>
+<p></p>
+<h3>Правила работы:</h3>
+<p></p>
+<h4>Тэг &lt;r&gt;</h4>
+<p>Структура:</p>
+<pre>
+&lt;r name="value"  [parsing="no/yes/smart"]&gt;&lt;/r&gt;
+</pre>
+<p>Является тэгом подстановки для динамической части текста.</p>
+<p></p>
+<p>Атрибуты:</p>
+<ul><li><p> name – ОБЯЗАТЕЛЬНЫЙ параметр, является именем подстановочной переменной в виде строки</p></li></ul>
+<ul><li><p> parsing – тип разбора значения переменной, если не указан, то smart. Рекомендуется ставить “no” если известно, что в тег НЕ БУДУТ подставляться ValuedText. НЕ ИМЕЕТ и НЕ ПОДДЕРЖИВАЕТ атрибуты оформления в текстовиках (однако поддерживает в рантайме), стиль оформления задается родительским тэгом, например:</p></li></ul>
+<p></p>
+<pre>
+&lt;h1 class="red"&gt;&lt;r name="mob1"/r&gt;&lt;h1&gt;
+</pre>
+<p></p>
+<p>Примеры использования:</p>
+<p>Простая замена текста:</p>
+<pre>
+&lt;r name="text1"/&gt;
+</pre>
+<p>Тут атрибут name задает значение переменной, которое заменит тэг &lt;r&gt;.</p>
+<p></p>
+<h3>Вложенность подстановок:</h3>
+<p></p>
+<p>В общем случае текст может содержать произвольное количество подстановочных значений. Сами подстановочные значения так-же могут, в свою очередь, являться сложно форматированным текстом со своими подстановочными значениями. Аттрибут 'parsing' определяет механизм разбора. Допускаются следующие значения:</p>
+<ul><li><p> parsing="no" - подстановочное значение не является Xhtml текстом</p></li></ul>
+<ul><li><p> parsing="yes" - подстановочное значение является Xhtml текстом и подлежит рекурсивному разбору</p></li></ul>
+<ul><li><p> parsing="smart" - делается попытка разобрать подстановочное значение как Xhtml без вывода сообщений о ошибках и предупреждений</p></li></ul>
+<ul><li><p> не указано – работает как parsing="smart"</p></li></ul>
+<p></p>
+<h3>Тэг &lt;span&gt;</h3>
+<p>Данный тэг служит для изменения стиля текстовиков, сам по себе не выполняет никакую функцию кроме ХРАНЕНИЯ атрибутов стиля.</p>
+<p>Структура:</p>
+<pre>
+&lt;span atribute1=”value”…atributeN=”value”&gt;Text&lt;/span&gt;
+</pre>
+<p>Вместо Text можно вставить либо любой текст, либо тэг, например тэг &lt;r&gt;.</p>
+<p></p>
+<h3>Тэг &lt;rs&gt;</h3>
+<p></p>
+<p>Тэг &lt;rs&gt; служит для динамической смены стиля оформления текста после разбора xhtml. Параметры подстановки описываются аттрибутами тэга.</p>
+<p></p>
+<p>Структура:</p>
+<pre>
+&lt;rs class="name"&gt;&lt;/rs&gt;
+</pre>
+<p>Атрибуты:</p>
+<ul><li><p> class - идентификатор стиля в таблице стилей</p></li></ul>
+<p></p>
+<p>Правильное использование:</p>
+<pre>
+&lt;rs class="tagstyle"&gt;&lt;r name="text"/&gt;&lt;/rs&gt; - верно(значение параметра 'class' отличается от значения параметра 'name')
+&lt;r name="text" parsing="yes"&gt; , где text='&lt;rs class="tagstyle"&gt;Текст со сменой стиля&lt;/rs&gt;'
+</pre>
+<p></p>
+<p>Неправильное использование:</p>
+<pre>
+&lt;rs class="text"&gt;&lt;r name="text"/&gt;&lt;/rs&gt; - не верно("text" и "text")
+ ...
+&lt;r name="text" parsing="yes"&gt; , где text='&lt;rs class="text"&gt;Текст со сменой стиля&lt;/rs&gt;' - конфликт имен переменных получается в момент подстановки
+</pre>
+<p></p>
+<h3>Тэг &lt;t&gt;</h3>
+<p></p>
+<p>Описание тэга:</p>
+<pre>
+&lt;t href="FilePath.txt"/&gt;
+</pre>
+<p></p>
+<p>Тэг следует использовать в случаях наличия одинаковых кусков текста в разных текстовых файлах.</p>
+<p></p>
+<p>Пример:</p>
+<pre>
+&lt;html&gt;Сегодня встало красное Солнце&lt;/html&gt;
+&lt;header&gt;Вчера была необычайно яркое Солнце&lt;/header&gt;
+</pre>
+<p></p>
+<p>В данном случае “Солнце” можно вынести в отдельный файл, допустим с путем:</p>
+<pre>
+/Planets/Sun/text1.txt
+</pre>
+<p></p>
+<p>Тогда тэг будет иметь вид -</p>
+<pre>
+&lt;t href=”/Planets/Sun/text1.txt”&gt;
+</pre>
+<p>и исходные файлы можно будет заменить на:</p>
+<pre>
+&lt;html&gt;Сегодня встало красное &lt;t href=”/Planets/Sun/text1.txt”&gt; &lt;/html&gt;
+&lt;header&gt;Вчера была необычайно яркое &lt;t href=”/Planets/Sun/text1.txt”&gt; &lt;/header&gt;
+</pre>
+<p></p>
+<h3>Тэг &lt;username&gt;</h3>
+<p></p>
+<p>Меняется на имя текущего персонажа игрока.</p>
+<p></p>
+<p>Пример:</p>
+<pre>
+&lt;html&gt;&lt;p&gt;Добро пожаловать в Новоград, &lt;username/&gt;!&lt;/p&gt;&lt;/html&gt;
+</pre>
+<p></p>
+<p>Результат:</p>
+<p>Добро пожаловать в Новоград, Вася!</p>
+<p></p>
+<h3>Тэг &lt;classname&gt;</h3>
+<p></p>
+<p>Меняется на название класса текущего персонажа игрока.</p>
+<p></p>
+<p>Пример:</p>
+<pre>
+&lt;html&gt;Мой друг, тоже &lt;classname/&gt;, как и ты...&lt;/html&gt;
+</pre>
+<p></p>
+<p>Результат:</p>
+<p>Мой друг, тоже Паладин, как и ты...</p>
+<p></p>
+<h3>Гендерные тэги</h3>
+<p></p>
+<p>Позволяют отображать только те фрагменты текста, которые соответствуют полу текущего персонажа игрока.</p>
+<ul><li><p> Тэг &lt;m&gt; для персонажей  мужского пола.</p></li></ul>
+<ul><li><p> Тэг &lt;f&gt; для персонажей женского пола.</p></li></ul>
+<p></p>
+<p>Пример:</p>
+<pre>
+&lt;html&gt;Ты &lt;m&gt;мой лучший друг&lt;/m&gt;&lt;f&gt;моя лучшая подруга&lt;/f&gt;!&lt;/html&gt;
+</pre>
+<p></p>
+<p>Результат для мужских персонажей:</p>
+<p> Ты мой лучший друг!</p>
+<p>Результат для женских персонажей:</p>
+<p> Ты моя лучшая подруга!</p>
+<p></p>
+<h3>Простые расовые тэги</h3>
+<p>Позволяют отображать определенный текст, соответствующий текущей расе персонажа игрока.</p>
+<p></p>
+<p>Пример:</p>
+<pre>
+&lt;html&gt;&lt;elf&gt;Добро пожаловать домой&lt;/elf&gt;&lt;ork&gt;Вы в прекрасной форме&lt;/ork&gt;&lt;not_elf&gt;Эта земля принадлежит эльфам, тебе здесь не рады&lt;/not_elf&gt;!&lt;/html&gt;
+</pre>
+<p></p>
+<p>Результат для персонажа-эльфа:</p>
+<p> Добро пожаловать домой!</p>
+<p></p>
+<p>Результат для персонажа-орка:</p>
+<p> Вы в прекрасной форме!</p>
+<p></p>
+<p>Результат для персонажа игрока-не эльфа:</p>
+<p> Эта земля принадлежит эльфам, тебе здесь не рады!</p>
+<p></p>
+<p>Допускается вложение тэгов друг в друга например:</p>
+<pre>
+&lt;html&gt;&lt;not_elf&gt;Эта земля принадлежит эльфам, тебе здесь не рады &lt;not_ork&gt;Чужеземец&lt;not_ork&gt;&lt;/not_elf&gt;!&lt;html&gt;
+</pre>
+<p></p>
+<p>Результат для персонажа игрока-не эльфа и не орка:</p>
+<p> Эта земля принадлежит эльфам, тебе здесь не рады Чужеземец!</p>
+<p></p>
+<h3>Составной расовый тэг &lt;race&gt;</h3>
+<p></p>
+<p>Составные тэги позволяют комбинировать условия показа текста в зависимости от расы/рас. Имеет два аргумента:</p>
+<ul><li><p> name – ОБЯЗАТЕЛЬНЫЙ АРГУМЕНТ, в нем через разделитель перечисляются расы, для которых требуется отобразить текст, завернутый в тэг. Разделителем может быть пробел, табуляция, перенос строки или один из символов:    . , : |</p></li></ul>
+<ul><li><p> not = true – задает отрицание для аргумента в name</p></li></ul>
+<p></p>
+<p>Пример использования:</p>
+<pre>
+&lt;html&gt;&lt;race name="elf"&gt;Только истинный эльф увидит эту надпись&lt;/race&gt;&lt;/html&gt;
+</pre>
+<p></p>
+<p>Примечание: в данному случаи в использовании тега &lt;race&gt; нету смысла, следует сразу применять тег &lt;elf&gt;.</p>
+<pre>
+&lt;html&gt;&lt;race name="elf,aed"&gt;Только истинный эльф ИЛИ аэд увидит эту надпись&lt;/race&gt;&lt;/html&gt;
+</pre>
+<p></p>
+<p>Пример использования аргумента 'not="true"':</p>
+<pre>
+&lt;html&gt;&lt;race name="elf" not="true"&gt;Только истинный эльф НЕ увидит эту надпись&lt;/race&gt;&lt;/html&gt;
+</pre>
+<p></p>
+<p>Примеры избыточности условий которые могут привести к неожиданному поведению:</p>
+<pre>
+&lt;html&gt;&lt;race name="not_elf"&gt;Только истинный НЕ эльф увидит эту надпись&lt;/race&gt;&lt;/html&gt;
+</pre>
+<p></p>
+<p>Пояснение: в данному случаи в использовании тега &lt;race&gt; нету смысла, следует сразу применять тег &lt;not_elf&gt;.</p>
+<p></p>
+<pre>
+&lt;html&gt;&lt;race name="not_elf;not_orс"&gt;Только НЕ орки ИЛИ НЕ эльфы(т.е. все) увидят эту надпись&lt;/race&gt;&lt;/html&gt;
+</pre>
+<p></p>
+<p>Пояснение: в данному случаи текст будет показан ВСЕМ расам так как любые две разные группы 'not_*' в совокупности образуют полную группу.</p>
+<p></p>
+<pre>
+&lt;html&gt;&lt;race name="not_elf;not_orс" not="true"&gt;Только НЕ орки ИЛИ НЕ эльфы(т.е. все) НЕ увидят эту надпись&lt;/race&gt;&lt;/html&gt;
+</pre>
+<p></p>
+<p>Пояснение: в данному случаи текст будет ВСЕГДА скрыт ото всех. Это не имеет смысла и является грубой ошибкой.</p>
+<ul><li><p> В целом, not_* не стоит использовать в качестве аргумента в теге &lt;race&gt;. Используйте их только в виде самостоятельных обособленных тегов &lt;not_*&gt;.</p></li></ul>
+<ul><li><p> В целом, составные и простые фракционные тэги взаимозаменяемы, однако в случае комплексных фраз или фраз, которые необходимо показывать нескольким расам, старайтесь делать выбор в пользу составных тэгов.</p></li></ul>
+<p></p>
+<h3>Фракционные теги</h3>
+<p>Позволяют отображать определенный текст, соответствующий принадлежности персонажа игрока к той или иной расе.</p>
+<p></p>
+<p>Пример:</p>
+<pre>
+&lt;html&gt;&lt;empire&gt;Слава империи&lt;/empire&gt;&lt;league&gt;Да здравствует лига&lt;/league&gt;&lt;/html&gt;
+</pre>
+<p></p>
+<p>Результат для персонажей из империи:</p>
+<p> Слава империи!</p>
+<p>Результат для персонажей из лиги:</p>
+<p> Да здравствует лига!</p>
+<p></p>
+<h3>Тэги типа сервера</h3>
+<p></p>
+<p>Позволяют отображать определенный текст, соответствующий принадлежности персонажа игрока к бесплатному или подписочному серверу.</p>
+<p></p>
+<p>Пример:</p>
+<pre>
+&lt;html&gt;Приветствуем игрока на &lt;f2p&gt;бесплатном&lt;/f2p&gt;&lt;p2p&gt;подписочном&lt;/2p&gt; сервере!&lt;/html&gt;
+</pre>
+<p></p>
+<h3>Общие атрибуты тэгов:</h3>
+<p></p>
+<ul><li><p> color – цвет текста: (int)/(hexint)</p></li></ul>
+<ul><li><p> outline – толщина обводки:  int[0-2]</p></li></ul>
+<ul><li><p> outlinecolor – цвет обводки: (int)/(hexint)</p></li></ul>
+<ul><li><p> shadow – есть ли у текста тень: int[0-10]</p></li></ul>
+<ul><li><p> alignx – выравнивание по горизонтали: ”center”/”left”/0</p></li></ul>
+<ul><li><p> alignY – выравнивание по вертикали: ”top”/”middle”/”bottom”</p></li></ul>
+<ul><li><p> shadowcolor – цвет тени: (int)/(hexint)</p></li></ul>
+<ul><li><p> fontsize – размер шрифта: int[&gt;0]</p></li></ul>
+<ul><li><p> paragraph – есть ли обрамление текста переносами строки: ”false”/”true”</p></li></ul>
+<ul><li><p> before – отступ абзаца сверху (работает только при paragraph=”true”): int[&gt;=0]</p></li></ul>
+<ul><li><p> worldWrap – имеется ли перенос по словам: ”false”/”true”</p></li></ul>
+<ul><li><p> fontname – имя шрифта: (string)</p></li></ul>
+<ul><li><p> linespacing: (float)</p></li></ul>
+<ul><li><p> right to left – нужно ли перевернуть текст наоборот: “0”; “1”</p></li></ul>
+<ul><li><p> offset: (int)</p></li></ul>
+<p></p>
+<p>Данные атрибуты можно использовать в любом существующем тэге, однако следует учесть, что их не стоит их использовать в тэгах подстановки.</p>
+<p></p>
+<h2>Стили и работа с ними</h2>
+<p></p>
+<p>Основное достоинство применение Css в Xhtml - разделение данных (Xhtml) от оформления (Css). Для дизайнеров - это возможность использования множество различных вариантов оформления без изменения документа. Подробнее в  CssParsing.</p>
+<p></p>
+<p>Создать свой стиль можно несколькими способами:</p>
+<p></p>
+<ul><li><p> Создав новый CSS файл:</p></li></ul>
+<p></p>
+<ul><ul><li><p> Через самостоятельное создание файла – создать файл с расширением .xdb, в название ЖЕЛАТЕЛЬНО включить .(WidgetCss). Далее в файле, имеющем структуру XML документа необходимо реализовать шапку/пролог ( &lt;?xml version="1.0" encoding="UTF-8" ?&gt; ), и создать корневой тэг &lt;WidgetCss&gt; и его закрывающий тэг &lt;/WidgetCss&gt;, в нем необходимо задать тэг &lt;Id&gt; и &lt;Selectors&gt;, внутри же тэга Selectors и задаются стили под тегом &lt;item&gt;, свойства стилей задаются через перечисление пар ключ-значения в тэге &lt;item&gt; тэга &lt;items&gt; каждого стиля.</p></li></ul></ul>
+<p></p>
+<p>Каждый стиль должен иметь следующую структуру:</p>
+<pre>
+&lt;item&gt;
+ &lt;Name&gt;Имя_стиля&lt;/Name&gt;
+ &lt;items&gt;
+  &lt;Item&gt;
+   &lt;Key&gt;имя_свойства&lt;/Key&gt;
+    &lt;Value&gt;значение своства&lt;/Value&gt;
+  &lt;/Item&gt;
+  …………………….
+  &lt;Item&gt;
+   &lt;Key&gt;имя_свойства&lt;/Key&gt;
+    &lt;Value&gt;значение своства&lt;/Value&gt;
+  &lt;/Item&gt;
+ &lt;/items&gt;
+&lt;/item&gt;
+</pre>
+<p></p>
+<p>Пример такого файла:</p>
+<p></p>
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;WidgetCss&gt;
+ &lt;Id&gt;Sample&lt;/Id&gt;
+ &lt;Selectors&gt;
+   &lt;Item&gt;
+   &lt;Name&gt;header_sample&lt;/Name&gt;
+   &lt;Items&gt;
+    &lt;Item&gt;
+     &lt;Key&gt;fontsize&lt;/Key&gt;
+     &lt;Value&gt;50&lt;/Value&gt;
+    &lt;/Item&gt;
+    &lt;Item&gt;
+     &lt;Key&gt;color&lt;/Key&gt;
+     &lt;Value&gt;0xffffe65e&lt;/Value&gt;
+    &lt;/Item&gt;
+    &lt;Item&gt;
+     &lt;Key&gt;fontname&lt;/Key&gt;
+     &lt;Value&gt;AllodsFantasy&lt;/Value&gt;
+    &lt;/Item&gt;
+    &lt;Item&gt;
+     &lt;Key&gt;alignx&lt;/Key&gt;
+     &lt;Value&gt;left&lt;/Value&gt;
+    &lt;/Item&gt;
+   &lt;/Items&gt;
+  &lt;/Item&gt;
+ &lt;/Selectors&gt;
+&lt;/WidgetCss&gt;
+</pre>
+<p></p>
+<p>После завершение начального редактирования файла его необходимо подключить в аддон, для этого необходимо найти файл, содержащий тип (UIAddon) и расширение xdb, найти в нем тэг styleSheets (если нет – задать в конце файла) и в нем указать путь к файлу со стилями относительно папки аддона.</p>
+<p></p>
+<p>Все создаваемые стили должны удовлетворять следующим условиям:</p>
+<ul><li><p> Обязательное указание атрибута Name в виде строки (например &lt;Name&gt;Simple&lt;/Name&gt;).</p></li></ul>
+<ul><li><p> Имя создаваемого стиля ДОЛЖНО БЫТЬ ГЛОБАЛЬНО УНИКАЛЬНЫМ, переопределять существующие стили НЕЛЬЗЯ.</p></li></ul>
+<p></p>
+<p>Отдельно стоит отметить, что стиль, созданный в аддоне виден всем аддонам, до тех пор пока загружен его создатель, а также может быть использован в любых других аддонах.</p>
+<p></p>
+<h2>Представление текстов в скрипте и его особенности</h2>
+<p></p>
+<p>При работе с ValuedText в скриптах, следует учитывать, что ValuedText является неиндексируемой userdata, а значит Lua видит его как ссылку.</p>
+<p>Переопределенные операции для ValuedText. Следующие операции были переопределены для валидной работы с ValuedText:</p>
+<ul><li><p> Сравнение ( сравнивается по лексологической массе слов)</p></li></ul>
+<ul><li><p> Длина</p></li></ul>
+<ul><li><p> Равенство ( сравнивается по значению, а не ссылке )</p></li></ul>
+<p></p>
+<h2>BlurpSearch: CategoryLuaApi CategoryValuedText</h2>
+<p></p>
+<a href="CategoryValuedText.html">CategoryValuedText</a>
+<br><a href="EventValuedObjectClicked.html">EventValuedObjectClicked</a>
+<br><a href="EventValuedObjectDoubleClicked.html">EventValuedObjectDoubleClicked</a>
+<br><a href="EventValuedObjectMouseOver.html">EventValuedObjectMouseOver</a>
+<br><a href="FunctionAvatarGetAbilityValuedObject.html">FunctionAvatarGetAbilityValuedObject</a>
+<br><a href="FunctionAvatarGetBuffValuedObject.html">FunctionAvatarGetBuffValuedObject</a>
+<br><a href="FunctionAvatarGetGlossaryDescription.html">FunctionAvatarGetGlossaryDescription</a>
+<br><a href="FunctionCommonCreateValuedObject.html">FunctionCommonCreateValuedObject</a>
+<br><a href="FunctionCommonCreateValuedText.html">FunctionCommonCreateValuedText</a>
+<br><a href="FunctionCommonFormatFloat.html">FunctionCommonFormatFloat</a>
+<br><a href="FunctionCommonFormatInt.html">FunctionCommonFormatInt</a>
+<br><a href="FunctionCommonFormatNumber.html">FunctionCommonFormatNumber</a>
+<br><a href="FunctionCommonIsEmptyValuedText.html">FunctionCommonIsEmptyValuedText</a>
+<br><a href="FunctionCommonIsValuedObject.html">FunctionCommonIsValuedObject</a>
+<br><a href="FunctionCommonIsValuedText.html">FunctionCommonIsValuedText</a>
+<br><a href="FunctionItemLibGetValuedObject.html">FunctionItemLibGetValuedObject</a>
+<br><a href="FunctionMountGetValuedObject.html">FunctionMountGetValuedObject</a>
+<br><a href="FunctionSpellLibGetValuedObject.html">FunctionSpellLibGetValuedObject</a>
+<br><a href="FunctionTextViewSetValuedText.html">FunctionTextViewSetValuedText</a>
+<br><a href="FunctionUnitGetPlayerValuedObject.html">FunctionUnitGetPlayerValuedObject</a>
+<br><a href="FunctionUnitGetUnitValuedObject.html">FunctionUnitGetUnitValuedObject</a>
+<br><a href="FunctionValuedObjectGetId.html">FunctionValuedObjectGetId</a>
+<br><a href="FunctionValuedObjectGetImage.html">FunctionValuedObjectGetImage</a>
+<br><a href="FunctionValuedObjectGetShardName.html">FunctionValuedObjectGetShardName</a>
+<br><a href="FunctionValuedObjectGetText.html">FunctionValuedObjectGetText</a>
+<br><a href="FunctionValuedObjectGetType.html">FunctionValuedObjectGetType</a>
+<br><a href="FunctionValuedTextClearValues.html">FunctionValuedTextClearValues</a>
+<br><a href="FunctionValuedTextCreateCopy.html">FunctionValuedTextCreateCopy</a>
+<br><a href="FunctionValuedTextHasObjects.html">FunctionValuedTextHasObjects</a>
+<br><a href="FunctionValuedTextIsEmpty.html">FunctionValuedTextIsEmpty</a>
+<br><a href="FunctionValuedTextSetClassVal.html">FunctionValuedTextSetClassVal</a>
+<br><a href="FunctionValuedTextSetFormat.html">FunctionValuedTextSetFormat</a>
+<br><a href="FunctionValuedTextSetPlainText.html">FunctionValuedTextSetPlainText</a>
+<br><a href="FunctionValuedTextSetTagAttributes.html">FunctionValuedTextSetTagAttributes</a>
+<br><a href="FunctionValuedTextSetTextValues.html">FunctionValuedTextSetTextValues</a>
+<br><a href="FunctionValuedTextSetVal.html">FunctionValuedTextSetVal</a>
+<br><a href="FunctionValuedTextToWString.html">FunctionValuedTextToWString</a>
+<br><a href="TypeValuedObject.html">TypeValuedObject</a>
+<br><a href="TypeValuedText.html">TypeValuedText</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryTypes.html">CategoryTypes</a>
+<a href="CategoryValuedText.html">CategoryValuedText</a>
+<a href="CategoryValuedText.html">CategoryValuedText</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

@@ -1,0 +1,140 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - WidgetContainer</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> Container. Описание базового виджета контейнера.</h2>
+<p></p>
+<h2>Базовый контейнер</h2>
+<p></p>
+<p>Вообще говоря, любой виджет <a href="Widget.html"> Widget</a> - контейнер, в который можно поместить дочерние элементы. Но наследованный от него WidgetContainer же предоставляет специальный функционал:</p>
+<ul><li><p> родительский виджет имеет определенный размер. Если дочерние элементы вылезают за пределы WidgetContainer, то они скрываются, а у пользователя появляется возможность скроллировать рабочую область контейнера до нужного элемента, используя скроллбар</p></li></ul>
+<ul><li><p> дочерние элементы можно добавлять в конец или начало контейнера, автоматически размещая их перед первым или после последнего элемента, для формирования визуального связного списка элементов</p></li></ul>
+<ul><li><p> имеются определенные оптимизации и шаблоны для более удобной и быстрой работы со списком элементов</p></li></ul>
+<p></p>
+<p>В системе виджетов есть реализации двух скроллируемых контейнеров:</p>
+<ul><li><p> WidgetScrollableContainer - универсальный скроллируемый контейнер произвольных виджетов</p></li></ul>
+<ul><li><p> WidgetTextContainer - скроллируемый контейнер текстовых элементов. Оптимизирован под свою задачу</p></li></ul>
+<p></p>
+<p>Все эти контейнеры унаследованы от базового класса WidgetContainer. Объекты самого базового класса WidgetContainer создавать нельзя.</p>
+<p></p>
+<h4>Дополнительные поля контейнера:</h4>
+<p></p>
+<ul><li><p> border: WidgetPanel  - Окно, в котором отображаются добавленные элементы. Опционально, если не задан - создастся автоматически по размеру контейнера.</p></li></ul>
+<ul><li><p> scrollBar: WidgetGlideScrollBar - Скроллбар для прокрутки содержимого. Опционально, если не задан, то контейнер нельзя прокручивать (но он может ресайзится автоматически при WIDGET_SIZING_INTERNAL)</p></li></ul>
+<ul><li><p> widgetsArrangement: WidgetsArrangement - Порядок добавления элементов. Опционально, если не задано, то WIDGETS_ARRANGEMENT_T2B.</p></li></ul>
+<ul><li><p> elementsInterval: number (float) - Интервал между соседними элементами. Опционально, если не задано, то 0.0f</p></li></ul>
+<ul><li><p> elementsLimit: number (int) - Максимальное число элементов в контейнере. Опционально, если не задано (или задано &lt;= 0), то не ограничено.</p></li></ul>
+<ul><li><p> elementFixedSize: number (float) - Фиксированный размер элемента по оси роста контейнера (widgetsArrangement). Опционально, если задано, то контейнер использует данное значение для всех элементов, если нет - вычисляет динамически для каждого элемента. Если при заданном значении фактический размер элементов будет отличаться, то отображение будет некорректным.</p></li></ul>
+<p></p>
+<h4>Внутренние виджеты:</h4>
+<pre>
+  __Border: PanelSafe - область внутри которой будет размещено содержимое контейнера, создается из ресурса контейнера, поле border. Если поле не задано, то создается как Cork
+    __Content (родитель / владелец - __Border): PanelSafe - область непосредственно содержимого контейнера, создается как Cork
+  __ScrollBar: GlideScrollBarSafe - скроллбар, создается из ресурса контейнера, поле scrollBar. Если поле не задано, то не создается
+</pre>
+<p></p>
+<h4>Существующие реакции:</h4>
+<p></p>
+<p>Контейнер не имеет никаких дополнительных реакций.</p>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryWidgetMembers"</h4>
+<p></p>
+<a href="CategoryWidgetMembers.html">CategoryWidgetMembers</a>
+<br><a href="TextFileRef.html">TextFileRef</a>
+<br><a href="Widget.html">Widget</a>
+<br><a href="WidgetButton.html">WidgetButton</a>
+<br><a href="WidgetButtonState.html">WidgetButtonState</a>
+<br><a href="WidgetButtonVariant.html">WidgetButtonVariant</a>
+<br><a href="WidgetContainer.html">WidgetContainer</a>
+<br><a href="WidgetDiscreteScrollBar.html">WidgetDiscreteScrollBar</a>
+<br><a href="WidgetDiscreteSlider.html">WidgetDiscreteSlider</a>
+<br><a href="WidgetEditBase.html">WidgetEditBase</a>
+<br><a href="WidgetEditBox.html">WidgetEditBox</a>
+<br><a href="WidgetEditLine.html">WidgetEditLine</a>
+<br><a href="WidgetFactoryCache.html">WidgetFactoryCache</a>
+<br><a href="WidgetForm.html">WidgetForm</a>
+<br><a href="WidgetGlideScrollBar.html">WidgetGlideScrollBar</a>
+<br><a href="WidgetGlideSlider.html">WidgetGlideSlider</a>
+<br><a href="WidgetLayer.html">WidgetLayer</a>
+<br><a href="WidgetPanel.html">WidgetPanel</a>
+<br><a href="WidgetPlacementLua.html">WidgetPlacementLua</a>
+<br><a href="WidgetPlacementXY.html">WidgetPlacementXY</a>
+<br><a href="WidgetsArrangement.html">WidgetsArrangement</a>
+<br><a href="WidgetScrollableContainer.html">WidgetScrollableContainer</a>
+<br><a href="WidgetScrollBar.html">WidgetScrollBar</a>
+<br><a href="WidgetSlider.html">WidgetSlider</a>
+<br><a href="WidgetTextContainer.html">WidgetTextContainer</a>
+<br><a href="WidgetTextStyle.html">WidgetTextStyle</a>
+<br><a href="WidgetTextView.html">WidgetTextView</a>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryScrollableContainer"</h4>
+<p></p>
+<a href="CategoryScrollableContainer.html">CategoryScrollableContainer</a>
+<br><a href="FunctionScrollableContainerAt.html">FunctionScrollableContainerAt</a>
+<br><a href="FunctionScrollableContainerEnsureVisible.html">FunctionScrollableContainerEnsureVisible</a>
+<br><a href="FunctionScrollableContainerForceReposition.html">FunctionScrollableContainerForceReposition</a>
+<br><a href="FunctionScrollableContainerGetContainerOffset.html">FunctionScrollableContainerGetContainerOffset</a>
+<br><a href="FunctionScrollableContainerGetElementCount.html">FunctionScrollableContainerGetElementCount</a>
+<br><a href="FunctionScrollableContainerGetElementLimit.html">FunctionScrollableContainerGetElementLimit</a>
+<br><a href="FunctionScrollableContainerGetMaxContainerOffset.html">FunctionScrollableContainerGetMaxContainerOffset</a>
+<br><a href="FunctionScrollableContainerInsert.html">FunctionScrollableContainerInsert</a>
+<br><a href="FunctionScrollableContainerIsContain.html">FunctionScrollableContainerIsContain</a>
+<br><a href="FunctionScrollableContainerIsSliderMax.html">FunctionScrollableContainerIsSliderMax</a>
+<br><a href="FunctionScrollableContainerIsSliderMin.html">FunctionScrollableContainerIsSliderMin</a>
+<br><a href="FunctionScrollableContainerPopBack.html">FunctionScrollableContainerPopBack</a>
+<br><a href="FunctionScrollableContainerPopFront.html">FunctionScrollableContainerPopFront</a>
+<br><a href="FunctionScrollableContainerPushBack.html">FunctionScrollableContainerPushBack</a>
+<br><a href="FunctionScrollableContainerPushFront.html">FunctionScrollableContainerPushFront</a>
+<br><a href="FunctionScrollableContainerRemove.html">FunctionScrollableContainerRemove</a>
+<br><a href="FunctionScrollableContainerRemoveAt.html">FunctionScrollableContainerRemoveAt</a>
+<br><a href="FunctionScrollableContainerRemoveItems.html">FunctionScrollableContainerRemoveItems</a>
+<br><a href="FunctionScrollableContainerSetContainerOffset.html">FunctionScrollableContainerSetContainerOffset</a>
+<br><a href="WidgetContainer.html">WidgetContainer</a>
+<br><a href="WidgetScrollableContainer.html">WidgetScrollableContainer</a>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryTextContainer"</h4>
+<p></p>
+<a href="CategoryTextContainer.html">CategoryTextContainer</a>
+<br><a href="FunctionTextContainerForceReposition.html">FunctionTextContainerForceReposition</a>
+<br><a href="FunctionTextContainerGetContainerOffset.html">FunctionTextContainerGetContainerOffset</a>
+<br><a href="FunctionTextContainerGetElementCount.html">FunctionTextContainerGetElementCount</a>
+<br><a href="FunctionTextContainerGetElementLimit.html">FunctionTextContainerGetElementLimit</a>
+<br><a href="FunctionTextContainerGetMaxContainerOffset.html">FunctionTextContainerGetMaxContainerOffset</a>
+<br><a href="FunctionTextContainerInsertText.html">FunctionTextContainerInsertText</a>
+<br><a href="FunctionTextContainerIsSliderMax.html">FunctionTextContainerIsSliderMax</a>
+<br><a href="FunctionTextContainerIsSliderMin.html">FunctionTextContainerIsSliderMin</a>
+<br><a href="FunctionTextContainerPopBack.html">FunctionTextContainerPopBack</a>
+<br><a href="FunctionTextContainerPopFront.html">FunctionTextContainerPopFront</a>
+<br><a href="FunctionTextContainerPushBackRawText.html">FunctionTextContainerPushBackRawText</a>
+<br><a href="FunctionTextContainerPushBackText.html">FunctionTextContainerPushBackText</a>
+<br><a href="FunctionTextContainerPushBackValuedText.html">FunctionTextContainerPushBackValuedText</a>
+<br><a href="FunctionTextContainerPushFrontRawText.html">FunctionTextContainerPushFrontRawText</a>
+<br><a href="FunctionTextContainerPushFrontText.html">FunctionTextContainerPushFrontText</a>
+<br><a href="FunctionTextContainerPushFrontValuedText.html">FunctionTextContainerPushFrontValuedText</a>
+<br><a href="FunctionTextContainerRemoveAt.html">FunctionTextContainerRemoveAt</a>
+<br><a href="FunctionTextContainerRemoveItems.html">FunctionTextContainerRemoveItems</a>
+<br><a href="FunctionTextContainerSetContainerOffset.html">FunctionTextContainerSetContainerOffset</a>
+<br><a href="WidgetContainer.html">WidgetContainer</a>
+<br><a href="WidgetTextContainer.html">WidgetTextContainer</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryWidgetMembers.html">CategoryWidgetMembers</a>
+<a href="CategoryScrollableContainer.html">CategoryScrollableContainer</a>
+<a href="CategoryTextContainer.html">CategoryTextContainer</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

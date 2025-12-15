@@ -1,0 +1,78 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionUnitGetFairyInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>unit.GetFairyInfo( unitId )</h2>
+<p></p>
+<p>Возвращает информацию о покровителе. Наличие покровителя можно определить по флагу isExist.</p>
+<p></p>
+<pre>
+-- библиотека:
+unit
+
+-- объявление:
+function GetFairyInfo( unitId )
+
+-- параметры:
+unitId: ObjectId (not nil) - идентификатор юнита
+
+-- возвращаемые значения:
+table or nil - если информация найдена, то таблица:
+
+  isExist: boolean - true, если у игрока есть покровитель
+
+  name: WString - имя покровителя
+  description: WString - описание покровителя
+
+  rank: number (int) - ранг покровителя
+  level: number (int) - уровень покровителя
+  experience: number (int) - опыт покровителя
+  levelExperience: number (int) - опыт покровителя, необходимый для достижения этого уровня
+  nextLevelExperience: number (int) - опыт покровителя, необходимый для достижения следующего уровня
+
+  isHungry: boolean - благосклонен ли покровитель
+  remainingMs: number (int) / nil - время в миллисекундах, которое покровитель будет благосклонен, nil - в случае отсутствия благосклонности
+  isAlwaysActive: boolean - если true, то покровитель благосклонен всегда, независимо от значений isHungry и remainingMs
+  currentRankRemainingMs: number (int) / nil - время в миллисекундах, которое у покровителя будет текущий ранг (временно хало 5-го уровня), nil - ранг навсегда
+
+  dpsBonus: number (int) - во сколько раз увеличивается наносимый игроком урон
+  healBonus: number (int) - во сколько раз увеличивается способность игрока лечить
+  powerBonus: number (integer) - значение бонуса для характеристики "Могущество"
+
+-- пример:
+local info = unit.GetFairyInfo( unitId )
+if info then
+  local powerBonus = info.powerBonus
+end
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryFairy"</h4>
+<p></p>
+<a href="EventUnitFairyChanged.html">EventUnitFairyChanged</a>
+<br><a href="EventUnitFairyRankChanged.html">EventUnitFairyRankChanged</a>
+<br><a href="FunctionAvatarGetFairyMechanicsInfo.html">FunctionAvatarGetFairyMechanicsInfo</a>
+<br><a href="FunctionUnitGetFairyInfo.html">FunctionUnitGetFairyInfo</a>
+<br><a href="FunctionUnitGetFairyPowerBonus.html">FunctionUnitGetFairyPowerBonus</a>
+<br><a href="FunctionUnitGetFairyZodiacSignInfo.html">FunctionUnitGetFairyZodiacSignInfo</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryUnit.html">CategoryUnit</a>
+<a href="CategoryFairy.html">CategoryFairy</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

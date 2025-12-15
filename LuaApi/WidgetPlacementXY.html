@@ -1,0 +1,74 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - WidgetPlacementXY</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> WidgetPlacementXY.  Описание расположение виджета.</h2>
+<p></p>
+<p>Поля:</p>
+<p></p>
+<ul><ul><li><p> QuantumScale: boolean - скалировать ли виджет стипенчато при изменении размеров окна. Поскольку шрифты могут быть четкими только при отображении пиксель в пиксель, их размер можно менять только дискретно, по целым числам. Соответственно, для сохранения пропорций контролов последние также должны менять свои размеры дискретно. По умолчанию false.</p></li></ul></ul>
+<ul><ul><li><p> sizingWidget - Виджет, по которому считается размер (используется в случае WIDGET_SIZING_CHILD)</p></li></ul></ul>
+<ul><ul><li><p> sizingWidgets - Виджеты, по которым считается размер (используется в случае WIDGET_SIZING_CHILDEN)</p></li></ul></ul>
+<ul><ul><li><p> X, Y: WidgetPlacement - описание размеров и расположения отдельно по горизонтали и вертикали. Поля:</p></li></ul></ul>
+<ul><ul><ul><li><p> Align: number (enum WidgetAlign) - привязка к краям родительского виджета. По умолчанию WIDGET_ALIGN_LOW. Значения:</p></li></ul></ul></ul>
+<ul><ul><ul><ul><li><p> WIDGET_ALIGN_LOW - по меньшему краю</p></li></ul></ul></ul></ul>
+<ul><ul><ul><ul><li><p> WIDGET_ALIGN_HIGH - по большему краю</p></li></ul></ul></ul></ul>
+<ul><ul><ul><ul><li><p> WIDGET_ALIGN_CENTER - по центру</p></li></ul></ul></ul></ul>
+<ul><ul><ul><ul><li><p> WIDGET_ALIGN_BOTH - растягивать на весь размер родительского виджета</p></li></ul></ul></ul></ul>
+<ul><ul><ul><ul><li><p> WIDGET_ALIGN_LOW_ABS - по абсолютным координатам в пределах экрана</p></li></ul></ul></ul></ul>
+<ul><ul><ul><li><p> Sizing: number (enum WidgetSizing) - относительно каких виджетов будет происходить вычисление размера.По умолчанию WIDGET_SIZING_DEFAULT. Значения:</p></li></ul></ul></ul>
+<ul><ul><ul><ul><li><p> WIDGET_SIZING_DEFAULT - по умолчанию, относительно родительского элемента</p></li></ul></ul></ul></ul>
+<ul><ul><ul><ul><li><p> WIDGET_SIZING_CHILDREN - размеры определяются относительно дочерних элементов, которые можно задать в массиве SizingWidgets свойства Placement виджета. Нужно учитывать, что хоть в этом массиве можно задать несколкьо виджетов, размер будет определяться одним виджетом с наибольшим размером.</p></li></ul></ul></ul></ul>
+<ul><ul><ul><ul><li><p> WIDGET_SIZING_INTERNAL - размер виджета определяется динамически в зависимости от его содержимого. Например, используется для TextView, чтобы размер определялся введенным в него текстом.</p></li></ul></ul></ul></ul>
+<ul><ul><ul><li><p> Pos, HighPos: number - смещение относительно меньшего и большего края</p></li></ul></ul></ul>
+<ul><ul><ul><li><p> Size: number - размер</p></li></ul></ul></ul>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryWidgetMembers"</h4>
+<p></p>
+<a href="CategoryWidgetMembers.html">CategoryWidgetMembers</a>
+<br><a href="TextFileRef.html">TextFileRef</a>
+<br><a href="Widget.html">Widget</a>
+<br><a href="WidgetButton.html">WidgetButton</a>
+<br><a href="WidgetButtonState.html">WidgetButtonState</a>
+<br><a href="WidgetButtonVariant.html">WidgetButtonVariant</a>
+<br><a href="WidgetContainer.html">WidgetContainer</a>
+<br><a href="WidgetDiscreteScrollBar.html">WidgetDiscreteScrollBar</a>
+<br><a href="WidgetDiscreteSlider.html">WidgetDiscreteSlider</a>
+<br><a href="WidgetEditBase.html">WidgetEditBase</a>
+<br><a href="WidgetEditBox.html">WidgetEditBox</a>
+<br><a href="WidgetEditLine.html">WidgetEditLine</a>
+<br><a href="WidgetFactoryCache.html">WidgetFactoryCache</a>
+<br><a href="WidgetForm.html">WidgetForm</a>
+<br><a href="WidgetGlideScrollBar.html">WidgetGlideScrollBar</a>
+<br><a href="WidgetGlideSlider.html">WidgetGlideSlider</a>
+<br><a href="WidgetLayer.html">WidgetLayer</a>
+<br><a href="WidgetPanel.html">WidgetPanel</a>
+<br><a href="WidgetPlacementLua.html">WidgetPlacementLua</a>
+<br><a href="WidgetPlacementXY.html">WidgetPlacementXY</a>
+<br><a href="WidgetsArrangement.html">WidgetsArrangement</a>
+<br><a href="WidgetScrollableContainer.html">WidgetScrollableContainer</a>
+<br><a href="WidgetScrollBar.html">WidgetScrollBar</a>
+<br><a href="WidgetSlider.html">WidgetSlider</a>
+<br><a href="WidgetTextContainer.html">WidgetTextContainer</a>
+<br><a href="WidgetTextStyle.html">WidgetTextStyle</a>
+<br><a href="WidgetTextView.html">WidgetTextView</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryWidgetMembers.html">CategoryWidgetMembers</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

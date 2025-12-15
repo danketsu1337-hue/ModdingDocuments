@@ -1,0 +1,120 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionMountGetStableInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>mount.GetStableInfo()</h2>
+<p></p>
+<p>Возвращает информацию о конюшне главного игрока.</p>
+<p></p>
+<pre>
+-- библиотека:
+mount
+
+-- объявление:
+function GetStableInfo()
+
+-- параметры:
+нет
+
+-- возвращаемые значения -
+table or nil - если есть конюшня, то таблица с полями:
+  singleFeedSatiationTime: number (integer) - на сколько миллисекунд насыщается животное за одно кормление
+  maxSatiationTime: number (integer) - максимум миллисекунд, на сколько насыщается животное
+  maxLevel: number (integer) - максимальный уровень животного
+  maxGrade: number (integer) - максимальный грейд животного
+  slotsCount: number (integer) - количество слотов в конюшне
+  foodCount: number (integer) - имеющееся количество еды
+  maxExperienceToday: number (integer) - максимально возможное количество получаемого опыта за день
+
+-- пример:
+local mounts = mount.GetMounts()
+local stableInfo = mount.GetStableInfo()
+if stableInfo then
+  local isFull = ( stableInfo.slotsCount &lt;= GetTableSize( mounts ) )
+end
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryMount"</h4>
+<p></p>
+<a href="EventActiveMountChanged.html">EventActiveMountChanged</a>
+<br><a href="EventActiveMountSkinChanged.html">EventActiveMountSkinChanged</a>
+<br><a href="EventActiveMountTimeLeftChanged.html">EventActiveMountTimeLeftChanged</a>
+<br><a href="EventStableFoodCountChanged.html">EventStableFoodCountChanged</a>
+<br><a href="EventStableMountAdded.html">EventStableMountAdded</a>
+<br><a href="EventStableMountChanged.html">EventStableMountChanged</a>
+<br><a href="EventStableMountHungry.html">EventStableMountHungry</a>
+<br><a href="EventStableMountLevelChanged.html">EventStableMountLevelChanged</a>
+<br><a href="EventStableMountRemoved.html">EventStableMountRemoved</a>
+<br><a href="EventStableMountsChanged.html">EventStableMountsChanged</a>
+<br><a href="EventStableMountSkinsChanged.html">EventStableMountSkinsChanged</a>
+<br><a href="EventStableMountTalentsChanged.html">EventStableMountTalentsChanged</a>
+<br><a href="EventStableSlotsCountChanged.html">EventStableSlotsCountChanged</a>
+<br><a href="EventUnitMountHealthChanged.html">EventUnitMountHealthChanged</a>
+<br><a href="FunctionAvatarBindMountMetamorphToActionPanel.html">FunctionAvatarBindMountMetamorphToActionPanel</a>
+<br><a href="FunctionAvatarBindMountSkinToActionPanel.html">FunctionAvatarBindMountSkinToActionPanel</a>
+<br><a href="FunctionAvatarBindMountToActionPanel.html">FunctionAvatarBindMountToActionPanel</a>
+<br><a href="FunctionAvatarUseItemOnMountAndTakeActions.html">FunctionAvatarUseItemOnMountAndTakeActions</a>
+<br><a href="FunctionItemLibCanActivateForUseOnMount.html">FunctionItemLibCanActivateForUseOnMount</a>
+<br><a href="FunctionItemLibCanUseOnMount.html">FunctionItemLibCanUseOnMount</a>
+<br><a href="FunctionItemLibGetUsageOnMountInfo.html">FunctionItemLibGetUsageOnMountInfo</a>
+<br><a href="FunctionItemLibGetUsagesOnMountInfo.html">FunctionItemLibGetUsagesOnMountInfo</a>
+<br><a href="FunctionItemLibGetUseOnMountCursor.html">FunctionItemLibGetUseOnMountCursor</a>
+<br><a href="FunctionItemLibIsUseOnMountAndTakeActions.html">FunctionItemLibIsUseOnMountAndTakeActions</a>
+<br><a href="FunctionMissionSetMountScene.html">FunctionMissionSetMountScene</a>
+<br><a href="FunctionMissionSetVisObjectScene.html">FunctionMissionSetVisObjectScene</a>
+<br><a href="FunctionMountDismount.html">FunctionMountDismount</a>
+<br><a href="FunctionMountFeed.html">FunctionMountFeed</a>
+<br><a href="FunctionMountGetActive.html">FunctionMountGetActive</a>
+<br><a href="FunctionMountGetActiveContextActions.html">FunctionMountGetActiveContextActions</a>
+<br><a href="FunctionMountGetActiveSatiation.html">FunctionMountGetActiveSatiation</a>
+<br><a href="FunctionMountGetActiveSkin.html">FunctionMountGetActiveSkin</a>
+<br><a href="FunctionMountGetActiveTimeLeftMs.html">FunctionMountGetActiveTimeLeftMs</a>
+<br><a href="FunctionMountGetAvailableTalents.html">FunctionMountGetAvailableTalents</a>
+<br><a href="FunctionMountGetExoMount.html">FunctionMountGetExoMount</a>
+<br><a href="FunctionMountGetInfo.html">FunctionMountGetInfo</a>
+<br><a href="FunctionMountGetMetamorph.html">FunctionMountGetMetamorph</a>
+<br><a href="FunctionMountGetMetamorphBaseInfo.html">FunctionMountGetMetamorphBaseInfo</a>
+<br><a href="FunctionMountGetMetamorphName.html">FunctionMountGetMetamorphName</a>
+<br><a href="FunctionMountGetMounts.html">FunctionMountGetMounts</a>
+<br><a href="FunctionMountGetMountSkins.html">FunctionMountGetMountSkins</a>
+<br><a href="FunctionMountGetSelectedTalents.html">FunctionMountGetSelectedTalents</a>
+<br><a href="FunctionMountGetSkinInfo.html">FunctionMountGetSkinInfo</a>
+<br><a href="FunctionMountGetStableInfo.html">FunctionMountGetStableInfo</a>
+<br><a href="FunctionMountGetTalentCurrency.html">FunctionMountGetTalentCurrency</a>
+<br><a href="FunctionMountGetTalentInfo.html">FunctionMountGetTalentInfo</a>
+<br><a href="FunctionMountGetUnitMountHealth.html">FunctionMountGetUnitMountHealth</a>
+<br><a href="FunctionMountGetValuedObject.html">FunctionMountGetValuedObject</a>
+<br><a href="FunctionMountHasSwitchCost.html">FunctionMountHasSwitchCost</a>
+<br><a href="FunctionMountIsMountExist.html">FunctionMountIsMountExist</a>
+<br><a href="FunctionMountIsStableExist.html">FunctionMountIsStableExist</a>
+<br><a href="FunctionMountRide.html">FunctionMountRide</a>
+<br><a href="FunctionMountSelectTalents.html">FunctionMountSelectTalents</a>
+<br><a href="FunctionMountSetMetamorphSkin.html">FunctionMountSetMetamorphSkin</a>
+<br><a href="FunctionMountSetSkin.html">FunctionMountSetSkin</a>
+<br><a href="FunctionSocialGetBackMount.html">FunctionSocialGetBackMount</a>
+<br><a href="FunctionSocialGiveBackMount.html">FunctionSocialGiveBackMount</a>
+<br><a href="FunctionSocialLendMount.html">FunctionSocialLendMount</a>
+<br><a href="MountTalentGroupId.html">MountTalentGroupId</a>
+<br><a href="MountTalentId.html">MountTalentId</a>
+<p></p>
+<hr>
+<p></p>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryMount.html">CategoryMount</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>
