@@ -12,14 +12,11 @@ app.get("/file", (req, res) => {
     return res.status(400).send("no file name");
   }
 
-  const path = `ModdingDocuments/${name}`;
-
-  if (!fs.existsSync(path)) {
+  if (!fs.existsSync(name)) {
     return res.status(404).send("file not found");
   }
 
-  const content = fs.readFileSync(path, "utf8");
-  res.send(content);
+  res.send(fs.readFileSync(name, "utf8"));
 });
 
 app.listen(3000);
